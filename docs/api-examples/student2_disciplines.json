@@ -1,0 +1,137 @@
+{
+ "items": [
+  {
+   "id": 8,
+   "title": "Теория автоматического управления",
+   "short_title": "ТАУ",
+   "department": "Кафедра систем автоматического управления",
+   "description": "Математическое описание линейных систем управления, устойчивость, качество регулирования, синтез регуляторов.",
+   "credits": 5,
+   "assessment_type": "exam",
+   "assessment_label": "Экзамен",
+   "exam_date": "2027-01-15",
+   "exam_room": "УЛК 402",
+   "lecturer": {
+    "id": 10,
+    "full_name": "Тарасов Виктор Юрьевич",
+    "position": "профессор, д.т.н.",
+    "department": "Кафедра систем автоматического управления",
+    "email": "v.tarasov@uni.example"
+   }
+  },
+  {
+   "id": 9,
+   "title": "Теория вероятностей и математическая статистика",
+   "short_title": "ТВиМС",
+   "department": "Кафедра прикладной математики",
+   "description": "Случайные события и величины, законы распределения, предельные теоремы, оценивание и проверка гипотез.",
+   "credits": 4,
+   "assessment_type": "exam",
+   "assessment_label": "Экзамен",
+   "exam_date": "2027-01-21",
+   "exam_room": "ГУК 330",
+   "lecturer": {
+    "id": 11,
+    "full_name": "Лебедева Наталья Олеговна",
+    "position": "доцент, к.ф.-м.н.",
+    "department": "Кафедра прикладной математики",
+    "email": "n.lebedeva@uni.example"
+   }
+  },
+  {
+   "id": 10,
+   "title": "Программирование микроконтроллеров",
+   "short_title": "Микроконтроллеры",
+   "department": "Кафедра робототехнических систем",
+   "description": "Архитектура микроконтроллеров, порты ввода-вывода, прерывания, таймеры, последовательные интерфейсы.",
+   "credits": 4,
+   "assessment_type": "distributed_exam",
+   "assessment_label": "Распределённый экзамен",
+   "exam_date": null,
+   "exam_room": null,
+   "lecturer": {
+    "id": 12,
+    "full_name": "Орлов Кирилл Дмитриевич",
+    "position": "старший преподаватель",
+    "department": "Кафедра робототехнических систем",
+    "email": "k.orlov@uni.example"
+   }
+  },
+  {
+   "id": 11,
+   "title": "Теория механизмов и машин",
+   "short_title": "ТММ",
+   "department": "Кафедра теории механизмов и машин",
+   "description": "Структурный и кинематический анализ механизмов, зубчатые передачи.",
+   "credits": 4,
+   "assessment_type": "distributed_exam",
+   "assessment_label": "Распределённый экзамен",
+   "exam_date": null,
+   "exam_room": null,
+   "lecturer": {
+    "id": 14,
+    "full_name": "Яковлев Сергей Михайлович",
+    "position": "доцент, к.т.н.",
+    "department": "Кафедра теории механизмов и машин",
+    "email": "s.yakovlev@uni.example"
+   }
+  },
+  {
+   "id": 12,
+   "title": "Электротехника и электроника",
+   "short_title": "Электроника",
+   "department": "Кафедра электротехники",
+   "description": "Расчёт электрических цепей постоянного и переменного тока, полупроводниковые приборы, операционные усилители.",
+   "credits": 4,
+   "assessment_type": "distributed_exam",
+   "assessment_label": "Распределённый экзамен",
+   "exam_date": null,
+   "exam_room": null,
+   "lecturer": {
+    "id": 15,
+    "full_name": "Полякова Елена Викторовна",
+    "position": "доцент, к.т.н.",
+    "department": "Кафедра электротехники",
+    "email": "e.polyakova@uni.example"
+   }
+  },
+  {
+   "id": 13,
+   "title": "Экономика",
+   "short_title": "Экономика",
+   "department": "Кафедра экономической теории",
+   "description": "Основы микро- и макроэкономики для инженеров.",
+   "credits": 2,
+   "assessment_type": "credit",
+   "assessment_label": "Зачёт",
+   "exam_date": null,
+   "exam_room": null,
+   "lecturer": {
+    "id": 16,
+    "full_name": "Савельева Марина Андреевна",
+    "position": "доцент, к.э.н.",
+    "department": "Кафедра экономической теории",
+    "email": "m.savelieva@uni.example"
+   }
+  },
+  {
+   "id": 14,
+   "title": "Иностранный язык (профессиональный английский)",
+   "short_title": "Английский",
+   "department": "Кафедра английского языка",
+   "description": "Профессиональная лексика и техническое письмо на английском языке.",
+   "credits": 2,
+   "assessment_type": "credit",
+   "assessment_label": "Зачёт",
+   "exam_date": null,
+   "exam_room": null,
+   "lecturer": {
+    "id": 17,
+    "full_name": "Романова Алина Геннадьевна",
+    "position": "старший преподаватель",
+    "department": "Кафедра английского языка",
+    "email": "a.romanova@uni.example"
+   }
+  }
+ ]
+}

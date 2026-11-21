@@ -1,0 +1,137 @@
+{
+ "items": [
+  {
+   "id": 1,
+   "title": "Математический анализ",
+   "short_title": "Матанализ",
+   "department": "Кафедра высшей математики",
+   "description": "Кратные, криволинейные и поверхностные интегралы, числовые и функциональные ряды.",
+   "credits": 5,
+   "assessment_type": "exam",
+   "assessment_label": "Экзамен",
+   "exam_date": "2027-01-14",
+   "exam_room": "ГУК 501",
+   "lecturer": {
+    "id": 1,
+    "full_name": "Белов Андрей Викторович",
+    "position": "доцент, к.ф.-м.н.",
+    "department": "Кафедра высшей математики",
+    "email": "a.belov@uni.example"
+   }
+  },
+  {
+   "id": 2,
+   "title": "Дифференциальные уравнения",
+   "short_title": "Диффуры",
+   "department": "Кафедра дифференциальных уравнений",
+   "description": "Обыкновенные дифференциальные уравнения, линейные уравнения и системы, элементы теории устойчивости.",
+   "credits": 4,
+   "assessment_type": "exam",
+   "assessment_label": "Экзамен",
+   "exam_date": "2027-01-19",
+   "exam_room": "ГУК 418",
+   "lecturer": {
+    "id": 3,
+    "full_name": "Соколова Ирина Павловна",
+    "position": "доцент, к.ф.-м.н.",
+    "department": "Кафедра дифференциальных уравнений",
+    "email": "i.sokolova@uni.example"
+   }
+  },
+  {
+   "id": 3,
+   "title": "Физика: электричество и магнетизм",
+   "short_title": "Физика",
+   "department": "Кафедра физики",
+   "description": "Электростатика, постоянный ток, магнитное поле, электромагнитная индукция; лабораторный практикум.",
+   "credits": 5,
+   "assessment_type": "exam",
+   "assessment_label": "Экзамен",
+   "exam_date": "2027-01-24",
+   "exam_room": "ГУК 527",
+   "lecturer": {
+    "id": 4,
+    "full_name": "Григорьев Олег Николаевич",
+    "position": "профессор, д.ф.-м.н.",
+    "department": "Кафедра физики",
+    "email": "o.grigoriev@uni.example"
+   }
+  },
+  {
+   "id": 4,
+   "title": "Объектно-ориентированное программирование",
+   "short_title": "ООП",
+   "department": "Кафедра систем обработки информации",
+   "description": "ООП на C++: классы, управление ресурсами, наследование, шаблоны, STL, исключения.",
+   "credits": 4,
+   "assessment_type": "distributed_exam",
+   "assessment_label": "Распределённый экзамен",
+   "exam_date": null,
+   "exam_room": null,
+   "lecturer": {
+    "id": 5,
+    "full_name": "Мельникова Дарья Игоревна",
+    "position": "доцент, к.т.н.",
+    "department": "Кафедра систем обработки информации",
+    "email": "d.melnikova@uni.example"
+   }
+  },
+  {
+   "id": 5,
+   "title": "Дискретная математика",
+   "short_title": "Дискретка",
+   "department": "Кафедра прикладной математики",
+   "description": "Множества и отношения, комбинаторика, теория графов, булевы функции.",
+   "credits": 4,
+   "assessment_type": "distributed_exam",
+   "assessment_label": "Распределённый экзамен",
+   "exam_date": null,
+   "exam_room": null,
+   "lecturer": {
+    "id": 7,
+    "full_name": "Зайцев Павел Сергеевич",
+    "position": "доцент, к.ф.-м.н.",
+    "department": "Кафедра прикладной математики",
+    "email": "p.zaitsev@uni.example"
+   }
+  },
+  {
+   "id": 6,
+   "title": "Иностранный язык (английский)",
+   "short_title": "Английский",
+   "department": "Кафедра английского языка",
+   "description": "Чтение технических текстов, деловая переписка, публичные выступления.",
+   "credits": 2,
+   "assessment_type": "credit",
+   "assessment_label": "Зачёт",
+   "exam_date": null,
+   "exam_room": null,
+   "lecturer": {
+    "id": 8,
+    "full_name": "Кравец Ольга Александровна",
+    "position": "старший преподаватель",
+    "department": "Кафедра английского языка",
+    "email": "o.kravets@uni.example"
+   }
+  },
+  {
+   "id": 7,
+   "title": "Инженерная и компьютерная графика",
+   "short_title": "Инж. графика",
+   "department": "Кафедра инженерной графики",
+   "description": "Проекционное черчение по ЕСКД и основы 3D-моделирования в САПР.",
+   "credits": 3,
+   "assessment_type": "credit",
+   "assessment_label": "Зачёт",
+   "exam_date": null,
+   "exam_room": null,
+   "lecturer": {
+    "id": 9,
+    "full_name": "Фомин Николай Петрович",
+    "position": "доцент, к.т.н.",
+    "department": "Кафедра инженерной графики",
+    "email": "n.fomin@uni.example"
+   }
+  }
+ ]
+}

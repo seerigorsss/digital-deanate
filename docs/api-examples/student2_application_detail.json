@@ -1,0 +1,67 @@
+{
+ "id": 6,
+ "number": "26-00006",
+ "type_key": "military_certificate",
+ "title": "Справка для военкомата (форма № 26)",
+ "category": "certificate",
+ "status": "submitted",
+ "status_label": "Отправлена",
+ "created_at": "2026-11-20T13:38:00",
+ "updated_at": "2026-11-20T13:40:00",
+ "submitted_at": "2026-11-20T13:40:00",
+ "summary": "Военный комиссариат Лефортовского района (вымышленный)",
+ "is_active": true,
+ "unread_hint": false,
+ "type": {
+  "title": "Справка для военкомата (форма № 26)",
+  "description": "Справка об обучении по форме для военного комиссариата. Выдаётся только в бумажном виде.",
+  "processing_days": 5,
+  "category": "certificate"
+ },
+ "payload": {
+  "military_office": "Военный комиссариат Лефортовского района (вымышленный)",
+  "delivery": "paper"
+ },
+ "payload_display": [
+  {
+   "name": "military_office",
+   "label": "Военный комиссариат",
+   "value": "Военный комиссариат Лефортовского района (вымышленный)"
+  },
+  {
+   "name": "delivery",
+   "label": "Способ получения",
+   "value": "Бумажный документ — в деканате"
+  }
+ ],
+ "next_step": "Заявка передана в деканат. Обычно её берут в работу в течение 1 рабочего дня — статус обновится автоматически.",
+ "history": [
+  {
+   "id": 17,
+   "from_status": null,
+   "to_status": "draft",
+   "to_label": "Черновик",
+   "comment": null,
+   "actor_role": "student",
+   "created_at": "2026-11-20T13:38:00"
+  },
+  {
+   "id": 18,
+   "from_status": "draft",
+   "to_status": "submitted",
+   "to_label": "Отправлена",
+   "comment": null,
+   "actor_role": "student",
+   "created_at": "2026-11-20T13:40:00"
+  }
+ ],
+ "messages": [],
+ "permissions": {
+  "can_edit": false,
+  "can_submit": false,
+  "can_delete": false,
+  "can_withdraw": true,
+  "can_reply": true
+ },
+ "document_available": false
+}

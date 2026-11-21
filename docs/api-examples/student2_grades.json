@@ -1,0 +1,280 @@
+{
+ "current": {
+  "period_title": "Осенний семестр 2026/27 учебного года",
+  "session_starts_on": "2027-01-09",
+  "session_ends_on": "2027-01-31",
+  "credits_total": 25,
+  "attestations": [
+   {
+    "discipline_id": 8,
+    "title": "Теория автоматического управления",
+    "assessment_type": "exam",
+    "assessment_label": "Экзамен",
+    "exam_date": "2027-01-15",
+    "exam_room": "УЛК 402"
+   },
+   {
+    "discipline_id": 9,
+    "title": "Теория вероятностей и математическая статистика",
+    "assessment_type": "exam",
+    "assessment_label": "Экзамен",
+    "exam_date": "2027-01-21",
+    "exam_room": "ГУК 330"
+   },
+   {
+    "discipline_id": 10,
+    "title": "Программирование микроконтроллеров",
+    "assessment_type": "distributed_exam",
+    "assessment_label": "Распределённый экзамен",
+    "exam_date": null,
+    "exam_room": null
+   },
+   {
+    "discipline_id": 11,
+    "title": "Теория механизмов и машин",
+    "assessment_type": "distributed_exam",
+    "assessment_label": "Распределённый экзамен",
+    "exam_date": null,
+    "exam_room": null
+   },
+   {
+    "discipline_id": 12,
+    "title": "Электротехника и электроника",
+    "assessment_type": "distributed_exam",
+    "assessment_label": "Распределённый экзамен",
+    "exam_date": null,
+    "exam_room": null
+   },
+   {
+    "discipline_id": 13,
+    "title": "Экономика",
+    "assessment_type": "credit",
+    "assessment_label": "Зачёт",
+    "exam_date": null,
+    "exam_room": null
+   },
+   {
+    "discipline_id": 14,
+    "title": "Иностранный язык (профессиональный английский)",
+    "assessment_type": "credit",
+    "assessment_label": "Зачёт",
+    "exam_date": null,
+    "exam_room": null
+   }
+  ]
+ },
+ "record_book": [
+  {
+   "semester": 4,
+   "average": 3.5,
+   "entries": [
+    {
+     "id": 26,
+     "discipline_title": "Теоретическая механика (часть 2)",
+     "assessment_type": "exam",
+     "assessment_label": "Экзамен",
+     "points": 73.0,
+     "grade_key": "good",
+     "grade_label": "Хорошо",
+     "credits": 5,
+     "passed_on": "2026-06-17"
+    },
+    {
+     "id": 27,
+     "discipline_title": "Детали машин",
+     "assessment_type": "distributed_exam",
+     "assessment_label": "Распределённый экзамен",
+     "points": 69.0,
+     "grade_key": "satisfactory",
+     "grade_label": "Удовлетворительно",
+     "credits": 4,
+     "passed_on": "2026-05-29"
+    },
+    {
+     "id": 28,
+     "discipline_title": "Метрология и стандартизация",
+     "assessment_type": "credit",
+     "assessment_label": "Зачёт",
+     "points": 76.0,
+     "grade_key": "passed",
+     "grade_label": "Зачтено",
+     "credits": 2,
+     "passed_on": "2026-05-26"
+    },
+    {
+     "id": 29,
+     "discipline_title": "Иностранный язык",
+     "assessment_type": "credit",
+     "assessment_label": "Зачёт",
+     "points": 68.0,
+     "grade_key": "passed",
+     "grade_label": "Зачтено",
+     "credits": 2,
+     "passed_on": "2026-05-25"
+    }
+   ]
+  },
+  {
+   "semester": 3,
+   "average": 3.25,
+   "entries": [
+    {
+     "id": 22,
+     "discipline_title": "Дифференциальные уравнения",
+     "assessment_type": "exam",
+     "assessment_label": "Экзамен",
+     "points": 63.0,
+     "grade_key": "satisfactory",
+     "grade_label": "Удовлетворительно",
+     "credits": 4,
+     "passed_on": "2026-01-15"
+    },
+    {
+     "id": 23,
+     "discipline_title": "Теоретическая механика",
+     "assessment_type": "exam",
+     "assessment_label": "Экзамен",
+     "points": 70.0,
+     "grade_key": "satisfactory",
+     "grade_label": "Удовлетворительно",
+     "credits": 5,
+     "passed_on": "2026-01-20"
+    },
+    {
+     "id": 24,
+     "discipline_title": "Сопротивление материалов",
+     "assessment_type": "exam",
+     "assessment_label": "Экзамен",
+     "points": 66.0,
+     "grade_key": "satisfactory",
+     "grade_label": "Удовлетворительно",
+     "credits": 5,
+     "passed_on": "2026-01-26"
+    },
+    {
+     "id": 25,
+     "discipline_title": "Основы робототехники",
+     "assessment_type": "distributed_exam",
+     "assessment_label": "Распределённый экзамен",
+     "points": 81.0,
+     "grade_key": "good",
+     "grade_label": "Хорошо",
+     "credits": 4,
+     "passed_on": "2025-12-26"
+    }
+   ]
+  },
+  {
+   "semester": 2,
+   "average": 3.33,
+   "entries": [
+    {
+     "id": 18,
+     "discipline_title": "Математический анализ (часть 2)",
+     "assessment_type": "exam",
+     "assessment_label": "Экзамен",
+     "points": 61.0,
+     "grade_key": "satisfactory",
+     "grade_label": "Удовлетворительно",
+     "credits": 6,
+     "passed_on": "2025-06-16"
+    },
+    {
+     "id": 19,
+     "discipline_title": "Физика: механика",
+     "assessment_type": "exam",
+     "assessment_label": "Экзамен",
+     "points": 68.0,
+     "grade_key": "satisfactory",
+     "grade_label": "Удовлетворительно",
+     "credits": 5,
+     "passed_on": "2025-06-21"
+    },
+    {
+     "id": 20,
+     "discipline_title": "Программирование",
+     "assessment_type": "distributed_exam",
+     "assessment_label": "Распределённый экзамен",
+     "points": 78.0,
+     "grade_key": "good",
+     "grade_label": "Хорошо",
+     "credits": 4,
+     "passed_on": "2025-05-30"
+    },
+    {
+     "id": 21,
+     "discipline_title": "Иностранный язык",
+     "assessment_type": "credit",
+     "assessment_label": "Зачёт",
+     "points": 71.0,
+     "grade_key": "passed",
+     "grade_label": "Зачтено",
+     "credits": 2,
+     "passed_on": "2025-05-27"
+    }
+   ]
+  },
+  {
+   "semester": 1,
+   "average": 3.5,
+   "entries": [
+    {
+     "id": 13,
+     "discipline_title": "Математический анализ (часть 1)",
+     "assessment_type": "exam",
+     "assessment_label": "Экзамен",
+     "points": 64.0,
+     "grade_key": "satisfactory",
+     "grade_label": "Удовлетворительно",
+     "credits": 6,
+     "passed_on": "2025-01-17"
+    },
+    {
+     "id": 14,
+     "discipline_title": "Аналитическая геометрия",
+     "assessment_type": "exam",
+     "assessment_label": "Экзамен",
+     "points": 72.0,
+     "grade_key": "good",
+     "grade_label": "Хорошо",
+     "credits": 4,
+     "passed_on": "2025-01-22"
+    },
+    {
+     "id": 15,
+     "discipline_title": "Информатика",
+     "assessment_type": "credit",
+     "assessment_label": "Зачёт",
+     "points": 70.0,
+     "grade_key": "passed",
+     "grade_label": "Зачтено",
+     "credits": 3,
+     "passed_on": "2024-12-23"
+    },
+    {
+     "id": 16,
+     "discipline_title": "Инженерная графика",
+     "assessment_type": "credit",
+     "assessment_label": "Зачёт",
+     "points": 66.0,
+     "grade_key": "passed",
+     "grade_label": "Зачтено",
+     "credits": 3,
+     "passed_on": "2024-12-25"
+    },
+    {
+     "id": 17,
+     "discipline_title": "История России",
+     "assessment_type": "credit",
+     "assessment_label": "Зачёт",
+     "points": 75.0,
+     "grade_key": "passed",
+     "grade_label": "Зачтено",
+     "credits": 2,
+     "passed_on": "2024-12-20"
+    }
+   ]
+  }
+ ],
+ "overall_average": 3.36
+}

@@ -1,0 +1,12 @@
+{
+ "user": {
+  "id": 2,
+  "login": "student2",
+  "role": "student",
+  "full_name": "Калинин Максим Андреевич",
+  "display_name": "Максим Калинин",
+  "subtitle": "РК9-51Б · 3 курс",
+  "initials": "МК"
+ },
+ "csrf_token": "teHcuelh0gI5yShKplUWm9izmAW2ySgabkg6Wwd_1e0"
+}

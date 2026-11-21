@@ -1,0 +1,1612 @@
+{
+ "as_of": "2026-11-23",
+ "index": {
+  "value": 51,
+  "max": 100,
+  "zone": "high",
+  "label": "Высокий риск",
+  "is_estimate": true,
+  "formula": "Ориентировочный индекс = среднее баллов уровней риска по дисциплинам с известным риском, веса равные (стабильно — 100, низкий риск — 80, средний риск — 60, высокий риск — 35, критический риск — 10); если есть дисциплина с уровнем «критический риск», индекс не выше 59; если есть дисциплина с уровнем «высокий риск», индекс не выше 74. Дисциплины с недостаточными данными не учитываются. Это сводный ориентир, а не официальная оценка успеваемости.",
+  "caps_applied": [],
+  "uncapped_value": 50.7,
+  "disciplines_counted": 7
+ },
+ "zone_counts": {
+  "critical": 1,
+  "high": 3,
+  "medium": 1,
+  "low": 1,
+  "stable": 1,
+  "insufficient_data": 0
+ },
+ "explanation": "Ориентировочный индекс учебной устойчивости — 51/100, зона «Высокий риск». Критический риск — 1 дисциплина: порог там уже не достигается обычным порядком, поэтому важно обсудить ситуацию с преподавателем. В первую очередь стоит заняться дисциплиной «Теория механизмов и машин»: обратитесь к преподавателю или в деканат, чтобы обсудить дальнейшие шаги — например, пересдачу или индивидуальный график. Для подготовки стоит повторить темы модуля «Кинематический анализ» — там набрано 33%.",
+ "priorities": [
+  {
+   "discipline_id": 11,
+   "title": "Теория механизмов и машин",
+   "risk_level": "critical",
+   "risk_label": "Критический риск",
+   "reason": "Даже при всех оставшихся работах можно набрать не больше 57 баллов — это меньше порога 60.",
+   "action": "Обратитесь к преподавателю или в деканат, чтобы обсудить дальнейшие шаги — например, пересдачу или индивидуальный график. Для подготовки стоит повторить темы модуля «Кинематический анализ» — там набрано 33%.",
+   "points_target": "Порог 60 в рамках семестра недостижим: максимум — 57.",
+   "deadline": null,
+   "score": 1066.7
+  },
+  {
+   "discipline_id": 10,
+   "title": "Программирование микроконтроллеров",
+   "risk_level": "high",
+   "risk_label": "Высокий риск",
+   "reason": "Для порога 60 нужно ещё 28 баллов из 35 оставшихся — 80% остатка.",
+   "action": "Начните с работы «Лабораторная работа 5» (модуль «Последовательные интерфейсы», до 15 баллов, срок — 30 ноября). Всего до порога 60 нужно ещё 28 баллов из 35 оставшихся (80%). Стоит повторить темы модуля «Прерывания и таймеры» — там набрано 37%.",
+   "points_target": "Ещё 28 баллов из 35 оставшихся (80%) до 60.",
+   "deadline": "2026-11-30",
+   "score": 835.2
+  },
+  {
+   "discipline_id": 8,
+   "title": "Теория автоматического управления",
+   "risk_level": "high",
+   "risk_label": "Высокий риск",
+   "reason": "Для семестровых 42 (с минимальными 18 на экзамене это итог 60) нужно ещё 16 баллов из 20 оставшихся — 80% остатка.",
+   "action": "Начните с работы «Лабораторная работа 2» (модуль «Качество и синтез регуляторов», до 8 баллов, срок — 2 декабря). Всего до семестровых 42 (с минимальными 18 на экзамене это итог 60) нужно ещё 16 баллов из 20 оставшихся (80%). Стоит повторить темы модуля «Математическое описание систем» — там набрано 52%.",
+   "points_target": "Ещё 16 баллов из 20 оставшихся (80%) до 42 и не меньше 18 баллов на экзамене.",
+   "deadline": "2026-12-02",
+   "score": 827.8
+  },
+  {
+   "discipline_id": 9,
+   "title": "Теория вероятностей и математическая статистика",
+   "risk_level": "high",
+   "risk_label": "Высокий риск",
+   "reason": "Для семестровых 42 (с минимальными 18 на экзамене это итог 60) нужно ещё 24 балла из 25 оставшихся — 96% остатка.",
+   "action": "Важно сдать все оставшиеся работы; начните с «Домашнее задание 3» (модуль «Математическая статистика», до 10 баллов, срок — 4 декабря). Всего до семестровых 42 (с минимальными 18 на экзамене это итог 60) нужно ещё 24 балла из 25 оставшихся (96%). Стоит повторить темы модуля «Случайные величины» — там набрано 36%.",
+   "points_target": "Ещё 24 балла из 25 оставшихся (96%) до 42 и не меньше 18 баллов на экзамене.",
+   "deadline": "2026-12-04",
+   "score": 820.4
+  },
+  {
+   "discipline_id": 13,
+   "title": "Экономика",
+   "risk_level": "medium",
+   "risk_label": "Средний риск",
+   "reason": "Для зачётного минимума 60 нужно ещё 33 балла из 50 оставшихся — 66% остатка.",
+   "action": "Начните с работы «Кейс-задание» (модуль «Макроэкономика», до 20 баллов, срок — 2 декабря). Всего до зачётного минимума 60 нужно ещё 33 балла из 50 оставшихся (66%). Стоит повторить темы модуля «Микроэкономика» — там набрано 54%.",
+   "points_target": "Ещё 33 балла из 50 оставшихся (66%) до 60.",
+   "deadline": "2026-12-02",
+   "score": 527.8
+  },
+  {
+   "discipline_id": 12,
+   "title": "Электротехника и электроника",
+   "risk_level": "low",
+   "risk_label": "Низкий риск",
+   "reason": "Для порога 60 нужно ещё 21 балл из 40 оставшихся — 53% остатка.",
+   "action": "Начните с работы «Лабораторная работа 5» (модуль «Основы электроники», до 10 баллов, срок — 27 ноября). Всего до порога 60 нужно ещё 21 балл из 40 оставшихся (53%).",
+   "points_target": "Ещё 21 балл из 40 оставшихся (53%) до 60.",
+   "deadline": "2026-11-27",
+   "score": 246.3
+  }
+ ],
+ "positives": [
+  {
+   "discipline_id": 12,
+   "title": "Электротехника и электроника",
+   "message": "Хороший темп (65%): ориентировочно 65 при семестровой цели 60."
+  },
+  {
+   "discipline_id": 14,
+   "title": "Иностранный язык (профессиональный английский)",
+   "message": "Хороший темп (82%): ориентировочно 82 при семестровой цели 60."
+  }
+ ],
+ "disciplines": [
+  {
+   "discipline_id": 11,
+   "title": "Теория механизмов и машин",
+   "as_of": "2026-11-23",
+   "assessment_type": "distributed_exam",
+   "assessment_type_label": "Распределённый экзамен",
+   "current_semester_points": 27.0,
+   "semester_points_max": 100.0,
+   "completed_points_max": 70.0,
+   "graded_points_max": 70.0,
+   "remaining_points_max": 30.0,
+   "missing_points_max": 0.0,
+   "max_achievable_semester": 57.0,
+   "passing_threshold": 60.0,
+   "semester_target": 60.0,
+   "semester_points_needed": 33.0,
+   "semester_progress": 0.709,
+   "data_completeness": "full",
+   "data_issues": [],
+   "current_pace": 0.386,
+   "pace_is_reliable": true,
+   "projected_semester_points": 38.57,
+   "required_share_of_remaining": null,
+   "pass_status": "unreachable",
+   "risk": {
+    "level": "critical",
+    "label": "Критический риск",
+    "reasons": [
+     "Даже при всех оставшихся работах можно набрать не больше 57 баллов — это меньше порога 60."
+    ],
+    "rule": "unreachable"
+   },
+   "current_grade": {
+    "key": "unsatisfactory",
+    "label": "Неудовлетворительно"
+   },
+   "exam": null,
+   "targets": [
+    {
+     "threshold": 60.0,
+     "grade_key": "satisfactory",
+     "label": "Удовлетворительно",
+     "status": "unreachable",
+     "points_needed_semester": 33.0,
+     "required_share_of_remaining": null,
+     "exam_points_needed": null,
+     "extra_semester_points_needed": null,
+     "reachable_with_current_points": null,
+     "explanation": "Недостижимо в этом семестре: даже при всех оставшихся работах максимум — 57."
+    },
+    {
+     "threshold": 71.0,
+     "grade_key": "good",
+     "label": "Хорошо",
+     "status": "unreachable",
+     "points_needed_semester": 44.0,
+     "required_share_of_remaining": null,
+     "exam_points_needed": null,
+     "extra_semester_points_needed": null,
+     "reachable_with_current_points": null,
+     "explanation": "Недостижимо в этом семестре: даже при всех оставшихся работах максимум — 57."
+    },
+    {
+     "threshold": 85.0,
+     "grade_key": "excellent",
+     "label": "Отлично",
+     "status": "unreachable",
+     "points_needed_semester": 58.0,
+     "required_share_of_remaining": null,
+     "exam_points_needed": null,
+     "extra_semester_points_needed": null,
+     "reachable_with_current_points": null,
+     "explanation": "Недостижимо в этом семестре: даже при всех оставшихся работах максимум — 57."
+    }
+   ],
+   "modules": [
+    {
+     "id": 29,
+     "ordinal": 1,
+     "title": "Структурный анализ механизмов",
+     "status": "completed",
+     "ends_on": "2026-10-11",
+     "points": 14.0,
+     "max_points": 30.0,
+     "graded_max": 30.0,
+     "remaining": 0.0,
+     "missing": 0.0,
+     "share": 0.467,
+     "is_weak": true,
+     "topic_ids": [
+      52
+     ],
+     "items": [
+      {
+       "id": 68,
+       "title": "Домашнее задание 1",
+       "kind": "homework",
+       "max_points": 10.0,
+       "points": 6.0,
+       "due_date": "2026-09-30",
+       "state": "graded"
+      },
+      {
+       "id": 69,
+       "title": "Рубежный контроль 1",
+       "kind": "control",
+       "max_points": 20.0,
+       "points": 8.0,
+       "due_date": "2026-10-10",
+       "state": "graded"
+      }
+     ]
+    },
+    {
+     "id": 30,
+     "ordinal": 2,
+     "title": "Кинематический анализ",
+     "status": "completed",
+     "ends_on": "2026-11-15",
+     "points": 13.0,
+     "max_points": 40.0,
+     "graded_max": 40.0,
+     "remaining": 0.0,
+     "missing": 0.0,
+     "share": 0.325,
+     "is_weak": true,
+     "topic_ids": [
+      53
+     ],
+     "items": [
+      {
+       "id": 70,
+       "title": "Домашнее задание 2",
+       "kind": "homework",
+       "max_points": 15.0,
+       "points": 5.0,
+       "due_date": "2026-10-30",
+       "state": "graded"
+      },
+      {
+       "id": 71,
+       "title": "Рубежный контроль 2",
+       "kind": "control",
+       "max_points": 25.0,
+       "points": 8.0,
+       "due_date": "2026-11-14",
+       "state": "graded"
+      }
+     ]
+    },
+    {
+     "id": 31,
+     "ordinal": 3,
+     "title": "Зубчатые передачи",
+     "status": "in_progress",
+     "ends_on": "2026-12-20",
+     "points": 0.0,
+     "max_points": 30.0,
+     "graded_max": 0.0,
+     "remaining": 30.0,
+     "missing": 0.0,
+     "share": null,
+     "is_weak": false,
+     "topic_ids": [
+      54
+     ],
+     "items": [
+      {
+       "id": 72,
+       "title": "Домашнее задание 3",
+       "kind": "homework",
+       "max_points": 10.0,
+       "points": null,
+       "due_date": "2026-12-05",
+       "state": "pending"
+      },
+      {
+       "id": 73,
+       "title": "Рубежный контроль 3",
+       "kind": "control",
+       "max_points": 20.0,
+       "points": null,
+       "due_date": "2026-12-17",
+       "state": "pending"
+      }
+     ]
+    }
+   ],
+   "next_actions": [
+    {
+     "item_id": 72,
+     "title": "Домашнее задание 3",
+     "kind": "homework",
+     "module_id": 31,
+     "module_title": "Зубчатые передачи",
+     "max_points": 10.0,
+     "due_date": "2026-12-05",
+     "days_left": 12,
+     "overdue": false
+    },
+    {
+     "item_id": 73,
+     "title": "Рубежный контроль 3",
+     "kind": "control",
+     "module_id": 31,
+     "module_title": "Зубчатые передачи",
+     "max_points": 20.0,
+     "due_date": "2026-12-17",
+     "days_left": 24,
+     "overdue": false
+    }
+   ],
+   "weak_topic_ids": [
+    52,
+    53
+   ],
+   "explanation": "Набрано 27 баллов из 70 возможных по оценённым работам (39%). Впереди ещё 30 баллов, максимум семестровой части — 100. Даже при всех оставшихся работах можно набрать не больше 57 баллов — это меньше порога 60.",
+   "recommendation": "Обратитесь к преподавателю или в деканат, чтобы обсудить дальнейшие шаги — например, пересдачу или индивидуальный график. Для подготовки стоит повторить темы модуля «Кинематический анализ» — там набрано 33%."
+  },
+  {
+   "discipline_id": 10,
+   "title": "Программирование микроконтроллеров",
+   "as_of": "2026-11-23",
+   "assessment_type": "distributed_exam",
+   "assessment_type_label": "Распределённый экзамен",
+   "current_semester_points": 32.0,
+   "semester_points_max": 100.0,
+   "completed_points_max": 65.0,
+   "graded_points_max": 65.0,
+   "remaining_points_max": 35.0,
+   "missing_points_max": 0.0,
+   "max_achievable_semester": 67.0,
+   "passing_threshold": 60.0,
+   "semester_target": 60.0,
+   "semester_points_needed": 28.0,
+   "semester_progress": 0.709,
+   "data_completeness": "full",
+   "data_issues": [],
+   "current_pace": 0.492,
+   "pace_is_reliable": true,
+   "projected_semester_points": 49.23,
+   "required_share_of_remaining": 0.8,
+   "pass_status": "achievable",
+   "risk": {
+    "level": "high",
+    "label": "Высокий риск",
+    "reasons": [
+     "Для порога 60 нужно ещё 28 баллов из 35 оставшихся — 80% остатка.",
+     "Сейчас набирается 49% от максимума оценённых работ — темп нужно заметно повысить."
+    ],
+    "rule": "pace_gap_high"
+   },
+   "current_grade": {
+    "key": "unsatisfactory",
+    "label": "Неудовлетворительно"
+   },
+   "exam": null,
+   "targets": [
+    {
+     "threshold": 60.0,
+     "grade_key": "satisfactory",
+     "label": "Удовлетворительно",
+     "status": "achievable",
+     "points_needed_semester": 28.0,
+     "required_share_of_remaining": 0.8,
+     "exam_points_needed": null,
+     "extra_semester_points_needed": null,
+     "reachable_with_current_points": null,
+     "explanation": "Нужно ещё 28 баллов из 35 оставшихся (80% остатка)."
+    },
+    {
+     "threshold": 71.0,
+     "grade_key": "good",
+     "label": "Хорошо",
+     "status": "unreachable",
+     "points_needed_semester": 39.0,
+     "required_share_of_remaining": null,
+     "exam_points_needed": null,
+     "extra_semester_points_needed": null,
+     "reachable_with_current_points": null,
+     "explanation": "Недостижимо в этом семестре: даже при всех оставшихся работах максимум — 67."
+    },
+    {
+     "threshold": 85.0,
+     "grade_key": "excellent",
+     "label": "Отлично",
+     "status": "unreachable",
+     "points_needed_semester": 53.0,
+     "required_share_of_remaining": null,
+     "exam_points_needed": null,
+     "extra_semester_points_needed": null,
+     "reachable_with_current_points": null,
+     "explanation": "Недостижимо в этом семестре: даже при всех оставшихся работах максимум — 67."
+    }
+   ],
+   "modules": [
+    {
+     "id": 26,
+     "ordinal": 1,
+     "title": "Архитектура и порты ввода-вывода",
+     "status": "completed",
+     "ends_on": "2026-10-11",
+     "points": 19.0,
+     "max_points": 30.0,
+     "graded_max": 30.0,
+     "remaining": 0.0,
+     "missing": 0.0,
+     "share": 0.633,
+     "is_weak": false,
+     "topic_ids": [
+      47,
+      48
+     ],
+     "items": [
+      {
+       "id": 61,
+       "title": "Лабораторная работа 1",
+       "kind": "lab",
+       "max_points": 15.0,
+       "points": 10.0,
+       "due_date": "2026-09-25",
+       "state": "graded"
+      },
+      {
+       "id": 62,
+       "title": "Лабораторная работа 2",
+       "kind": "lab",
+       "max_points": 15.0,
+       "points": 9.0,
+       "due_date": "2026-10-09",
+       "state": "graded"
+      }
+     ]
+    },
+    {
+     "id": 27,
+     "ordinal": 2,
+     "title": "Прерывания и таймеры",
+     "status": "completed",
+     "ends_on": "2026-11-15",
+     "points": 13.0,
+     "max_points": 35.0,
+     "graded_max": 35.0,
+     "remaining": 0.0,
+     "missing": 0.0,
+     "share": 0.371,
+     "is_weak": true,
+     "topic_ids": [
+      49,
+      50
+     ],
+     "items": [
+      {
+       "id": 63,
+       "title": "Лабораторная работа 3",
+       "kind": "lab",
+       "max_points": 15.0,
+       "points": 6.0,
+       "due_date": "2026-10-23",
+       "state": "graded"
+      },
+      {
+       "id": 64,
+       "title": "Лабораторная работа 4",
+       "kind": "lab",
+       "max_points": 10.0,
+       "points": 4.0,
+       "due_date": "2026-11-06",
+       "state": "graded"
+      },
+      {
+       "id": 65,
+       "title": "Рубежный контроль",
+       "kind": "control",
+       "max_points": 10.0,
+       "points": 3.0,
+       "due_date": "2026-11-13",
+       "state": "graded"
+      }
+     ]
+    },
+    {
+     "id": 28,
+     "ordinal": 3,
+     "title": "Последовательные интерфейсы",
+     "status": "in_progress",
+     "ends_on": "2026-12-20",
+     "points": 0.0,
+     "max_points": 35.0,
+     "graded_max": 0.0,
+     "remaining": 35.0,
+     "missing": 0.0,
+     "share": null,
+     "is_weak": false,
+     "topic_ids": [
+      51
+     ],
+     "items": [
+      {
+       "id": 66,
+       "title": "Лабораторная работа 5",
+       "kind": "lab",
+       "max_points": 15.0,
+       "points": null,
+       "due_date": "2026-11-30",
+       "state": "pending"
+      },
+      {
+       "id": 67,
+       "title": "Курсовой проект: устройство на МК",
+       "kind": "project",
+       "max_points": 20.0,
+       "points": null,
+       "due_date": "2026-12-18",
+       "state": "pending"
+      }
+     ]
+    }
+   ],
+   "next_actions": [
+    {
+     "item_id": 66,
+     "title": "Лабораторная работа 5",
+     "kind": "lab",
+     "module_id": 28,
+     "module_title": "Последовательные интерфейсы",
+     "max_points": 15.0,
+     "due_date": "2026-11-30",
+     "days_left": 7,
+     "overdue": false
+    },
+    {
+     "item_id": 67,
+     "title": "Курсовой проект: устройство на МК",
+     "kind": "project",
+     "module_id": 28,
+     "module_title": "Последовательные интерфейсы",
+     "max_points": 20.0,
+     "due_date": "2026-12-18",
+     "days_left": 25,
+     "overdue": false
+    }
+   ],
+   "weak_topic_ids": [
+    49,
+    50
+   ],
+   "explanation": "Набрано 32 балла из 65 возможных по оценённым работам (49%). Впереди ещё 35 баллов, максимум семестровой части — 100. Для порога 60 нужно ещё 28 баллов из 35 оставшихся — 80% остатка.",
+   "recommendation": "Начните с работы «Лабораторная работа 5» (модуль «Последовательные интерфейсы», до 15 баллов, срок — 30 ноября). Всего до порога 60 нужно ещё 28 баллов из 35 оставшихся (80%). Стоит повторить темы модуля «Прерывания и таймеры» — там набрано 37%."
+  },
+  {
+   "discipline_id": 8,
+   "title": "Теория автоматического управления",
+   "as_of": "2026-11-23",
+   "assessment_type": "exam",
+   "assessment_type_label": "Экзамен",
+   "current_semester_points": 26.0,
+   "semester_points_max": 70.0,
+   "completed_points_max": 50.0,
+   "graded_points_max": 50.0,
+   "remaining_points_max": 20.0,
+   "missing_points_max": 0.0,
+   "max_achievable_semester": 46.0,
+   "passing_threshold": 60.0,
+   "semester_target": 42.0,
+   "semester_points_needed": 16.0,
+   "semester_progress": 0.709,
+   "data_completeness": "full",
+   "data_issues": [],
+   "current_pace": 0.52,
+   "pace_is_reliable": true,
+   "projected_semester_points": 36.4,
+   "required_share_of_remaining": 0.8,
+   "pass_status": "achievable",
+   "risk": {
+    "level": "high",
+    "label": "Высокий риск",
+    "reasons": [
+     "Для семестровых 42 (с минимальными 18 на экзамене это итог 60) нужно ещё 16 баллов из 20 оставшихся — 80% остатка.",
+     "Сейчас набирается 52% от максимума оценённых работ — темп нужно заметно повысить."
+    ],
+    "rule": "pace_gap_high"
+   },
+   "current_grade": null,
+   "exam": {
+    "points_min": 18.0,
+    "points_max": 30.0,
+    "result": null,
+    "passed": null,
+    "required_for_pass": null,
+    "total_at_exam_min": 44.0,
+    "total_at_exam_max": 56.0,
+    "final_total": null,
+    "total_max_possible": 76.0
+   },
+   "targets": [
+    {
+     "threshold": 60.0,
+     "grade_key": "satisfactory",
+     "label": "Удовлетворительно",
+     "status": "achievable",
+     "points_needed_semester": 4.0,
+     "required_share_of_remaining": 0.2,
+     "exam_points_needed": 30.0,
+     "extra_semester_points_needed": 4.0,
+     "reachable_with_current_points": false,
+     "explanation": "При текущих 26 семестровых баллах недостижимо даже с 30 на экзамене (не хватает 4 баллов). Нужно добрать в семестре 4 балла из 20 оставшихся и сдать экзамен на 30."
+    },
+    {
+     "threshold": 71.0,
+     "grade_key": "good",
+     "label": "Хорошо",
+     "status": "achievable",
+     "points_needed_semester": 15.0,
+     "required_share_of_remaining": 0.75,
+     "exam_points_needed": 30.0,
+     "extra_semester_points_needed": 15.0,
+     "reachable_with_current_points": false,
+     "explanation": "При текущих 26 семестровых баллах недостижимо даже с 30 на экзамене (не хватает 15 баллов). Нужно добрать в семестре 15 баллов из 20 оставшихся и сдать экзамен на 30."
+    },
+    {
+     "threshold": 85.0,
+     "grade_key": "excellent",
+     "label": "Отлично",
+     "status": "unreachable",
+     "points_needed_semester": 29.0,
+     "required_share_of_remaining": null,
+     "exam_points_needed": null,
+     "extra_semester_points_needed": 29.0,
+     "reachable_with_current_points": false,
+     "explanation": "При текущих 26 семестровых баллах недостижимо даже с 30 на экзамене (не хватает 29 баллов). Оставшихся семестровых работ (20) на это не хватает: максимальный итог — 76."
+    }
+   ],
+   "modules": [
+    {
+     "id": 20,
+     "ordinal": 1,
+     "title": "Математическое описание систем",
+     "status": "completed",
+     "ends_on": "2026-10-11",
+     "points": 13.0,
+     "max_points": 25.0,
+     "graded_max": 25.0,
+     "remaining": 0.0,
+     "missing": 0.0,
+     "share": 0.52,
+     "is_weak": true,
+     "topic_ids": [
+      36,
+      37
+     ],
+     "items": [
+      {
+       "id": 49,
+       "title": "Домашнее задание 1",
+       "kind": "homework",
+       "max_points": 10.0,
+       "points": 5.0,
+       "due_date": "2026-09-30",
+       "state": "graded"
+      },
+      {
+       "id": 50,
+       "title": "Рубежный контроль 1",
+       "kind": "control",
+       "max_points": 15.0,
+       "points": 8.0,
+       "due_date": "2026-10-10",
+       "state": "graded"
+      }
+     ]
+    },
+    {
+     "id": 21,
+     "ordinal": 2,
+     "title": "Устойчивость линейных систем",
+     "status": "completed",
+     "ends_on": "2026-11-15",
+     "points": 13.0,
+     "max_points": 25.0,
+     "graded_max": 25.0,
+     "remaining": 0.0,
+     "missing": 0.0,
+     "share": 0.52,
+     "is_weak": true,
+     "topic_ids": [
+      38
+     ],
+     "items": [
+      {
+       "id": 51,
+       "title": "Лабораторная работа 1",
+       "kind": "lab",
+       "max_points": 10.0,
+       "points": 6.0,
+       "due_date": "2026-10-28",
+       "state": "graded"
+      },
+      {
+       "id": 52,
+       "title": "Рубежный контроль 2",
+       "kind": "control",
+       "max_points": 15.0,
+       "points": 7.0,
+       "due_date": "2026-11-13",
+       "state": "graded"
+      }
+     ]
+    },
+    {
+     "id": 22,
+     "ordinal": 3,
+     "title": "Качество и синтез регуляторов",
+     "status": "in_progress",
+     "ends_on": "2026-12-20",
+     "points": 0.0,
+     "max_points": 20.0,
+     "graded_max": 0.0,
+     "remaining": 20.0,
+     "missing": 0.0,
+     "share": null,
+     "is_weak": false,
+     "topic_ids": [
+      39,
+      40
+     ],
+     "items": [
+      {
+       "id": 53,
+       "title": "Лабораторная работа 2",
+       "kind": "lab",
+       "max_points": 8.0,
+       "points": null,
+       "due_date": "2026-12-02",
+       "state": "pending"
+      },
+      {
+       "id": 54,
+       "title": "Рубежный контроль 3",
+       "kind": "control",
+       "max_points": 12.0,
+       "points": null,
+       "due_date": "2026-12-16",
+       "state": "pending"
+      }
+     ]
+    }
+   ],
+   "next_actions": [
+    {
+     "item_id": 53,
+     "title": "Лабораторная работа 2",
+     "kind": "lab",
+     "module_id": 22,
+     "module_title": "Качество и синтез регуляторов",
+     "max_points": 8.0,
+     "due_date": "2026-12-02",
+     "days_left": 9,
+     "overdue": false
+    },
+    {
+     "item_id": 54,
+     "title": "Рубежный контроль 3",
+     "kind": "control",
+     "module_id": 22,
+     "module_title": "Качество и синтез регуляторов",
+     "max_points": 12.0,
+     "due_date": "2026-12-16",
+     "days_left": 23,
+     "overdue": false
+    }
+   ],
+   "weak_topic_ids": [
+    36,
+    37,
+    38
+   ],
+   "explanation": "Набрано 26 баллов из 50 возможных по оценённым работам (52%). Впереди ещё 20 баллов, максимум семестровой части — 70. Для семестровых 42 (с минимальными 18 на экзамене это итог 60) нужно ещё 16 баллов из 20 оставшихся — 80% остатка. Итог при 18 на экзамене — 44, при 30 — 56.",
+   "recommendation": "Начните с работы «Лабораторная работа 2» (модуль «Качество и синтез регуляторов», до 8 баллов, срок — 2 декабря). Всего до семестровых 42 (с минимальными 18 на экзамене это итог 60) нужно ещё 16 баллов из 20 оставшихся (80%). Стоит повторить темы модуля «Математическое описание систем» — там набрано 52%."
+  },
+  {
+   "discipline_id": 9,
+   "title": "Теория вероятностей и математическая статистика",
+   "as_of": "2026-11-23",
+   "assessment_type": "exam",
+   "assessment_type_label": "Экзамен",
+   "current_semester_points": 18.0,
+   "semester_points_max": 70.0,
+   "completed_points_max": 45.0,
+   "graded_points_max": 45.0,
+   "remaining_points_max": 25.0,
+   "missing_points_max": 0.0,
+   "max_achievable_semester": 43.0,
+   "passing_threshold": 60.0,
+   "semester_target": 42.0,
+   "semester_points_needed": 24.0,
+   "semester_progress": 0.709,
+   "data_completeness": "full",
+   "data_issues": [],
+   "current_pace": 0.4,
+   "pace_is_reliable": true,
+   "projected_semester_points": 28.0,
+   "required_share_of_remaining": 0.96,
+   "pass_status": "achievable",
+   "risk": {
+    "level": "high",
+    "label": "Высокий риск",
+    "reasons": [
+     "Для семестровых 42 (с минимальными 18 на экзамене это итог 60) нужно ещё 24 балла из 25 оставшихся — 96% остатка.",
+     "Это почти весь оставшийся максимум — важно не пропустить ни одной работы."
+    ],
+    "rule": "almost_all_remaining"
+   },
+   "current_grade": null,
+   "exam": {
+    "points_min": 18.0,
+    "points_max": 30.0,
+    "result": null,
+    "passed": null,
+    "required_for_pass": null,
+    "total_at_exam_min": 36.0,
+    "total_at_exam_max": 48.0,
+    "final_total": null,
+    "total_max_possible": 73.0
+   },
+   "targets": [
+    {
+     "threshold": 60.0,
+     "grade_key": "satisfactory",
+     "label": "Удовлетворительно",
+     "status": "achievable",
+     "points_needed_semester": 12.0,
+     "required_share_of_remaining": 0.48,
+     "exam_points_needed": 30.0,
+     "extra_semester_points_needed": 12.0,
+     "reachable_with_current_points": false,
+     "explanation": "При текущих 18 семестровых баллах недостижимо даже с 30 на экзамене (не хватает 12 баллов). Нужно добрать в семестре 12 баллов из 25 оставшихся и сдать экзамен на 30."
+    },
+    {
+     "threshold": 71.0,
+     "grade_key": "good",
+     "label": "Хорошо",
+     "status": "achievable",
+     "points_needed_semester": 23.0,
+     "required_share_of_remaining": 0.92,
+     "exam_points_needed": 30.0,
+     "extra_semester_points_needed": 23.0,
+     "reachable_with_current_points": false,
+     "explanation": "При текущих 18 семестровых баллах недостижимо даже с 30 на экзамене (не хватает 23 баллов). Нужно добрать в семестре 23 балла из 25 оставшихся и сдать экзамен на 30."
+    },
+    {
+     "threshold": 85.0,
+     "grade_key": "excellent",
+     "label": "Отлично",
+     "status": "unreachable",
+     "points_needed_semester": 37.0,
+     "required_share_of_remaining": null,
+     "exam_points_needed": null,
+     "extra_semester_points_needed": 37.0,
+     "reachable_with_current_points": false,
+     "explanation": "При текущих 18 семестровых баллах недостижимо даже с 30 на экзамене (не хватает 37 баллов). Оставшихся семестровых работ (25) на это не хватает: максимальный итог — 73."
+    }
+   ],
+   "modules": [
+    {
+     "id": 23,
+     "ordinal": 1,
+     "title": "Случайные события",
+     "status": "completed",
+     "ends_on": "2026-10-11",
+     "points": 9.0,
+     "max_points": 20.0,
+     "graded_max": 20.0,
+     "remaining": 0.0,
+     "missing": 0.0,
+     "share": 0.45,
+     "is_weak": true,
+     "topic_ids": [
+      41
+     ],
+     "items": [
+      {
+       "id": 55,
+       "title": "Домашнее задание 1",
+       "kind": "homework",
+       "max_points": 8.0,
+       "points": 4.0,
+       "due_date": "2026-09-29",
+       "state": "graded"
+      },
+      {
+       "id": 56,
+       "title": "Рубежный контроль 1",
+       "kind": "control",
+       "max_points": 12.0,
+       "points": 5.0,
+       "due_date": "2026-10-09",
+       "state": "graded"
+      }
+     ]
+    },
+    {
+     "id": 24,
+     "ordinal": 2,
+     "title": "Случайные величины",
+     "status": "completed",
+     "ends_on": "2026-11-15",
+     "points": 9.0,
+     "max_points": 25.0,
+     "graded_max": 25.0,
+     "remaining": 0.0,
+     "missing": 0.0,
+     "share": 0.36,
+     "is_weak": true,
+     "topic_ids": [
+      42,
+      43,
+      44
+     ],
+     "items": [
+      {
+       "id": 57,
+       "title": "Домашнее задание 2",
+       "kind": "homework",
+       "max_points": 10.0,
+       "points": 3.0,
+       "due_date": "2026-11-03",
+       "state": "graded"
+      },
+      {
+       "id": 58,
+       "title": "Рубежный контроль 2",
+       "kind": "control",
+       "max_points": 15.0,
+       "points": 6.0,
+       "due_date": "2026-11-13",
+       "state": "graded"
+      }
+     ]
+    },
+    {
+     "id": 25,
+     "ordinal": 3,
+     "title": "Математическая статистика",
+     "status": "in_progress",
+     "ends_on": "2026-12-20",
+     "points": 0.0,
+     "max_points": 25.0,
+     "graded_max": 0.0,
+     "remaining": 25.0,
+     "missing": 0.0,
+     "share": null,
+     "is_weak": false,
+     "topic_ids": [
+      45,
+      46
+     ],
+     "items": [
+      {
+       "id": 59,
+       "title": "Домашнее задание 3",
+       "kind": "homework",
+       "max_points": 10.0,
+       "points": null,
+       "due_date": "2026-12-04",
+       "state": "pending"
+      },
+      {
+       "id": 60,
+       "title": "Рубежный контроль 3",
+       "kind": "control",
+       "max_points": 15.0,
+       "points": null,
+       "due_date": "2026-12-18",
+       "state": "pending"
+      }
+     ]
+    }
+   ],
+   "next_actions": [
+    {
+     "item_id": 59,
+     "title": "Домашнее задание 3",
+     "kind": "homework",
+     "module_id": 25,
+     "module_title": "Математическая статистика",
+     "max_points": 10.0,
+     "due_date": "2026-12-04",
+     "days_left": 11,
+     "overdue": false
+    },
+    {
+     "item_id": 60,
+     "title": "Рубежный контроль 3",
+     "kind": "control",
+     "module_id": 25,
+     "module_title": "Математическая статистика",
+     "max_points": 15.0,
+     "due_date": "2026-12-18",
+     "days_left": 25,
+     "overdue": false
+    }
+   ],
+   "weak_topic_ids": [
+    41,
+    42,
+    43,
+    44
+   ],
+   "explanation": "Набрано 18 баллов из 45 возможных по оценённым работам (40%). Впереди ещё 25 баллов, максимум семестровой части — 70. Для семестровых 42 (с минимальными 18 на экзамене это итог 60) нужно ещё 24 балла из 25 оставшихся — 96% остатка. Итог при 18 на экзамене — 36, при 30 — 48.",
+   "recommendation": "Важно сдать все оставшиеся работы; начните с «Домашнее задание 3» (модуль «Математическая статистика», до 10 баллов, срок — 4 декабря). Всего до семестровых 42 (с минимальными 18 на экзамене это итог 60) нужно ещё 24 балла из 25 оставшихся (96%). Стоит повторить темы модуля «Случайные величины» — там набрано 36%."
+  },
+  {
+   "discipline_id": 13,
+   "title": "Экономика",
+   "as_of": "2026-11-23",
+   "assessment_type": "credit",
+   "assessment_type_label": "Зачёт",
+   "current_semester_points": 27.0,
+   "semester_points_max": 100.0,
+   "completed_points_max": 50.0,
+   "graded_points_max": 50.0,
+   "remaining_points_max": 50.0,
+   "missing_points_max": 0.0,
+   "max_achievable_semester": 77.0,
+   "passing_threshold": 60.0,
+   "semester_target": 60.0,
+   "semester_points_needed": 33.0,
+   "semester_progress": 0.709,
+   "data_completeness": "full",
+   "data_issues": [],
+   "current_pace": 0.54,
+   "pace_is_reliable": true,
+   "projected_semester_points": 54.0,
+   "required_share_of_remaining": 0.66,
+   "pass_status": "achievable",
+   "risk": {
+    "level": "medium",
+    "label": "Средний риск",
+    "reasons": [
+     "Для зачётного минимума 60 нужно ещё 33 балла из 50 оставшихся — 66% остатка.",
+     "Требуемая доля (66%) выше текущего темпа (54%) — темп стоит немного повысить."
+    ],
+    "rule": "pace_gap_medium"
+   },
+   "current_grade": null,
+   "exam": null,
+   "targets": [
+    {
+     "threshold": 60.0,
+     "grade_key": "credit",
+     "label": "Зачёт",
+     "status": "achievable",
+     "points_needed_semester": 33.0,
+     "required_share_of_remaining": 0.66,
+     "exam_points_needed": null,
+     "extra_semester_points_needed": null,
+     "reachable_with_current_points": null,
+     "explanation": "Нужно ещё 33 балла из 50 оставшихся (66% остатка)."
+    }
+   ],
+   "modules": [
+    {
+     "id": 35,
+     "ordinal": 1,
+     "title": "Микроэкономика",
+     "status": "completed",
+     "ends_on": "2026-10-31",
+     "points": 27.0,
+     "max_points": 50.0,
+     "graded_max": 50.0,
+     "remaining": 0.0,
+     "missing": 0.0,
+     "share": 0.54,
+     "is_weak": true,
+     "topic_ids": [
+      59,
+      60
+     ],
+     "items": [
+      {
+       "id": 83,
+       "title": "Тест 1",
+       "kind": "test",
+       "max_points": 20.0,
+       "points": 10.0,
+       "due_date": "2026-10-07",
+       "state": "graded"
+      },
+      {
+       "id": 84,
+       "title": "Эссе",
+       "kind": "homework",
+       "max_points": 15.0,
+       "points": 8.0,
+       "due_date": "2026-10-21",
+       "state": "graded"
+      },
+      {
+       "id": 85,
+       "title": "Работа на семинарах (модуль 1)",
+       "kind": "activity",
+       "max_points": 15.0,
+       "points": 9.0,
+       "due_date": "2026-10-31",
+       "state": "graded"
+      }
+     ]
+    },
+    {
+     "id": 36,
+     "ordinal": 2,
+     "title": "Макроэкономика",
+     "status": "in_progress",
+     "ends_on": "2026-12-20",
+     "points": 0.0,
+     "max_points": 50.0,
+     "graded_max": 0.0,
+     "remaining": 50.0,
+     "missing": 0.0,
+     "share": null,
+     "is_weak": false,
+     "topic_ids": [
+      61
+     ],
+     "items": [
+      {
+       "id": 86,
+       "title": "Кейс-задание",
+       "kind": "homework",
+       "max_points": 20.0,
+       "points": null,
+       "due_date": "2026-12-02",
+       "state": "pending"
+      },
+      {
+       "id": 87,
+       "title": "Тест 2",
+       "kind": "test",
+       "max_points": 20.0,
+       "points": null,
+       "due_date": "2026-12-09",
+       "state": "pending"
+      },
+      {
+       "id": 88,
+       "title": "Работа на семинарах (модуль 2)",
+       "kind": "activity",
+       "max_points": 10.0,
+       "points": null,
+       "due_date": "2026-12-18",
+       "state": "pending"
+      }
+     ]
+    }
+   ],
+   "next_actions": [
+    {
+     "item_id": 86,
+     "title": "Кейс-задание",
+     "kind": "homework",
+     "module_id": 36,
+     "module_title": "Макроэкономика",
+     "max_points": 20.0,
+     "due_date": "2026-12-02",
+     "days_left": 9,
+     "overdue": false
+    },
+    {
+     "item_id": 87,
+     "title": "Тест 2",
+     "kind": "test",
+     "module_id": 36,
+     "module_title": "Макроэкономика",
+     "max_points": 20.0,
+     "due_date": "2026-12-09",
+     "days_left": 16,
+     "overdue": false
+    },
+    {
+     "item_id": 88,
+     "title": "Работа на семинарах (модуль 2)",
+     "kind": "activity",
+     "module_id": 36,
+     "module_title": "Макроэкономика",
+     "max_points": 10.0,
+     "due_date": "2026-12-18",
+     "days_left": 25,
+     "overdue": false
+    }
+   ],
+   "weak_topic_ids": [
+    59,
+    60
+   ],
+   "explanation": "Набрано 27 баллов из 50 возможных по оценённым работам (54%). Впереди ещё 50 баллов, максимум семестровой части — 100. Для зачётного минимума 60 нужно ещё 33 балла из 50 оставшихся — 66% остатка.",
+   "recommendation": "Начните с работы «Кейс-задание» (модуль «Макроэкономика», до 20 баллов, срок — 2 декабря). Всего до зачётного минимума 60 нужно ещё 33 балла из 50 оставшихся (66%). Стоит повторить темы модуля «Микроэкономика» — там набрано 54%."
+  },
+  {
+   "discipline_id": 12,
+   "title": "Электротехника и электроника",
+   "as_of": "2026-11-23",
+   "assessment_type": "distributed_exam",
+   "assessment_type_label": "Распределённый экзамен",
+   "current_semester_points": 39.0,
+   "semester_points_max": 100.0,
+   "completed_points_max": 60.0,
+   "graded_points_max": 60.0,
+   "remaining_points_max": 40.0,
+   "missing_points_max": 0.0,
+   "max_achievable_semester": 79.0,
+   "passing_threshold": 60.0,
+   "semester_target": 60.0,
+   "semester_points_needed": 21.0,
+   "semester_progress": 0.709,
+   "data_completeness": "full",
+   "data_issues": [],
+   "current_pace": 0.65,
+   "pace_is_reliable": true,
+   "projected_semester_points": 65.0,
+   "required_share_of_remaining": 0.525,
+   "pass_status": "achievable",
+   "risk": {
+    "level": "low",
+    "label": "Низкий риск",
+    "reasons": [
+     "Для порога 60 нужно ещё 21 балл из 40 оставшихся — 53% остатка.",
+     "Это не больше текущего темпа (65%) — порог достижим в том же ритме."
+    ],
+    "rule": "realistic"
+   },
+   "current_grade": {
+    "key": "unsatisfactory",
+    "label": "Неудовлетворительно"
+   },
+   "exam": null,
+   "targets": [
+    {
+     "threshold": 60.0,
+     "grade_key": "satisfactory",
+     "label": "Удовлетворительно",
+     "status": "achievable",
+     "points_needed_semester": 21.0,
+     "required_share_of_remaining": 0.525,
+     "exam_points_needed": null,
+     "extra_semester_points_needed": null,
+     "reachable_with_current_points": null,
+     "explanation": "Нужно ещё 21 балл из 40 оставшихся (53% остатка)."
+    },
+    {
+     "threshold": 71.0,
+     "grade_key": "good",
+     "label": "Хорошо",
+     "status": "achievable",
+     "points_needed_semester": 32.0,
+     "required_share_of_remaining": 0.8,
+     "exam_points_needed": null,
+     "extra_semester_points_needed": null,
+     "reachable_with_current_points": null,
+     "explanation": "Нужно ещё 32 балла из 40 оставшихся (80% остатка)."
+    },
+    {
+     "threshold": 85.0,
+     "grade_key": "excellent",
+     "label": "Отлично",
+     "status": "unreachable",
+     "points_needed_semester": 46.0,
+     "required_share_of_remaining": null,
+     "exam_points_needed": null,
+     "extra_semester_points_needed": null,
+     "reachable_with_current_points": null,
+     "explanation": "Недостижимо в этом семестре: даже при всех оставшихся работах максимум — 79."
+    }
+   ],
+   "modules": [
+    {
+     "id": 32,
+     "ordinal": 1,
+     "title": "Цепи постоянного тока",
+     "status": "completed",
+     "ends_on": "2026-10-11",
+     "points": 20.0,
+     "max_points": 30.0,
+     "graded_max": 30.0,
+     "remaining": 0.0,
+     "missing": 0.0,
+     "share": 0.667,
+     "is_weak": false,
+     "topic_ids": [
+      55
+     ],
+     "items": [
+      {
+       "id": 74,
+       "title": "Лабораторная работа 1",
+       "kind": "lab",
+       "max_points": 10.0,
+       "points": 7.0,
+       "due_date": "2026-09-24",
+       "state": "graded"
+      },
+      {
+       "id": 75,
+       "title": "Лабораторная работа 2",
+       "kind": "lab",
+       "max_points": 10.0,
+       "points": 6.0,
+       "due_date": "2026-10-01",
+       "state": "graded"
+      },
+      {
+       "id": 76,
+       "title": "Рубежный контроль 1",
+       "kind": "control",
+       "max_points": 10.0,
+       "points": 7.0,
+       "due_date": "2026-10-08",
+       "state": "graded"
+      }
+     ]
+    },
+    {
+     "id": 33,
+     "ordinal": 2,
+     "title": "Цепи переменного тока",
+     "status": "completed",
+     "ends_on": "2026-11-15",
+     "points": 19.0,
+     "max_points": 30.0,
+     "graded_max": 30.0,
+     "remaining": 0.0,
+     "missing": 0.0,
+     "share": 0.633,
+     "is_weak": false,
+     "topic_ids": [
+      56
+     ],
+     "items": [
+      {
+       "id": 77,
+       "title": "Лабораторная работа 3",
+       "kind": "lab",
+       "max_points": 10.0,
+       "points": 6.0,
+       "due_date": "2026-10-22",
+       "state": "graded"
+      },
+      {
+       "id": 78,
+       "title": "Лабораторная работа 4",
+       "kind": "lab",
+       "max_points": 10.0,
+       "points": 7.0,
+       "due_date": "2026-11-05",
+       "state": "graded"
+      },
+      {
+       "id": 79,
+       "title": "Рубежный контроль 2",
+       "kind": "control",
+       "max_points": 10.0,
+       "points": 6.0,
+       "due_date": "2026-11-12",
+       "state": "graded"
+      }
+     ]
+    },
+    {
+     "id": 34,
+     "ordinal": 3,
+     "title": "Основы электроники",
+     "status": "in_progress",
+     "ends_on": "2026-12-20",
+     "points": 0.0,
+     "max_points": 40.0,
+     "graded_max": 0.0,
+     "remaining": 40.0,
+     "missing": 0.0,
+     "share": null,
+     "is_weak": false,
+     "topic_ids": [
+      57,
+      58
+     ],
+     "items": [
+      {
+       "id": 80,
+       "title": "Лабораторная работа 5",
+       "kind": "lab",
+       "max_points": 10.0,
+       "points": null,
+       "due_date": "2026-11-27",
+       "state": "pending"
+      },
+      {
+       "id": 81,
+       "title": "Лабораторная работа 6",
+       "kind": "lab",
+       "max_points": 10.0,
+       "points": null,
+       "due_date": "2026-12-04",
+       "state": "pending"
+      },
+      {
+       "id": 82,
+       "title": "Рубежный контроль 3",
+       "kind": "control",
+       "max_points": 20.0,
+       "points": null,
+       "due_date": "2026-12-18",
+       "state": "pending"
+      }
+     ]
+    }
+   ],
+   "next_actions": [
+    {
+     "item_id": 80,
+     "title": "Лабораторная работа 5",
+     "kind": "lab",
+     "module_id": 34,
+     "module_title": "Основы электроники",
+     "max_points": 10.0,
+     "due_date": "2026-11-27",
+     "days_left": 4,
+     "overdue": false
+    },
+    {
+     "item_id": 81,
+     "title": "Лабораторная работа 6",
+     "kind": "lab",
+     "module_id": 34,
+     "module_title": "Основы электроники",
+     "max_points": 10.0,
+     "due_date": "2026-12-04",
+     "days_left": 11,
+     "overdue": false
+    },
+    {
+     "item_id": 82,
+     "title": "Рубежный контроль 3",
+     "kind": "control",
+     "module_id": 34,
+     "module_title": "Основы электроники",
+     "max_points": 20.0,
+     "due_date": "2026-12-18",
+     "days_left": 25,
+     "overdue": false
+    }
+   ],
+   "weak_topic_ids": [],
+   "explanation": "Набрано 39 баллов из 60 возможных по оценённым работам (65%). Впереди ещё 40 баллов, максимум семестровой части — 100. Для порога 60 нужно ещё 21 балл из 40 оставшихся — 53% остатка.",
+   "recommendation": "Начните с работы «Лабораторная работа 5» (модуль «Основы электроники», до 10 баллов, срок — 27 ноября). Всего до порога 60 нужно ещё 21 балл из 40 оставшихся (53%)."
+  },
+  {
+   "discipline_id": 14,
+   "title": "Иностранный язык (профессиональный английский)",
+   "as_of": "2026-11-23",
+   "assessment_type": "credit",
+   "assessment_type_label": "Зачёт",
+   "current_semester_points": 41.0,
+   "semester_points_max": 100.0,
+   "completed_points_max": 50.0,
+   "graded_points_max": 50.0,
+   "remaining_points_max": 50.0,
+   "missing_points_max": 0.0,
+   "max_achievable_semester": 91.0,
+   "passing_threshold": 60.0,
+   "semester_target": 60.0,
+   "semester_points_needed": 19.0,
+   "semester_progress": 0.709,
+   "data_completeness": "full",
+   "data_issues": [],
+   "current_pace": 0.82,
+   "pace_is_reliable": true,
+   "projected_semester_points": 82.0,
+   "required_share_of_remaining": 0.38,
+   "pass_status": "achievable",
+   "risk": {
+    "level": "stable",
+    "label": "Стабильно",
+    "reasons": [
+     "Для зачётного минимума 60 нужно ещё 19 баллов из 50 оставшихся — 38% остатка.",
+     "При текущем темпе (82%) ориентировочно выходит 82 — с запасом."
+    ],
+    "rule": "projection_margin"
+   },
+   "current_grade": null,
+   "exam": null,
+   "targets": [
+    {
+     "threshold": 60.0,
+     "grade_key": "credit",
+     "label": "Зачёт",
+     "status": "achievable",
+     "points_needed_semester": 19.0,
+     "required_share_of_remaining": 0.38,
+     "exam_points_needed": null,
+     "extra_semester_points_needed": null,
+     "reachable_with_current_points": null,
+     "explanation": "Нужно ещё 19 баллов из 50 оставшихся (38% остатка)."
+    }
+   ],
+   "modules": [
+    {
+     "id": 37,
+     "ordinal": 1,
+     "title": "Professional vocabulary",
+     "status": "completed",
+     "ends_on": "2026-10-31",
+     "points": 41.0,
+     "max_points": 50.0,
+     "graded_max": 50.0,
+     "remaining": 0.0,
+     "missing": 0.0,
+     "share": 0.82,
+     "is_weak": false,
+     "topic_ids": [
+      62
+     ],
+     "items": [
+      {
+       "id": 89,
+       "title": "Vocabulary test",
+       "kind": "test",
+       "max_points": 20.0,
+       "points": 16.0,
+       "due_date": "2026-10-14",
+       "state": "graded"
+      },
+      {
+       "id": 90,
+       "title": "Работа на занятиях (модуль 1)",
+       "kind": "activity",
+       "max_points": 30.0,
+       "points": 25.0,
+       "due_date": "2026-10-31",
+       "state": "graded"
+      }
+     ]
+    },
+    {
+     "id": 38,
+     "ordinal": 2,
+     "title": "Technical writing",
+     "status": "in_progress",
+     "ends_on": "2026-12-20",
+     "points": 0.0,
+     "max_points": 50.0,
+     "graded_max": 0.0,
+     "remaining": 50.0,
+     "missing": 0.0,
+     "share": null,
+     "is_weak": false,
+     "topic_ids": [
+      63
+     ],
+     "items": [
+      {
+       "id": 91,
+       "title": "Техническое описание устройства",
+       "kind": "homework",
+       "max_points": 25.0,
+       "points": null,
+       "due_date": "2026-12-04",
+       "state": "pending"
+      },
+      {
+       "id": 92,
+       "title": "Презентация проекта",
+       "kind": "project",
+       "max_points": 25.0,
+       "points": null,
+       "due_date": "2026-12-15",
+       "state": "pending"
+      }
+     ]
+    }
+   ],
+   "next_actions": [
+    {
+     "item_id": 91,
+     "title": "Техническое описание устройства",
+     "kind": "homework",
+     "module_id": 38,
+     "module_title": "Technical writing",
+     "max_points": 25.0,
+     "due_date": "2026-12-04",
+     "days_left": 11,
+     "overdue": false
+    },
+    {
+     "item_id": 92,
+     "title": "Презентация проекта",
+     "kind": "project",
+     "module_id": 38,
+     "module_title": "Technical writing",
+     "max_points": 25.0,
+     "due_date": "2026-12-15",
+     "days_left": 22,
+     "overdue": false
+    }
+   ],
+   "weak_topic_ids": [],
+   "explanation": "Набрано 41 балл из 50 возможных по оценённым работам (82%). Впереди ещё 50 баллов, максимум семестровой части — 100. Для зачётного минимума 60 нужно ещё 19 баллов из 50 оставшихся — 38% остатка.",
+   "recommendation": "Продолжайте в том же темпе: ближайшая работа — «Техническое описание устройства» (модуль «Technical writing», до 25 баллов, срок — 4 декабря)."
+  }
+ ]
+}

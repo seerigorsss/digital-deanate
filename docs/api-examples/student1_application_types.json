@@ -1,0 +1,387 @@
+{
+ "items": [
+  {
+   "key": "study_certificate",
+   "category": "certificate",
+   "title": "Справка об обучении",
+   "description": "Подтверждает, что вы обучаетесь в университете. Подходит для работы родителей, соцзащиты, банка, визы.",
+   "processing_days": 3,
+   "icon": "file-check",
+   "fields": [
+    {
+     "name": "destination",
+     "label": "Куда предоставляется",
+     "type": "text",
+     "required": true,
+     "min_length": 3,
+     "max_length": 200,
+     "placeholder": "Например: по месту работы родителей"
+    },
+    {
+     "name": "copies",
+     "label": "Количество экземпляров",
+     "type": "number",
+     "required": true,
+     "min": 1,
+     "max": 5,
+     "default": 1
+    },
+    {
+     "name": "delivery",
+     "label": "Способ получения",
+     "type": "select",
+     "required": true,
+     "options": [
+      {
+       "value": "paper",
+       "label": "Бумажный документ — в деканате"
+      },
+      {
+       "value": "electronic",
+       "label": "Электронный документ — в личном кабинете"
+      }
+     ],
+     "default": "paper"
+    },
+    {
+     "name": "comment",
+     "label": "Комментарий для деканата",
+     "type": "textarea",
+     "required": false,
+     "max_length": 1000
+    }
+   ]
+  },
+  {
+   "key": "scholarship_certificate",
+   "category": "certificate",
+   "title": "Справка о размере стипендии",
+   "description": "Сведения о начисленной стипендии за выбранный период — для соцзащиты, налогового вычета и т.п.",
+   "processing_days": 5,
+   "icon": "wallet",
+   "fields": [
+    {
+     "name": "period_from",
+     "label": "Период: с",
+     "type": "date",
+     "required": true
+    },
+    {
+     "name": "period_to",
+     "label": "Период: по",
+     "type": "date",
+     "required": true
+    },
+    {
+     "name": "delivery",
+     "label": "Способ получения",
+     "type": "select",
+     "required": true,
+     "options": [
+      {
+       "value": "paper",
+       "label": "Бумажный документ — в деканате"
+      },
+      {
+       "value": "electronic",
+       "label": "Электронный документ — в личном кабинете"
+      }
+     ],
+     "default": "electronic"
+    },
+    {
+     "name": "comment",
+     "label": "Комментарий для деканата",
+     "type": "textarea",
+     "required": false,
+     "max_length": 1000
+    }
+   ]
+  },
+  {
+   "key": "military_certificate",
+   "category": "certificate",
+   "title": "Справка для военкомата (форма № 26)",
+   "description": "Справка об обучении по форме для военного комиссариата. Выдаётся только в бумажном виде.",
+   "processing_days": 5,
+   "icon": "shield",
+   "fields": [
+    {
+     "name": "military_office",
+     "label": "Военный комиссариат",
+     "type": "text",
+     "required": true,
+     "min_length": 3,
+     "max_length": 200,
+     "placeholder": "Например: военный комиссариат Басманного района"
+    },
+    {
+     "name": "delivery",
+     "label": "Способ получения",
+     "type": "select",
+     "required": true,
+     "options": [
+      {
+       "value": "paper",
+       "label": "Бумажный документ — в деканате"
+      }
+     ],
+     "default": "paper"
+    },
+    {
+     "name": "comment",
+     "label": "Комментарий для деканата",
+     "type": "textarea",
+     "required": false,
+     "max_length": 1000
+    }
+   ]
+  },
+  {
+   "key": "transcript",
+   "category": "certificate",
+   "title": "Академическая выписка оценок",
+   "description": "Выписка итоговых оценок за завершённые семестры — для стажировок, обмена, перевода.",
+   "processing_days": 5,
+   "icon": "list",
+   "fields": [
+    {
+     "name": "scope",
+     "label": "Период",
+     "type": "select",
+     "required": true,
+     "default": "all",
+     "options": [
+      {
+       "value": "all",
+       "label": "Все завершённые семестры"
+      },
+      {
+       "value": "last",
+       "label": "Только последний семестр"
+      }
+     ]
+    },
+    {
+     "name": "language",
+     "label": "Язык",
+     "type": "select",
+     "required": true,
+     "default": "ru",
+     "options": [
+      {
+       "value": "ru",
+       "label": "Русский"
+      },
+      {
+       "value": "en",
+       "label": "Английский"
+      }
+     ]
+    },
+    {
+     "name": "delivery",
+     "label": "Способ получения",
+     "type": "select",
+     "required": true,
+     "options": [
+      {
+       "value": "paper",
+       "label": "Бумажный документ — в деканате"
+      },
+      {
+       "value": "electronic",
+       "label": "Электронный документ — в личном кабинете"
+      }
+     ],
+     "default": "electronic"
+    }
+   ]
+  },
+  {
+   "key": "individual_schedule",
+   "category": "statement",
+   "title": "Заявление на индивидуальный график сдачи",
+   "description": "Перенос сроков сдачи работ или аттестации по уважительной причине.",
+   "processing_days": 7,
+   "icon": "calendar-clock",
+   "fields": [
+    {
+     "name": "discipline_id",
+     "label": "Дисциплина",
+     "type": "discipline",
+     "required": true,
+     "options": [
+      {
+       "value": 1,
+       "label": "Математический анализ"
+      },
+      {
+       "value": 2,
+       "label": "Дифференциальные уравнения"
+      },
+      {
+       "value": 3,
+       "label": "Физика: электричество и магнетизм"
+      },
+      {
+       "value": 4,
+       "label": "Объектно-ориентированное программирование"
+      },
+      {
+       "value": 5,
+       "label": "Дискретная математика"
+      },
+      {
+       "value": 6,
+       "label": "Иностранный язык (английский)"
+      },
+      {
+       "value": 7,
+       "label": "Инженерная и компьютерная графика"
+      }
+     ]
+    },
+    {
+     "name": "reason",
+     "label": "Причина",
+     "type": "select",
+     "required": true,
+     "options": [
+      {
+       "value": "illness",
+       "label": "Болезнь"
+      },
+      {
+       "value": "family",
+       "label": "Семейные обстоятельства"
+      },
+      {
+       "value": "competition",
+       "label": "Участие в олимпиаде или соревнованиях"
+      },
+      {
+       "value": "other",
+       "label": "Другая уважительная причина"
+      }
+     ]
+    },
+    {
+     "name": "details",
+     "label": "Опишите ситуацию и какие работы нужно перенести",
+     "type": "textarea",
+     "required": true,
+     "min_length": 10,
+     "max_length": 2000
+    }
+   ]
+  },
+  {
+   "key": "material_support",
+   "category": "statement",
+   "title": "Заявление на материальную помощь",
+   "description": "Единовременная материальная поддержка студентов в трудной ситуации.",
+   "processing_days": 10,
+   "icon": "hand-heart",
+   "fields": [
+    {
+     "name": "reason",
+     "label": "Основание",
+     "type": "select",
+     "required": true,
+     "options": [
+      {
+       "value": "difficult_situation",
+       "label": "Трудная жизненная ситуация"
+      },
+      {
+       "value": "medical",
+       "label": "Расходы на лечение"
+      },
+      {
+       "value": "family",
+       "label": "Рождение ребёнка / семейные обстоятельства"
+      },
+      {
+       "value": "other",
+       "label": "Другое"
+      }
+     ]
+    },
+    {
+     "name": "details",
+     "label": "Кратко опишите ситуацию",
+     "type": "textarea",
+     "required": true,
+     "min_length": 10,
+     "max_length": 2000
+    }
+   ]
+  },
+  {
+   "key": "dean_question",
+   "category": "question",
+   "title": "Обращение в деканат",
+   "description": "Вопрос по учебному процессу, расписанию, документам или стипендии. Ответ придёт в карточку обращения.",
+   "processing_days": 2,
+   "icon": "message-circle",
+   "fields": [
+    {
+     "name": "topic",
+     "label": "Тема",
+     "type": "select",
+     "required": true,
+     "options": [
+      {
+       "value": "study",
+       "label": "Учебный процесс"
+      },
+      {
+       "value": "schedule",
+       "label": "Расписание"
+      },
+      {
+       "value": "documents",
+       "label": "Документы"
+      },
+      {
+       "value": "scholarship",
+       "label": "Стипендия"
+      },
+      {
+       "value": "other",
+       "label": "Другое"
+      }
+     ]
+    },
+    {
+     "name": "subject",
+     "label": "Кратко о вопросе",
+     "type": "text",
+     "required": true,
+     "min_length": 3,
+     "max_length": 150
+    },
+    {
+     "name": "message",
+     "label": "Сообщение",
+     "type": "textarea",
+     "required": true,
+     "min_length": 10,
+     "max_length": 3000
+    }
+   ]
+  }
+ ],
+ "statuses": {
+  "draft": "Черновик",
+  "submitted": "Отправлена",
+  "in_progress": "В обработке",
+  "needs_info": "Требуется уточнение",
+  "approved": "Одобрена",
+  "ready": "Готова к получению",
+  "completed": "Завершена",
+  "rejected": "Отклонена",
+  "withdrawn": "Отозвана"
+ }
+}

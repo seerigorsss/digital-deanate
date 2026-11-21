@@ -1,0 +1,26 @@
+{
+ "full_name": "Калинин Максим Андреевич",
+ "last_name": "Калинин",
+ "first_name": "Максим",
+ "middle_name": "Андреевич",
+ "university": "Технический университет",
+ "faculty": {
+  "code": "РК",
+  "name": "Робототехника и комплексная автоматизация"
+ },
+ "program": {
+  "code": "15.03.06",
+  "name": "Мехатроника и робототехника",
+  "profile": "Автономные робототехнические системы"
+ },
+ "education_level": "Бакалавриат",
+ "study_form": "Очная",
+ "funding": "Бюджет",
+ "course": 3,
+ "group": "РК9-51Б",
+ "record_book_number": "24Р1182",
+ "email": "maksim.kalinin@student.example",
+ "enrollment_year": 2024,
+ "curator": "Орлов Кирилл Дмитриевич",
+ "login": "student2"
+}

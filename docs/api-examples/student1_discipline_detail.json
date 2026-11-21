@@ -1,0 +1,335 @@
+{
+ "discipline": {
+  "id": 5,
+  "title": "Дискретная математика",
+  "short_title": "Дискретка",
+  "department": "Кафедра прикладной математики",
+  "description": "Множества и отношения, комбинаторика, теория графов, булевы функции.",
+  "credits": 4,
+  "assessment_type": "distributed_exam",
+  "assessment_label": "Распределённый экзамен",
+  "exam_date": null,
+  "exam_room": null,
+  "lecturer": {
+   "id": 7,
+   "full_name": "Зайцев Павел Сергеевич",
+   "position": "доцент, к.ф.-м.н.",
+   "department": "Кафедра прикладной математики",
+   "email": "p.zaitsev@uni.example"
+  }
+ },
+ "teachers": [
+  {
+   "id": 7,
+   "full_name": "Зайцев Павел Сергеевич",
+   "position": "доцент, к.ф.-м.н.",
+   "email": "p.zaitsev@uni.example",
+   "roles": [
+    "семинары",
+    "лекции"
+   ]
+  }
+ ],
+ "analytics": {
+  "discipline_id": 5,
+  "title": "Дискретная математика",
+  "as_of": "2026-11-23",
+  "assessment_type": "distributed_exam",
+  "assessment_type_label": "Распределённый экзамен",
+  "current_semester_points": 20.0,
+  "semester_points_max": 100.0,
+  "completed_points_max": 30.0,
+  "graded_points_max": 40.0,
+  "remaining_points_max": 60.0,
+  "missing_points_max": 0.0,
+  "max_achievable_semester": 80.0,
+  "passing_threshold": 60.0,
+  "semester_target": 60.0,
+  "semester_points_needed": 40.0,
+  "semester_progress": 0.709,
+  "data_completeness": "full",
+  "data_issues": [],
+  "current_pace": 0.5,
+  "pace_is_reliable": true,
+  "projected_semester_points": 50.0,
+  "required_share_of_remaining": 0.667,
+  "pass_status": "achievable",
+  "risk": {
+   "level": "medium",
+   "label": "Средний риск",
+   "reasons": [
+    "Для порога 60 нужно ещё 40 баллов из 60 оставшихся — 67% остатка.",
+    "Требуемая доля (67%) выше текущего темпа (50%) — темп стоит немного повысить."
+   ],
+   "rule": "pace_gap_medium"
+  },
+  "current_grade": {
+   "key": "unsatisfactory",
+   "label": "Неудовлетворительно"
+  },
+  "exam": null,
+  "targets": [
+   {
+    "threshold": 60.0,
+    "grade_key": "satisfactory",
+    "label": "Удовлетворительно",
+    "status": "achievable",
+    "points_needed_semester": 40.0,
+    "required_share_of_remaining": 0.667,
+    "exam_points_needed": null,
+    "extra_semester_points_needed": null,
+    "reachable_with_current_points": null,
+    "explanation": "Нужно ещё 40 баллов из 60 оставшихся (67% остатка)."
+   },
+   {
+    "threshold": 71.0,
+    "grade_key": "good",
+    "label": "Хорошо",
+    "status": "achievable",
+    "points_needed_semester": 51.0,
+    "required_share_of_remaining": 0.85,
+    "exam_points_needed": null,
+    "extra_semester_points_needed": null,
+    "reachable_with_current_points": null,
+    "explanation": "Нужно ещё 51 балл из 60 оставшихся (85% остатка)."
+   },
+   {
+    "threshold": 85.0,
+    "grade_key": "excellent",
+    "label": "Отлично",
+    "status": "unreachable",
+    "points_needed_semester": 65.0,
+    "required_share_of_remaining": null,
+    "exam_points_needed": null,
+    "extra_semester_points_needed": null,
+    "reachable_with_current_points": null,
+    "explanation": "Недостижимо в этом семестре: даже при всех оставшихся работах максимум — 80."
+   }
+  ],
+  "modules": [
+   {
+    "id": 13,
+    "ordinal": 1,
+    "title": "Множества и комбинаторика",
+    "status": "completed",
+    "ends_on": "2026-10-11",
+    "points": 16.0,
+    "max_points": 30.0,
+    "graded_max": 30.0,
+    "remaining": 0.0,
+    "missing": 0.0,
+    "share": 0.533,
+    "is_weak": true,
+    "topic_ids": [
+     24,
+     25
+    ],
+    "items": [
+     {
+      "id": 31,
+      "title": "Домашнее задание 1",
+      "kind": "homework",
+      "max_points": 10.0,
+      "points": 6.0,
+      "due_date": "2026-09-29",
+      "state": "graded"
+     },
+     {
+      "id": 32,
+      "title": "Рубежный контроль 1",
+      "kind": "control",
+      "max_points": 20.0,
+      "points": 10.0,
+      "due_date": "2026-10-10",
+      "state": "graded"
+     }
+    ]
+   },
+   {
+    "id": 14,
+    "ordinal": 2,
+    "title": "Теория графов",
+    "status": "in_progress",
+    "ends_on": "2026-11-29",
+    "points": 4.0,
+    "max_points": 35.0,
+    "graded_max": 10.0,
+    "remaining": 25.0,
+    "missing": 0.0,
+    "share": 0.4,
+    "is_weak": true,
+    "topic_ids": [
+     26,
+     27,
+     28
+    ],
+    "items": [
+     {
+      "id": 33,
+      "title": "Домашнее задание 2",
+      "kind": "homework",
+      "max_points": 10.0,
+      "points": 4.0,
+      "due_date": "2026-11-05",
+      "state": "graded"
+     },
+     {
+      "id": 34,
+      "title": "Домашнее задание 3",
+      "kind": "homework",
+      "max_points": 10.0,
+      "points": null,
+      "due_date": "2026-11-26",
+      "state": "pending"
+     },
+     {
+      "id": 35,
+      "title": "Рубежный контроль 2",
+      "kind": "control",
+      "max_points": 15.0,
+      "points": null,
+      "due_date": "2026-11-28",
+      "state": "pending"
+     }
+    ]
+   },
+   {
+    "id": 15,
+    "ordinal": 3,
+    "title": "Булевы функции",
+    "status": "upcoming",
+    "ends_on": "2026-12-20",
+    "points": 0.0,
+    "max_points": 35.0,
+    "graded_max": 0.0,
+    "remaining": 35.0,
+    "missing": 0.0,
+    "share": null,
+    "is_weak": false,
+    "topic_ids": [
+     29
+    ],
+    "items": [
+     {
+      "id": 36,
+      "title": "Домашнее задание 4",
+      "kind": "homework",
+      "max_points": 15.0,
+      "points": null,
+      "due_date": "2026-12-12",
+      "state": "pending"
+     },
+     {
+      "id": 37,
+      "title": "Рубежный контроль 3",
+      "kind": "control",
+      "max_points": 20.0,
+      "points": null,
+      "due_date": "2026-12-19",
+      "state": "pending"
+     }
+    ]
+   }
+  ],
+  "next_actions": [
+   {
+    "item_id": 34,
+    "title": "Домашнее задание 3",
+    "kind": "homework",
+    "module_id": 14,
+    "module_title": "Теория графов",
+    "max_points": 10.0,
+    "due_date": "2026-11-26",
+    "days_left": 3,
+    "overdue": false
+   },
+   {
+    "item_id": 35,
+    "title": "Рубежный контроль 2",
+    "kind": "control",
+    "module_id": 14,
+    "module_title": "Теория графов",
+    "max_points": 15.0,
+    "due_date": "2026-11-28",
+    "days_left": 5,
+    "overdue": false
+   },
+   {
+    "item_id": 36,
+    "title": "Домашнее задание 4",
+    "kind": "homework",
+    "module_id": 15,
+    "module_title": "Булевы функции",
+    "max_points": 15.0,
+    "due_date": "2026-12-12",
+    "days_left": 19,
+    "overdue": false
+   }
+  ],
+  "weak_topic_ids": [
+   24,
+   25,
+   26,
+   27,
+   28
+  ],
+  "explanation": "Набрано 20 баллов из 40 возможных по оценённым работам (50%). Впереди ещё 60 баллов, максимум семестровой части — 100. Для порога 60 нужно ещё 40 баллов из 60 оставшихся — 67% остатка.",
+  "recommendation": "Начните с работы «Домашнее задание 3» (модуль «Теория графов», до 10 баллов, срок — 26 ноября). Всего до порога 60 нужно ещё 40 баллов из 60 оставшихся (67%). Стоит повторить темы модуля «Теория графов» — там набрано 40%."
+ },
+ "topics": [
+  {
+   "id": 24,
+   "title": "Множества и отношения, отношение эквивалентности",
+   "module_id": 13,
+   "module_title": "Множества и комбинаторика",
+   "module_ordinal": 1,
+   "is_weak": true,
+   "resources_count": 0
+  },
+  {
+   "id": 25,
+   "title": "Комбинаторика: перестановки, сочетания, бином Ньютона",
+   "module_id": 13,
+   "module_title": "Множества и комбинаторика",
+   "module_ordinal": 1,
+   "is_weak": true,
+   "resources_count": 0
+  },
+  {
+   "id": 26,
+   "title": "Графы: основные понятия и связность",
+   "module_id": 14,
+   "module_title": "Теория графов",
+   "module_ordinal": 2,
+   "is_weak": true,
+   "resources_count": 0
+  },
+  {
+   "id": 27,
+   "title": "Деревья и минимальные остовные деревья (Краскал, Прим)",
+   "module_id": 14,
+   "module_title": "Теория графов",
+   "module_ordinal": 2,
+   "is_weak": true,
+   "resources_count": 0
+  },
+  {
+   "id": 28,
+   "title": "Кратчайшие пути: алгоритм Дейкстры",
+   "module_id": 14,
+   "module_title": "Теория графов",
+   "module_ordinal": 2,
+   "is_weak": true,
+   "resources_count": 0
+  },
+  {
+   "id": 29,
+   "title": "Булевы функции, ДНФ и КНФ",
+   "module_id": 15,
+   "module_title": "Булевы функции",
+   "module_ordinal": 3,
+   "is_weak": false,
+   "resources_count": 0
+  }
+ ]
+}

@@ -1,0 +1,282 @@
+{
+ "today": "2026-11-23",
+ "first_name": "Анна",
+ "period": {
+  "title": "Осенний семестр 2026/27 учебного года",
+  "week_number": 13,
+  "week_parity": "odd",
+  "week_parity_label": "Числитель",
+  "semester_progress": 0.709,
+  "ends_on": "2026-12-27",
+  "session_starts_on": "2027-01-09",
+  "is_study_day": true
+ },
+ "today_lessons": [
+  {
+   "key": "1:2026-11-23",
+   "lesson_id": 1,
+   "discipline_id": 1,
+   "discipline_title": "Математический анализ",
+   "discipline_short": "Матанализ",
+   "lesson_type": "lecture",
+   "lesson_type_label": "Лекция",
+   "start_time": "08:30",
+   "end_time": "10:05",
+   "room": "ГУК 214",
+   "teacher": {
+    "id": 1,
+    "full_name": "Белов Андрей Викторович",
+    "position": "доцент, к.ф.-м.н."
+   },
+   "status": "changed",
+   "change": {
+    "type": "room",
+    "title": "Новая аудитория: Математический анализ",
+    "text": "Лекция 23 ноября, 08:30 пройдёт в аудитории ГУК 214. Причина: в аудитории ГУК 501 ремонт проектора.",
+    "reason": "в аудитории ГУК 501 ремонт проектора",
+    "old_room": "ГУК 501"
+   }
+  },
+  {
+   "key": "2:2026-11-23",
+   "lesson_id": 2,
+   "discipline_id": 2,
+   "discipline_title": "Дифференциальные уравнения",
+   "discipline_short": "Диффуры",
+   "lesson_type": "lecture",
+   "lesson_type_label": "Лекция",
+   "start_time": "10:15",
+   "end_time": "11:50",
+   "room": "ГУК 501",
+   "teacher": {
+    "id": 3,
+    "full_name": "Соколова Ирина Павловна",
+    "position": "доцент, к.ф.-м.н."
+   },
+   "status": "normal",
+   "change": null
+  },
+  {
+   "key": "3:2026-11-23",
+   "lesson_id": 3,
+   "discipline_id": 6,
+   "discipline_title": "Иностранный язык (английский)",
+   "discipline_short": "Английский",
+   "lesson_type": "seminar",
+   "lesson_type_label": "Семинар",
+   "start_time": "12:00",
+   "end_time": "13:35",
+   "room": "УЛК 318",
+   "teacher": {
+    "id": 8,
+    "full_name": "Кравец Ольга Александровна",
+    "position": "старший преподаватель"
+   },
+   "status": "normal",
+   "change": null
+  }
+ ],
+ "next_lesson": {
+  "date": "2026-11-23",
+  "weekday_label": "Понедельник",
+  "lesson": {
+   "key": "1:2026-11-23",
+   "lesson_id": 1,
+   "discipline_id": 1,
+   "discipline_title": "Математический анализ",
+   "discipline_short": "Матанализ",
+   "lesson_type": "lecture",
+   "lesson_type_label": "Лекция",
+   "start_time": "08:30",
+   "end_time": "10:05",
+   "room": "ГУК 214",
+   "teacher": {
+    "id": 1,
+    "full_name": "Белов Андрей Викторович",
+    "position": "доцент, к.ф.-м.н."
+   },
+   "status": "changed",
+   "change": {
+    "type": "room",
+    "title": "Новая аудитория: Математический анализ",
+    "text": "Лекция 23 ноября, 08:30 пройдёт в аудитории ГУК 214. Причина: в аудитории ГУК 501 ремонт проектора.",
+    "reason": "в аудитории ГУК 501 ремонт проектора",
+    "old_room": "ГУК 501"
+   }
+  }
+ },
+ "analytics": {
+  "index": {
+   "value": 90,
+   "max": 100,
+   "zone": "stable",
+   "label": "Стабильно",
+   "is_estimate": true,
+   "formula": "Ориентировочный индекс = среднее баллов уровней риска по дисциплинам с известным риском, веса равные (стабильно — 100, низкий риск — 80, средний риск — 60, высокий риск — 35, критический риск — 10); если есть дисциплина с уровнем «критический риск», индекс не выше 59; если есть дисциплина с уровнем «высокий риск», индекс не выше 74. Дисциплины с недостаточными данными не учитываются. Это сводный ориентир, а не официальная оценка успеваемости.",
+   "caps_applied": [],
+   "uncapped_value": 90.0,
+   "disciplines_counted": 6
+  },
+  "zone_counts": {
+   "critical": 0,
+   "high": 0,
+   "medium": 1,
+   "low": 1,
+   "stable": 4,
+   "insufficient_data": 1
+  },
+  "explanation": "Ориентировочный индекс учебной устойчивости — 90/100, зона «Стабильно». В целом ситуация стабильная, но средний риск — 1 дисциплина — там запас баллов небольшой. По 1 дисциплине данных пока недостаточно для оценки: «Иностранный язык (английский)». В первую очередь стоит заняться дисциплиной «Дискретная математика»: ближайшая работа — «Домашнее задание 3» (срок — 26 ноября).",
+  "top_priority": {
+   "discipline_id": 5,
+   "title": "Дискретная математика",
+   "risk_level": "medium",
+   "risk_label": "Средний риск",
+   "reason": "Для порога 60 нужно ещё 40 баллов из 60 оставшихся — 67% остатка.",
+   "action": "Начните с работы «Домашнее задание 3» (модуль «Теория графов», до 10 баллов, срок — 26 ноября). Всего до порога 60 нужно ещё 40 баллов из 60 оставшихся (67%). Стоит повторить темы модуля «Теория графов» — там набрано 40%.",
+   "points_target": "Ещё 40 баллов из 60 оставшихся (67%) до 60.",
+   "deadline": "2026-11-26",
+   "score": 550.0
+  }
+ },
+ "deadlines": [
+  {
+   "item_id": 47,
+   "title": "3D-модель детали",
+   "kind": "homework",
+   "max_points": 20.0,
+   "due_date": "2026-11-25",
+   "days_left": 2,
+   "discipline_id": 7,
+   "discipline_title": "Инженерная и компьютерная графика",
+   "discipline_short": "Инж. графика",
+   "module_title": "Основы САПР"
+  },
+  {
+   "item_id": 28,
+   "title": "Лабораторная работа 5",
+   "kind": "lab",
+   "max_points": 12.0,
+   "due_date": "2026-11-26",
+   "days_left": 3,
+   "discipline_id": 4,
+   "discipline_title": "Объектно-ориентированное программирование",
+   "discipline_short": "ООП",
+   "module_title": "Шаблоны, STL и исключения"
+  },
+  {
+   "item_id": 34,
+   "title": "Домашнее задание 3",
+   "kind": "homework",
+   "max_points": 10.0,
+   "due_date": "2026-11-26",
+   "days_left": 3,
+   "discipline_id": 5,
+   "discipline_title": "Дискретная математика",
+   "discipline_short": "Дискретка",
+   "module_title": "Теория графов"
+  },
+  {
+   "item_id": 19,
+   "title": "Лабораторная работа 5",
+   "kind": "lab",
+   "max_points": 6.0,
+   "due_date": "2026-11-27",
+   "days_left": 4,
+   "discipline_id": 3,
+   "discipline_title": "Физика: электричество и магнетизм",
+   "discipline_short": "Физика",
+   "module_title": "Электромагнитная индукция"
+  },
+  {
+   "item_id": 41,
+   "title": "Деловое письмо",
+   "kind": "homework",
+   "max_points": 15.0,
+   "due_date": "2026-11-27",
+   "days_left": 4,
+   "discipline_id": 6,
+   "discipline_title": "Иностранный язык (английский)",
+   "discipline_short": "Английский",
+   "module_title": "Business communication"
+  },
+  {
+   "item_id": 35,
+   "title": "Рубежный контроль 2",
+   "kind": "control",
+   "max_points": 15.0,
+   "due_date": "2026-11-28",
+   "days_left": 5,
+   "discipline_id": 5,
+   "discipline_title": "Дискретная математика",
+   "discipline_short": "Дискретка",
+   "module_title": "Теория графов"
+  }
+ ],
+ "applications": [
+  {
+   "id": 2,
+   "number": "26-00002",
+   "type_key": "scholarship_certificate",
+   "title": "Справка о размере стипендии",
+   "status": "in_progress",
+   "status_label": "В обработке",
+   "updated_at": "2026-11-20T09:15:00"
+  },
+  {
+   "id": 1,
+   "number": "26-00001",
+   "type_key": "study_certificate",
+   "title": "Справка об обучении",
+   "status": "ready",
+   "status_label": "Готова к получению",
+   "updated_at": "2026-11-18T08:05:00"
+  },
+  {
+   "id": 4,
+   "number": "26-00004",
+   "type_key": "transcript",
+   "title": "Академическая выписка оценок",
+   "status": "ready",
+   "status_label": "Готова к получению",
+   "updated_at": "2026-10-24T10:00:00"
+  }
+ ],
+ "notifications": {
+  "unread_count": 12,
+  "latest": [
+   {
+    "id": 27,
+    "category": "deadline",
+    "title": "Срок через 3 дня: Лабораторная работа 5",
+    "body": "Объектно-ориентированное программирование, модуль «Шаблоны, STL и исключения». Срок сдачи — 26 ноября, до 12 баллов.",
+    "link": "/study/4",
+    "importance": "normal",
+    "created_at": "2026-11-23T06:00:00",
+    "is_read": false,
+    "read_at": null
+   },
+   {
+    "id": 28,
+    "category": "deadline",
+    "title": "Срок через 3 дня: Домашнее задание 3",
+    "body": "Дискретная математика, модуль «Теория графов». Срок сдачи — 26 ноября, до 10 баллов.",
+    "link": "/study/5",
+    "importance": "normal",
+    "created_at": "2026-11-23T06:00:00",
+    "is_read": false,
+    "read_at": null
+   },
+   {
+    "id": 29,
+    "category": "deadline",
+    "title": "Срок через 2 дня: 3D-модель детали",
+    "body": "Инженерная и компьютерная графика, модуль «Основы САПР». Срок сдачи — 25 ноября, до 20 баллов.",
+    "link": "/study/7",
+    "importance": "normal",
+    "created_at": "2026-11-23T06:00:00",
+    "is_read": false,
+    "read_at": null
+   }
+  ]
+ }
+}

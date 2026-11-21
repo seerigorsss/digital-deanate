@@ -1,0 +1,12 @@
+{
+ "user": {
+  "id": 1,
+  "login": "student1",
+  "role": "student",
+  "full_name": "Воронцова Анна Сергеевна",
+  "display_name": "Анна Воронцова",
+  "subtitle": "ИУ5-34Б · 2 курс",
+  "initials": "АВ"
+ },
+ "csrf_token": "MmGZaafES_ePP8GcS34G03S58lz9rLY_rmWAiaDD--M"
+}

@@ -1,0 +1,52 @@
+{
+ "id": 5,
+ "number": "26-00005",
+ "type_key": "individual_schedule",
+ "title": "Заявление на индивидуальный график сдачи",
+ "category": "statement",
+ "status": "draft",
+ "status_label": "Черновик",
+ "created_at": "2026-11-21T17:15:00",
+ "updated_at": "2026-11-21T17:15:00",
+ "submitted_at": null,
+ "summary": "",
+ "is_active": false,
+ "unread_hint": false,
+ "type": {
+  "title": "Заявление на индивидуальный график сдачи",
+  "description": "Перенос сроков сдачи работ или аттестации по уважительной причине.",
+  "processing_days": 7,
+  "category": "statement"
+ },
+ "payload": {
+  "reason": "competition"
+ },
+ "payload_display": [
+  {
+   "name": "reason",
+   "label": "Причина",
+   "value": "Участие в олимпиаде или соревнованиях"
+  }
+ ],
+ "next_step": "Черновик сохранён. Проверьте данные и нажмите «Отправить» — до этого деканат заявку не видит.",
+ "history": [
+  {
+   "id": 16,
+   "from_status": null,
+   "to_status": "draft",
+   "to_label": "Черновик",
+   "comment": null,
+   "actor_role": "student",
+   "created_at": "2026-11-21T17:15:00"
+  }
+ ],
+ "messages": [],
+ "permissions": {
+  "can_edit": true,
+  "can_submit": true,
+  "can_delete": true,
+  "can_withdraw": false,
+  "can_reply": false
+ },
+ "document_available": false
+}

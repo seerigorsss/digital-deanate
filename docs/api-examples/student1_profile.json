@@ -1,0 +1,26 @@
+{
+ "full_name": "Воронцова Анна Сергеевна",
+ "last_name": "Воронцова",
+ "first_name": "Анна",
+ "middle_name": "Сергеевна",
+ "university": "Технический университет",
+ "faculty": {
+  "code": "ИУ",
+  "name": "Информатика и системы управления"
+ },
+ "program": {
+  "code": "09.03.01",
+  "name": "Информатика и вычислительная техника",
+  "profile": "Системы обработки информации и управления"
+ },
+ "education_level": "Бакалавриат",
+ "study_form": "Очная",
+ "funding": "Бюджет",
+ "course": 2,
+ "group": "ИУ5-34Б",
+ "record_book_number": "25И0417",
+ "email": "anna.vorontsova@student.example",
+ "enrollment_year": 2025,
+ "curator": "Мельникова Дарья Игоревна",
+ "login": "student1"
+}

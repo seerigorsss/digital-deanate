@@ -1,0 +1,266 @@
+{
+ "today": "2026-11-23",
+ "first_name": "Максим",
+ "period": {
+  "title": "Осенний семестр 2026/27 учебного года",
+  "week_number": 13,
+  "week_parity": "odd",
+  "week_parity_label": "Числитель",
+  "semester_progress": 0.709,
+  "ends_on": "2026-12-27",
+  "session_starts_on": "2027-01-09",
+  "is_study_day": true
+ },
+ "today_lessons": [
+  {
+   "key": "20:2026-11-23",
+   "lesson_id": 20,
+   "discipline_id": 8,
+   "discipline_title": "Теория автоматического управления",
+   "discipline_short": "ТАУ",
+   "lesson_type": "lecture",
+   "lesson_type_label": "Лекция",
+   "start_time": "10:15",
+   "end_time": "11:50",
+   "room": "УЛК 402",
+   "teacher": {
+    "id": 10,
+    "full_name": "Тарасов Виктор Юрьевич",
+    "position": "профессор, д.т.н."
+   },
+   "status": "normal",
+   "change": null
+  },
+  {
+   "key": "21:2026-11-23",
+   "lesson_id": 21,
+   "discipline_id": 8,
+   "discipline_title": "Теория автоматического управления",
+   "discipline_short": "ТАУ",
+   "lesson_type": "seminar",
+   "lesson_type_label": "Семинар",
+   "start_time": "12:00",
+   "end_time": "13:35",
+   "room": "УЛК 410",
+   "teacher": {
+    "id": 10,
+    "full_name": "Тарасов Виктор Юрьевич",
+    "position": "профессор, д.т.н."
+   },
+   "status": "cancelled",
+   "change": {
+    "type": "cancelled",
+    "title": "Отмена: Теория автоматического управления",
+    "text": "Семинар 23 ноября, 12:00 не состоится. Причина: преподаватель на научной конференции.",
+    "reason": "преподаватель на научной конференции"
+   }
+  },
+  {
+   "key": "23:2026-11-23",
+   "lesson_id": 23,
+   "discipline_id": 13,
+   "discipline_title": "Экономика",
+   "discipline_short": "Экономика",
+   "lesson_type": "lecture",
+   "lesson_type_label": "Лекция",
+   "start_time": "13:50",
+   "end_time": "15:25",
+   "room": "ГУК 501",
+   "teacher": {
+    "id": 16,
+    "full_name": "Савельева Марина Андреевна",
+    "position": "доцент, к.э.н."
+   },
+   "status": "normal",
+   "change": null
+  }
+ ],
+ "next_lesson": {
+  "date": "2026-11-23",
+  "weekday_label": "Понедельник",
+  "lesson": {
+   "key": "20:2026-11-23",
+   "lesson_id": 20,
+   "discipline_id": 8,
+   "discipline_title": "Теория автоматического управления",
+   "discipline_short": "ТАУ",
+   "lesson_type": "lecture",
+   "lesson_type_label": "Лекция",
+   "start_time": "10:15",
+   "end_time": "11:50",
+   "room": "УЛК 402",
+   "teacher": {
+    "id": 10,
+    "full_name": "Тарасов Виктор Юрьевич",
+    "position": "профессор, д.т.н."
+   },
+   "status": "normal",
+   "change": null
+  }
+ },
+ "analytics": {
+  "index": {
+   "value": 51,
+   "max": 100,
+   "zone": "high",
+   "label": "Высокий риск",
+   "is_estimate": true,
+   "formula": "Ориентировочный индекс = среднее баллов уровней риска по дисциплинам с известным риском, веса равные (стабильно — 100, низкий риск — 80, средний риск — 60, высокий риск — 35, критический риск — 10); если есть дисциплина с уровнем «критический риск», индекс не выше 59; если есть дисциплина с уровнем «высокий риск», индекс не выше 74. Дисциплины с недостаточными данными не учитываются. Это сводный ориентир, а не официальная оценка успеваемости.",
+   "caps_applied": [],
+   "uncapped_value": 50.7,
+   "disciplines_counted": 7
+  },
+  "zone_counts": {
+   "critical": 1,
+   "high": 3,
+   "medium": 1,
+   "low": 1,
+   "stable": 1,
+   "insufficient_data": 0
+  },
+  "explanation": "Ориентировочный индекс учебной устойчивости — 51/100, зона «Высокий риск». Критический риск — 1 дисциплина: порог там уже не достигается обычным порядком, поэтому важно обсудить ситуацию с преподавателем. В первую очередь стоит заняться дисциплиной «Теория механизмов и машин»: обратитесь к преподавателю или в деканат, чтобы обсудить дальнейшие шаги — например, пересдачу или индивидуальный график. Для подготовки стоит повторить темы модуля «Кинематический анализ» — там набрано 33%.",
+  "top_priority": {
+   "discipline_id": 11,
+   "title": "Теория механизмов и машин",
+   "risk_level": "critical",
+   "risk_label": "Критический риск",
+   "reason": "Даже при всех оставшихся работах можно набрать не больше 57 баллов — это меньше порога 60.",
+   "action": "Обратитесь к преподавателю или в деканат, чтобы обсудить дальнейшие шаги — например, пересдачу или индивидуальный график. Для подготовки стоит повторить темы модуля «Кинематический анализ» — там набрано 33%.",
+   "points_target": "Порог 60 в рамках семестра недостижим: максимум — 57.",
+   "deadline": null,
+   "score": 1066.7
+  }
+ },
+ "deadlines": [
+  {
+   "item_id": 80,
+   "title": "Лабораторная работа 5",
+   "kind": "lab",
+   "max_points": 10.0,
+   "due_date": "2026-11-27",
+   "days_left": 4,
+   "discipline_id": 12,
+   "discipline_title": "Электротехника и электроника",
+   "discipline_short": "Электроника",
+   "module_title": "Основы электроники"
+  },
+  {
+   "item_id": 66,
+   "title": "Лабораторная работа 5",
+   "kind": "lab",
+   "max_points": 15.0,
+   "due_date": "2026-11-30",
+   "days_left": 7,
+   "discipline_id": 10,
+   "discipline_title": "Программирование микроконтроллеров",
+   "discipline_short": "Микроконтроллеры",
+   "module_title": "Последовательные интерфейсы"
+  },
+  {
+   "item_id": 53,
+   "title": "Лабораторная работа 2",
+   "kind": "lab",
+   "max_points": 8.0,
+   "due_date": "2026-12-02",
+   "days_left": 9,
+   "discipline_id": 8,
+   "discipline_title": "Теория автоматического управления",
+   "discipline_short": "ТАУ",
+   "module_title": "Качество и синтез регуляторов"
+  },
+  {
+   "item_id": 86,
+   "title": "Кейс-задание",
+   "kind": "homework",
+   "max_points": 20.0,
+   "due_date": "2026-12-02",
+   "days_left": 9,
+   "discipline_id": 13,
+   "discipline_title": "Экономика",
+   "discipline_short": "Экономика",
+   "module_title": "Макроэкономика"
+  },
+  {
+   "item_id": 59,
+   "title": "Домашнее задание 3",
+   "kind": "homework",
+   "max_points": 10.0,
+   "due_date": "2026-12-04",
+   "days_left": 11,
+   "discipline_id": 9,
+   "discipline_title": "Теория вероятностей и математическая статистика",
+   "discipline_short": "ТВиМС",
+   "module_title": "Математическая статистика"
+  },
+  {
+   "item_id": 81,
+   "title": "Лабораторная работа 6",
+   "kind": "lab",
+   "max_points": 10.0,
+   "due_date": "2026-12-04",
+   "days_left": 11,
+   "discipline_id": 12,
+   "discipline_title": "Электротехника и электроника",
+   "discipline_short": "Электроника",
+   "module_title": "Основы электроники"
+  }
+ ],
+ "applications": [
+  {
+   "id": 6,
+   "number": "26-00006",
+   "type_key": "military_certificate",
+   "title": "Справка для военкомата (форма № 26)",
+   "status": "submitted",
+   "status_label": "Отправлена",
+   "updated_at": "2026-11-20T13:40:00"
+  },
+  {
+   "id": 7,
+   "number": "26-00007",
+   "type_key": "individual_schedule",
+   "title": "Заявление на индивидуальный график сдачи",
+   "status": "needs_info",
+   "status_label": "Требуется уточнение",
+   "updated_at": "2026-11-19T09:45:00"
+  }
+ ],
+ "notifications": {
+  "unread_count": 9,
+  "latest": [
+   {
+    "id": 20,
+    "category": "announcement",
+    "title": "Изменение часов приёма деканата 23–29 ноября",
+    "body": "В связи с заседанием учёного совета на этой неделе деканат принимает студентов с 11:00 до 16:00. Справки по-прежнему можно заказать онлайн в разделе «Заявки».",
+    "link": "/applications/new",
+    "importance": "normal",
+    "created_at": "2026-11-20T12:00:00",
+    "is_read": false,
+    "read_at": null
+   },
+   {
+    "id": 35,
+    "category": "schedule",
+    "title": "Отмена: Теория автоматического управления",
+    "body": "Семинар 23 ноября, 12:00 не состоится. Причина: преподаватель на научной конференции.",
+    "link": "/schedule?date=2026-11-23",
+    "importance": "high",
+    "created_at": "2026-11-20T07:00:00",
+    "is_read": false,
+    "read_at": null
+   },
+   {
+    "id": 36,
+    "category": "schedule",
+    "title": "Новая аудитория: Теория вероятностей и математическая статистика",
+    "body": "Лекция 24 ноября, 08:30 пройдёт в аудитории ГУК 214.",
+    "link": "/schedule?date=2026-11-24",
+    "importance": "normal",
+    "created_at": "2026-11-20T07:00:00",
+    "is_read": false,
+    "read_at": null
+   }
+  ]
+ }
+}

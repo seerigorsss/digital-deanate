@@ -1,0 +1,459 @@
+{
+ "today": "2026-11-23",
+ "group": "ИУ5-34Б",
+ "period": {
+  "title": "Осенний семестр 2026/27 учебного года",
+  "starts_on": "2026-09-01",
+  "ends_on": "2026-12-27"
+ },
+ "date_from": "2026-11-23",
+ "date_to": "2026-11-29",
+ "days": [
+  {
+   "date": "2026-11-23",
+   "weekday": 0,
+   "weekday_label": "Понедельник",
+   "week_number": 13,
+   "week_parity": "odd",
+   "week_parity_label": "Числитель",
+   "is_study_day": true,
+   "lessons": [
+    {
+     "key": "1:2026-11-23",
+     "lesson_id": 1,
+     "discipline_id": 1,
+     "discipline_title": "Математический анализ",
+     "discipline_short": "Матанализ",
+     "lesson_type": "lecture",
+     "lesson_type_label": "Лекция",
+     "start_time": "08:30",
+     "end_time": "10:05",
+     "room": "ГУК 214",
+     "teacher": {
+      "id": 1,
+      "full_name": "Белов Андрей Викторович",
+      "position": "доцент, к.ф.-м.н."
+     },
+     "status": "changed",
+     "change": {
+      "type": "room",
+      "title": "Новая аудитория: Математический анализ",
+      "text": "Лекция 23 ноября, 08:30 пройдёт в аудитории ГУК 214. Причина: в аудитории ГУК 501 ремонт проектора.",
+      "reason": "в аудитории ГУК 501 ремонт проектора",
+      "old_room": "ГУК 501"
+     }
+    },
+    {
+     "key": "2:2026-11-23",
+     "lesson_id": 2,
+     "discipline_id": 2,
+     "discipline_title": "Дифференциальные уравнения",
+     "discipline_short": "Диффуры",
+     "lesson_type": "lecture",
+     "lesson_type_label": "Лекция",
+     "start_time": "10:15",
+     "end_time": "11:50",
+     "room": "ГУК 501",
+     "teacher": {
+      "id": 3,
+      "full_name": "Соколова Ирина Павловна",
+      "position": "доцент, к.ф.-м.н."
+     },
+     "status": "normal",
+     "change": null
+    },
+    {
+     "key": "3:2026-11-23",
+     "lesson_id": 3,
+     "discipline_id": 6,
+     "discipline_title": "Иностранный язык (английский)",
+     "discipline_short": "Английский",
+     "lesson_type": "seminar",
+     "lesson_type_label": "Семинар",
+     "start_time": "12:00",
+     "end_time": "13:35",
+     "room": "УЛК 318",
+     "teacher": {
+      "id": 8,
+      "full_name": "Кравец Ольга Александровна",
+      "position": "старший преподаватель"
+     },
+     "status": "normal",
+     "change": null
+    }
+   ],
+   "changes_count": 1
+  },
+  {
+   "date": "2026-11-24",
+   "weekday": 1,
+   "weekday_label": "Вторник",
+   "week_number": 13,
+   "week_parity": "odd",
+   "week_parity_label": "Числитель",
+   "is_study_day": true,
+   "lessons": [
+    {
+     "key": "4:2026-11-24",
+     "lesson_id": 4,
+     "discipline_id": 4,
+     "discipline_title": "Объектно-ориентированное программирование",
+     "discipline_short": "ООП",
+     "lesson_type": "lecture",
+     "lesson_type_label": "Лекция",
+     "start_time": "10:15",
+     "end_time": "11:50",
+     "room": "ГУК 395",
+     "teacher": {
+      "id": 5,
+      "full_name": "Мельникова Дарья Игоревна",
+      "position": "доцент, к.т.н."
+     },
+     "status": "normal",
+     "change": null
+    },
+    {
+     "key": "5:2026-11-24",
+     "lesson_id": 5,
+     "discipline_id": 4,
+     "discipline_title": "Объектно-ориентированное программирование",
+     "discipline_short": "ООП",
+     "lesson_type": "lab",
+     "lesson_type_label": "Лабораторная",
+     "start_time": "12:00",
+     "end_time": "13:35",
+     "room": "УЛК 723",
+     "teacher": {
+      "id": 6,
+      "full_name": "Никитина Вера Олеговна",
+      "position": "ассистент"
+     },
+     "status": "cancelled",
+     "change": {
+      "type": "cancelled",
+      "title": "Отмена: Объектно-ориентированное программирование",
+      "text": "Лабораторная 24 ноября, 12:00 не состоится. Причина: преподаватель в командировке, защита ЛР-5 — на следующем занятии.",
+      "reason": "преподаватель в командировке, защита ЛР-5 — на следующем занятии"
+     }
+    },
+    {
+     "key": "7:2026-11-24",
+     "lesson_id": 7,
+     "discipline_id": 3,
+     "discipline_title": "Физика: электричество и магнетизм",
+     "discipline_short": "Физика",
+     "lesson_type": "lecture",
+     "lesson_type_label": "Лекция",
+     "start_time": "13:50",
+     "end_time": "15:25",
+     "room": "ГУК 527",
+     "teacher": {
+      "id": 4,
+      "full_name": "Григорьев Олег Николаевич",
+      "position": "профессор, д.ф.-м.н."
+     },
+     "status": "normal",
+     "change": null
+    }
+   ],
+   "changes_count": 1
+  },
+  {
+   "date": "2026-11-25",
+   "weekday": 2,
+   "weekday_label": "Среда",
+   "week_number": 13,
+   "week_parity": "odd",
+   "week_parity_label": "Числитель",
+   "is_study_day": true,
+   "lessons": [
+    {
+     "key": "9:2026-11-25",
+     "lesson_id": 9,
+     "discipline_id": 1,
+     "discipline_title": "Математический анализ",
+     "discipline_short": "Матанализ",
+     "lesson_type": "seminar",
+     "lesson_type_label": "Семинар",
+     "start_time": "10:15",
+     "end_time": "11:50",
+     "room": "ГУК 418",
+     "teacher": {
+      "id": 2,
+      "full_name": "Ершов Илья Константинович",
+      "position": "старший преподаватель"
+     },
+     "status": "moved_out",
+     "change": {
+      "type": "moved",
+      "title": "Перенос: Математический анализ",
+      "text": "Семинар 25 ноября, 10:15 перенесена на 27 ноября (пятницу), 15:40, ауд. ГУК 418. Причина: аудитория занята под олимпиаду.",
+      "reason": "аудитория занята под олимпиаду",
+      "new_date": "2026-11-27",
+      "new_start_time": "15:40"
+     }
+    },
+    {
+     "key": "10:2026-11-25",
+     "lesson_id": 10,
+     "discipline_id": 2,
+     "discipline_title": "Дифференциальные уравнения",
+     "discipline_short": "Диффуры",
+     "lesson_type": "seminar",
+     "lesson_type_label": "Семинар",
+     "start_time": "12:00",
+     "end_time": "13:35",
+     "room": "ГУК 418",
+     "teacher": {
+      "id": 3,
+      "full_name": "Соколова Ирина Павловна",
+      "position": "доцент, к.ф.-м.н."
+     },
+     "status": "normal",
+     "change": null
+    }
+   ],
+   "changes_count": 1
+  },
+  {
+   "date": "2026-11-26",
+   "weekday": 3,
+   "weekday_label": "Четверг",
+   "week_number": 13,
+   "week_parity": "odd",
+   "week_parity_label": "Числитель",
+   "is_study_day": true,
+   "lessons": [
+    {
+     "key": "11:2026-11-26",
+     "lesson_id": 11,
+     "discipline_id": 5,
+     "discipline_title": "Дискретная математика",
+     "discipline_short": "Дискретка",
+     "lesson_type": "lecture",
+     "lesson_type_label": "Лекция",
+     "start_time": "12:00",
+     "end_time": "13:35",
+     "room": "ГУК 501",
+     "teacher": {
+      "id": 7,
+      "full_name": "Зайцев Павел Сергеевич",
+      "position": "доцент, к.ф.-м.н."
+     },
+     "status": "normal",
+     "change": null
+    },
+    {
+     "key": "12:2026-11-26",
+     "lesson_id": 12,
+     "discipline_id": 7,
+     "discipline_title": "Инженерная и компьютерная графика",
+     "discipline_short": "Инж. графика",
+     "lesson_type": "seminar",
+     "lesson_type_label": "Семинар",
+     "start_time": "13:50",
+     "end_time": "15:25",
+     "room": "ГУК 830",
+     "teacher": {
+      "id": 18,
+      "full_name": "Лаврова Ксения Олеговна",
+      "position": "ассистент"
+     },
+     "status": "changed",
+     "change": {
+      "type": "teacher",
+      "title": "Замена преподавателя: Инженерная и компьютерная графика",
+      "text": "Семинар 26 ноября, 13:50 проведёт Лаврова Ксения Олеговна.",
+      "reason": null,
+      "old_teacher": {
+       "id": 9,
+       "full_name": "Фомин Николай Петрович",
+       "position": "доцент, к.т.н."
+      }
+     }
+    },
+    {
+     "key": "13:2026-11-26",
+     "lesson_id": 13,
+     "discipline_id": 4,
+     "discipline_title": "Объектно-ориентированное программирование",
+     "discipline_short": "ООП",
+     "lesson_type": "seminar",
+     "lesson_type_label": "Семинар",
+     "start_time": "15:40",
+     "end_time": "17:15",
+     "room": "УЛК 723",
+     "teacher": {
+      "id": 6,
+      "full_name": "Никитина Вера Олеговна",
+      "position": "ассистент"
+     },
+     "status": "normal",
+     "change": null
+    }
+   ],
+   "changes_count": 1
+  },
+  {
+   "date": "2026-11-27",
+   "weekday": 4,
+   "weekday_label": "Пятница",
+   "week_number": 13,
+   "week_parity": "odd",
+   "week_parity_label": "Числитель",
+   "is_study_day": true,
+   "lessons": [
+    {
+     "key": "14:2026-11-27",
+     "lesson_id": 14,
+     "discipline_id": 3,
+     "discipline_title": "Физика: электричество и магнетизм",
+     "discipline_short": "Физика",
+     "lesson_type": "seminar",
+     "lesson_type_label": "Семинар",
+     "start_time": "08:30",
+     "end_time": "10:05",
+     "room": "ГУК 334",
+     "teacher": {
+      "id": 4,
+      "full_name": "Григорьев Олег Николаевич",
+      "position": "профессор, д.ф.-м.н."
+     },
+     "status": "normal",
+     "change": null
+    },
+    {
+     "key": "15:2026-11-27",
+     "lesson_id": 15,
+     "discipline_id": 1,
+     "discipline_title": "Математический анализ",
+     "discipline_short": "Матанализ",
+     "lesson_type": "seminar",
+     "lesson_type_label": "Семинар",
+     "start_time": "10:15",
+     "end_time": "11:50",
+     "room": "ГУК 418",
+     "teacher": {
+      "id": 2,
+      "full_name": "Ершов Илья Константинович",
+      "position": "старший преподаватель"
+     },
+     "status": "normal",
+     "change": null
+    },
+    {
+     "key": "17:2026-11-27",
+     "lesson_id": 17,
+     "discipline_id": 6,
+     "discipline_title": "Иностранный язык (английский)",
+     "discipline_short": "Английский",
+     "lesson_type": "seminar",
+     "lesson_type_label": "Семинар",
+     "start_time": "12:00",
+     "end_time": "13:35",
+     "room": "УЛК 318",
+     "teacher": {
+      "id": 8,
+      "full_name": "Кравец Ольга Александровна",
+      "position": "старший преподаватель"
+     },
+     "status": "normal",
+     "change": null
+    },
+    {
+     "key": "added5:2026-11-27",
+     "lesson_id": null,
+     "discipline_id": 5,
+     "discipline_title": "Дискретная математика",
+     "discipline_short": "Дискретка",
+     "lesson_type": "consultation",
+     "lesson_type_label": "Консультация",
+     "start_time": "13:50",
+     "end_time": "15:25",
+     "room": "ГУК 412",
+     "teacher": {
+      "id": 7,
+      "full_name": "Зайцев Павел Сергеевич",
+      "position": "доцент, к.ф.-м.н."
+     },
+     "status": "added",
+     "change": {
+      "type": "added",
+      "title": "Дополнительное занятие: Дискретная математика",
+      "text": "Консультация 27 ноября, 13:50–15:25, ауд. ГУК 412. Причина: консультация перед рубежным контролем 2.",
+      "reason": "консультация перед рубежным контролем 2"
+     }
+    },
+    {
+     "key": "9:2026-11-27:moved3",
+     "lesson_id": 9,
+     "discipline_id": 1,
+     "discipline_title": "Математический анализ",
+     "discipline_short": "Матанализ",
+     "lesson_type": "seminar",
+     "lesson_type_label": "Семинар",
+     "start_time": "15:40",
+     "end_time": "17:15",
+     "room": "ГУК 418",
+     "teacher": {
+      "id": 2,
+      "full_name": "Ершов Илья Константинович",
+      "position": "старший преподаватель"
+     },
+     "status": "moved_in",
+     "change": {
+      "type": "moved",
+      "title": "Перенос: Математический анализ",
+      "text": "Семинар 25 ноября, 10:15 перенесена на 27 ноября (пятницу), 15:40, ауд. ГУК 418. Причина: аудитория занята под олимпиаду.",
+      "reason": "аудитория занята под олимпиаду",
+      "original_date": "2026-11-25",
+      "original_start_time": "10:15"
+     }
+    }
+   ],
+   "changes_count": 2
+  },
+  {
+   "date": "2026-11-28",
+   "weekday": 5,
+   "weekday_label": "Суббота",
+   "week_number": 13,
+   "week_parity": "odd",
+   "week_parity_label": "Числитель",
+   "is_study_day": true,
+   "lessons": [
+    {
+     "key": "18:2026-11-28",
+     "lesson_id": 18,
+     "discipline_id": 5,
+     "discipline_title": "Дискретная математика",
+     "discipline_short": "Дискретка",
+     "lesson_type": "seminar",
+     "lesson_type_label": "Семинар",
+     "start_time": "10:15",
+     "end_time": "11:50",
+     "room": "ГУК 412",
+     "teacher": {
+      "id": 7,
+      "full_name": "Зайцев Павел Сергеевич",
+      "position": "доцент, к.ф.-м.н."
+     },
+     "status": "normal",
+     "change": null
+    }
+   ],
+   "changes_count": 0
+  },
+  {
+   "date": "2026-11-29",
+   "weekday": 6,
+   "weekday_label": "Воскресенье",
+   "week_number": 13,
+   "week_parity": "odd",
+   "week_parity_label": "Числитель",
+   "is_study_day": true,
+   "lessons": [],
+   "changes_count": 0
+  }
+ ]
+}

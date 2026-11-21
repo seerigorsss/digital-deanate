@@ -1,0 +1,281 @@
+{
+ "discipline": {
+  "id": 11,
+  "title": "Теория механизмов и машин",
+  "short_title": "ТММ",
+  "department": "Кафедра теории механизмов и машин",
+  "description": "Структурный и кинематический анализ механизмов, зубчатые передачи.",
+  "credits": 4,
+  "assessment_type": "distributed_exam",
+  "assessment_label": "Распределённый экзамен",
+  "exam_date": null,
+  "exam_room": null,
+  "lecturer": {
+   "id": 14,
+   "full_name": "Яковлев Сергей Михайлович",
+   "position": "доцент, к.т.н.",
+   "department": "Кафедра теории механизмов и машин",
+   "email": "s.yakovlev@uni.example"
+  }
+ },
+ "teachers": [
+  {
+   "id": 14,
+   "full_name": "Яковлев Сергей Михайлович",
+   "position": "доцент, к.т.н.",
+   "email": "s.yakovlev@uni.example",
+   "roles": [
+    "лекции",
+    "семинары"
+   ]
+  }
+ ],
+ "analytics": {
+  "discipline_id": 11,
+  "title": "Теория механизмов и машин",
+  "as_of": "2026-11-23",
+  "assessment_type": "distributed_exam",
+  "assessment_type_label": "Распределённый экзамен",
+  "current_semester_points": 27.0,
+  "semester_points_max": 100.0,
+  "completed_points_max": 70.0,
+  "graded_points_max": 70.0,
+  "remaining_points_max": 30.0,
+  "missing_points_max": 0.0,
+  "max_achievable_semester": 57.0,
+  "passing_threshold": 60.0,
+  "semester_target": 60.0,
+  "semester_points_needed": 33.0,
+  "semester_progress": 0.709,
+  "data_completeness": "full",
+  "data_issues": [],
+  "current_pace": 0.386,
+  "pace_is_reliable": true,
+  "projected_semester_points": 38.57,
+  "required_share_of_remaining": null,
+  "pass_status": "unreachable",
+  "risk": {
+   "level": "critical",
+   "label": "Критический риск",
+   "reasons": [
+    "Даже при всех оставшихся работах можно набрать не больше 57 баллов — это меньше порога 60."
+   ],
+   "rule": "unreachable"
+  },
+  "current_grade": {
+   "key": "unsatisfactory",
+   "label": "Неудовлетворительно"
+  },
+  "exam": null,
+  "targets": [
+   {
+    "threshold": 60.0,
+    "grade_key": "satisfactory",
+    "label": "Удовлетворительно",
+    "status": "unreachable",
+    "points_needed_semester": 33.0,
+    "required_share_of_remaining": null,
+    "exam_points_needed": null,
+    "extra_semester_points_needed": null,
+    "reachable_with_current_points": null,
+    "explanation": "Недостижимо в этом семестре: даже при всех оставшихся работах максимум — 57."
+   },
+   {
+    "threshold": 71.0,
+    "grade_key": "good",
+    "label": "Хорошо",
+    "status": "unreachable",
+    "points_needed_semester": 44.0,
+    "required_share_of_remaining": null,
+    "exam_points_needed": null,
+    "extra_semester_points_needed": null,
+    "reachable_with_current_points": null,
+    "explanation": "Недостижимо в этом семестре: даже при всех оставшихся работах максимум — 57."
+   },
+   {
+    "threshold": 85.0,
+    "grade_key": "excellent",
+    "label": "Отлично",
+    "status": "unreachable",
+    "points_needed_semester": 58.0,
+    "required_share_of_remaining": null,
+    "exam_points_needed": null,
+    "extra_semester_points_needed": null,
+    "reachable_with_current_points": null,
+    "explanation": "Недостижимо в этом семестре: даже при всех оставшихся работах максимум — 57."
+   }
+  ],
+  "modules": [
+   {
+    "id": 29,
+    "ordinal": 1,
+    "title": "Структурный анализ механизмов",
+    "status": "completed",
+    "ends_on": "2026-10-11",
+    "points": 14.0,
+    "max_points": 30.0,
+    "graded_max": 30.0,
+    "remaining": 0.0,
+    "missing": 0.0,
+    "share": 0.467,
+    "is_weak": true,
+    "topic_ids": [
+     52
+    ],
+    "items": [
+     {
+      "id": 68,
+      "title": "Домашнее задание 1",
+      "kind": "homework",
+      "max_points": 10.0,
+      "points": 6.0,
+      "due_date": "2026-09-30",
+      "state": "graded"
+     },
+     {
+      "id": 69,
+      "title": "Рубежный контроль 1",
+      "kind": "control",
+      "max_points": 20.0,
+      "points": 8.0,
+      "due_date": "2026-10-10",
+      "state": "graded"
+     }
+    ]
+   },
+   {
+    "id": 30,
+    "ordinal": 2,
+    "title": "Кинематический анализ",
+    "status": "completed",
+    "ends_on": "2026-11-15",
+    "points": 13.0,
+    "max_points": 40.0,
+    "graded_max": 40.0,
+    "remaining": 0.0,
+    "missing": 0.0,
+    "share": 0.325,
+    "is_weak": true,
+    "topic_ids": [
+     53
+    ],
+    "items": [
+     {
+      "id": 70,
+      "title": "Домашнее задание 2",
+      "kind": "homework",
+      "max_points": 15.0,
+      "points": 5.0,
+      "due_date": "2026-10-30",
+      "state": "graded"
+     },
+     {
+      "id": 71,
+      "title": "Рубежный контроль 2",
+      "kind": "control",
+      "max_points": 25.0,
+      "points": 8.0,
+      "due_date": "2026-11-14",
+      "state": "graded"
+     }
+    ]
+   },
+   {
+    "id": 31,
+    "ordinal": 3,
+    "title": "Зубчатые передачи",
+    "status": "in_progress",
+    "ends_on": "2026-12-20",
+    "points": 0.0,
+    "max_points": 30.0,
+    "graded_max": 0.0,
+    "remaining": 30.0,
+    "missing": 0.0,
+    "share": null,
+    "is_weak": false,
+    "topic_ids": [
+     54
+    ],
+    "items": [
+     {
+      "id": 72,
+      "title": "Домашнее задание 3",
+      "kind": "homework",
+      "max_points": 10.0,
+      "points": null,
+      "due_date": "2026-12-05",
+      "state": "pending"
+     },
+     {
+      "id": 73,
+      "title": "Рубежный контроль 3",
+      "kind": "control",
+      "max_points": 20.0,
+      "points": null,
+      "due_date": "2026-12-17",
+      "state": "pending"
+     }
+    ]
+   }
+  ],
+  "next_actions": [
+   {
+    "item_id": 72,
+    "title": "Домашнее задание 3",
+    "kind": "homework",
+    "module_id": 31,
+    "module_title": "Зубчатые передачи",
+    "max_points": 10.0,
+    "due_date": "2026-12-05",
+    "days_left": 12,
+    "overdue": false
+   },
+   {
+    "item_id": 73,
+    "title": "Рубежный контроль 3",
+    "kind": "control",
+    "module_id": 31,
+    "module_title": "Зубчатые передачи",
+    "max_points": 20.0,
+    "due_date": "2026-12-17",
+    "days_left": 24,
+    "overdue": false
+   }
+  ],
+  "weak_topic_ids": [
+   52,
+   53
+  ],
+  "explanation": "Набрано 27 баллов из 70 возможных по оценённым работам (39%). Впереди ещё 30 баллов, максимум семестровой части — 100. Даже при всех оставшихся работах можно набрать не больше 57 баллов — это меньше порога 60.",
+  "recommendation": "Обратитесь к преподавателю или в деканат, чтобы обсудить дальнейшие шаги — например, пересдачу или индивидуальный график. Для подготовки стоит повторить темы модуля «Кинематический анализ» — там набрано 33%."
+ },
+ "topics": [
+  {
+   "id": 52,
+   "title": "Структурный анализ механизмов, степень подвижности",
+   "module_id": 29,
+   "module_title": "Структурный анализ механизмов",
+   "module_ordinal": 1,
+   "is_weak": true,
+   "resources_count": 0
+  },
+  {
+   "id": 53,
+   "title": "Кинематический анализ рычажных механизмов",
+   "module_id": 30,
+   "module_title": "Кинематический анализ",
+   "module_ordinal": 2,
+   "is_weak": true,
+   "resources_count": 0
+  },
+  {
+   "id": 54,
+   "title": "Зубчатые передачи и эвольвентное зацепление",
+   "module_id": 31,
+   "module_title": "Зубчатые передачи",
+   "module_ordinal": 3,
+   "is_weak": false,
+   "resources_count": 0
+  }
+ ]
+}

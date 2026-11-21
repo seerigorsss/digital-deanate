@@ -1,0 +1,459 @@
+{
+ "today": "2026-11-23",
+ "group": "РК9-51Б",
+ "period": {
+  "title": "Осенний семестр 2026/27 учебного года",
+  "starts_on": "2026-09-01",
+  "ends_on": "2026-12-27"
+ },
+ "date_from": "2026-11-23",
+ "date_to": "2026-11-29",
+ "days": [
+  {
+   "date": "2026-11-23",
+   "weekday": 0,
+   "weekday_label": "Понедельник",
+   "week_number": 13,
+   "week_parity": "odd",
+   "week_parity_label": "Числитель",
+   "is_study_day": true,
+   "lessons": [
+    {
+     "key": "20:2026-11-23",
+     "lesson_id": 20,
+     "discipline_id": 8,
+     "discipline_title": "Теория автоматического управления",
+     "discipline_short": "ТАУ",
+     "lesson_type": "lecture",
+     "lesson_type_label": "Лекция",
+     "start_time": "10:15",
+     "end_time": "11:50",
+     "room": "УЛК 402",
+     "teacher": {
+      "id": 10,
+      "full_name": "Тарасов Виктор Юрьевич",
+      "position": "профессор, д.т.н."
+     },
+     "status": "normal",
+     "change": null
+    },
+    {
+     "key": "21:2026-11-23",
+     "lesson_id": 21,
+     "discipline_id": 8,
+     "discipline_title": "Теория автоматического управления",
+     "discipline_short": "ТАУ",
+     "lesson_type": "seminar",
+     "lesson_type_label": "Семинар",
+     "start_time": "12:00",
+     "end_time": "13:35",
+     "room": "УЛК 410",
+     "teacher": {
+      "id": 10,
+      "full_name": "Тарасов Виктор Юрьевич",
+      "position": "профессор, д.т.н."
+     },
+     "status": "cancelled",
+     "change": {
+      "type": "cancelled",
+      "title": "Отмена: Теория автоматического управления",
+      "text": "Семинар 23 ноября, 12:00 не состоится. Причина: преподаватель на научной конференции.",
+      "reason": "преподаватель на научной конференции"
+     }
+    },
+    {
+     "key": "23:2026-11-23",
+     "lesson_id": 23,
+     "discipline_id": 13,
+     "discipline_title": "Экономика",
+     "discipline_short": "Экономика",
+     "lesson_type": "lecture",
+     "lesson_type_label": "Лекция",
+     "start_time": "13:50",
+     "end_time": "15:25",
+     "room": "ГУК 501",
+     "teacher": {
+      "id": 16,
+      "full_name": "Савельева Марина Андреевна",
+      "position": "доцент, к.э.н."
+     },
+     "status": "normal",
+     "change": null
+    }
+   ],
+   "changes_count": 1
+  },
+  {
+   "date": "2026-11-24",
+   "weekday": 1,
+   "weekday_label": "Вторник",
+   "week_number": 13,
+   "week_parity": "odd",
+   "week_parity_label": "Числитель",
+   "is_study_day": true,
+   "lessons": [
+    {
+     "key": "24:2026-11-24",
+     "lesson_id": 24,
+     "discipline_id": 9,
+     "discipline_title": "Теория вероятностей и математическая статистика",
+     "discipline_short": "ТВиМС",
+     "lesson_type": "lecture",
+     "lesson_type_label": "Лекция",
+     "start_time": "08:30",
+     "end_time": "10:05",
+     "room": "ГУК 214",
+     "teacher": {
+      "id": 11,
+      "full_name": "Лебедева Наталья Олеговна",
+      "position": "доцент, к.ф.-м.н."
+     },
+     "status": "changed",
+     "change": {
+      "type": "room",
+      "title": "Новая аудитория: Теория вероятностей и математическая статистика",
+      "text": "Лекция 24 ноября, 08:30 пройдёт в аудитории ГУК 214.",
+      "reason": null,
+      "old_room": "ГУК 330"
+     }
+    },
+    {
+     "key": "25:2026-11-24",
+     "lesson_id": 25,
+     "discipline_id": 9,
+     "discipline_title": "Теория вероятностей и математическая статистика",
+     "discipline_short": "ТВиМС",
+     "lesson_type": "seminar",
+     "lesson_type_label": "Семинар",
+     "start_time": "10:15",
+     "end_time": "11:50",
+     "room": "ГУК 332",
+     "teacher": {
+      "id": 11,
+      "full_name": "Лебедева Наталья Олеговна",
+      "position": "доцент, к.ф.-м.н."
+     },
+     "status": "normal",
+     "change": null
+    },
+    {
+     "key": "26:2026-11-24",
+     "lesson_id": 26,
+     "discipline_id": 10,
+     "discipline_title": "Программирование микроконтроллеров",
+     "discipline_short": "Микроконтроллеры",
+     "lesson_type": "lab",
+     "lesson_type_label": "Лабораторная",
+     "start_time": "12:00",
+     "end_time": "13:35",
+     "room": "Лаб. 117",
+     "teacher": {
+      "id": 13,
+      "full_name": "Демидов Артём Ильич",
+      "position": "ассистент"
+     },
+     "status": "normal",
+     "change": null
+    }
+   ],
+   "changes_count": 1
+  },
+  {
+   "date": "2026-11-25",
+   "weekday": 2,
+   "weekday_label": "Среда",
+   "week_number": 13,
+   "week_parity": "odd",
+   "week_parity_label": "Числитель",
+   "is_study_day": true,
+   "lessons": [
+    {
+     "key": "27:2026-11-25",
+     "lesson_id": 27,
+     "discipline_id": 11,
+     "discipline_title": "Теория механизмов и машин",
+     "discipline_short": "ТММ",
+     "lesson_type": "lecture",
+     "lesson_type_label": "Лекция",
+     "start_time": "10:15",
+     "end_time": "11:50",
+     "room": "ГУК 640",
+     "teacher": {
+      "id": 14,
+      "full_name": "Яковлев Сергей Михайлович",
+      "position": "доцент, к.т.н."
+     },
+     "status": "normal",
+     "change": null
+    },
+    {
+     "key": "28:2026-11-25",
+     "lesson_id": 28,
+     "discipline_id": 11,
+     "discipline_title": "Теория механизмов и машин",
+     "discipline_short": "ТММ",
+     "lesson_type": "seminar",
+     "lesson_type_label": "Семинар",
+     "start_time": "12:00",
+     "end_time": "13:35",
+     "room": "ГУК 642",
+     "teacher": {
+      "id": 14,
+      "full_name": "Яковлев Сергей Михайлович",
+      "position": "доцент, к.т.н."
+     },
+     "status": "moved_out",
+     "change": {
+      "type": "moved",
+      "title": "Перенос: Теория механизмов и машин",
+      "text": "Семинар 25 ноября, 12:00 перенесена на 28 ноября (субботу), 10:15, ауд. ГУК 642. Причина: перенос по решению кафедры.",
+      "reason": "перенос по решению кафедры",
+      "new_date": "2026-11-28",
+      "new_start_time": "10:15"
+     }
+    },
+    {
+     "key": "29:2026-11-25",
+     "lesson_id": 29,
+     "discipline_id": 14,
+     "discipline_title": "Иностранный язык (профессиональный английский)",
+     "discipline_short": "Английский",
+     "lesson_type": "seminar",
+     "lesson_type_label": "Семинар",
+     "start_time": "13:50",
+     "end_time": "15:25",
+     "room": "УЛК 320",
+     "teacher": {
+      "id": 17,
+      "full_name": "Романова Алина Геннадьевна",
+      "position": "старший преподаватель"
+     },
+     "status": "normal",
+     "change": null
+    }
+   ],
+   "changes_count": 1
+  },
+  {
+   "date": "2026-11-26",
+   "weekday": 3,
+   "weekday_label": "Четверг",
+   "week_number": 13,
+   "week_parity": "odd",
+   "week_parity_label": "Числитель",
+   "is_study_day": true,
+   "lessons": [
+    {
+     "key": "30:2026-11-26",
+     "lesson_id": 30,
+     "discipline_id": 12,
+     "discipline_title": "Электротехника и электроника",
+     "discipline_short": "Электроника",
+     "lesson_type": "lecture",
+     "lesson_type_label": "Лекция",
+     "start_time": "08:30",
+     "end_time": "10:05",
+     "room": "ГУК 527",
+     "teacher": {
+      "id": 15,
+      "full_name": "Полякова Елена Викторовна",
+      "position": "доцент, к.т.н."
+     },
+     "status": "normal",
+     "change": null
+    },
+    {
+     "key": "31:2026-11-26",
+     "lesson_id": 31,
+     "discipline_id": 12,
+     "discipline_title": "Электротехника и электроника",
+     "discipline_short": "Электроника",
+     "lesson_type": "lab",
+     "lesson_type_label": "Лабораторная",
+     "start_time": "10:15",
+     "end_time": "11:50",
+     "room": "Лаб. 305",
+     "teacher": {
+      "id": 15,
+      "full_name": "Полякова Елена Викторовна",
+      "position": "доцент, к.т.н."
+     },
+     "status": "normal",
+     "change": null
+    },
+    {
+     "key": "32:2026-11-26",
+     "lesson_id": 32,
+     "discipline_id": 10,
+     "discipline_title": "Программирование микроконтроллеров",
+     "discipline_short": "Микроконтроллеры",
+     "lesson_type": "lecture",
+     "lesson_type_label": "Лекция",
+     "start_time": "12:00",
+     "end_time": "13:35",
+     "room": "УЛК 402",
+     "teacher": {
+      "id": 13,
+      "full_name": "Демидов Артём Ильич",
+      "position": "ассистент"
+     },
+     "status": "changed",
+     "change": {
+      "type": "teacher",
+      "title": "Замена преподавателя: Программирование микроконтроллеров",
+      "text": "Лекция 26 ноября, 12:00 проведёт Демидов Артём Ильич.",
+      "reason": null,
+      "old_teacher": {
+       "id": 12,
+       "full_name": "Орлов Кирилл Дмитриевич",
+       "position": "старший преподаватель"
+      }
+     }
+    }
+   ],
+   "changes_count": 1
+  },
+  {
+   "date": "2026-11-27",
+   "weekday": 4,
+   "weekday_label": "Пятница",
+   "week_number": 13,
+   "week_parity": "odd",
+   "week_parity_label": "Числитель",
+   "is_study_day": true,
+   "lessons": [
+    {
+     "key": "33:2026-11-27",
+     "lesson_id": 33,
+     "discipline_id": 13,
+     "discipline_title": "Экономика",
+     "discipline_short": "Экономика",
+     "lesson_type": "seminar",
+     "lesson_type_label": "Семинар",
+     "start_time": "10:15",
+     "end_time": "11:50",
+     "room": "ГУК 214",
+     "teacher": {
+      "id": 16,
+      "full_name": "Савельева Марина Андреевна",
+      "position": "доцент, к.э.н."
+     },
+     "status": "normal",
+     "change": null
+    },
+    {
+     "key": "35:2026-11-27",
+     "lesson_id": 35,
+     "discipline_id": 11,
+     "discipline_title": "Теория механизмов и машин",
+     "discipline_short": "ТММ",
+     "lesson_type": "seminar",
+     "lesson_type_label": "Семинар",
+     "start_time": "13:50",
+     "end_time": "15:25",
+     "room": "ГУК 642",
+     "teacher": {
+      "id": 14,
+      "full_name": "Яковлев Сергей Михайлович",
+      "position": "доцент, к.т.н."
+     },
+     "status": "normal",
+     "change": null
+    },
+    {
+     "key": "added12:2026-11-27",
+     "lesson_id": null,
+     "discipline_id": 11,
+     "discipline_title": "Теория механизмов и машин",
+     "discipline_short": "ТММ",
+     "lesson_type": "consultation",
+     "lesson_type_label": "Консультация",
+     "start_time": "15:40",
+     "end_time": "17:15",
+     "room": "ГУК 642",
+     "teacher": {
+      "id": 14,
+      "full_name": "Яковлев Сергей Михайлович",
+      "position": "доцент, к.т.н."
+     },
+     "status": "added",
+     "change": {
+      "type": "added",
+      "title": "Дополнительное занятие: Теория механизмов и машин",
+      "text": "Консультация 27 ноября, 15:40–17:15, ауд. ГУК 642. Причина: консультация для студентов с задолженностями по модулям 1–2.",
+      "reason": "консультация для студентов с задолженностями по модулям 1–2"
+     }
+    }
+   ],
+   "changes_count": 1
+  },
+  {
+   "date": "2026-11-28",
+   "weekday": 5,
+   "weekday_label": "Суббота",
+   "week_number": 13,
+   "week_parity": "odd",
+   "week_parity_label": "Числитель",
+   "is_study_day": true,
+   "lessons": [
+    {
+     "key": "36:2026-11-28",
+     "lesson_id": 36,
+     "discipline_id": 14,
+     "discipline_title": "Иностранный язык (профессиональный английский)",
+     "discipline_short": "Английский",
+     "lesson_type": "seminar",
+     "lesson_type_label": "Семинар",
+     "start_time": "08:30",
+     "end_time": "10:05",
+     "room": "УЛК 320",
+     "teacher": {
+      "id": 17,
+      "full_name": "Романова Алина Геннадьевна",
+      "position": "старший преподаватель"
+     },
+     "status": "normal",
+     "change": null
+    },
+    {
+     "key": "28:2026-11-28:moved10",
+     "lesson_id": 28,
+     "discipline_id": 11,
+     "discipline_title": "Теория механизмов и машин",
+     "discipline_short": "ТММ",
+     "lesson_type": "seminar",
+     "lesson_type_label": "Семинар",
+     "start_time": "10:15",
+     "end_time": "11:50",
+     "room": "ГУК 642",
+     "teacher": {
+      "id": 14,
+      "full_name": "Яковлев Сергей Михайлович",
+      "position": "доцент, к.т.н."
+     },
+     "status": "moved_in",
+     "change": {
+      "type": "moved",
+      "title": "Перенос: Теория механизмов и машин",
+      "text": "Семинар 25 ноября, 12:00 перенесена на 28 ноября (субботу), 10:15, ауд. ГУК 642. Причина: перенос по решению кафедры.",
+      "reason": "перенос по решению кафедры",
+      "original_date": "2026-11-25",
+      "original_start_time": "12:00"
+     }
+    }
+   ],
+   "changes_count": 1
+  },
+  {
+   "date": "2026-11-29",
+   "weekday": 6,
+   "weekday_label": "Воскресенье",
+   "week_number": 13,
+   "week_parity": "odd",
+   "week_parity_label": "Числитель",
+   "is_study_day": true,
+   "lessons": [],
+   "changes_count": 0
+  }
+ ]
+}

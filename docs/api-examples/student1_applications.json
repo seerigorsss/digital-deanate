@@ -1,0 +1,85 @@
+{
+ "items": [
+  {
+   "id": 5,
+   "number": "26-00005",
+   "type_key": "individual_schedule",
+   "title": "Заявление на индивидуальный график сдачи",
+   "category": "statement",
+   "status": "draft",
+   "status_label": "Черновик",
+   "created_at": "2026-11-21T17:15:00",
+   "updated_at": "2026-11-21T17:15:00",
+   "submitted_at": null,
+   "summary": "",
+   "is_active": false,
+   "unread_hint": false
+  },
+  {
+   "id": 2,
+   "number": "26-00002",
+   "type_key": "scholarship_certificate",
+   "title": "Справка о размере стипендии",
+   "category": "certificate",
+   "status": "in_progress",
+   "status_label": "В обработке",
+   "created_at": "2026-11-19T07:00:00",
+   "updated_at": "2026-11-20T09:15:00",
+   "submitted_at": "2026-11-19T07:01:00",
+   "summary": "",
+   "is_active": true,
+   "unread_hint": false
+  },
+  {
+   "id": 1,
+   "number": "26-00001",
+   "type_key": "study_certificate",
+   "title": "Справка об обучении",
+   "category": "certificate",
+   "status": "ready",
+   "status_label": "Готова к получению",
+   "created_at": "2026-11-16T06:10:00",
+   "updated_at": "2026-11-18T08:05:00",
+   "submitted_at": "2026-11-16T06:12:00",
+   "summary": "По месту работы родителей",
+   "is_active": true,
+   "unread_hint": false
+  },
+  {
+   "id": 3,
+   "number": "26-00003",
+   "type_key": "dean_question",
+   "title": "Обращение в деканат",
+   "category": "question",
+   "status": "completed",
+   "status_label": "Завершена",
+   "created_at": "2026-11-05T15:20:00",
+   "updated_at": "2026-11-10T12:00:00",
+   "submitted_at": "2026-11-05T15:21:00",
+   "summary": "Перезачёт онлайн-курса из летней школы",
+   "is_active": false,
+   "unread_hint": false
+  },
+  {
+   "id": 4,
+   "number": "26-00004",
+   "type_key": "transcript",
+   "title": "Академическая выписка оценок",
+   "category": "certificate",
+   "status": "ready",
+   "status_label": "Готова к получению",
+   "created_at": "2026-10-20T08:00:00",
+   "updated_at": "2026-10-24T10:00:00",
+   "submitted_at": "2026-10-20T08:02:00",
+   "summary": "",
+   "is_active": true,
+   "unread_hint": false
+  }
+ ],
+ "counts": {
+  "all": 5,
+  "active": 3,
+  "closed": 1,
+  "draft": 1
+ }
+}
