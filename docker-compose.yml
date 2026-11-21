@@ -1,0 +1,14 @@
+# Локальный запуск или VPS:  docker compose up --build   →  http://localhost:8000
+services:
+  app:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      COOKIE_SECURE: "false"        # для http://localhost; за HTTPS-прокси на сервере — "true"
+      UNIVERSITY_NAME: "Технический университет"
+    volumes:
+      - deanate-data:/data          # БД сохраняется между перезапусками
+    restart: unless-stopped
+volumes:
+  deanate-data:

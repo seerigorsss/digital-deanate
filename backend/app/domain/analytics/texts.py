@@ -12,6 +12,7 @@ import math
 from datetime import date
 from typing import TYPE_CHECKING, Iterable, Mapping, Sequence
 
+from .metrics import grade_for
 from .types import DisciplineAnalytics, ModuleAnalytics, NextAction, TargetAnalytics
 
 if TYPE_CHECKING:  # pragma: no cover
@@ -47,6 +48,9 @@ ASSESSMENT_TYPE_LABELS: Mapping[str, str] = {
     "distributed_exam": "Распределённый экзамен",
     "exam": "Экзамен",
 }
+
+#: Короткая подсказка для сводки, когда порог в обычном порядке не достигается.
+CONTACT_TEACHER_HINT = "обсудите ситуацию с преподавателем или в деканате."
 
 CREDIT_TARGET_KEY = "credit"
 CREDIT_TARGET_LABEL = "Зачёт"
@@ -255,8 +259,9 @@ def risk_reasons(f: "DisciplineFacts", d: "RiskDecision") -> tuple[str, ...]:
     elif rule == "semester_secured":
         if f.is_exam:
             reasons.append(
-                f"В семестре набрано {pts(f.current)}: при минимальных {fmt_num(exam_min)} на экзамене "
-                f"итог составит {fmt_num(f.current + exam_min)} — не ниже порога {fmt_num(f.passing)}."
+                f"Семестровых баллов ({fmt_num(f.current)}) достаточно: при минимальных "
+                f"{fmt_num(exam_min)} на экзамене итог составит {fmt_num(f.current + exam_min)} — "
+                f"не ниже порога {fmt_num(f.passing)}."
             )
             reasons.append(
                 f"На экзамене всё равно нужно набрать не меньше {pts_gen(exam_min)} — "
@@ -270,6 +275,18 @@ def risk_reasons(f: "DisciplineFacts", d: "RiskDecision") -> tuple[str, ...]:
             reasons.append(
                 f"Набрано {pts(f.current)} — порог {fmt_num(f.passing)} уже достигнут."
             )
+    elif rule == "unreachable" and f.remaining <= 0:
+        if f.is_exam:
+            reasons.append(
+                f"Все модули завершены: в семестре {pts(f.current)}, и даже с {fmt_num(exam_max)} "
+                f"на экзамене итог составит {fmt_num(f.current + exam_max)} — меньше порога "
+                f"{fmt_num(f.passing)}."
+            )
+        else:
+            reasons.append(
+                f"Все модули завершены: набрано {pts(f.current)} — это меньше порога "
+                f"{fmt_num(f.passing)}, оставшегося потенциала нет."
+            )
     elif rule == "unreachable":
         if f.is_exam:
             reasons.append(
@@ -282,8 +299,6 @@ def risk_reasons(f: "DisciplineFacts", d: "RiskDecision") -> tuple[str, ...]:
                 f"Даже при всех оставшихся работах можно набрать не больше "
                 f"{pts_gen(f.max_achievable)} — это меньше порога {fmt_num(f.passing)}."
             )
-        if f.remaining <= 0:
-            reasons.append("Все модули завершены, оставшегося потенциала нет.")
     elif rule == "exam_above_minimum_required":
         need_exam = f.passing - f.max_achievable
         reasons.append(
@@ -401,10 +416,21 @@ def target_explanation(
                 f"но обязательный минимум — {pts_gen(exam_min)}; итог при {fmt_num(exam_min)} — "
                 f"{fmt_num(f.current + exam_min)}."
             )
-        return (
-            f"Семестровых баллов достаточно: на экзамене нужно не меньше "
+        if raw_need <= exam_min:
+            return (
+                f"Семестровых баллов достаточно: на экзамене нужно не меньше {pts_gen(exam_min)} "
+                "(обязательный минимум)."
+            )
+        text = (
+            f"При текущих {fmt_num(f.current)} семестровых баллах на экзамене нужно не меньше "
             f"{pts_gen(exam_needed or raw_need)}."
         )
+        to_min = raw_need - exam_min
+        if to_min <= f.remaining:
+            text += (
+                f" Если добрать в семестре ещё {pts(to_min)}, хватит минимальных {fmt_num(exam_min)}."
+            )
+        return text
     # Нужно больше 30 на экзамене → при текущих семестровых баллах недостижимо.
     head = (
         f"При текущих {fmt_num(f.current)} семестровых баллах недостижимо даже с "
@@ -441,7 +467,7 @@ def discipline_explanation(f: "DisciplineFacts", d: "RiskDecision", reasons: Seq
                 f"Впереди ещё {pts(f.remaining)}, максимум семестровой части — "
                 f"{fmt_num(f.semester_max)}."
             )
-        else:
+        elif not (reasons and reasons[0].startswith("Все модули завершены")):
             sentences.append("Все модули завершены — оставшегося потенциала нет.")
     if d.level == "insufficient_data":
         sentences.append("Уровень риска не определяется, пока данных недостаточно.")
@@ -513,7 +539,9 @@ def discipline_recommendation(
             )
     elif rule == "exam_passed":
         exam = f.exam_points or 0.0
-        parts.append(f"Дисциплина сдана: итог {fmt_num(f.current + exam)}.")
+        total = f.current + exam
+        grade = grade_for(total, f.bands, 1e-9)
+        parts.append(f"Дисциплина сдана: итог {fmt_num(total)} — «{grade.label}».")
     elif rule == "no_items":
         parts.append("Уточните у преподавателя или в деканате план работ по дисциплине.")
     elif rule == "no_graded":
@@ -551,7 +579,9 @@ def discipline_recommendation(
     elif rule == "exam_above_minimum_required":
         need_exam = f.passing - f.max_achievable
         if na is not None:
-            parts.append(f"Соберите все оставшиеся семестровые баллы — начните с {action_phrase(na)}.")
+            parts.append(
+                f"Соберите все оставшиеся семестровые баллы — начните с работы {action_phrase(na)}."
+            )
         parts.append(
             f"Готовьтесь к экзамену: при полном семестре на нём понадобится не меньше "
             f"{pts_gen(need_exam)}."
@@ -568,10 +598,14 @@ def discipline_recommendation(
                 parts.append(hint)
         else:
             if na is not None:
-                lead = "Важно сдать все оставшиеся работы; начните с" if rule == "almost_all_remaining" else "Начните с работы"
+                lead = (
+                    "Важно сдать все оставшиеся работы — начните с работы"
+                    if rule == "almost_all_remaining"
+                    else "Начните с работы"
+                )
                 parts.append(f"{lead} {action_phrase(na)}.")
             parts.append(
-                f"Всего до {_semester_goal(f)} нужно ещё {pts(f.deficit)} из "
+                f"Всего до {_semester_goal(f, short=True)} нужно ещё {pts(f.deficit)} из "
                 f"{fmt_num(f.remaining)} оставшихся ({fmt_pct(r)})."
             )
         if weakest is not None and rule != "projection_margin":
@@ -624,10 +658,14 @@ def points_target_text(d: DisciplineAnalytics) -> str:
         )
     needed = d.semester_points_needed or 0
     share = d.required_share_of_remaining
+    goal = _goal_phrase(
+        d.assessment_type, d.passing_threshold, d.semester_target,
+        exam.points_min if exam else None, short=True,
+    )
     text = (
         f"Ещё {pts(needed)} из {fmt_num(d.remaining_points_max)} оставшихся"
         + (f" ({fmt_pct(share)})" if share is not None else "")
-        + f" до {fmt_num(d.semester_target)}"
+        + f" до {goal}"
     )
     if exam is not None:
         text += f" и не меньше {pts_gen(exam.points_min)} на экзамене"
@@ -637,6 +675,10 @@ def points_target_text(d: DisciplineAnalytics) -> str:
 def positive_message(d: DisciplineAnalytics) -> str | None:
     rule = d.risk.rule
     exam = d.exam
+    goal = _goal_phrase(
+        d.assessment_type, d.passing_threshold, d.semester_target,
+        exam.points_min if exam else None, short=True,
+    )
     if rule == "exam_passed" and exam is not None:
         grade = f" — «{d.current_grade.label}»" if d.current_grade else ""
         return f"Экзамен сдан: итог {fmt_num(exam.final_total or 0)}{grade}."
@@ -656,9 +698,15 @@ def positive_message(d: DisciplineAnalytics) -> str | None:
             f"{pts(d.current_semester_points)}."
         )
     if d.projected_semester_points is not None and d.current_pace is not None:
+        projected = fmt_approx(d.projected_semester_points)
+        if rule == "projection_margin":
+            return (
+                f"Хороший темп ({fmt_pct(d.current_pace)}): ориентировочно около {projected} — "
+                f"с запасом относительно {goal}."
+            )
         return (
-            f"Хороший темп ({fmt_pct(d.current_pace)}): ориентировочно "
-            f"{fmt_num(d.projected_semester_points)} при семестровой цели {fmt_num(d.semester_target)}."
+            f"При текущем темпе ({fmt_pct(d.current_pace)}) ориентировочно около {projected} — "
+            f"выше {goal}."
         )
     return None
 
@@ -686,27 +734,37 @@ def summary_explanation(
         critical = zone_counts.get("critical", 0)
         high = zone_counts.get("high", 0)
         medium = zone_counts.get("medium", 0)
+        attention = high + medium
         if critical:
             text = (
-                f"Критический риск — {disciplines_count(critical)}: порог там уже не достигается "
+                f"В критической зоне — {disciplines_count(critical)}: порог там уже не достигается "
                 "обычным порядком, поэтому важно обсудить ситуацию с преподавателем."
             )
             if caps_applied and cap_value is not None:
                 text += (
-                    f" Индекс ограничен значением {cap_value}, чтобы эта дисциплина не потерялась "
-                    "среди благополучных."
+                    f" Индекс ограничен значением {cap_value}, чтобы это не потерялось "
+                    "среди благополучных дисциплин."
                 )
             sentences.append(text)
-        elif high or medium:
-            pieces = []
-            if high:
-                pieces.append(f"высокий риск — {disciplines_count(high)}")
-            if medium:
-                pieces.append(f"средний риск — {disciplines_count(medium)}")
-            lead = "В целом ситуация стабильная, но" if index_label == "Стабильно" else "Есть над чем поработать:"
-            sentences.append(f"{lead} {', '.join(pieces)} — там запас баллов небольшой.")
-        else:
-            sentences.append("Во всех дисциплинах с известным риском порог достижим без резкого роста темпа.")
+        if attention:
+            if not critical and index_label == "Стабильно":
+                sentences.append(
+                    f"В целом ситуация стабильная, но по {attention} "
+                    f"{plural(attention, 'дисциплине', 'дисциплинам', 'дисциплинам')} "
+                    "запас баллов небольшой."
+                )
+            else:
+                pieces = []
+                if high:
+                    pieces.append(f"высокий риск — {high}")
+                if medium:
+                    pieces.append(f"средний — {medium}")
+                lead = "Ещё требуют внимания" if critical else "Требуют внимания"
+                sentences.append(f"{lead}: {disciplines_count(attention)} ({', '.join(pieces)}).")
+        if not critical and not attention:
+            sentences.append(
+                "Во всех оценённых дисциплинах порог обеспечен или достижим в реалистичном темпе."
+            )
     if insufficient_titles:
         sentences.append(
             f"По {len(insufficient_titles)} "
@@ -717,9 +775,13 @@ def summary_explanation(
         title, action, fallback = first_priority
         if action is not None:
             sentences.append(
-                f"В первую очередь стоит заняться дисциплиной «{title}»: ближайшая работа — "
-                f"«{action.title}» ({deadline_phrase(action)})."
+                f"В первую очередь — «{title}»: ближайшая работа «{action.title}» "
+                f"({deadline_phrase(action)})."
+            )
+        elif fallback:
+            sentences.append(
+                f"В первую очередь — «{title}»: {fallback[:1].lower()}{fallback[1:]}"
             )
         else:
-            sentences.append(f"В первую очередь стоит заняться дисциплиной «{title}»: {fallback}")
+            sentences.append(f"В первую очередь — «{title}».")
     return " ".join(sentences)

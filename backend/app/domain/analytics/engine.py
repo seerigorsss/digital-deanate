@@ -39,6 +39,8 @@ def analyze_discipline(
     f = compute_facts(inp, cfg)
     decision = classify_risk(f, cfg)
     insufficient = decision.level == "insufficient_data"
+    # После экзамена (тип C) семестровая «потребность» уже не имеет смысла.
+    no_semester_need = insufficient or f.exam_taken
 
     reasons = risk_reasons(f, decision)
     targets = compute_targets(f, decision, cfg)
@@ -67,14 +69,14 @@ def analyze_discipline(
         max_achievable_semester=f.max_achievable,
         passing_threshold=f.passing,
         semester_target=f.semester_target,
-        semester_points_needed=None if insufficient else f.deficit,
+        semester_points_needed=None if no_semester_need else f.deficit,
         semester_progress=inp.semester_progress,
         data_completeness=completeness,  # type: ignore[arg-type]
         data_issues=issues,
         current_pace=f.pace,
         pace_is_reliable=f.pace_reliable,
         projected_semester_points=None if insufficient else f.projection,
-        required_share_of_remaining=None if insufficient else f.required_share,
+        required_share_of_remaining=None if no_semester_need else f.required_share,
         pass_status=decision.pass_status,  # type: ignore[arg-type]
         risk=RiskAssessment(
             level=decision.level,  # type: ignore[arg-type]

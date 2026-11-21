@@ -17,6 +17,7 @@ from typing import Iterable
 from .config import DEFAULT_CONFIG, AnalyticsConfig
 from .risk import CONTACT_TEACHER_RULES
 from .texts import (
+    CONTACT_TEACHER_HINT,
     INSUFFICIENT_INDEX_LABEL,
     RISK_LABELS,
     index_formula,
@@ -147,15 +148,15 @@ def summarize(
         contact = d.risk.rule in CONTACT_TEACHER_RULES
         action = _nearest_action(d)
         item = PriorityItem(
-                discipline_id=d.discipline_id,
-                title=d.title,
-                risk_level=d.risk.level,
-                risk_label=d.risk.label,
-                reason=d.risk.reasons[0] if d.risk.reasons else RISK_LABELS[d.risk.level],
-                action=d.recommendation,
-                points_target=points_target_text(d),
-                deadline=None if contact or action is None else action.due_date,
-                score=scores[id(d)],
+            discipline_id=d.discipline_id,
+            title=d.title,
+            risk_level=d.risk.level,
+            risk_label=d.risk.label,
+            reason=d.risk.reasons[0] if d.risk.reasons else RISK_LABELS[d.risk.level],
+            action=d.recommendation,
+            points_target=points_target_text(d),
+            deadline=None if contact or action is None else action.due_date,
+            score=scores[id(d)],
         )
         ranked.append((item, d))
     ranked.sort(key=lambda pd: (-pd[0].score, rank[pd[0].risk_level], pd[0].title, pd[0].discipline_id))
@@ -177,9 +178,10 @@ def summarize(
     first_priority = None
     if ranked:
         top, top_d = ranked[0]
-        top_action = None if top_d.risk.rule in CONTACT_TEACHER_RULES else _nearest_action(top_d)
-        fallback = top.action[:1].lower() + top.action[1:] if top.action else ""
-        first_priority = (top.title, top_action, fallback)
+        if top_d.risk.rule in CONTACT_TEACHER_RULES:
+            first_priority = (top.title, None, CONTACT_TEACHER_HINT)
+        else:
+            first_priority = (top.title, _nearest_action(top_d), top.points_target)
 
     explanation = summary_explanation(
         index_value=index.value,

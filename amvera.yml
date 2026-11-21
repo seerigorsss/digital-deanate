@@ -1,0 +1,12 @@
+# Конфигурация для Amvera Cloud (российский PaaS, деплой через git push)
+meta:
+  environment: docker
+  toolchain:
+    name: docker
+    version: latest
+build:
+  dockerfile: Dockerfile
+  skip: false
+run:
+  persistenceMount: /data
+  containerPort: 8000

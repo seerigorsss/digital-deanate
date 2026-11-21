@@ -1,0 +1,166 @@
+/*
+ * Дизайн-токены «Цифрового деканата». Описание и правила — docs/design-system.md.
+ * Контраст текста проверен (WCAG AA): основной и вторичный текст ≥ 4.5:1 на своих фонах.
+ */
+:root {
+  /* ---------- Нейтральные ---------- */
+  --c-bg: #f4f5fa;
+  --c-surface: #ffffff;
+  --c-surface-2: #f8f9fc;
+  --c-surface-3: #eef0f7;
+  --c-border: #e3e6ef;
+  --c-border-strong: #cdd2e1;
+  --c-text: #141727;        /* 17.8:1 на белом */
+  --c-text-2: #474d66;      /* 8.3:1 */
+  --c-text-3: #5f6680;      /* 5.7:1 на белом, 5.2:1 на фоне */
+  --c-overlay: rgba(20, 23, 39, 0.48);
+
+  /* ---------- Акцент (индиго) ---------- */
+  --c-accent: #4f46e5;      /* белый текст на акценте 6.3:1 */
+  --c-accent-hover: #4338ca;
+  --c-accent-active: #3730a3;
+  --c-accent-soft: #eef0ff;
+  --c-accent-softer: #f6f7ff;
+  --c-accent-text: #3730a3; /* 8.8:1 на accent-soft */
+  --c-accent-border: #c7cbfb;
+  --c-focus: #6366f1;
+
+  /* ---------- Изменения расписания (отдельно от цветов риска) ---------- */
+  --c-change: #a21caf;
+  --c-change-text: #86198f;
+  --c-change-soft: #fdf0fe;
+  --c-change-border: #f0c4f5;
+
+  /* ---------- Зоны учебного риска: цвет + иконка + текст ---------- */
+  --c-critical: #dc2626;
+  --c-critical-text: #b91c1c;
+  --c-critical-soft: #fef2f2;
+  --c-critical-border: #fecaca;
+
+  --c-high: #ea580c;
+  --c-high-text: #c2410c;
+  --c-high-soft: #fff4ec;
+  --c-high-border: #fed7aa;
+
+  --c-medium: #eab308;
+  --c-medium-text: #854d0e;
+  --c-medium-soft: #fefbe8;
+  --c-medium-border: #fde68a;
+
+  --c-low: #0d9488;
+  --c-low-text: #0f766e;
+  --c-low-soft: #effcf9;
+  --c-low-border: #99f6e4;
+
+  --c-stable: #16a34a;
+  --c-stable-text: #15803d;
+  --c-stable-soft: #f0fdf4;
+  --c-stable-border: #bbf7d0;
+
+  --c-nodata: #94a3b8;
+  --c-nodata-text: #475569;
+  --c-nodata-soft: #f1f5f9;
+  --c-nodata-border: #cbd5e1;
+
+  /* ---------- Служебные тона (статусы заявок, сообщения) ---------- */
+  --c-info: #0284c7;
+  --c-info-text: #075985;
+  --c-info-soft: #e8f5fd;
+  --c-info-border: #bae6fd;
+
+  --c-attention: #d97706;
+  --c-attention-text: #92400e;
+  --c-attention-soft: #fef3c7;
+  --c-attention-border: #fcd34d;
+
+  --c-success: #16a34a;
+  --c-success-text: #166534;
+  --c-success-soft: #dcfce7;
+  --c-success-border: #86efac;
+  --c-success-strong: #15803d; /* белый текст 5.0:1 */
+
+  --c-danger: #d92d20;
+  --c-danger-text: #b42318;
+  --c-danger-soft: #fef3f2;
+  --c-danger-border: #fecdca;
+
+  --c-dark: #374151;
+  --c-dark-soft: #e5e7eb;
+
+  /* ---------- Типографика ---------- */
+  --font: 'Manrope', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --fs-xs: 0.75rem;    /* 12 */
+  --fs-sm: 0.875rem;   /* 14 */
+  --fs-md: 1rem;       /* 16 */
+  --fs-lg: 1.125rem;   /* 18 */
+  --fs-xl: 1.25rem;    /* 20 */
+  --fs-2xl: 1.5rem;    /* 24 */
+  --fs-3xl: 1.875rem;  /* 30 */
+  --fs-4xl: 2.5rem;    /* 40 */
+  --lh-tight: 1.2;
+  --lh-snug: 1.35;
+  --lh-normal: 1.5;
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+
+  /* ---------- Отступы (сетка 4 px) ---------- */
+  --sp-1: 4px;
+  --sp-2: 8px;
+  --sp-3: 12px;
+  --sp-4: 16px;
+  --sp-5: 20px;
+  --sp-6: 24px;
+  --sp-8: 32px;
+  --sp-10: 40px;
+  --sp-12: 48px;
+
+  /* ---------- Радиусы ---------- */
+  --r-xs: 6px;
+  --r-sm: 8px;
+  --r-md: 12px;
+  --r-lg: 16px;
+  --r-xl: 20px;
+  --r-pill: 999px;
+
+  /* ---------- Тени ---------- */
+  --sh-xs: 0 1px 2px rgba(20, 23, 39, 0.05);
+  --sh-sm: 0 1px 3px rgba(20, 23, 39, 0.06), 0 1px 2px rgba(20, 23, 39, 0.04);
+  --sh-md: 0 6px 16px -4px rgba(20, 23, 39, 0.10), 0 2px 4px rgba(20, 23, 39, 0.04);
+  --sh-lg: 0 18px 40px -12px rgba(20, 23, 39, 0.22);
+  --sh-focus: 0 0 0 3px rgba(99, 102, 241, 0.35);
+
+  /* ---------- Размеры и слои ---------- */
+  --tap: 44px;
+  --header-h: 56px;
+  --bottom-nav-h: 64px;
+  --sidebar-w: 248px;
+  --content-max: 1120px;
+  --z-header: 30;
+  --z-nav: 40;
+  --z-menu: 50;
+  --z-modal: 60;
+  --z-toast: 70;
+
+  --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --dur: 160ms;
+}
+
+/* Тона — подставляются в компоненты через --tone-* */
+.tone-critical { --tone: var(--c-critical); --tone-text: var(--c-critical-text); --tone-soft: var(--c-critical-soft); --tone-border: var(--c-critical-border); }
+.tone-high { --tone: var(--c-high); --tone-text: var(--c-high-text); --tone-soft: var(--c-high-soft); --tone-border: var(--c-high-border); }
+.tone-medium { --tone: var(--c-medium); --tone-text: var(--c-medium-text); --tone-soft: var(--c-medium-soft); --tone-border: var(--c-medium-border); }
+.tone-low { --tone: var(--c-low); --tone-text: var(--c-low-text); --tone-soft: var(--c-low-soft); --tone-border: var(--c-low-border); }
+.tone-stable { --tone: var(--c-stable); --tone-text: var(--c-stable-text); --tone-soft: var(--c-stable-soft); --tone-border: var(--c-stable-border); }
+.tone-nodata { --tone: var(--c-nodata); --tone-text: var(--c-nodata-text); --tone-soft: var(--c-nodata-soft); --tone-border: var(--c-nodata-border); }
+.tone-info { --tone: var(--c-info); --tone-text: var(--c-info-text); --tone-soft: var(--c-info-soft); --tone-border: var(--c-info-border); }
+.tone-attention { --tone: var(--c-attention); --tone-text: var(--c-attention-text); --tone-soft: var(--c-attention-soft); --tone-border: var(--c-attention-border); }
+.tone-success { --tone: var(--c-success); --tone-text: var(--c-success-text); --tone-soft: var(--c-success-soft); --tone-border: var(--c-success-border); }
+.tone-success-strong { --tone: var(--c-success-strong); --tone-text: #ffffff; --tone-soft: var(--c-success-strong); --tone-border: var(--c-success-strong); }
+.tone-danger { --tone: var(--c-danger); --tone-text: var(--c-danger-text); --tone-soft: var(--c-danger-soft); --tone-border: var(--c-danger-border); }
+.tone-dark { --tone: var(--c-dark); --tone-text: var(--c-dark); --tone-soft: var(--c-dark-soft); --tone-border: #d1d5db; }
+.tone-neutral { --tone: var(--c-text-3); --tone-text: var(--c-text-2); --tone-soft: var(--c-surface-3); --tone-border: var(--c-border); }
+.tone-muted { --tone: var(--c-text-3); --tone-text: var(--c-text-2); --tone-soft: var(--c-surface-3); --tone-border: var(--c-border); }
+.tone-accent { --tone: var(--c-accent); --tone-text: var(--c-accent-text); --tone-soft: var(--c-accent-soft); --tone-border: var(--c-accent-border); }
+.tone-change { --tone: var(--c-change); --tone-text: var(--c-change-text); --tone-soft: var(--c-change-soft); --tone-border: var(--c-change-border); }
