@@ -38,8 +38,7 @@ FIGURES: dict[str, list[str]] = {
     "screenshots/20-topic-materials-desktop.png": ["img/topic-materials.png"],
     "screenshots/10-application-card-desktop.png": ["img/application-card.png"],
     "screenshots/22-staff-application-desktop.png": ["img/staff-application.png"],
-    "report-build/img/quick-actions-before.png": ["img/quick-actions-before.png"],
-    "report-build/img/quick-actions-after.png": ["img/quick-actions-after.png"],
+    "screenshots/23-staff-grades-desktop.png": ["img/staff-grades.png"],
 }
 
 # Как получены фрагменты: (исходный скриншот, (left, top, right, bottom)) — левая панель навигации отрезана.
@@ -47,19 +46,25 @@ CROPS: dict[str, tuple[str, tuple[int, int, int, int]]] = {
     "login.png": ("01-login-desktop.png", (0, 0, 1280, 860)),
     "home-s1-mobile.png": ("02-home-student1-mobile.png", (0, 0, 720, 1560)),
     "home-s2-mobile.png": ("15-home-student2-mobile.png", (0, 0, 720, 1560)),
+    "home-s1-index.png": ("02-home-student1-mobile.png", (0, 1565, 720, 2400)),
+    "home-s2-index.png": ("15-home-student2-mobile.png", (0, 1900, 720, 2800)),
     "schedule-week.png": ("04-schedule-week-desktop.png", (262, 90, 1280, 1640)),
-    "radar-s2.png": ("16-radar-student2-desktop.png", (262, 90, 1280, 1330)),
-    "discipline-exam.png": ("18-whatif-desktop.png", (262, 90, 1280, 1640)),
-    "whatif-result.png": ("18-whatif-desktop.png", (262, 2120, 1280, 2840)),
+    "radar-s2.png": ("16-radar-student2-desktop.png", (262, 90, 1280, 1100)),
+    "discipline-exam.png": ("18-whatif-desktop.png", (262, 90, 1280, 770)),
+    "whatif-result.png": ("18-whatif-desktop.png", (262, 1250, 930, 1690)),
     "topic-materials.png": ("20-topic-materials-desktop.png", (262, 90, 1280, 1260)),
     "application-card.png": ("10-application-card-desktop.png", (262, 90, 1280, 1010)),
     "staff-application.png": ("22-staff-application-desktop.png", (262, 90, 1280, 1000)),
-    "quick-actions-before.png": ("02-home-student1-desktop.png", (928, 222, 1252, 376)),
-    # quick-actions-after.png — снимок текущей сборки (агент 07, Playwright, 1280 px), не обрезка
+    "staff-grades.png": ("23-staff-grades-desktop.png", (262, 90, 1280, 700)),
+    "evo-4-final.png": ("17-discipline-exam-desktop.png", (262, 245, 1280, 465)),
+    # Исторические фрагменты (не пересоздаются): обрезки скриншотов из прошлых коммитов git —
+    # evo-1-original.png (8cbfa97), evo-2-two-bars.png (2ea1f3f), evo-3-split.png (146ab17),
+    # radar-before.png (8cbfa97, 16-radar-student2-desktop.png), quick-actions-before.png (014b97d);
+    # quick-actions-after.png — снимок сборки агентом 07.
 }
 
 # Перед этими разделами — новая страница
-PAGE_BREAK_BEFORE = ("Как устроен документ", "11.1 Подход", "11.2 Промпты", "11.3 Процесс", "Скриншоты")
+PAGE_BREAK_BEFORE = ("Как устроен документ", "0. Подготовка", "11.1 Подход", "11.2 Промпты", "11.3 Процесс", "11.4", "Скриншоты")
 
 CSS = r"""
 @font-face { font-family: 'Manrope'; font-weight: 400; src: url('fonts/manrope-cyrillic-400-normal.woff2') format('woff2'); unicode-range: U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116; }
@@ -115,6 +120,8 @@ figure img { display: block; max-width: 100%; max-height: 232mm; width: auto; he
 figure.keep { break-inside: avoid; page-break-inside: avoid; }
 figure .shots img { max-width: 48%; margin: 0; }
 figure .shots.small img { max-width: 70mm; }
+figure .stack { display: flex; flex-direction: column; gap: 2.5mm; }
+figure .stack img { max-width: 70%; margin: 0 auto; }
 figcaption { font-size: 8.4pt; line-height: 1.42; color: var(--muted); max-width: 165mm; margin: 0 auto; break-before: avoid; page-break-before: avoid; }
 figcaption strong { color: var(--ink); }
 """
@@ -146,10 +153,15 @@ def build_html() -> str:
         parts = []
         for i, src in enumerate(srcs):
             alt = alts[i] if i < len(alts) else ""
-            for repl in FIGURES.get(src, [src]):
+            for repl in FIGURES.get(src, [src.removeprefix("report-build/")]):
                 parts.append(f'<img src="{repl}" alt="{html.escape(alt)}">')
         if len(srcs) > 1:
-            cls = "shots small" if all("quick-actions" in s for s in srcs) else "shots"
+            if any("evo-" in s or "radar" in s for s in srcs):
+                cls = "stack"
+            elif all("quick-actions" in s or "mobile" in s or "-index" in s for s in srcs):
+                cls = "shots small"
+            else:
+                cls = "shots"
             inner = f'<div class="{cls}">{"".join(parts)}</div>'
         else:
             inner = "".join(parts)
@@ -176,7 +188,8 @@ def build_html() -> str:
         '<div class="cover-meta">'
         "<span>Проект</span><b>«Цифровой деканат будущего» — личный кабинет студента (веб-прототип)</b>"
         "<span>Дата</span><b>22 ноября 2026 г.</b>"
-        "<span>Подготовил</span><b>агент-документатор (роль 07), Claude Opus 5.5</b>"
+        "<span>Автор</span><b>Сироткин Игорь, МГТУ им. Н. Э. Баумана, ИУ6, команда Bauman Analytics</b>"
+        "<span>Подготовили</span><b>агент-документатор (роль 07) и координатор, Claude Opus 5.5; правки автора</b>"
         "<span>Источник фактов</span><b>docs/ai-log/, git log, docs/*.md, код, docs/screenshots/</b>"
         "</div>"
     )
