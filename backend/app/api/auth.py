@@ -14,7 +14,7 @@ from ..models import User
 from ..security.deps import Principal, get_principal
 from ..security.passwords import hash_password, needs_rehash, verify_password
 from ..security.rate_limit import login_limiter
-from ..security.sessions import create_session, destroy_session
+from ..security.sessions import create_session, destroy_session, get_user_for_session, resolve_session
 
 router = APIRouter(prefix="/api/auth", tags=["auth"])
 
@@ -90,5 +90,10 @@ def logout(request: Request, response: Response, p: Principal = Depends(get_prin
 
 
 @router.get("/me")
-def me(p: Principal = Depends(get_principal)):
-    return {"user": user_out(p.user), "csrf_token": p.session.csrf_token}
+def me(request: Request, db: Session = Depends(get_db)):
+    """Текущий пользователь. Для гостя — 200 с user=null (а не 401), чтобы старт SPA не засорял консоль ошибками."""
+    sess = resolve_session(db, request.cookies.get(get_settings().session_cookie_name))
+    user = get_user_for_session(db, sess) if sess else None
+    if user is None:
+        return {"user": None, "csrf_token": None}
+    return {"user": user_out(user), "csrf_token": sess.csrf_token}

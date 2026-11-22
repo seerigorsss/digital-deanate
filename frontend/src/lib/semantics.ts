@@ -1,17 +1,18 @@
 import {
-  Ban,
+  AlarmClock,
   BookOpen,
   CalendarClock,
-  CalendarDays,
+  ChartColumn,
   Check,
   CheckCheck,
   CircleAlert,
   CircleCheck,
+  CircleCheckBig,
   CircleDashed,
-  CircleQuestionMark,
+  CircleX,
   ClipboardCheck,
+  Clock,
   FileCheck,
-  FilePen,
   FileText,
   FlaskConical,
   GraduationCap,
@@ -21,12 +22,14 @@ import {
   type LucideIcon,
   Megaphone,
   MessageCircle,
+  MessageCircleQuestion,
   OctagonAlert,
   PackageCheck,
+  PencilLine,
   Presentation,
   Send,
   Shield,
-  Star,
+  ShieldCheck,
   TriangleAlert,
   Undo2,
   Video,
@@ -47,8 +50,8 @@ export const RISK_META: Record<RiskLevel, ToneMeta> = {
   high: { tone: 'high', icon: TriangleAlert, label: 'Высокий риск' },
   medium: { tone: 'medium', icon: CircleAlert, label: 'Средний риск' },
   low: { tone: 'low', icon: CircleCheck, label: 'Низкий риск' },
-  stable: { tone: 'stable', icon: CircleCheck, label: 'Стабильно' },
-  insufficient_data: { tone: 'nodata', icon: CircleDashed, label: 'Недостаточно данных' },
+  stable: { tone: 'stable', icon: ShieldCheck, label: 'Стабильно' },
+  insufficient_data: { tone: 'nodata', icon: Hourglass, label: 'Недостаточно данных' },
 };
 
 export const RISK_ORDER: RiskLevel[] = ['critical', 'high', 'medium', 'low', 'stable', 'insufficient_data'];
@@ -57,7 +60,7 @@ export const ZONE_META: Record<IndexZone, ToneMeta> = {
   critical: { tone: 'critical', icon: OctagonAlert, label: 'Критично' },
   high: { tone: 'high', icon: TriangleAlert, label: 'Высокий риск' },
   medium: { tone: 'medium', icon: CircleAlert, label: 'Требует внимания' },
-  stable: { tone: 'stable', icon: CircleCheck, label: 'Стабильно' },
+  stable: { tone: 'stable', icon: ShieldCheck, label: 'Стабильно' },
 };
 
 export const TARGET_META: Record<TargetStatus, ToneMeta> = {
@@ -74,23 +77,23 @@ export const MODULE_STATUS_LABEL: Record<ModuleStatus, string> = {
 };
 
 export const STATUS_META: Record<ApplicationStatus, ToneMeta> = {
-  draft: { tone: 'neutral', icon: FilePen, label: 'Черновик' },
+  draft: { tone: 'neutral', icon: PencilLine, label: 'Черновик' },
   submitted: { tone: 'info', icon: Send, label: 'Отправлена' },
-  in_progress: { tone: 'info', icon: Hourglass, label: 'В обработке' },
-  needs_info: { tone: 'attention', icon: CircleQuestionMark, label: 'Требуется уточнение' },
+  in_progress: { tone: 'info', icon: Clock, label: 'В обработке' },
+  needs_info: { tone: 'attention', icon: MessageCircleQuestion, label: 'Требуется уточнение' },
   approved: { tone: 'success', icon: Check, label: 'Одобрена' },
   ready: { tone: 'success-strong', icon: PackageCheck, label: 'Готова к получению' },
-  completed: { tone: 'dark', icon: CheckCheck, label: 'Завершена' },
-  rejected: { tone: 'danger', icon: Ban, label: 'Отклонена' },
-  withdrawn: { tone: 'neutral', icon: Undo2, label: 'Отозвана' },
+  completed: { tone: 'dark', icon: CircleCheckBig, label: 'Завершена' },
+  rejected: { tone: 'danger', icon: CircleX, label: 'Отклонена' },
+  withdrawn: { tone: 'withdrawn', icon: Undo2, label: 'Отозвана' },
 };
 
 export const NOTIFICATION_META: Record<NotificationCategory, { icon: LucideIcon; label: string }> = {
   announcement: { icon: Megaphone, label: 'Объявления' },
-  deadline: { icon: CalendarClock, label: 'Сроки' },
-  schedule: { icon: CalendarDays, label: 'Расписание' },
+  deadline: { icon: AlarmClock, label: 'Сроки' },
+  schedule: { icon: CalendarClock, label: 'Расписание' },
   application: { icon: FileText, label: 'Заявки' },
-  grade: { icon: Star, label: 'Баллы' },
+  grade: { icon: ChartColumn, label: 'Баллы' },
 };
 
 export const NOTIFICATION_CATEGORIES: NotificationCategory[] = ['announcement', 'deadline', 'schedule', 'application', 'grade'];

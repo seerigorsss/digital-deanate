@@ -4,6 +4,7 @@ from __future__ import annotations
 from datetime import date, datetime, timedelta, timezone
 
 from sqlalchemy import select
+from sqlalchemy.exc import IntegrityError
 from sqlalchemy.orm import Session
 
 from ..models import (
@@ -51,7 +52,16 @@ def notify(
         source_key=source_key,
         created_at=created_at or datetime.now(timezone.utc),
     )
-    db.add(n)
+    if not source_key:
+        db.add(n)
+        return n
+    # Параллельные запросы (например, главная и список уведомлений) могут одновременно создавать одно и то же
+    # уведомление: вставка в SAVEPOINT, дубликат по (user_id, source_key) молча пропускается.
+    try:
+        with db.begin_nested():
+            db.add(n)
+    except IntegrityError:
+        return None
     return n
 
 

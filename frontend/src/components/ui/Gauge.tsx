@@ -65,3 +65,25 @@ export function Gauge({ value, max = 100, zone, label, size = 'md' }: GaugeProps
     </div>
   );
 }
+
+/** Горизонтальная мини-шкала индекса (Главная): 4 сегмента зон и маркер значения. */
+export function IndexScale({ value, zone, label }: { value: number | null; zone: IndexZone | null; label?: string | null }) {
+  const aria = value === null ? 'Индекс не рассчитан' : `Индекс ${value} из 100${label ? `, зона «${label}»` : ''}`;
+  return (
+    <div className={`iscale tone-${zone ?? 'nodata'}`} role="img" aria-label={aria}>
+      <div className="iscale__track">
+        {ZONES.map((z) => (
+          <span key={z.tone} className={`iscale__seg tone-${z.tone}`} style={{ flexGrow: z.to - z.from }} />
+        ))}
+      </div>
+      {value !== null && <span className="iscale__marker" style={{ left: `${Math.max(0, Math.min(100, value))}%` }} />}
+      <div className="iscale__ticks" aria-hidden="true">
+        <span style={{ left: '0%' }}>0</span>
+        <span style={{ left: '50%' }}>50</span>
+        <span style={{ left: '65%' }}>65</span>
+        <span style={{ left: '80%' }}>80</span>
+        <span style={{ left: '100%' }}>100</span>
+      </div>
+    </div>
+  );
+}

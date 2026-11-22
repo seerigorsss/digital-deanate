@@ -128,3 +128,22 @@ def test_simulation_does_not_persist(s2):
     graded = next(i for m in detail["analytics"]["modules"] for i in m["items"] if i["state"] == "graded")
     r = s2.post(f"/api/disciplines/{tmm['discipline_id']}/simulate", json={"overrides": [{"item_id": graded["id"], "points": 0}]})
     assert r.status_code == 400
+
+
+def test_duplicate_dynamic_notification_race_is_ignored(app):
+    """Регрессия: гонка двух запросов, создающих одно уведомление, не должна давать 500 (найдено e2e-проверкой)."""
+    from unittest.mock import patch
+
+    from app.db import SessionLocal
+    from app.models import Notification, User
+    from app.services import notifications as svc
+
+    with SessionLocal() as db:
+        uid = db.query(User).filter_by(login="student1").one().id
+        svc.notify(db, uid, "deadline", "t", "b", source_key="race:test")
+        db.commit()
+        # имитируем гонку: проверка «уже есть?» не видит запись, созданную параллельным запросом
+        with patch.object(db, "scalar", return_value=None):
+            assert svc.notify(db, uid, "deadline", "t", "b", source_key="race:test") is None
+        db.commit()
+        assert db.query(Notification).filter_by(user_id=uid, source_key="race:test").count() == 1

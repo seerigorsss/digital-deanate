@@ -13,6 +13,7 @@ def test_login_profile_logout_and_second_account(app):
     assert p1["last_name"] == "Воронцова" and p1["group"] == "ИУ5-34Б" and p1["course"] == 2
     assert api.post("/api/auth/logout").status_code == 204
     assert api.get("/api/profile").status_code == 401
+    assert api.get("/api/auth/me").json() == {"user": None, "csrf_token": None}
     api.login("student2")
     p2 = api.get("/api/profile").json()
     assert p2["last_name"] == "Калинин" and p2["group"] == "РК9-51Б" and p2["faculty"]["code"] == "РК"
