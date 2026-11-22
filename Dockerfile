@@ -20,7 +20,7 @@ ENV PYTHONDONTWRITEBYTECODE=1 \
     DATABASE_URL=sqlite:////data/deanate.db \
     FRONTEND_DIST=/app/frontend/dist \
     COOKIE_SECURE=true \
-    TRUST_PROXY_HEADERS=true
+    TRUST_PROXY_HEADERS=false
 WORKDIR /app/backend
 COPY backend/requirements.txt ./
 RUN --mount=type=secret,id=extra_ca \

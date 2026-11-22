@@ -163,7 +163,10 @@ def summarize(
     priorities = [p for p, _ in ranked]
 
     positives: list[PositiveItem] = []
+    prioritized = {p.discipline_id for p in priorities}
     for d in disciplines:
+        if d.discipline_id in prioritized:  # не показываем одну дисциплину и в «подтянуть», и в «идёт хорошо»
+            continue
         is_positive = d.risk.level == "stable" or (
             d.risk.level == "low"
             and d.projected_semester_points is not None

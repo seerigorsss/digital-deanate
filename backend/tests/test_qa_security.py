@@ -610,3 +610,15 @@ def test_staff_status_change_and_reply_reach_student(s2, staff):
     titles = [n["title"] for n in s2.get("/api/notifications?category=application").json()["items"]]
     assert any(number in t and "в обработке" in t for t in titles)
     assert any(number in t and "Ответ деканата" in t for t in titles)
+
+
+def test_direct_docker_run_does_not_trust_client_x_forwarded_for():
+    """ДЕФЕКТ QA-03 (остаток после исправления). Dockerfile по умолчанию ставит TRUST_PROXY_HEADERS=true, а
+    docker-compose.yml (локальный запуск/VPS без прокси, порт 8000 открыт напрямую) это не переопределяет. Без прокси
+    «последний адрес X-Forwarded-For» тоже задаёт клиент: одиночный подменяемый заголовок обнуляет лимит попыток входа.
+    Ожидается: доверять X-Forwarded-For только там, где прокси гарантированно есть (по умолчанию — false)."""
+    dockerfile = (ROOT / "Dockerfile").read_text()
+    compose = (ROOT / "docker-compose.yml").read_text()
+    trusts_by_default = re.search(r"TRUST_PROXY_HEADERS\s*=\s*true", dockerfile, re.I) is not None
+    compose_overrides = re.search(r"TRUST_PROXY_HEADERS\s*:\s*\"?false", compose, re.I) is not None
+    assert not trusts_by_default or compose_overrides

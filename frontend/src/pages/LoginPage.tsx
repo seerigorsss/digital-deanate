@@ -21,7 +21,8 @@ const DEMO = [
 /** Безопасный next: только внутренний путь, доступный роли. */
 function safeNext(next: string | null, user: User): string {
   const home = homePathFor(user);
-  if (!next || !next.startsWith('/') || next.startsWith('//') || next.startsWith('/login')) return home;
+  // Только «чистый» внутренний путь: без обратных слэшей, управляющих символов и пробелов.
+  if (!next || !/^\/(?!\/)[A-Za-z0-9\-._~/?=&%#]*$/.test(next) || next.startsWith('/login')) return home;
   const isStaffPath = next.startsWith('/staff');
   if (user.role === 'staff' && !isStaffPath) return home;
   if (user.role === 'student' && isStaffPath) return home;

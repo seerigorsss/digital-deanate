@@ -157,14 +157,17 @@ def test_priority_weights_come_from_config():
     assert s.priorities[0].score == 700
 
 
-def test_positives_include_stable_and_low_with_projection_above_target():
+def test_positives_exclude_disciplines_already_in_priorities():
+    """QA-07: дисциплина не попадает одновременно в «Что подтянуть» и в «Что идёт хорошо»."""
     low_good = analyze_discipline(
         simple("distributed_exam", current=39, graded_max=60, remaining=40, title="Низкий риск")
     )
     assert low_good.risk.level == "low" and low_good.projected_semester_points >= 60
     s = summarize([stable("Стабильная"), low_good, high()], TODAY)
     titles = [p.title for p in s.positives]
-    assert "Стабильная" in titles and "Низкий риск" in titles
+    prioritized = {p.title for p in s.priorities}
+    assert "Стабильная" in titles
+    assert "Низкий риск" in prioritized and "Низкий риск" not in titles
     assert "С высоким риском" not in titles
     assert all(p.message for p in s.positives)
 

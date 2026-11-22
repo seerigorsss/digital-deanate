@@ -185,7 +185,7 @@ def student_grades(user_id: int, p: Principal = Depends(require_staff), db: Sess
 class ResultIn(BaseModel):
     student_id: int
     item_id: int
-    points: float | None = Field(default=None, ge=0, le=1000)
+    points: float | None = Field(default=None, ge=0, le=1000, allow_inf_nan=False)
 
 
 @router.put("/results")

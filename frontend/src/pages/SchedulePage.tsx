@@ -115,7 +115,13 @@ export default function SchedulePage() {
   if (meta.isError)
     return (
       <Card>
-        <ErrorState error={meta.error} onRetry={() => void meta.refetch()} />
+        <ErrorState
+          error={meta.error}
+          onRetry={() => {
+            void meta.refetch();
+            void q.refetch();
+          }}
+        />
       </Card>
     );
 
@@ -183,7 +189,15 @@ export default function SchedulePage() {
 
       {q.isError && !data ? (
         <Card>
-          <ErrorState error={q.error} onRetry={() => void q.refetch()} retrying={q.isFetching} title="Не удалось загрузить расписание" />
+          <ErrorState
+            error={q.error}
+            onRetry={() => {
+              void meta.refetch();
+              void q.refetch();
+            }}
+            retrying={q.isFetching}
+            title="Не удалось загрузить расписание"
+          />
         </Card>
       ) : !data ? (
         <div className="stack" aria-busy="true">

@@ -2,6 +2,7 @@ import { createContext, useCallback, useContext, useEffect, useMemo, type ReactN
 import { useQuery, useQueryClient } from '@tanstack/react-query';
 import { useNavigate } from 'react-router-dom';
 import { ApiError, request, setCsrfToken, setUnauthorizedHandler } from '../api/client';
+import { useToast } from '../components/ui/Toast';
 import type { AuthResponse, User } from '../api/types';
 
 const ME_KEY = ['me'] as const;
@@ -36,6 +37,7 @@ export function homePathFor(user: User | null): string {
 }
 
 export function AuthProvider({ children }: { children: ReactNode }) {
+  const toast = useToast();
   const qc = useQueryClient();
   const navigate = useNavigate();
   const me = useQuery({ queryKey: ME_KEY, queryFn: fetchMe, staleTime: Infinity, retry: 1 });
@@ -56,7 +58,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       }
     });
     return () => setUnauthorizedHandler(null);
-  }, [qc, navigate, dropUserData]);
+  }, [qc, navigate, dropUserData, toast]);
 
   const login = useCallback(
     async (loginValue: string, password: string) => {
@@ -75,14 +77,18 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const logout = useCallback(async () => {
     try {
       await request<null>('POST', '/api/auth/logout', { body: {}, skipAuthRedirect: true });
-    } catch {
-      // Даже если сервер недоступен, локально выходим: cookie HttpOnly истечёт на сервере.
+    } catch (e) {
+      // 401 — сессии уже нет, можно выходить. Иначе сервер не подтвердил выход: сессия жива — честно сообщаем.
+      if (!(e instanceof ApiError && e.status === 401)) {
+        toast.error('Не удалось выйти', 'Нет связи с сервером — сессия ещё активна. Проверьте соединение и попробуйте снова.');
+        return;
+      }
     }
     setCsrfToken(null);
     qc.setQueryData(ME_KEY, null);
     dropUserData();
     navigate('/login', { replace: true });
-  }, [qc, navigate, dropUserData]);
+  }, [qc, navigate, dropUserData, toast]);
 
   const value = useMemo<AuthContextValue>(() => {
     let status: AuthContextValue['status'];

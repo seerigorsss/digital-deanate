@@ -563,15 +563,16 @@ def session_after_logout(browser) -> None:
     ctx3 = browser.new_context()
     p3 = ctx3.new_page()
     login(p3, "student1")
+    # Поведение после исправления QA-01 (координатор): если сервер не подтвердил выход, интерфейс не делает вид,
+    # что вышел, а сообщает об ошибке — пользователь знает, что сессия ещё активна.
     p3.route("**/api/auth/logout", lambda r: r.abort())
-    logout_ui(p3)
+    p3.get_by_role("button", name=re.compile("Меню пользователя")).first.click()
+    p3.get_by_role("menuitem", name="Выйти").click()
+    p3.wait_for_timeout(1500)
+    body = p3.inner_text("body")
+    check("SEC-LOGOUT-OFFLINE", "выход при сбое сети: честное сообщение, без ложного «выхода»",
+          "Не удалось выйти" in body and "/login" not in p3.url, f"url={p3.url}")
     p3.unroute("**/api/auth/logout")
-    p3.goto(f"{BASE}/profile")
-    settle(p3)
-    check("SEC-LOGOUT-OFFLINE", "выход при сбое сети не оставляет действующую сессию на устройстве",
-          "/login" in p3.url, f"после «выхода» и перезагрузки открыт {p3.url}")
-    if "/login" not in p3.url:
-        p3.screenshot(path=str(SHOTS / "QA-logout-offline-still-logged-in.png"))
     ctx3.close()
 
 

@@ -42,6 +42,7 @@ _FIELD_MESSAGES = {
     "float_parsing": "Нужно число",
     "date_from_datetime_parsing": "Неверная дата",
     "date_parsing": "Неверная дата",
+    "finite_number": "Нужно конечное число",
 }
 
 

@@ -1,4 +1,3 @@
-import { useNavigate } from 'react-router-dom';
 import { HelpCircle, LogOut } from 'lucide-react';
 import { useMeta, useProfile } from '../api/hooks';
 import { useAuth } from '../auth/AuthContext';
@@ -13,7 +12,6 @@ export default function ProfilePage() {
   const q = useProfile();
   const meta = useMeta();
   const { user, logout } = useAuth();
-  const navigate = useNavigate();
 
   if (q.isPending) return <PageSkeleton cards={2} />;
   if (q.isError)
@@ -75,10 +73,7 @@ export default function ProfilePage() {
         <Button
           variant="danger"
           icon={<LogOut size={18} />}
-          onClick={async () => {
-            await logout();
-            navigate('/login', { replace: true });
-          }}
+          onClick={() => void logout()}
         >
           Выйти
         </Button>

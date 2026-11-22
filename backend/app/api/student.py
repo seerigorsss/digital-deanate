@@ -234,12 +234,12 @@ def discipline_detail(discipline_id: int, p: Principal = Depends(require_student
 
 class SimOverride(BaseModel):
     item_id: int
-    points: float = Field(ge=0, le=1000)
+    points: float = Field(ge=0, le=1000, allow_inf_nan=False)
 
 
 class SimulateIn(BaseModel):
     overrides: list[SimOverride] = Field(default_factory=list, max_length=100)
-    exam_points: float | None = Field(default=None, ge=0, le=100)
+    exam_points: float | None = Field(default=None, ge=0, le=100, allow_inf_nan=False)
 
 
 @router.post("/disciplines/{discipline_id}/simulate")
