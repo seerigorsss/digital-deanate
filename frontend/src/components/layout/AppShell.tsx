@@ -37,7 +37,7 @@ function isActive(pathname: string, item: NavItem): boolean {
 }
 
 const SECTION_TITLES: [string, string][] = [
-  ['/staff/grades', 'Студенты и баллы'],
+  ['/staff/grades', 'Успеваемость студентов'],
   ['/staff/announcements', 'Объявления'],
   ['/staff', 'Заявки'],
   ['/schedule', 'Расписание'],
@@ -177,7 +177,7 @@ export function AppShell({ children }: { children: ReactNode }) {
   const items: NavItem[] = staff
     ? [
         { to: '/staff', label: 'Заявки', icon: Inbox, match: ['/staff/applications'], end: false },
-        { to: '/staff/grades', label: 'Баллы', icon: ChartColumn, match: ['/staff/grades'] },
+        { to: '/staff/grades', label: 'Успеваемость', icon: ChartColumn, match: ['/staff/grades'] },
         { to: '/staff/announcements', label: 'Объявления', icon: Megaphone, match: ['/staff/announcements'] },
       ]
     : [

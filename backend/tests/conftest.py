@@ -73,3 +73,26 @@ def s2(app):
 @pytest.fixture
 def staff(app):
     return Api(app, "dekanat")
+
+
+def set_result(login: str, item_id: int, points: float | None) -> None:
+    """Имитация выгрузки оценки из системы преподавателя: прямая запись балла в БД (у деканата права записи нет)."""
+    from sqlalchemy import select
+
+    from app.db import SessionLocal
+    from app.models import AssessmentItem, Enrollment, ItemResult, Module, User
+
+    with SessionLocal() as db:
+        uid = db.scalar(select(User.id).where(User.login == login))
+        item = db.get(AssessmentItem, item_id)
+        module = db.get(Module, item.module_id)
+        enr = db.scalar(select(Enrollment).where(Enrollment.student_id == uid, Enrollment.discipline_id == module.discipline_id))
+        res = db.scalar(select(ItemResult).where(ItemResult.enrollment_id == enr.id, ItemResult.item_id == item_id))
+        if points is None:
+            if res:
+                db.delete(res)
+        elif res:
+            res.points = points
+        else:
+            db.add(ItemResult(enrollment_id=enr.id, item_id=item_id, points=points))
+        db.commit()

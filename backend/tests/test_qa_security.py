@@ -127,7 +127,7 @@ def test_student_cannot_reach_any_staff_endpoint(s1):
         ("post", "/api/staff/applications/1/status", {"to_status": "ready"}),
         ("post", "/api/staff/applications/1/messages", {"text": "x"}),
         ("get", "/api/staff/students", None), ("get", "/api/staff/students/2/grades", None),
-        ("put", "/api/staff/results", {"student_id": 1, "item_id": 1, "points": 10}),
+        ("get", "/api/staff/structure", None),
         ("get", "/api/staff/announcements", None), ("post", "/api/staff/announcements", {"title": "abc", "body": "abc"}),
         ("get", "/api/staff/groups", None),
     ]:
@@ -147,11 +147,11 @@ def test_staff_cannot_use_student_endpoints_or_drafts(staff, s1):
     assert draft["id"] not in ids_of(staff, "/api/staff/applications?status=all")
 
 
-def test_staff_result_requires_student_enrollment(staff):
-    # item 1 — дисциплина student1; student2 (id 2) на неё не записан; id 3 — сотрудник
-    for sid in (2, 3, 999):
+def test_staff_cannot_write_results(staff):
+    # Выставление баллов деканатом убрано (решение заказчика 22.11): метода записи нет.
+    for sid in (1, 2, 999):
         r = staff.put("/api/staff/results", json={"student_id": sid, "item_id": 1, "points": 1})
-        assert r.status_code == 404, sid
+        assert r.status_code in (404, 405), sid
 
 
 # --------------------------------------------------------------------------- #
@@ -304,9 +304,6 @@ def test_negative_and_over_max_points_rejected(s1, staff):
     assert s1.post("/api/disciplines/6/simulate", json={"overrides": [], "exam_points": 20}).status_code == 400  # не экзамен
     assert raw_post(s1, "/api/disciplines/1/simulate", '{"overrides":[{"item_id":5,"points":NaN}]}').status_code == 422
     assert raw_post(s1, "/api/disciplines/1/simulate", '{"overrides":[],"exam_points":Infinity}').status_code == 422
-    for pts in (-1, 11, 1e9):
-        assert staff.put("/api/staff/results", json={"student_id": 1, "item_id": 1, "points": pts}).status_code == 422
-    assert raw_post(staff, "/api/staff/results", '{"student_id":1,"item_id":1,"points":NaN}', "PUT").status_code == 422
 
 
 def test_application_select_field_with_list_or_object_is_validation_error(ls1):
@@ -355,7 +352,6 @@ def test_huge_ids_on_mutations_and_staff_not_500(ls1, lstaff):
     assert ls1.post("/api/notifications/9223372036854775808/read").status_code == 404
     assert lstaff.get("/api/staff/applications/9223372036854775808").status_code == 404
     assert lstaff.get("/api/staff/students/9223372036854775808/grades").status_code == 404
-    assert lstaff.put("/api/staff/results", json={"student_id": 1, "item_id": 9223372036854775808, "points": 1}).status_code in (404, 422)
 
 
 @pytest.mark.parametrize("query", ["from=9999-12-31", "from=9999-12-31&to=9999-12-31", "from=9999-12-28&to=9999-12-31"])
@@ -522,7 +518,7 @@ def test_insufficient_data_is_honest(s1):
     assert "Иностранный язык (английский)" in summary["explanation"]
 
 
-def test_one_critical_discipline_caps_index_via_staff_grading(s1, staff):
+def test_one_critical_discipline_caps_index_via_new_grades(s1, staff):
     """§15.7/§18.10 сквозь API: сотрудник обнуляет все оставшиеся работы по «Дискретной математике» —
     дисциплина становится критической, индекс student1 (было 90) ограничивается ≤ 59, она первая в приоритетах."""
     before = s1.get("/api/analytics").json()
@@ -530,8 +526,10 @@ def test_one_critical_discipline_caps_index_via_staff_grading(s1, staff):
     a = _an(s1, 5)
     pending = [i["id"] for m in a["modules"] for i in m["items"] if i["state"] == "pending"]
     try:
+        from .conftest import set_result
+
         for iid in pending:
-            assert staff.put("/api/staff/results", json={"student_id": 1, "item_id": iid, "points": 0}).status_code == 200
+            set_result("student1", iid, 0)
         after = s1.get("/api/analytics").json()
         dm = next(d for d in after["disciplines"] if d["discipline_id"] == 5)
         assert dm["risk"]["level"] == "critical"
@@ -541,7 +539,7 @@ def test_one_critical_discipline_caps_index_via_staff_grading(s1, staff):
         assert "Дискретная математика" in after["explanation"]
     finally:
         for iid in pending:
-            staff.put("/api/staff/results", json={"student_id": 1, "item_id": iid, "points": None})
+            set_result("student1", iid, None)
     assert s1.get("/api/analytics").json()["index"]["value"] == 90
 
 

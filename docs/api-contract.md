@@ -48,8 +48,8 @@ REST/JSON, префикс `/api`, один домен с SPA (CORS не испо
 | GET `/api/staff/applications/{id}` | staff | карточка + `allowed_transitions` |
 | POST `/api/staff/applications/{id}/status` `{to_status, comment}` | staff | смена статуса (комментарий обязателен для needs_info/rejected) → уведомление студенту |
 | POST `/api/staff/applications/{id}/messages` `{text}` | staff | ответ студенту |
-| GET `/api/staff/students`, `/api/staff/students/{user_id}/grades` | staff | студенты; баллы по работам + риск |
-| PUT `/api/staff/results` `{student_id,item_id,points\|null}` | staff | выставить/удалить балл → пересчёт аналитики, уведомление |
+| GET `/api/staff/structure` | staff | факультеты → кафедры → группы с числом студентов (группа может быть пустой) |
+| GET `/api/staff/students?group=`, `/api/staff/students/{user_id}/grades` | staff | студенты группы; баллы по работам + риск (только чтение; метода записи баллов нет — их выставляет преподаватель) |
 | GET/POST `/api/staff/announcements` `{title,body,audience,importance}` | staff | объявления (audience: `all`, `group:ИУ5-34Б`, `faculty:РК`) |
 | GET `/api/staff/groups` | staff | группы и факультеты для выбора аудитории |
 

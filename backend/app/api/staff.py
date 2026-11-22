@@ -1,6 +1,9 @@
 """Кабинет сотрудника деканата: обработка заявок, ответы на обращения, выставление баллов, объявления."""
 from __future__ import annotations
 
+import json
+from pathlib import Path
+
 from datetime import datetime, timezone
 
 from fastapi import APIRouter, Depends, Query
@@ -15,10 +18,6 @@ from ..models import (
     Announcement,
     Application,
     ApplicationMessage,
-    AssessmentItem,
-    Enrollment,
-    ItemResult,
-    Module,
     StudentProfile,
     User,
 )
@@ -153,9 +152,29 @@ def staff_message(app_id: int, data: StaffMessageIn, p: Principal = Depends(requ
 
 
 @router.get("/students")
-def students(p: Principal = Depends(require_staff), db: Session = Depends(get_db)):
-    sps = db.scalars(select(StudentProfile).order_by(StudentProfile.group_name, StudentProfile.last_name)).all()
-    return {"items": [_student_brief(db, sp.user_id) for sp in sps]}
+def students(group: str | None = Query(default=None, max_length=32), p: Principal = Depends(require_staff), db: Session = Depends(get_db)):
+    q = select(StudentProfile).order_by(StudentProfile.group_name, StudentProfile.last_name)
+    if group:
+        q = q.where(StudentProfile.group_name == group)
+    return {"items": [_student_brief(db, sp.user_id) for sp in db.scalars(q).all()]}
+
+
+_ORG_PATH = Path(__file__).resolve().parent.parent / "seed" / "data" / "org_structure.json"
+
+
+@router.get("/structure")
+def structure(p: Principal = Depends(require_staff), db: Session = Depends(get_db)):
+    """Факультеты → кафедры → группы с числом студентов (для пошагового выбора в разделе «Успеваемость»)."""
+    org = json.loads(_ORG_PATH.read_text(encoding="utf-8"))
+    counts: dict[str, int] = {}
+    for g in db.scalars(select(StudentProfile.group_name)).all():
+        counts[g] = counts.get(g, 0) + 1
+    return {"faculties": [
+        {"code": f["code"], "name": f["name"], "departments": [
+            {"code": d["code"], "name": d["name"], "groups": [
+                {"name": g["name"], "course": g["course"], "students_count": counts.get(g["name"], 0)} for g in d["groups"]]}
+            for d in f["departments"]]}
+        for f in org["faculties"]]}
 
 
 @router.get("/students/{user_id}/grades")
@@ -180,44 +199,6 @@ def student_grades(user_id: int, p: Principal = Depends(require_staff), db: Sess
                 for m in enr.discipline.modules],
         })
     return {"student": brief, "disciplines": out}
-
-
-class ResultIn(BaseModel):
-    student_id: int
-    item_id: int
-    points: float | None = Field(default=None, ge=0, le=1000, allow_inf_nan=False)
-
-
-@router.put("/results")
-def set_result(data: ResultIn, p: Principal = Depends(require_staff), db: Session = Depends(get_db)):
-    item = db.get(AssessmentItem, data.item_id)
-    if item is None:
-        raise not_found("Работа не найдена")
-    module = db.get(Module, item.module_id)
-    enr = db.scalar(select(Enrollment).where(Enrollment.student_id == data.student_id,
-                                             Enrollment.discipline_id == module.discipline_id))
-    if enr is None:
-        raise not_found("Студент не записан на дисциплину")
-    if data.points is not None and data.points > item.max_points:
-        raise ApiError(422, "validation_error", f"Максимум за работу — {item.max_points:g} баллов",
-                       [{"field": "points", "message": f"Не больше {item.max_points:g}"}])
-    res = db.scalar(select(ItemResult).where(ItemResult.enrollment_id == enr.id, ItemResult.item_id == item.id))
-    if data.points is None:
-        if res:
-            db.delete(res)
-    else:
-        if res is None:
-            res = ItemResult(enrollment_id=enr.id, item_id=item.id, points=data.points)
-            db.add(res)
-        res.points = data.points
-        res.graded_at = _now()
-        res.graded_by_user_id = p.id
-        db.flush()
-        notify(db, data.student_id, "grade", f"Новые баллы: {enr.discipline.short_title}",
-               f"{item.title} («{module.title}»): {data.points:g} из {item.max_points:g}. Аналитика успеваемости пересчитана.",
-               link=f"/study/{enr.discipline_id}", source_key=f"grade:{res.id}:{res.graded_at.timestamp():.0f}")
-    db.commit()
-    return student_grades(data.student_id, p, db)
 
 
 class AnnouncementIn(BaseModel):

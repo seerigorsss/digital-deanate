@@ -688,6 +688,28 @@ export interface StaffStudentsResponse {
   items: StudentBrief[];
 }
 
+export interface OrgGroup {
+  name: string;
+  course: number;
+  students_count: number;
+}
+
+export interface OrgDepartment {
+  code: string;
+  name: string;
+  groups: OrgGroup[];
+}
+
+export interface OrgFaculty {
+  code: string;
+  name: string;
+  departments: OrgDepartment[];
+}
+
+export interface StaffStructure {
+  faculties: OrgFaculty[];
+}
+
 export interface StaffGradeItem {
   id: number;
   title: string;

@@ -72,16 +72,12 @@ export function IndexScale({ value, zone, label }: { value: number | null; zone:
   return (
     <div className={`iscale tone-${zone ?? 'nodata'}`} role="img" aria-label={aria}>
       <div className="iscale__track">
-        {ZONES.map((z) => (
-          <span key={z.tone} className={`iscale__seg tone-${z.tone}`} style={{ flexGrow: z.to - z.from }} />
-        ))}
+        {/* Шкала целиком окрашена в цвет текущей зоны — без радуги от красного к зелёному */}
+        <span className="iscale__seg" style={{ flexGrow: 1 }} />
       </div>
       {value !== null && <span className="iscale__marker" style={{ left: `${Math.max(0, Math.min(100, value))}%` }} />}
       <div className="iscale__ticks" aria-hidden="true">
         <span style={{ left: '0%' }}>0</span>
-        <span style={{ left: '50%' }}>50</span>
-        <span style={{ left: '65%' }}>65</span>
-        <span style={{ left: '80%' }}>80</span>
         <span style={{ left: '100%' }}>100</span>
       </div>
     </div>

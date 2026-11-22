@@ -1,8 +1,8 @@
 import { useMemo, useState } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
-import { CalendarCheck, Radar, Sparkles } from 'lucide-react';
+import { CalendarCheck, ChevronDown, Info, Radar, Sparkles } from 'lucide-react';
 import { useAnalytics, useGrades } from '../api/hooks';
-import type { AnalyticsSummary, GradesResponse, RiskLevel } from '../api/types';
+import type { AnalyticsSummary, AssessmentType, DisciplineAnalytics, GradesResponse, RiskLevel } from '../api/types';
 import { DisciplineRow } from '../components/domain/DisciplineRow';
 import { ZoneChips } from '../components/domain/ZoneChips';
 import { RiskBadge, ZoneBadge } from '../components/ui/Badge';
@@ -11,9 +11,73 @@ import { Gauge } from '../components/ui/Gauge';
 import { PageHeader } from '../components/ui/PageHeader';
 import { Segmented } from '../components/ui/Segmented';
 import { EmptyState, ErrorState, NoResults, PageSkeleton } from '../components/ui/States';
-import { formatDate, formatDay, weekdayShort } from '../lib/format';
+import { fmtNum, formatDate, formatDay, weekdayShort } from '../lib/format';
 
 type Tab = 'radar' | 'session' | 'record';
+
+/** Порядок групп в списке дисциплин: экзамены → распределённые экзамены → зачёты. */
+const TYPE_GROUPS: { type: AssessmentType; title: string }[] = [
+  { type: 'exam', title: 'Экзамены' },
+  { type: 'distributed_exam', title: 'Распределённые экзамены' },
+  { type: 'credit', title: 'Зачёты' },
+];
+
+function groupByType(list: DisciplineAnalytics[]) {
+  return TYPE_GROUPS.map((g) => ({ ...g, items: list.filter((d) => d.assessment_type === g.type) })).filter(
+    (g) => g.items.length > 0,
+  );
+}
+
+/** Достаём из текста формулы (её формирует сервер по конфигу) баллы уровней и потолки — чтобы показать их списком. */
+function parseFormula(f: string) {
+  const scores = /веса равные \(([^)]*)\)/.exec(f)?.[1] ?? null;
+  const caps = [...f.matchAll(/уровнем «([^»]+)», индекс не выше (\d+)/g)].map((m) => ({ level: m[1], max: m[2] }));
+  return { scores, caps };
+}
+
+/** «Что это такое?» — как получается число успеваемости. */
+function IndexExplainer({ a }: { a: AnalyticsSummary }) {
+  const idx = a.index;
+  const capped = idx.caps_applied.length > 0 && idx.uncapped_value != null && idx.uncapped_value !== idx.value;
+  const { scores, caps } = parseFormula(idx.formula);
+  return (
+    <details className="disclosure index-explainer">
+      <summary>
+        <Info size={16} aria-hidden="true" /> Что это такое?
+        <ChevronDown size={16} className="disclosure__chevron" aria-hidden="true" />
+      </summary>
+      <div className="disclosure__content small stack-sm">
+        <p>Число от 0 до 100 — сводный ориентир по всем дисциплинам семестра, а не официальная оценка.</p>
+        {scores ? (
+          <ul className="explainer-list">
+            <li>
+              Каждая дисциплина получает балл по своему уровню риска: {scores}.
+            </li>
+            <li>Число успеваемости — среднее этих баллов. Дисциплины, где пока мало оценок, не учитываются.</li>
+            {caps.length > 0 && (
+              <li>
+                Ограничения: {caps.map((c) => `есть «${c.level}» — не выше ${c.max}`).join('; ')}. Так проблемный предмет не
+                теряется среди благополучных.
+              </li>
+            )}
+          </ul>
+        ) : (
+          <p>{idx.formula}</p>
+        )}
+        {capped && (
+          <p className="strong">
+            У тебя сработало ограничение: без него среднее было бы {fmtNum(idx.uncapped_value as number)}.
+          </p>
+        )}
+        <p className="muted">
+          Зоны: 0–49 — «Критично», 50–64 — «Высокий риск», 65–79 — «Требует внимания», 80–100 — «Стабильно».
+          {idx.disciplines_counted != null && ` Учтено дисциплин: ${idx.disciplines_counted}.`}
+        </p>
+      </div>
+    </details>
+  );
+}
+
 const TABS: { value: Tab; label: string }[] = [
   { value: 'radar', label: 'Успеваемость' },
   { value: 'session', label: 'Сессия' },
@@ -84,6 +148,7 @@ function RadarTab({ a }: { a: AnalyticsSummary }) {
               )}
             </div>
           )}
+          <IndexExplainer a={a} />
         </div>
       </Card>
 
@@ -98,9 +163,18 @@ function RadarTab({ a }: { a: AnalyticsSummary }) {
         {list.length === 0 ? (
           <NoResults text="Нет дисциплин с таким уровнем риска." onReset={() => setFilter(null)} />
         ) : (
-          <div className="disc-list">
-            {list.map((d) => (
-              <DisciplineRow key={d.discipline_id} d={d} />
+          <div className="stack">
+            {groupByType(list).map((g) => (
+              <section key={g.type} aria-labelledby={`grp-${g.type}`} className="disc-group">
+                <h3 className="disc-group__title" id={`grp-${g.type}`}>
+                  {g.title} <span className="muted num">{g.items.length}</span>
+                </h3>
+                <div className="disc-list">
+                  {g.items.map((d) => (
+                    <DisciplineRow key={d.discipline_id} d={d} />
+                  ))}
+                </div>
+              </section>
             ))}
           </div>
         )}

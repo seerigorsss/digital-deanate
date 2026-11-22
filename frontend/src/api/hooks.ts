@@ -27,6 +27,7 @@ import type {
   StaffApplicationFilter,
   StaffApplicationsResponse,
   StaffGroups,
+  StaffStructure,
   StaffStudentGrades,
   StaffStudentsResponse,
   TopicDetail,
@@ -53,7 +54,8 @@ export const keys = {
   staffApplications: (filter: StaffApplicationFilter) => ['staff', 'applications', filter] as const,
   staffApplicationsAll: ['staff', 'applications'] as const,
   staffApplication: (id: number) => ['staff', 'application', id] as const,
-  staffStudents: ['staff', 'students'] as const,
+  staffStudents: (group: string) => ['staff', 'students', group] as const,
+  staffStructure: ['staff', 'structure'] as const,
   staffGrades: (studentId: number) => ['staff', 'grades', studentId] as const,
   staffAnnouncements: ['staff', 'announcements'] as const,
   staffGroups: ['staff', 'groups'] as const,
@@ -315,11 +317,20 @@ export function useStaffSendMessage(id: number) {
   });
 }
 
-export function useStaffStudents() {
+export function useStaffStructure() {
   return useQuery({
-    queryKey: keys.staffStudents,
-    queryFn: ({ signal }) => api.get<StaffStudentsResponse>('/api/staff/students', signal),
+    queryKey: keys.staffStructure,
+    queryFn: ({ signal }) => api.get<StaffStructure>('/api/staff/structure', signal),
     staleTime: 5 * 60_000,
+  });
+}
+
+export function useStaffStudents(group: string | null) {
+  return useQuery({
+    queryKey: keys.staffStudents(group ?? ''),
+    queryFn: ({ signal }) => api.get<StaffStudentsResponse>(`/api/staff/students${qs({ group: group ?? undefined })}`, signal),
+    enabled: !!group,
+    staleTime: 60_000,
   });
 }
 
@@ -328,15 +339,6 @@ export function useStaffStudentGrades(studentId: number | null) {
     queryKey: keys.staffGrades(studentId ?? -1),
     queryFn: ({ signal }) => api.get<StaffStudentGrades>(`/api/staff/students/${studentId}/grades`, signal),
     enabled: studentId !== null && Number.isFinite(studentId),
-  });
-}
-
-export function useStaffSetResult(studentId: number) {
-  const qc = useQueryClient();
-  return useMutation({
-    mutationFn: (body: { item_id: number; points: number | null }) =>
-      api.put<StaffStudentGrades>('/api/staff/results', { student_id: studentId, ...body }),
-    onSuccess: (data) => qc.setQueryData(keys.staffGrades(studentId), data),
   });
 }
 

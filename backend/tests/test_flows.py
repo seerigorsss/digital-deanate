@@ -95,24 +95,30 @@ def test_notifications_read_state(s2):
     assert s2.get("/api/notifications").json()["unread_count"] == 0
 
 
-def test_staff_grade_changes_recalculate_analytics(s1, staff):
+def test_grade_changes_recalculate_analytics(s1, staff):
+    """Новые баллы (из системы преподавателя) сразу меняют аналитику; у деканата права выставлять баллы нет."""
+    from .conftest import set_result
+
     dm = next(d for d in s1.get("/api/analytics").json()["disciplines"] if d["title"] == "Дискретная математика")
     assert dm["risk"]["level"] == "medium"
     detail = s1.get(f"/api/disciplines/{dm['discipline_id']}").json()
     items = {i["title"]: i["id"] for m in detail["analytics"]["modules"] for i in m["items"]}
-    me = s1.get("/api/auth/me").json()["user"]["id"]
     for title, pts in (("Домашнее задание 3", 10), ("Рубежный контроль 2", 15)):
-        r = staff.put("/api/staff/results", json={"student_id": me, "item_id": items[title], "points": pts})
-        assert r.status_code == 200
+        set_result("student1", items[title], pts)
     dm2 = next(d for d in s1.get("/api/analytics").json()["disciplines"] if d["title"] == "Дискретная математика")
     assert dm2["current_semester_points"] == dm["current_semester_points"] + 25
     assert dm2["risk"]["level"] in ("low", "stable")
-    assert any(n["category"] == "grade" for n in s1.get("/api/notifications").json()["items"])
-    # откат, чтобы не влиять на другие тесты
     for title in ("Домашнее задание 3", "Рубежный контроль 2"):
-        staff.put("/api/staff/results", json={"student_id": me, "item_id": items[title], "points": None})
-    r = staff.put("/api/staff/results", json={"student_id": me, "item_id": items["Рубежный контроль 2"], "points": 99})
-    assert r.status_code == 422
+        set_result("student1", items[title], None)
+    assert staff.put("/api/staff/results", json={"student_id": 1, "item_id": items["Рубежный контроль 2"], "points": 1}).status_code in (404, 405)
+
+
+def test_staff_structure_and_group_filter(staff):
+    org = staff.get("/api/staff/structure").json()["faculties"]
+    groups = {g["name"]: g["students_count"] for f in org for d in f["departments"] for g in d["groups"]}
+    assert groups["ИУ5-34Б"] == 1 and groups["РК9-51Б"] == 1 and groups["СМ1-31Б"] == 0
+    assert [s["full_name"] for s in staff.get("/api/staff/students?group=РК9-51Б").json()["items"]] == ["Калинин Максим Андреевич"]
+    assert staff.get("/api/staff/students?group=СМ1-31Б").json()["items"] == []
 
 
 def test_simulation_does_not_persist(s2):

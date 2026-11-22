@@ -469,34 +469,28 @@ def cross_role(browser) -> None:
     check("SEC-XSS-STUDENT", "XSS из объявления не исполняется у студента (главная)", ok and not dialogs, info)
     logout_ui(page)
 
-    # выставление балла → пересчёт аналитики студента → уведомление; затем откат
-    login(page, "student2")
-    st, d_before = api(page, "/api/disciplines/11")
-    pending = next(i for m in d_before["analytics"]["modules"] for i in m["items"] if i["state"] == "pending")
-    risk_before = d_before["analytics"]["risk"]["level"]
-    logout_ui(page)
+    # Деканат только просматривает успеваемость (выставление баллов убрано по решению заказчика 22.11):
+    # пошаговый выбор факультет → кафедра → группа → студент, пустые группы, отсутствие полей ввода и API записи.
     login(page, "dekanat", r"/staff$")
     staff_csrf = page.request.get(f"{BASE}/api/auth/me").json()["csrf_token"]
     rr = page.request.put(f"{BASE}/api/staff/results", headers={"X-CSRF-Token": staff_csrf},
-                          data={"student_id": 2, "item_id": pending["id"], "points": pending["max_points"]})
-    check("FLOW-GRADE", "сотрудник выставил балл", rr.status == 200, str(rr.status))
-    logout_ui(page)
-    login(page, "student2")
-    st, d_after = api(page, "/api/disciplines/11")
-    check("FLOW-RECALC", "аналитика студента пересчитана после выставления балла",
-          d_after["analytics"]["current_semester_points"] == d_before["analytics"]["current_semester_points"] + pending["max_points"],
-          f"{d_before['analytics']['current_semester_points']} → {d_after['analytics']['current_semester_points']}, риск {risk_before} → {d_after['analytics']['risk']['level']}")
-    page.goto(f"{BASE}/study/11")
+                          data={"student_id": 2, "item_id": 1, "points": 1})
+    check("FLOW-NO-GRADING-API", "API выставления баллов недоступен деканату", rr.status in (404, 405), str(rr.status))
+    page.goto(f"{BASE}/staff/grades")
     settle(page)
-    check("FLOW-RECALC-UI", "интерфейс показывает новые баллы",
-          f"{d_after['analytics']['current_semester_points']:g}" in main_text(page))
-    st, notes = api(page, "/api/notifications?category=grade")
-    check("FLOW-NOTIFY-GRADE", "уведомление о новых баллах", any("Новые баллы" in n["title"] for n in notes["items"]))
-    logout_ui(page)
-    login(page, "dekanat", r"/staff$")
-    staff_csrf = page.request.get(f"{BASE}/api/auth/me").json()["csrf_token"]
-    page.request.put(f"{BASE}/api/staff/results", headers={"X-CSRF-Token": staff_csrf},
-                     data={"student_id": 2, "item_id": pending["id"], "points": None})
+    page.get_by_label("Факультет").select_option("РК")
+    page.get_by_label("Кафедра").select_option("РК9")
+    page.get_by_label("Группа").select_option("РК9-51Б")
+    settle(page)
+    page.get_by_role("link", name=re.compile("Калинин")).first.click()
+    settle(page)
+    t = main_text(page)
+    check("FLOW-STAFF-VIEW", "сотрудник видит успеваемость студента по выбору группы",
+          "Теория механизмов и машин" in t and "Критический" in t)
+    check("FLOW-STAFF-READONLY", "в успеваемости нет полей ввода баллов", page.locator("main input").count() == 0)
+    page.goto(f"{BASE}/staff/grades?faculty=СМ&department=СМ1&group=СМ1-31Б")
+    settle(page)
+    check("FLOW-STAFF-EMPTY-GROUP", "пустая группа: понятное сообщение", "нет студентов" in main_text(page).lower())
     ctx.close()
 
 
