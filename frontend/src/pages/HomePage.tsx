@@ -19,6 +19,8 @@ import { ApplicationRow } from '../components/domain/ApplicationRow';
 import { LessonCard } from '../components/domain/LessonCard';
 import { NotificationRow } from '../components/domain/NotificationRow';
 import { NotificationDetail } from '../components/domain/NotificationDetail';
+import { ScoreBar } from '../components/domain/ScoreBar';
+import { RISK_META } from '../lib/semantics';
 import { ZoneChips } from '../components/domain/ZoneChips';
 import { RiskBadge, ZoneBadge } from '../components/ui/Badge';
 import { Button, ButtonLink } from '../components/ui/Button';
@@ -83,7 +85,7 @@ function IndexBlock({ d }: { d: Dashboard }) {
         id="index-title"
         title="Успеваемость"
         icon={<GraduationCap className="card-icon" aria-hidden="true" />}
-        link={{ to: '/study', label: 'Радар' }}
+        link={{ to: '/study', label: 'Подробнее' }}
       />
       {index.value === null ? (
         <p className="text-2">Показатель появится, когда преподаватели внесут первые баллы.</p>
@@ -107,11 +109,14 @@ function IndexBlock({ d }: { d: Dashboard }) {
             <ul className="list" style={{ margin: 0 }}>
               {priorities.map((p) => (
                 <li key={p.discipline_id}>
-                  <Link to={`/study/${p.discipline_id}`} className="list-row">
-                    <span className="list-row__body">
+                  <Link to={`/study/${p.discipline_id}`} className="list-row prio-row">
+                    <span className="list-row__body prio-row__body">
                       <span className="list-row__title">{p.title}</span>
+                      <span>
+                        <RiskBadge level={p.risk_level} label={p.risk_label ?? undefined} />
+                      </span>
+                      <ScoreBar d={p} tone={RISK_META[p.risk_level]?.tone ?? 'nodata'} size="sm" />
                     </span>
-                    <RiskBadge level={p.risk_level} label={p.risk_label ?? undefined} />
                     <ChevronRight className="list-row__chevron" aria-hidden="true" />
                   </Link>
                 </li>

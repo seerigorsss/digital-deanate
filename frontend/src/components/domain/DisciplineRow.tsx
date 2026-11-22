@@ -4,7 +4,7 @@ import type { DisciplineAnalytics } from '../../api/types';
 import { fmtNum } from '../../lib/format';
 import { RISK_META } from '../../lib/semantics';
 import { RiskBadge } from '../ui/Badge';
-import { PointsBar } from '../ui/PointsBar';
+import { ScoreBar } from './ScoreBar';
 
 /** Строка дисциплины: полоса слева цвета риска, чип риска, баллы и мини-полоса с остатком. */
 export function DisciplineRow({ d }: { d: DisciplineAnalytics }) {
@@ -23,20 +23,12 @@ export function DisciplineRow({ d }: { d: DisciplineAnalytics }) {
             'баллы не внесены'
           ) : (
             <>
-              <strong>{fmtNum(d.current_semester_points)}</strong> из {fmtNum(d.semester_points_max)}
-              {d.remaining_points_max > 0 && <span className="muted"> · ещё можно набрать {fmtNum(d.remaining_points_max)}</span>}
+              <strong>{fmtNum(d.current_semester_points + (d.exam?.result ?? 0))}</strong> из 100
+              {d.remaining_points_max > 0 && <span className="muted"> · в семестре можно добрать {fmtNum(d.remaining_points_max)}</span>}
             </>
           )}
         </span>
-        <PointsBar
-          size="sm"
-          max={d.semester_points_max}
-          earned={d.current_semester_points}
-          remaining={d.remaining_points_max}
-          missing={d.missing_points_max}
-          tone={tone}
-          marks={[{ value: d.semester_target, label: fmtNum(d.semester_target) }]}
-        />
+        <ScoreBar d={d} tone={tone} size="sm" />
       </span>
       <ChevronRight className="list-row__chevron" aria-hidden="true" />
     </Link>

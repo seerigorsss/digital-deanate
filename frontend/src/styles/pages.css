@@ -1489,3 +1489,6 @@ button.zone-chip[aria-pressed='true'] {
 .item-row__body { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
 .avg-row { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; }
 .avg-row__value { font-size: var(--fs-2xl); font-weight: 700; }
+
+.prio-row__body { gap: 6px; }
+.prio-row .list-row__title { overflow-wrap: break-word; word-break: normal; hyphens: auto; }

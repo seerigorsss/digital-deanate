@@ -17,22 +17,11 @@ import { Button } from '../components/ui/Button';
 import { Callout } from '../components/ui/Callout';
 import { Card, CardHeader } from '../components/ui/Card';
 import { PageHeader } from '../components/ui/PageHeader';
-import { PointsBar, type BarMark } from '../components/ui/PointsBar';
+import { ScoreBar } from '../components/domain/ScoreBar';
 import { EmptyState, ErrorState, PageSkeleton } from '../components/ui/States';
 import { ApiError } from '../api/client';
 import { daysLeftLabel, fmtNum, formatDate, formatDay, weekdayShort } from '../lib/format';
 import { MODULE_STATUS_LABEL, RISK_META } from '../lib/semantics';
-
-function marksFor(a: DisciplineAnalytics): BarMark[] {
-  if (a.assessment_type === 'exam') {
-    return [
-      { value: 30, label: '30' },
-      { value: a.semester_target, label: `${fmtNum(a.semester_target)}` },
-    ];
-  }
-  const ts = a.targets.map((t) => t.threshold).filter((v) => v <= a.semester_points_max);
-  return ts.map((v) => ({ value: v, label: fmtNum(v) }));
-}
 
 const GRADE_TONE: Record<number, string> = { 85: 'grade--excellent', 71: 'grade--good', 60: 'grade--satisfactory' };
 
@@ -48,7 +37,6 @@ function gradeFor(a: DisciplineAnalytics, total: number, exam: number | null): {
 
 function StatusBlock({ a }: { a: DisciplineAnalytics }) {
   const tone = RISK_META[a.risk.level]?.tone ?? 'nodata';
-  const isExam = a.assessment_type === 'exam' && a.exam != null;
   return (
     <Card className="status-card" aria-labelledby="status-title">
       <div className="stack-sm">
@@ -64,57 +52,7 @@ function StatusBlock({ a }: { a: DisciplineAnalytics }) {
           <span className="big-points__value num">{fmtNum(a.current_semester_points + (a.exam?.result ?? 0))}</span>
           <span className="muted num">из 100</span>
         </div>
-        {isExam ? (
-          <>
-            <div className="bar-caption small">
-              <span className="strong">Семестр</span>
-              <span className="muted num">
-                {fmtNum(a.current_semester_points)} из {fmtNum(a.semester_points_max)}
-                {a.remaining_points_max > 0 ? ` · можно добрать ещё ${fmtNum(a.remaining_points_max)}` : ''}
-              </span>
-            </div>
-            <PointsBar
-              max={a.semester_points_max}
-              earned={a.current_semester_points}
-              remaining={a.remaining_points_max}
-              missing={a.missing_points_max}
-              tone={tone}
-            />
-            <div className="bar-caption small">
-              <span className="strong">Экзамен</span>
-              <span className="muted num">
-                {a.exam?.result != null ? `${fmtNum(a.exam.result)} из 30` : 'до 30 · только на экзамене, минимум 18'}
-              </span>
-            </div>
-            <PointsBar
-              max={30}
-              earned={a.exam?.result ?? 0}
-              remaining={a.exam?.result != null ? 0 : 30}
-              missing={0}
-              tone={tone}
-              marks={[{ value: 18, label: '18' }]}
-            />
-          </>
-        ) : (
-          <>
-            <div className="bar-caption small">
-              <span className="strong">Баллы семестра</span>
-              <span className="muted num">
-                {fmtNum(a.current_semester_points)} из {fmtNum(a.semester_points_max)}
-                {a.remaining_points_max > 0 ? ` · можно добрать ещё ${fmtNum(a.remaining_points_max)}` : ''}
-              </span>
-            </div>
-            <PointsBar
-              max={a.semester_points_max}
-              earned={a.current_semester_points}
-              remaining={a.remaining_points_max}
-              missing={a.missing_points_max}
-              tone={tone}
-              marks={marksFor(a)}
-              legend
-            />
-          </>
-        )}
+        <ScoreBar d={a} tone={tone} legend />
       </div>
     </Card>
   );
@@ -258,7 +196,11 @@ function WhatIf({ detail }: { detail: DisciplineDetail }) {
     setErrors({});
     sim.reset();
   };
-  const fillMax = () => setValues(Object.fromEntries(pending.map((i) => [i.id, String(i.max_points)])));
+  const fill = (share: number) => {
+    // Округляем до 0,5 балла: так выглядят реальные оценки за работы.
+    setValues(Object.fromEntries(pending.map((i) => [i.id, String(Math.round(i.max_points * share * 2) / 2)])));
+    if (examAllowed) setExam(String(Math.round(30 * share * 2) / 2));
+  };
   const r = sim.data?.analytics;
   const serverError = sim.error instanceof ApiError ? sim.error.message : sim.error ? 'Не удалось пересчитать. Попробуйте ещё раз.' : null;
 
@@ -310,10 +252,15 @@ function WhatIf({ detail }: { detail: DisciplineDetail }) {
           <Button type="submit" variant="primary" loading={sim.isPending}>
             Пересчитать
           </Button>
-          {pending.length > 0 && (
-            <Button type="button" variant="ghost" onClick={fillMax}>
-              Заполнить максимумом
-            </Button>
+          {(pending.length > 0 || examAllowed) && (
+            <>
+              <Button type="button" variant="ghost" onClick={() => fill(0.6)}>
+                Заполнить минимумом
+              </Button>
+              <Button type="button" variant="ghost" onClick={() => fill(1)}>
+                Заполнить максимумом
+              </Button>
+            </>
           )}
           <Button type="button" variant="ghost" icon={<RotateCcw size={16} />} onClick={reset} disabled={!r && !Object.keys(values).length && !exam}>
             Сбросить

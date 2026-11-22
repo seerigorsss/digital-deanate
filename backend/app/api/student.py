@@ -141,16 +141,31 @@ def dashboard(p: Principal = Depends(require_student), db: Session = Depends(get
             "zone_counts": summary["zone_counts"],
             "explanation": summary["explanation"],
             "top_priority": (summary["priorities"] or [None])[0],
-            "priorities": [
-                {"discipline_id": p["discipline_id"], "title": p["title"], "risk_level": p["risk_level"], "risk_label": p.get("risk_label")}
-                for p in summary["priorities"]
-                if p["risk_level"] in ("critical", "high", "medium")
-            ][:4],
+            "priorities": _priority_rows(summary),
         },
         "deadlines": _upcoming_deadlines(db, p.id, today),
         "applications": [_app_brief(a) for a in apps],
         "notifications": {"unread_count": unread or 0, "latest": [notification_out(n) for n in latest]},
     }
+
+
+def _priority_rows(summary: dict) -> list[dict]:
+    """Предметы, которые стоит подтянуть, с данными для шкалы «семестр + экзамен» на главной."""
+    by_id = {d["discipline_id"]: d for d in summary["disciplines"]}
+    rows = []
+    for p in summary["priorities"]:
+        d = by_id.get(p["discipline_id"])
+        if d is None or p["risk_level"] not in ("critical", "high", "medium"):
+            continue
+        exam = d.get("exam")
+        rows.append({
+            "discipline_id": p["discipline_id"], "title": p["title"], "risk_level": p["risk_level"], "risk_label": p.get("risk_label"),
+            "assessment_type": d["assessment_type"], "semester_points_max": d["semester_points_max"],
+            "current_semester_points": d["current_semester_points"], "remaining_points_max": d["remaining_points_max"],
+            "missing_points_max": d["missing_points_max"],
+            "exam": {"result": exam["result"], "points_max": exam["points_max"], "points_min": exam["points_min"]} if exam else None,
+        })
+    return rows[:4]
 
 
 def _app_brief(a: Application) -> dict:

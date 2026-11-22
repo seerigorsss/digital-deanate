@@ -15,7 +15,7 @@ import { formatDate, formatDay, weekdayShort } from '../lib/format';
 
 type Tab = 'radar' | 'session' | 'record';
 const TABS: { value: Tab; label: string }[] = [
-  { value: 'radar', label: 'Радар' },
+  { value: 'radar', label: 'Успеваемость' },
   { value: 'session', label: 'Сессия' },
   { value: 'record', label: 'Зачётная книжка' },
 ];
@@ -175,6 +175,9 @@ function SessionTab({ g }: { g: GradesResponse }) {
   );
 }
 
+/** Порядок групп в зачётке: отлично → хорошо → удовлетворительно → зачтено → неудовлетворительно. */
+const GRADE_ORDER: Record<string, number> = { excellent: 0, good: 1, satisfactory: 2, passed: 3, unsatisfactory: 4, failed: 4 };
+
 const GRADE_CLASS: Record<string, string> = {
   excellent: 'grade--excellent',
   good: 'grade--good',
@@ -207,7 +210,7 @@ function RecordTab({ g }: { g: GradesResponse }) {
             aside={sem.average != null ? <span className="small muted num">средний {sem.average.toFixed(2).replace('.', ',')}</span> : undefined}
           />
           <ul className="record-list">
-            {sem.entries.map((e) => (
+            {[...sem.entries].sort((x, y) => (GRADE_ORDER[x.grade_key] ?? 9) - (GRADE_ORDER[y.grade_key] ?? 9)).map((e) => (
               <li key={e.id} className="record-row">
                 <span className="record-row__body">
                   <span className="record-row__title">{e.discipline_title}</span>
@@ -240,7 +243,7 @@ export default function StudyPage() {
   const q = tab === 'radar' ? analytics : grades;
   return (
     <div className="stack">
-      <PageHeader title="Учёба" docTitle={tab === 'radar' ? 'Академический радар' : TABS.find((t) => t.value === tab)?.label} subtitle="Успеваемость, сессия и зачётная книжка">
+      <PageHeader title="Учёба" docTitle={TABS.find((t) => t.value === tab)?.label} subtitle="Успеваемость, сессия и зачётная книжка">
         <Segmented options={TABS} value={tab} onChange={setTab} label="Разделы учёбы" mode="tabs" controls="study-panel" block />
       </PageHeader>
       <div id="study-panel" role="tabpanel" aria-label={TABS.find((t) => t.value === tab)?.label}>

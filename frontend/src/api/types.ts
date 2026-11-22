@@ -462,7 +462,18 @@ export interface Dashboard {
     zone_counts: ZoneCounts;
     explanation: string;
     top_priority: Priority | null;
-    priorities: { discipline_id: number; title: string; risk_level: RiskLevel; risk_label: string | null }[];
+    priorities: {
+      discipline_id: number;
+      title: string;
+      risk_level: RiskLevel;
+      risk_label: string | null;
+      assessment_type: AssessmentType;
+      semester_points_max: number;
+      current_semester_points: number;
+      remaining_points_max: number;
+      missing_points_max: number;
+      exam: { result: number | null; points_max: number; points_min: number } | null;
+    }[];
   };
   deadlines: Deadline[];
   applications: ApplicationBrief[];

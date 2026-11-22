@@ -1469,3 +1469,16 @@ a.list-row:hover .list-row__title {
   border-radius: inherit;
   background: var(--c-accent);
 }
+
+/* Единая шкала «семестр + экзамен» */
+.sbar { min-width: 0; }
+.sbar__track { display: flex; gap: 3px; height: 14px; }
+.sbar--sm .sbar__track { height: 9px; gap: 2px; }
+.sbar__part { position: relative; display: flex; overflow: hidden; border-radius: var(--r-pill); background: var(--c-surface-3, #eef0f4); }
+.sbar__seg--exam { background: repeating-linear-gradient(135deg, #d6bbfb 0 4px, #f4ebff 4px 8px); }
+.sbar__min { position: absolute; top: 0; bottom: 0; width: 2px; background: #6941c6; transform: translateX(-1px); }
+.sbar__captions { display: flex; gap: 3px; margin-top: 4px; font-size: 12px; color: var(--c-text-3, #667085); line-height: 1.3; }
+.sbar--sm .sbar__captions { font-size: 11px; }
+.sbar__captions > span { flex: none; min-width: 0; }
+.sbar__captions b { color: var(--c-text, #151a2d); }
+.sbar__cap-exam { text-align: right; color: #6941c6; white-space: nowrap; }
