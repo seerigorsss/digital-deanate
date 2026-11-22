@@ -94,8 +94,13 @@ export function formatRange(fromIso: string, toIso: string): string {
   return `${formatDay(fromIso)} – ${formatDay(toIso)}`;
 }
 
-/** ISO дата-время без зоны трактуется как UTC. */
+/**
+ * ISO дата-время без зоны трактуется как UTC. Голая дата «2026-11-22» — полдень UTC того же дня (в Москве тот же день):
+ * строку вида «2026-11-22Z» Chrome принимает, а Safari и Firefox дают Invalid Date, и форматирование падает.
+ */
 export function parseDateTime(iso: string): Date {
+  if (/^\d{4}-\d{2}-\d{2}$/.test(iso)) return new Date(`${iso}T12:00:00Z`);
+  iso = iso.replace(/(\.\d{3})\d+/, '$1'); // микросекунды Python → миллисекунды (стандарт ECMAScript допускает 3 знака)
   const hasZone = /([zZ]|[+-]\d{2}:?\d{2})$/.test(iso);
   return new Date(hasZone ? iso : `${iso}Z`);
 }
