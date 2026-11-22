@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>Цифровой деканат будущего — описание процесса создания</title>
+<style>
+@font-face { font-family: 'Manrope'; font-weight: 400; src: url('../fonts/manrope-cyrillic-400-normal.woff2') format('woff2'); unicode-range: U+0400-045F,U+2116; }
+@font-face { font-family: 'Manrope'; font-weight: 400; src: url('../fonts/manrope-latin-400-normal.woff2') format('woff2'); unicode-range: U+0000-00FF,U+2000-206F,U+2190-21FF,U+2212; }
+@font-face { font-family: 'Manrope'; font-weight: 600; src: url('../fonts/manrope-cyrillic-600-normal.woff2') format('woff2'); unicode-range: U+0400-045F,U+2116; }
+@font-face { font-family: 'Manrope'; font-weight: 600; src: url('../fonts/manrope-latin-600-normal.woff2') format('woff2'); unicode-range: U+0000-00FF,U+2000-206F,U+2190-21FF,U+2212; }
+@font-face { font-family: 'Manrope'; font-weight: 700; src: url('../fonts/manrope-cyrillic-700-normal.woff2') format('woff2'); unicode-range: U+0400-045F,U+2116; }
+@font-face { font-family: 'Manrope'; font-weight: 700; src: url('../fonts/manrope-latin-700-normal.woff2') format('woff2'); unicode-range: U+0000-00FF,U+2000-206F,U+2190-21FF,U+2212; }
+@font-face { font-family: 'Manrope'; font-weight: 800; src: url('../fonts/manrope-cyrillic-800-normal.woff2') format('woff2'); unicode-range: U+0400-045F,U+2116; }
+@font-face { font-family: 'Manrope'; font-weight: 800; src: url('../fonts/manrope-latin-800-normal.woff2') format('woff2'); unicode-range: U+0000-00FF,U+2000-206F,U+2190-21FF,U+2212; }
+
+@page { size: 297mm 210mm; margin: 0; }
+:root {
+  --ink: #141933; --ink2: #3b4260; --muted: #6a7189; --line: #e3e6f0; --bg: #f5f6fb;
+  --accent: #3b44d1; --accent2: #6b5cf0; --soft: #eceefe;
+  --green: #17945c; --yellow: #d99a00; --orange: #e8692a; --red: #d33a2c;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+body { font-family: 'Manrope', 'DejaVu Sans', sans-serif; color: var(--ink); font-size: 11pt; line-height: 1.45; }
+.page { width: 297mm; height: 210mm; padding: 13mm 15mm 11mm; position: relative; overflow: hidden; page-break-after: always; break-after: page; background: #fff; display: flex; flex-direction: column; }
+.page:last-child { page-break-after: auto; }
+.foot { position: absolute; left: 15mm; right: 15mm; bottom: 6mm; display: flex; justify-content: space-between; font-size: 7.5pt; color: #9aa0b4; }
+.kicker { font-size: 8.5pt; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); margin-bottom: 2mm; }
+h1 { font-size: 40pt; font-weight: 800; letter-spacing: -.03em; line-height: 1.02; }
+h2 { font-size: 23pt; font-weight: 800; letter-spacing: -.02em; line-height: 1.1; margin-bottom: 2mm; }
+h3 { font-size: 12pt; font-weight: 800; margin-bottom: 1.5mm; }
+.lead { font-size: 12pt; color: var(--ink2); max-width: 175mm; margin-bottom: 6mm; }
+.muted { color: var(--muted); }
+.small { font-size: 9.8pt; }
+.xs { font-size: 8.5pt; }
+b, strong { font-weight: 700; }
+.grid { display: grid; gap: 5mm; }
+.card { background: var(--bg); border-radius: 4mm; padding: 4.5mm 5mm; }
+.card.white { background: #fff; border: 1px solid var(--line); }
+.card.accent { background: var(--soft); }
+.card p + p { margin-top: 1.5mm; }
+ul.dots { list-style: none; }
+ul.dots li { position: relative; padding-left: 4.5mm; margin: 1.1mm 0; }
+ul.dots li::before { content: ''; position: absolute; left: 0; top: 2.1mm; width: 1.8mm; height: 1.8mm; border-radius: 50%; background: var(--accent); }
+.phone { display: block; border-radius: 4.5mm; border: 1.3mm solid #1c2033; box-shadow: 0 3mm 8mm rgba(20,25,51,.18); width: 100%; }
+.shot { display: block; border-radius: 2.5mm; border: 1px solid var(--line); box-shadow: 0 2mm 6mm rgba(20,25,51,.10); width: 100%; }
+.cap { font-size: 8pt; color: var(--muted); margin-top: 1.8mm; line-height: 1.35; }
+.num { font-variant-numeric: tabular-nums; }
+.tag { display: inline-block; font-size: 7.5pt; font-weight: 700; padding: .6mm 2.2mm; border-radius: 99px; background: var(--soft); color: var(--accent); }
+.tag.red { background: #fde9e7; color: var(--red); } .tag.green { background: #e2f5eb; color: var(--green); } .tag.orange { background: #fdeee4; color: #b84d16; } .tag.yellow { background: #fdf4d9; color: #8a6200; }
+table { width: 100%; border-collapse: collapse; font-size: 9pt; }
+th { text-align: left; font-size: 7.5pt; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); font-weight: 700; padding: 0 2mm 1.5mm; border-bottom: 1.5px solid var(--ink); }
+td { padding: 2mm; border-bottom: 1px solid var(--line); vertical-align: top; }
+td:first-child, th:first-child { padding-left: 0; }
+blockquote { border-left: 1.2mm solid var(--accent); background: var(--soft); border-radius: 0 3mm 3mm 0; padding: 3.5mm 4.5mm; font-size: 10.8pt; color: #232a5c; }
+.qmeta { font-size: 7.5pt; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); margin-bottom: 1mm; }
+.qwhy { font-size: 9.2pt; color: var(--muted); margin-top: 1.5mm; }
+
+/* обложка */
+.cover { background: radial-gradient(120% 120% at 100% 0%, #e9ebff 0%, #ffffff 55%); }
+.stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4mm; margin-top: auto; }
+.stat { background: #fff; border: 1px solid var(--line); border-radius: 4mm; padding: 4mm 4.5mm; }
+.stat .n { font-size: 22pt; font-weight: 800; letter-spacing: -.02em; color: var(--accent); line-height: 1.05; }
+.stat .l { font-size: 8.5pt; color: var(--ink2); margin-top: 1mm; }
+.disclaimer { font-size: 8pt; color: var(--muted); background: #fff8e1; border: 1px solid #f3dc8d; border-radius: 3mm; padding: 2mm 3.5mm; display: inline-block; }
+
+/* таймлайн */
+.tl { display: grid; grid-template-columns: repeat(8, 1fr); gap: 2.5mm; position: relative; margin-top: 3mm; }
+.tl::before { content: ''; position: absolute; left: 3mm; right: 3mm; top: 4.4mm; height: 1mm; background: linear-gradient(90deg, var(--accent), var(--accent2)); border-radius: 1mm; }
+.st { position: relative; }
+.st .dot { width: 9.8mm; height: 9.8mm; border-radius: 50%; background: #fff; border: 1mm solid var(--accent); display: grid; place-items: center; font-weight: 800; font-size: 10pt; color: var(--accent); position: relative; z-index: 1; }
+.st .when { font-size: 7.5pt; font-weight: 700; color: var(--accent); margin: 2.5mm 0 .8mm; text-transform: uppercase; letter-spacing: .04em; }
+.st h4 { font-size: 10pt; font-weight: 800; line-height: 1.2; margin-bottom: 1mm; }
+.st p { font-size: 8.3pt; color: var(--ink2); line-height: 1.35; }
+.st.human .dot { border-color: var(--orange); color: var(--orange); }
+.st.human .when { color: var(--orange); }
+
+/* схема */
+.flow { display: flex; align-items: stretch; gap: 3mm; }
+.flow .box { border-radius: 3.5mm; padding: 3.5mm 4mm; background: var(--bg); flex: 1; }
+.flow .box.h { background: #fff1e6; }
+.flow .box.ai { background: var(--soft); }
+.flow .arrow { align-self: center; font-size: 16pt; color: var(--accent); font-weight: 800; }
+.agents { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2mm; margin-top: 2mm; }
+.agent { background: #fff; border-radius: 2.5mm; padding: 2mm 2.5mm; font-size: 8.2pt; line-height: 1.3; }
+.agent b { display: block; font-size: 8.8pt; }
+.legend-h { color: #b84d16; } .legend-ai { color: var(--accent); }
+</style>
+</head>
+<body>
+
+<!-- 1. Обложка -->
+<section class="page cover">
+  <div style="display:grid;grid-template-columns:1fr 112mm;gap:8mm;flex:1;min-height:0">
+    <div style="display:flex;flex-direction:column">
+      <div class="kicker">Конкурс «Цифровой деканат будущего» · описание процесса создания</div>
+      <h1 style="font-size:36pt">Цифровой деканат,<br>который отвечает на&nbsp;вопрос<br><span style="color:var(--accent)">«что мне делать?»</span></h1>
+      <p class="lead" style="margin-top:5mm;font-size:11.5pt">Личный кабинет студента: расписание с изменениями, успеваемость по балльно-рейтинговой системе с анализом
+        риска по каждому предмету, проверенные материалы по слабым темам, заявки со статусами и связь с деканатом —
+        в одном месте и с телефона. Весь код написали ИИ-агенты; автор ставил задачи, проверял и направлял.</p>
+      <div class="small" style="margin-bottom:3mm">
+        <b>Автор:</b> Сироткин Игорь — 3 курс, МГТУ им. Н. Э. Баумана, кафедра ИУ6 «Компьютерные системы и сети»,
+        направление «Системы искусственного интеллекта» · <b>команда Bauman Analytics</b><br>
+        <b>Код:</b> github.com/seerigorsss/digital-deanate · <b>ссылка на прототип и аккаунты</b> — в комментарии к работе
+      </div>
+      <div><span class="disclaimer">Концепт для конкурса, не официальный сервис вуза. Все ФИО, оценки и обращения вымышлены.</span></div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:5mm;align-items:start;height:128mm;overflow:hidden">
+      <img class="phone" src="img/m-home.png" alt="Главная">
+      <img class="phone" src="img/m-study.png" alt="Успеваемость" style="margin-top:12mm">
+    </div>
+  </div>
+  <div class="stats">
+    <div class="stat"><div class="n">2 нейросети</div><div class="l">ChatGPT — постановка задачи, Claude Code — разработка</div></div>
+    <div class="stat"><div class="n">7 агентов</div><div class="l">координатор + 6 ролей, у каждой своя зона файлов</div></div>
+    <div class="stat"><div class="n num">501 проверка</div><div class="l">224 автотеста + 277 сценариев в браузере, все проходят</div></div>
+    <div class="stat"><div class="n">0 строк</div><div class="l">кода написано вручную</div></div>
+  </div>
+</section>
+
+<!-- 2. Проблема и решение -->
+<section class="page">
+  <div class="kicker">01 · Проблема</div>
+  <h2>Баллы видны. Непонятно, что с ними делать</h2>
+  <p class="lead">Учебная жизнь разбросана: расписание — на сайте, баллы — в отдельной системе, справки — через очередь,
+    объявления — в чатах. В вузе автора есть раздел «текущая успеваемость» с баллами по модулям, но он показывает только
+    числа: насколько всё плохо и что подтянуть первым, студент считает сам.</p>
+  <div class="grid" style="grid-template-columns:repeat(4,1fr);gap:4mm">
+    <div class="card"><div class="tag">Вопрос студента</div><h3 style="margin-top:2mm">Что у меня сегодня и что изменилось?</h3>
+      <p class="small"><b>Главная и Расписание:</b> занятия на день и неделю, отмены, переносы, замены аудитории и преподавателя — выделены цветом и подписью.</p></div>
+    <div class="card accent"><div class="tag">Вопрос студента</div><h3 style="margin-top:2mm">Всё ли в порядке с учёбой и что делать первым?</h3>
+      <p class="small"><b>Успеваемость:</b> одно число 0–100 с цветовой зоной, риск по каждому предмету, «Стоит подтянуть», подсказка ИИ.</p></div>
+    <div class="card accent"><div class="tag">Вопрос студента</div><h3 style="margin-top:2mm">Сколько ещё нужно набрать?</h3>
+      <p class="small"><b>Карточка предмета:</b> шкала «семестр + экзамен», сколько добрать на 60/71/85, «Что если?», материалы по слабым темам.</p></div>
+    <div class="card"><div class="tag">Вопрос студента</div><h3 style="margin-top:2mm">Где мой документ и что ответил деканат?</h3>
+      <p class="small"><b>Заявки и Уведомления:</b> 7 типов заявок, 9 статусов с «что дальше», переписка, документ-образец; уведомления о сроках и статусах.</p></div>
+  </div>
+  <div class="grid" style="grid-template-columns:1.1fr 1fr;gap:6mm;margin-top:6mm">
+    <div>
+      <h3>Почему именно эти разделы</h3>
+      <ul class="dots small">
+        <li><b>Обязательное ядро конкурса</b> реализовано полностью: вход и профиль, расписание, успеваемость, заявки, уведомления.</li>
+        <li><b>Киллер-фича — анализ успеваемости</b> — выросла из реального неудобства автора и правил его вуза: шкала 0–59/60–70/71–84/85–100, зачёт, распределённый экзамен, экзамен 70 + 18…30.</li>
+        <li><b>Кабинет сотрудника деканата</b> — чтобы заявка действительно проходила путь «студент → деканат → студент».</li>
+        <li>Каждый раздел заканчивается действием: «Ответить», «Заказать справку», «Открыть материалы», «Пересчитать».</li>
+      </ul>
+    </div>
+    <div class="card white small">
+      <h3>Исследование потребностей — честно</h3>
+      <p>Формальных опросов не проводилось, и ИИ-агенту прямо запрещено их выдумывать («помечай как гипотезы для проверки»).
+        Источник требований — опыт автора как студента и его ручное тестирование каждой версии: 8 раундов правок,
+        которые изменили интерфейс сильнее любых тестов (стр. 8).</p>
+    </div>
+  </div>
+  <div class="foot"><span>Цифровой деканат будущего · Сироткин Игорь, Bauman Analytics</span><span>2</span></div>
+</section>
+
+<!-- 3. Киллер-фича -->
+<section class="page">
+  <div class="kicker">02 · Главная идея</div>
+  <h2>«Успеваемость»: состояние учёбы за 5 секунд</h2>
+  <div class="grid" style="grid-template-columns:52mm 52mm 1fr;gap:7mm;margin-top:3mm;flex:1">
+    <div><img class="phone" src="img/m-study.png" alt=""><div class="cap">Число 51/100, зона «Высокий риск», «✨ Подсказка ИИ», «Что это такое?» — как считается число.</div></div>
+    <div><img class="phone" src="img/m-disc.png" alt=""><div class="cap">Предмет с экзаменом: единая шкала «набрано → можно добрать в семестре → экзамен», пороги 60/71/85.</div></div>
+    <div style="display:flex;flex-direction:column;gap:3.2mm">
+      <div class="card accent small"><b>1. Одно число 0–100 и цвет зоны.</b> Среднее баллов уровней риска по предметам с ограничением сверху:
+        есть критический предмет — не выше 59. Одна проблемная дисциплина не теряется среди шести благополучных (иначе было бы 87 и «зелёная» зона).</div>
+      <div class="card small"><b>2. Риск по каждому предмету для трёх типов аттестации</b> — по набранному, остатку, темпу и достижимости.
+        Мало оценок — честно «Недостаточно данных», а не выдуманный прогноз. Риск нигде не называется «вероятностью».</div>
+      <div class="card small"><b>3. Сколько добрать.</b> Для «удовл», «хор» и «отл» — достижимо ли и сколько получить в семестре
+        и на экзамене (минимум 18 из 30 обязателен).</div>
+      <div class="card small"><b>4. «Что если?»</b> — ввёл ожидаемые баллы (или «Заполнить минимумом» = 60 % каждой работы) — увидел итоговую оценку. Ничего не сохраняется.</div>
+      <div class="card small"><b>5. Материалы по слабым темам:</b> 142 ссылки на открытые ресурсы для 63 тем; каждую ИИ-агент открыл и проверил,
+        у каждой — «почему рекомендовано».</div>
+      <div class="xs muted">Расчёт — детерминированный модуль (2 600 строк, 148 тестов, все 12 граничных случаев ТЗ). Данные студента
+        не уходят во внешние нейросети, ключи API не нужны. Демо-индексы 90 и 51 совпали с посчитанными вручную до написания кода.</div>
+    </div>
+  </div>
+  <div class="foot"><span>Цифровой деканат будущего · Сироткин Игорь, Bauman Analytics</span><span>3</span></div>
+</section>
+
+<!-- 4. Разделы -->
+<section class="page">
+  <div class="kicker">03 · Кабинет целиком</div>
+  <h2>Всё нужное — за пару касаний, с телефона от 360 px</h2>
+  <div class="grid" style="grid-template-columns:repeat(6,1fr);gap:4.5mm;margin-top:4mm">
+    <div><img class="phone" src="img/m-home.png" alt=""><div class="cap"><b>Главная.</b> Сегодняшние пары, баннер «Деканат ждёт ответа», успеваемость, сроки.</div></div>
+    <div><img class="phone" src="img/m-sched.png" alt=""><div class="cap"><b>Расписание.</b> День/неделя, числитель/знаменатель; изменения выделены цветом и текстом.</div></div>
+    <div><img class="phone" src="img/m-app.png" alt=""><div class="cap"><b>Заявка.</b> Статус, «Что дальше», история, переписка с деканатом.</div></div>
+    <div><img class="phone" src="img/m-notif.png" alt=""><div class="cap"><b>Уведомления.</b> Категории, непрочитанные, окно с «Подробнее».</div></div>
+    <div><img class="phone" src="img/m-record.png" alt=""><div class="cap"><b>Зачётная книжка.</b> Средний балл, оценки цветом по семестрам.</div></div>
+    <div><img class="phone" src="img/m-staff.png" alt=""><div class="cap"><b>Деканат.</b> Факультет → кафедра → группа → студент, только просмотр.</div></div>
+  </div>
+  <div class="grid small" style="grid-template-columns:repeat(3,1fr);gap:5mm;margin-top:auto;margin-bottom:4mm">
+    <div class="card"><b>Продуманные состояния.</b> Загрузка, пусто, ошибка с «Повторить», нет сети, «В группе пока нет студентов» — у каждого экрана.</div>
+    <div class="card"><b>Навигация.</b> Нижняя панель на телефоне, боковая на компьютере; «Назад» возвращает туда, откуда пришёл, и на то же место страницы.</div>
+    <div class="card"><b>Единый стиль.</b> Собственная дизайн-система и логотип, шрифт Manrope (OFL), иконки lucide; цвет всегда продублирован текстом.</div>
+  </div>
+  <div class="foot"><span>Цифровой деканат будущего · Сироткин Игорь, Bauman Analytics</span><span>4</span></div>
+</section>
+
+<!-- 5. ИИ-инструменты и организация -->
+<section class="page">
+  <div class="kicker">04 · ИИ-инструменты и организация работы</div>
+  <h2>Не «сделай кабинет», а команда агентов по спецификации</h2>
+  <div class="flow" style="margin-top:3mm">
+    <div class="box h"><div class="qmeta legend-h">Автор + ChatGPT</div><b>4 промпта</b><p class="small">Условия конкурса + правила своего вуза → ТЗ для ИИ (62 тыс. знаков, 20 разделов), 8 ролей агентов, короткий стартовый промпт.</p></div>
+    <div class="arrow">→</div>
+    <div class="box ai" style="flex:2.4"><div class="qmeta legend-ai">Claude Code · Claude Opus 5.5 · координатор</div>
+      <p class="small"><b>Сначала контракты с эталоном:</b> учебный план, формулы аналитики, демо-баллы с ответами, посчитанными вручную. Потом — параллельная работа субагентов, каждый только в своих файлах.</p>
+      <div class="agents">
+        <div class="agent"><b>04 Аналитика</b>модуль риска и индекса, 148 тестов</div>
+        <div class="agent"><b>05 Материалы</b>142 ссылки, каждая открыта и проверена</div>
+        <div class="agent"><b>01 Продукт и UX</b>сценарии, карта экранов, решения</div>
+        <div class="agent"><b>03 Frontend</b>дизайн-система, SPA</div>
+        <div class="agent"><b>06 QA — независимо</b>атакует и ищет дефекты, код не правит</div>
+        <div class="agent"><b>07 Документация</b>отчёт только по проверяемым фактам</div>
+      </div>
+    </div>
+    <div class="arrow">→</div>
+    <div class="box h"><div class="qmeta legend-h">Автор</div><b>Проверка руками</b><p class="small">Docker на Windows, свой VPS, телефон. 8 раундов правок — ИИ исправляет и прогоняет все тесты заново.</p></div>
+  </div>
+  <table style="margin-top:6mm">
+    <tr><th style="width:52mm">Инструмент</th><th>Для чего</th></tr>
+    <tr><td><b>ChatGPT</b></td><td>Постановка задачи: ТЗ из условий конкурса, реалии вуза и «киллер-фича», файлы ролей, стартовый промпт без дублирования ТЗ.</td></tr>
+    <tr><td><b>Claude Code</b>, Claude Opus 5.5</td><td>Весь продукт: архитектура, backend, frontend, дизайн-система и логотип, тексты интерфейса, тесты, Docker, документация.</td></tr>
+    <tr><td><b>Субагенты Claude Code</b></td><td>6 специализированных ролей работают параллельно, у каждой — свой промпт, зона файлов и обязательная самопроверка.</td></tr>
+    <tr><td><b>WebSearch / WebFetch</b></td><td>Поиск материалов по конкретной теме и проверка каждой ссылки: открывается ли и про это ли.</td></tr>
+    <tr><td><b>Playwright + Chrome, pytest</b></td><td>ИИ сам проходит сценарии на 360/390/768/1280 px, смотрит на скриншоты «глазами», ловит ошибки консоли; 224 автотеста.</td></tr>
+    <tr><td><b>Docker, Caddy, GitHub</b></td><td>Сборка образа, HTTPS на VPS автора, публичный репозиторий. IDE и сервисы генерации картинок не использовались.</td></tr>
+  </table>
+  <div class="foot"><span>Цифровой деканат будущего · Сироткин Игорь, Bauman Analytics</span><span>5</span></div>
+</section>
+
+<!-- 6. Ключевые промпты -->
+<section class="page">
+  <div class="kicker">05 · Ключевые промпты</div>
+  <h2>Каждый промпт закрывает конкретный риск работы с ИИ</h2>
+  <div class="grid" style="grid-template-columns:1fr 1fr;gap:4.5mm 7mm;margin-top:3mm">
+    <div><div class="qmeta">Этап 0 · ChatGPT · промпт 2 — киллер-фича</div>
+      <blockquote>«…алгоритм, который смотрит баллы студента, выделяет предметы в красной зоне… оценивает ситуацию, насколько все плохо (желательно в графической форме…)… измени основной md-файл и дай файлы md для ролей»</blockquote>
+      <div class="qwhy">Реалии вуза (БРС, 3 типа аттестации) превращены в формальное ТЗ и роли агентов.</div></div>
+    <div><div class="qmeta">Этап 0 · ChatGPT · промпт 4 — контекст без шума</div>
+      <blockquote>«Дублирует ли это то, что написано в основном md-файле? Если да, то убери все лишнее и оставь только то, что действительно нужно, чтобы ввести модель в контекст»</blockquote>
+      <div class="qwhy">Одна версия требований: модель обращается к ТЗ, а не к его пересказу.</div></div>
+    <div><div class="qmeta">Старт · Claude Code · координатор</div>
+      <blockquote>«Не ограничивайся планированием… Твоя конечная задача — довести проект до рабочего, протестированного и опубликованного веб-прототипа.»</blockquote>
+      <div class="qwhy">Результат — работающий продукт, а не план и фрагменты кода.</div></div>
+    <div><div class="qmeta">Разработка · агент 04 · аналитика</div>
+      <blockquote>«Если твой алгоритм по контракту даёт другой результат — НЕ подгоняй данные молча: сначала перепроверь расчёт вручную»</blockquote>
+      <div class="qwhy">Итог: все 14 уровней риска и оба индекса совпали с эталоном без подгонки.</div></div>
+    <div><div class="qmeta">Разработка · агент 05 · материалы</div>
+      <blockquote>«Каждый URL открой через WebFetch и убедись, что страница существует и действительно про эту тему… Пустая подборка лучше фиктивной.»</blockquote>
+      <div class="qwhy">Защита от выдуманных ссылок — главной слабости ИИ в таких задачах.</div></div>
+    <div><div class="qmeta">Проверка · агент 06 · независимый QA</div>
+      <blockquote>«Ты не участвовал в разработке… как строгий член жюри и как атакующий. Цель — найти дефекты до сдачи, а не подтвердить, что всё хорошо.»</blockquote>
+      <div class="qwhy">Нашёл 12 дефектов, включая обход лимита входа, — все исправлены.</div></div>
+  </div>
+  <p class="xs muted" style="margin-top:auto;margin-bottom:4mm">Шаблон каждого промпта субагенту: роль → контекст с путями к файлам → решения, которые нельзя менять → задача с проверяемыми
+    критериями → «Изменяй ТОЛЬКО…» и запрет выдумывать → обязательная самопроверка → отчёт с отклонениями от контракта. Все промпты дословно — в docs/ai-log/.</p>
+  <div class="foot"><span>Цифровой деканат будущего · Сироткин Игорь, Bauman Analytics</span><span>6</span></div>
+</section>
+
+<!-- 7. От идеи до кабинета -->
+<section class="page">
+  <div class="kicker">06 · От идеи до кабинета</div>
+  <h2>8 шагов за двое суток</h2>
+  <div class="tl">
+    <div class="st human"><div class="dot">1</div><div class="when">до 21.11 · автор</div><h4>Идея и ТЗ</h4><p>4 промпта в ChatGPT: ТЗ, 8 ролей, стартовый промпт.</p></div>
+    <div class="st"><div class="dot">2</div><div class="when">21.11 · 21:50</div><h4>Контракты с эталоном</h4><p>План 14 дисциплин / 63 темы, формулы, демо-баллы с ручным ответом.</p></div>
+    <div class="st"><div class="dot">3</div><div class="when">22:00–22:30</div><h4>Агенты параллельно</h4><p>Аналитика, материалы, продукт, backend: сессии, API, 24 таблицы.</p></div>
+    <div class="st"><div class="dot">4</div><div class="when">22.11 · 03:00</div><h4>Интерфейс и Docker</h4><p>15 страниц, e2e-обход, образ 300 МБ.</p></div>
+    <div class="st"><div class="dot">5</div><div class="when">13:20</div><h4>Независимый QA</h4><p>50 API-атак + 277 браузерных проверок → 12 дефектов → исправлены.</p></div>
+    <div class="st human"><div class="dot">6</div><div class="when">15:50–17:30 · автор</div><h4>Ручной тест → 4 итерации UX</h4><p>Меньше текста, «назад», шкала, права деканата.</p></div>
+    <div class="st human"><div class="dot">7</div><div class="when">19:50 · автор</div><h4>Публикация на VPS</h4><p>Docker + Caddy с HTTPS; найден баг Safari — исправлен.</p></div>
+    <div class="st"><div class="dot">8</div><div class="when">22.11</div><h4>Документация</h4><p>Промпты, журнал из 15 этапов, отчёт, инструкция жюри.</p></div>
+  </div>
+  <div class="grid" style="grid-template-columns:1fr 1fr;gap:7mm;margin-top:7mm;flex:1">
+    <div><h3>Первая версия «Учёбы»</h3>
+      <img class="shot" src="../img/radar-before.png" alt="" style="height:88mm;object-fit:cover;object-position:top">
+      <div class="cap">Информативно, но перегружено: абзацы объяснений, «Что подтянуть» и «Что идёт хорошо».</div></div>
+    <div><h3>После правок автора</h3>
+      <img class="shot" src="../img/radar-s2.png" alt="" style="height:88mm;object-fit:cover;object-position:top">
+      <div class="cap">Число и зона, подсказка ИИ по кнопке, «Что это такое?», предметы по типу аттестации, у каждого — шкала.</div></div>
+  </div>
+  <div class="foot"><span>Цифровой деканат будущего · Сироткин Игорь, Bauman Analytics</span><span>7</span></div>
+</section>
+
+<!-- 8. Удачные и неудачные варианты -->
+<section class="page">
+  <div class="kicker">07 · Удачные и неудачные варианты</div>
+  <h2>Шкала «семестр + экзамен»: четыре версии до правильной</h2>
+  <div class="grid" style="grid-template-columns:1fr 92mm;gap:8mm;margin-top:3mm;flex:1">
+    <div style="display:flex;flex-direction:column;gap:2.6mm">
+      <div><span class="tag red">Версия 2 · ошибка ИИ</span> <span class="xs muted">две отдельные шкалы — автор: «нужно… на одной шкале»</span>
+        <img class="shot" src="../img/evo-2-two-bars.png" alt="" style="margin-top:1.2mm"></div>
+      <div><span class="tag red">Версия 3 · ошибка ИИ ещё раз</span> <span class="xs muted">экзамен — фиксированный участок 70–100, между ними пустота</span>
+        <img class="shot" src="../img/evo-3-split.png" alt="" style="margin-top:1.2mm"></div>
+      <div><span class="tag green">Версия 4 · итог</span> <span class="xs muted">единая ось: набрано 26 → в семестре до 46 → экзамен до 76; пороги 60/71/85</span>
+        <img class="shot" src="../img/evo-4-final.png" alt="" style="margin-top:1.2mm"></div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:4mm">
+      <div class="card accent small"><b>Что помогло.</b> После двух неверных попыток автор разобрал шкалу на числах одной
+        дисциплины: «30/70, максимум за семестр 55, с экзаменом 85 — не доходит до 100». Конкретный пример снял
+        неоднозначность лучше любого описания.</div>
+      <blockquote style="font-size:8.8pt">«…сделай на границе семестра и экзамена отсечку с указанием баллов… добавь отсечки 60, 71 и 85… на каждом графике»</blockquote>
+      <div class="card small"><b>Ещё правки автора, которые не поймал бы ни один тест:</b>
+        <ul class="dots xs" style="margin-top:1mm">
+          <li>«назад» должен возвращать туда, откуда пришёл, а не в родительский раздел;</li>
+          <li>уведомление сначала открывается окном, а не уводит со страницы;</li>
+          <li>«у деканата убери возможность проставлять баллы — это нелогично»: баллы ставит преподаватель — право записи удалено на сервере;</li>
+          <li>меньше текста: зачётка — только форма и оценка, сессия — только даты.</li>
+        </ul></div>
+      <div class="xs muted">Версия 1 (до правок) — на стр. 7 слева. Все версии взяты из истории git: каждый скриншот закоммичен вместе с кодом.</div>
+    </div>
+  </div>
+  <div class="foot"><span>Цифровой деканат будущего · Сироткин Игорь, Bauman Analytics</span><span>8</span></div>
+</section>
+
+<!-- 9. Ошибки ИИ и проверки -->
+<section class="page">
+  <div class="kicker">08 · Работа с ошибками ИИ</div>
+  <h2>Ничего не принималось на слово</h2>
+  <div class="grid" style="grid-template-columns:1fr 78mm;gap:8mm;margin-top:3mm">
+    <table>
+      <tr><th style="width:78mm">Что сделал ИИ не так</th><th style="width:38mm">Кто нашёл</th><th>Как исправлено</th></tr>
+      <tr><td>Продуктовый агент выдумал даты изменений расписания</td><td>сверка фактов с данными</td><td>агенту отправлен эталон, 14 из 14 совпали</td></tr>
+      <tr><td>Гонка при создании напоминаний → ошибка 500</td><td>e2e-обход Playwright</td><td>транзакция SAVEPOINT + регрессионный тест</td></tr>
+      <tr><td>Обход лимита входа через X-Forwarded-For, 500 на «Infinity» и огромных ID, лимит тела для chunked</td><td>независимый QA</td><td>12 дефектов закрыты, подтверждено ретестом</td></tr>
+      <tr><td>Учебный план и материалы не попадали в git из-за .gitignore</td><td>агент-документатор</td><td>правило сужено, образ собран из чистого клона</td></tr>
+      <tr><td>entrypoint.sh с переводами строк Windows — контейнер не стартовал</td><td>автор (Windows)</td><td>.gitattributes + очистка при сборке</td></tr>
+      <tr><td>Две шкалы вместо одной, затем фиксированные 70/30</td><td>автор, дважды</td><td>единая ось после разбора на примере</td></tr>
+      <tr><td>Деканат мог ставить баллы — нелогично для вуза</td><td>автор</td><td>метод записи удалён на сервере</td></tr>
+      <tr><td>Уведомления падали в Safari/Firefox: «2026-11-22Z» — недопустимая дата (Chrome прощал)</td><td>автор после публикации</td><td>разбор дат по стандарту; проверено имитацией строгого браузера</td></tr>
+    </table>
+    <div style="display:flex;flex-direction:column;gap:3.5mm">
+      <div class="stat"><div class="n num">224</div><div class="l">автотеста backend: 148 — аналитика, 26 — API и сценарии, 50 — атаки QA</div></div>
+      <div class="stat"><div class="n num">277</div><div class="l">проверок в браузере на 360 / 390 / 768 / 1280 px — все PASS</div></div>
+      <div class="stat"><div class="n num">25 × 2</div><div class="l">экранов в smoke-обходе: без горизонтальной прокрутки и ошибок консоли</div></div>
+      <p class="xs muted">Полный прогон — после каждой итерации. Плюс: сверка аналитики с ручным эталоном, проверка каждого JSON скриптом,
+        сборка Docker из чистого клона, просмотр скриншотов ИИ-агентом.</p>
+    </div>
+  </div>
+  <div class="foot"><span>Цифровой деканат будущего · Сироткин Игорь, Bauman Analytics</span><span>9</span></div>
+</section>
+
+<!-- 10. Вход и защита -->
+<section class="page">
+  <div class="kicker">09 · Вход, хранение данных и защита — простыми словами</div>
+  <h2>Каждый студент видит только своё</h2>
+  <div class="grid" style="grid-template-columns:1fr 92mm;gap:7mm;margin-top:3mm">
+  <div class="grid" style="grid-template-columns:repeat(2,1fr);gap:4mm">
+    <div class="card"><h3>🔑 Вход</h3><p class="small">Логин и пароль. Пароль не хранится — только его «отпечаток» argon2id (стойкий к подбору хеш с солью).
+      После входа сервер создаёт сессию; браузер получает случайный ключ в cookie, недоступной скриптам (HttpOnly). В базе — лишь хеш ключа. Выход удаляет сессию на сервере.</p></div>
+    <div class="card"><h3>🧱 Разделение студентов</h3><p class="small">Кто вы, сервер узнаёт только из сессии — не из адреса и не из запроса. Все выборки идут с условием «владелец — текущий пользователь».
+      Подставили номер чужой заявки в адрес — «Заявка не найдена» (404), как будто её не существует. Студент не откроет кабинет деканата (403).</p></div>
+    <div class="card"><h3>🛡 Защита от атак</h3><p class="small">Не больше 10 попыток входа за 5 минут. CSRF-токен на каждое изменение. Политика безопасности контента (CSP) против внедрения скриптов.
+      HTTPS-сертификат Let's Encrypt. Ограничение размера запросов. Ошибки без технических подробностей.</p></div>
+    <div class="card"><h3>🗄 Хранение</h3><p class="small">База SQLite в постоянном томе Docker (переживает перезапуск; можно PostgreSQL). Схема — миграциями, 24 таблицы. Все данные — вымышленные демо-данные.</p></div>
+    <div class="card"><h3>🤫 Секреты</h3><p class="small">В коде и в браузере нет паролей и ключей: настройки — переменными окружения, .env исключён из git. Подсказка ИИ считается внутри сервиса — данные не уходят во внешние нейросети, ключи API не нужны.</p></div>
+    <div class="card accent"><h3>✅ Проверено атаками</h3><p class="small">Независимый QA-агент пытался: открыть чужое (IDOR) всеми методами, войти старой cookie, подделать запрос (CSRF), внедрить скрипт (XSS),
+      подобрать пароль, увести через «next», прочитать файлы сервера. Всё закрыто, 50 тестов это закрепляют.</p></div>
+  </div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:4mm;align-items:start">
+    <div><img class="phone" src="img/m-login.png" alt=""><div class="cap">Вход: дисклеймер, подсказка с демо-логинами — без паролей в коде страницы.</div></div>
+    <div><img class="phone" src="img/m-notfound.png" alt=""><div class="cap">Проверка: student2 открыл адрес заявки student1 — «Заявка не найдена» (404).</div></div>
+  </div>
+  </div>
+  <div class="foot"><span>Цифровой деканат будущего · Сироткин Игорь, Bauman Analytics</span><span>10</span></div>
+</section>
+
+<!-- 11. Ручные этапы -->
+<section class="page">
+  <div class="kicker">10 · Этапы, проделанные вручную</div>
+  <h2>Человек ставил задачу и решал, что «хорошо». ИИ — делал</h2>
+  <div class="grid" style="grid-template-columns:1fr 1fr;gap:8mm;margin-top:4mm">
+    <div class="card" style="background:#fff4ec">
+      <div class="qmeta legend-h">Автор — вручную</div>
+      <ul class="dots small">
+        <li><b>Постановка задачи:</b> 4 промпта в ChatGPT, правила своего вуза, идея киллер-фичи, контроль дублирования ТЗ.</li>
+        <li><b>Передача контекста:</b> ТЗ, 8 ролей и стартовый промпт — основной модели.</li>
+        <li><b>Ручное тестирование</b> каждой версии: Docker на Windows, VPS, телефон.</li>
+        <li><b>8 раундов правок</b> по удобству и логике предметной области (стр. 8).</li>
+        <li><b>Инфраструктура:</b> репозиторий GitHub, VPS (включая переустановку ОС после аварийной загрузки), Docker, HTTPS, проверка доступности из РФ без VPN.</li>
+        <li>Решения, которые нельзя отдавать ИИ: что считать удобным, как устроены порядки вуза, когда публиковать.</li>
+      </ul>
+    </div>
+    <div class="card accent">
+      <div class="qmeta legend-ai">ИИ — автоматически</div>
+      <ul class="dots small">
+        <li>Стек, архитектура, модель данных, контракты, 15 задокументированных допущений.</li>
+        <li>Весь код: Python ≈ 6 000 строк, TypeScript ≈ 7 200, CSS ≈ 3 900; 0 строк вручную.</li>
+        <li>Дизайн-система, логотип, все тексты интерфейса, вымышленные демо-данные.</li>
+        <li>Подбор и проверка 142 учебных материалов.</li>
+        <li>Тесты, проверка скриншотов, независимый аудит безопасности.</li>
+        <li>Docker, инструкции по развёртыванию, журнал процесса из 15 этапов, отчёты.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="flow" style="margin-top:6mm">
+    <div class="box ai"><div class="qmeta legend-ai">1 · ИИ делает</div><p class="small">агенты пишут код по ТЗ и контрактам</p></div><div class="arrow">→</div>
+    <div class="box ai"><div class="qmeta legend-ai">2 · ИИ проверяет</div><p class="small">501 проверка, скриншоты, независимый QA</p></div><div class="arrow">→</div>
+    <div class="box h"><div class="qmeta legend-h">3 · Автор пробует руками</div><p class="small">Windows, VPS, телефон, Safari</p></div><div class="arrow">→</div>
+    <div class="box h"><div class="qmeta legend-h">4 · Автор формулирует правку</div><p class="small">лучше всего — на конкретном примере</p></div><div class="arrow">↺</div>
+  </div>
+  <div class="card white small" style="margin-top:5mm">
+    <b>Главный вывод.</b> Автотесты и браузерные проверки проходили и до правок автора — они подтверждали, что кабинет <i>работает</i>.
+    Что он <i>удобен</i> и <i>логичен для вуза</i>, показал только человек. Поэтому процесс построен как цикл:
+    <b>ИИ делает и сам проверяет → автор пробует руками → ИИ исправляет и снова прогоняет все 501 проверку.</b>
+  </div>
+  <div class="foot"><span>Цифровой деканат будущего · Сироткин Игорь, Bauman Analytics</span><span>11</span></div>
+</section>
+
+<!-- 12. Для жюри -->
+<section class="page cover">
+  <div class="kicker">11 · Для жюри</div>
+  <h2>Проверить за 3 минуты</h2>
+  <div class="grid" style="grid-template-columns:1fr 1fr;gap:8mm;margin-top:4mm">
+    <div>
+      <table>
+        <tr><th>Роль</th><th>Логин</th><th>Пароль</th></tr>
+        <tr><td>Студентка, учёба стабильна (90)</td><td><b>student1</b></td><td>student1-demo</td></tr>
+        <tr><td>Студент в зоне риска (51)</td><td><b>student2</b></td><td>student2-demo</td></tr>
+        <tr><td>Сотрудник деканата</td><td><b>dekanat</b></td><td>dekanat-demo</td></tr>
+      </table>
+      <p class="small" style="margin-top:4mm"><b>Ссылка на прототип</b> — в комментарии к работе. Открывается из России без VPN, на телефоне и компьютере.</p>
+      <p class="small" style="margin-top:2mm"><b>Исходный код и полная документация:</b> github.com/seerigorsss/digital-deanate<br>
+        полный отчёт со всеми промптами — docs/ai_development_report.pdf, журнал — docs/ai-log/</p>
+    </div>
+    <div class="card">
+      <ol class="small" style="padding-left:5mm;display:flex;flex-direction:column;gap:1.6mm">
+        <li><b>student2 → Главная:</b> баннер «Деканат ждёт ответа», успеваемость 51 и «Стоит подтянуть».</li>
+        <li><b>Учёба:</b> «✨ Подсказка ИИ», «Что это такое?», предметы по типу аттестации.</li>
+        <li><b>«Теория автоматического управления»:</b> шкала, сколько добрать, «Что если?» → «Заполнить минимумом» → «Пересчитать».</li>
+        <li><b>Тема «стоит повторить»</b> → проверенные материалы.</li>
+        <li><b>Заявки → Новая → Справка об обучении → Отправить</b>, затем dekanat меняет статус — студенту приходит уведомление.</li>
+        <li><b>Расписание, неделя 23–29 ноября:</b> отмены, переносы, замены.</li>
+        <li><b>Изоляция:</b> адрес заявки student1 под student2 — «не найдена».</li>
+      </ol>
+    </div>
+  </div>
+  <div style="margin-top:auto;display:flex;justify-content:space-between;align-items:flex-end">
+    <div class="small"><b>Сироткин Игорь</b> · МГТУ им. Н. Э. Баумана, ИУ6 · «Системы искусственного интеллекта» · команда Bauman Analytics</div>
+    <div class="disclaimer">Концепт для конкурса, не официальный сервис вуза · данные вымышлены</div>
+  </div>
+</section>
+
+</body>
+</html>

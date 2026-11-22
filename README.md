@@ -73,6 +73,7 @@
 
 ## Как создавался проект — кратко
 
+**Коротко для жюри — [12 страниц PDF](docs/jury_report.pdf)** (проблема, ИИ-инструменты, промпты, шаги, защита, ручные этапы).
 Полный отчёт: [docs/ai_development_report.md](docs/ai_development_report.md) ([PDF со скриншотами](docs/ai_development_report.pdf)).
 
 ```
@@ -204,7 +205,7 @@ python frontend/e2e/smoke.py http://127.0.0.1:8000                       # в д
 Инструкции для Amvera Cloud, VPS и любого Docker-хостинга — [docs/deploy.md](docs/deploy.md).
 
 ## Документация
-- **Для жюри:** [Инструкция для жюри](docs/jury-instructions.md) ·
+- **Для жюри:** [Краткий отчёт, 12 стр. PDF](docs/jury_report.pdf) · [Инструкция для жюри](docs/jury-instructions.md) ·
   [Отчёт об ИИ-разработке](docs/ai_development_report.md) ([PDF со скриншотами](docs/ai_development_report.pdf)) ·
   [Промпты ChatGPT для ТЗ](docs/ai-log/00a_chatgpt_spec_prompts.md) · [Правки автора](docs/ai-log/07_user_feedback.md) ·
   [Журнал процесса](docs/ai-log/process-log.md) · [Промпты и отчёты агентов](docs/ai-log/) · [Скриншоты](docs/screenshots/)
