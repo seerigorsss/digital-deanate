@@ -80,21 +80,33 @@ npm run dev                                       # → http://localhost:5173 (�
 
 ## Тесты
 ```bash
-cd backend && python -m pytest -q                 # домен аналитики + API + безопасность
-python frontend/e2e/smoke.py                      # сценарии в браузере (нужен запущенный сервер на :8000)
+(cd backend && python -m pytest -q)               # домен аналитики + API + безопасность
+
+# сценарии в браузере (Playwright + Google Chrome в /usr/bin/google-chrome), из корня репозитория:
+(cd backend && DEMO_TODAY=2026-11-23 uvicorn app.main:app --port 8000)   # сервер с фиксированной датой демо
+python frontend/e2e/smoke.py http://127.0.0.1:8000                       # в другом терминале
 ```
-Результаты — [docs/test-report.md](docs/test-report.md).
+`smoke.py` проходит 24 экрана на 360 и 1280 px, проверяет горизонтальную прокрутку и ошибки консоли и перезаписывает
+скриншоты в `docs/screenshots/`. Результаты тестирования — [docs/test-report.md](docs/test-report.md).
 
 ## Публикация
 Инструкции для Amvera Cloud, VPS и любого Docker-хостинга — [docs/deploy.md](docs/deploy.md).
 
 ## Документация
-[Допущения](docs/assumptions.md) · [Архитектура](docs/architecture.md) · [Модель данных](docs/data-model.md) ·
-[API](docs/api-contract.md) · [Безопасность](docs/security.md) · [Модель аналитики](docs/analytics-model.md) ·
-[Учебные материалы](docs/learning-resources.md) · [Продуктовые решения](docs/product-decisions.md) ·
-[Сценарии](docs/user-journeys.md) · [Информационная архитектура](docs/information-architecture.md) ·
-[UX аналитики](docs/analytics-ux.md) · [Дизайн-система](docs/design-system.md) · [Тестирование](docs/test-report.md) ·
-[Отчёт об ИИ-разработке](docs/ai_development_report.md) · [Журнал промптов](docs/ai-log/)
+- **Для жюри:** [Инструкция для жюри](docs/jury-instructions.md) ·
+  [Отчёт об ИИ-разработке](docs/ai_development_report.md) ([PDF со скриншотами](docs/ai_development_report.pdf)) ·
+  [Журнал процесса](docs/ai-log/process-log.md) · [Промпты и отчёты агентов](docs/ai-log/) · [Скриншоты](docs/screenshots/)
+- **Продукт и UX:** [Продуктовые решения](docs/product-decisions.md) · [Сценарии](docs/user-journeys.md) ·
+  [Информационная архитектура](docs/information-architecture.md) · [UX аналитики](docs/analytics-ux.md) ·
+  [UX-бриф экранов](docs/ux-brief.md) · [Дизайн-система](docs/design-system.md)
+- **Техника:** [Допущения](docs/assumptions.md) · [Архитектура](docs/architecture.md) · [Модель данных](docs/data-model.md) ·
+  [API](docs/api-contract.md) и [примеры ответов](docs/api-examples/) · [Безопасность](docs/security.md) ·
+  [Публикация](docs/deploy.md) · [Тестирование](docs/test-report.md)
+- **Аналитика и материалы:** [Контракт аналитики](docs/analytics-contract.md) · [Модель аналитики](docs/analytics-model.md) ·
+  [Учебные материалы](docs/learning-resources.md)
+- **Исходные требования:** [ТЗ](docs/source/technical_spec_digital_deanate_v2.md) · [Роли агентов](docs/source/agent_roles/)
+
+PDF отчёта собирается из Markdown: `python3 docs/report-build/build_pdf.py` (нужны `markdown`, `playwright` и Chrome).
 
 ## Сторонние материалы и лицензии
 React, React Router, TanStack Query, Vite, TypeScript — MIT; иконки lucide — ISC; шрифт Manrope — SIL Open Font License 1.1;
