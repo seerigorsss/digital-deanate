@@ -10,54 +10,64 @@ export interface ScoreData {
   exam?: { result: number | null; points_max?: number; points_min?: number } | null;
 }
 
-const pct = (v: number, max: number) => `${Math.max(0, Math.min(100, (v / (max || 1)) * 100))}%`;
+const clamp = (v: number) => Math.max(0, Math.min(100, v));
+const P = (v: number) => `${clamp(v)}%`;
 
 /**
- * Единая шкала итога дисциплины.
- * Для экзамена (тип C) одна полоса 0–100 разделена на две части: семестр (до 70) и экзамен (до 30, минимум 18) —
- * сразу видно, что можно добрать в семестре, а что — только на экзамене.
+ * Шкала итога дисциплины на единой оси 0–100 баллов:
+ * набрано → можно добрать в семестре → (для экзамена) можно получить на экзамене → недоступно.
+ * Под шкалой — потолок семестра и максимально возможный итог; на оси — отметки оценок 60, 71, 85.
  */
 export function ScoreBar({ d, tone, size = 'md', legend = false }: { d: ScoreData; tone: string; size?: 'sm' | 'md'; legend?: boolean }) {
   const isExam = d.assessment_type === 'exam';
-  const semMax = d.semester_points_max;
+  const scale = isExam ? 1 : 100 / (d.semester_points_max || 100); // зачёт/распределённый экзамен: семестр = вся ось
   const examMax = isExam ? (d.exam?.points_max ?? 30) : 0;
-  const examMin = d.exam?.points_min ?? 18;
-  const examRes = d.exam?.result ?? null;
-  const total = semMax + examMax;
-  const earned = d.current_semester_points;
+  const examRes = isExam ? (d.exam?.result ?? null) : null;
+
+  const earned = d.current_semester_points * scale;
+  const missing = d.missing_points_max * scale;
+  const remaining = d.remaining_points_max * scale;
+  const semCap = earned + missing + remaining; // максимум, которого можно достичь за семестр
+  const examEarned = examRes ?? 0;
+  const examLeft = examRes != null ? 0 : examMax;
+  const finalMax = semCap + examEarned + examLeft;
+  const grades = d.assessment_type === 'credit' ? [60] : [60, 71, 85];
+
+  const labels: { v: number; text: string; cls: string }[] = [];
+  if (isExam && examRes == null) labels.push({ v: semCap, text: fmtNum(Math.round(semCap * 10) / 10), cls: 'sbar__lbl--cap' });
+  labels.push({ v: finalMax, text: fmtNum(Math.round(finalMax * 10) / 10), cls: 'sbar__lbl--end' });
+  // если подписи слишком близко — оставляем только итоговый максимум
+  const shown = labels.length === 2 && Math.abs(labels[1].v - labels[0].v) < 9 ? [labels[1]] : labels;
+
   const aria =
-    `Семестр: набрано ${fmtNum(earned)} из ${fmtNum(semMax)}` +
-    (d.remaining_points_max > 0 ? `, можно добрать ещё ${fmtNum(d.remaining_points_max)}` : '') +
-    (isExam ? (examRes != null ? `. Экзамен: ${fmtNum(examRes)} из ${fmtNum(examMax)}` : `. Экзамен: до ${fmtNum(examMax)} баллов, минимум ${fmtNum(examMin)}`) : '');
+    `Набрано ${fmtNum(d.current_semester_points)}` +
+    (isExam ? ` из ${fmtNum(d.semester_points_max)} семестровых` : ` из ${fmtNum(d.semester_points_max)}`) +
+    `; за семестр можно достичь ${fmtNum(Math.round(semCap * 10) / 10)}` +
+    (isExam ? `; с экзаменом — до ${fmtNum(Math.round(finalMax * 10) / 10)} из 100 (на экзамене минимум 18)` : '') +
+    `; отметки оценок: ${grades.join(', ')}`;
+
   return (
     <div className={`sbar ${size === 'sm' ? 'sbar--sm' : ''} tone-${tone}`}>
       <div className="sbar__track" role="img" aria-label={aria}>
-        <div className="sbar__part" style={{ width: pct(semMax, total) }}>
-          <span className="pbar__seg pbar__seg--earned" style={{ width: pct(earned, semMax) }} />
-          {d.missing_points_max > 0 && <span className="pbar__seg pbar__seg--missing" style={{ width: pct(d.missing_points_max, semMax) }} />}
-          {d.remaining_points_max > 0 && <span className="pbar__seg pbar__seg--remaining" style={{ width: pct(d.remaining_points_max, semMax) }} />}
-        </div>
-        {isExam && (
-          <div className="sbar__part sbar__part--exam" style={{ width: pct(examMax, total) }}>
-            {examRes != null ? (
-              <span className="pbar__seg pbar__seg--earned" style={{ width: pct(examRes, examMax) }} />
-            ) : (
-              <span className="pbar__seg sbar__seg--exam" style={{ width: '100%' }} />
-            )}
-            <span className="sbar__min" style={{ left: pct(examMin, examMax) }} aria-hidden="true" />
-          </div>
-        )}
+        <span className="sbar__seg pbar__seg--earned" style={{ left: 0, width: P(earned) }} />
+        {missing > 0 && <span className="sbar__seg pbar__seg--missing" style={{ left: P(earned), width: P(missing) }} />}
+        {remaining > 0 && <span className="sbar__seg pbar__seg--remaining" style={{ left: P(earned + missing), width: P(remaining) }} />}
+        {isExam && examEarned > 0 && <span className="sbar__seg pbar__seg--earned sbar__seg--exam-earned" style={{ left: P(semCap), width: P(examEarned) }} />}
+        {isExam && examLeft > 0 && <span className="sbar__seg sbar__seg--exam" style={{ left: P(semCap), width: P(Math.min(examLeft, 100 - semCap)) }} />}
+        {grades.map((g) => (
+          <span key={g} className="sbar__tick" style={{ left: P(g) }} />
+        ))}
       </div>
-      <div className="sbar__captions" aria-hidden="true">
-        <span style={{ width: pct(semMax, total) }}>
-          Семестр <b className="num">{fmtNum(earned)}</b>/{fmtNum(semMax)}
-        </span>
-        {isExam && (
-          <span style={{ width: pct(examMax, total) }} className="sbar__cap-exam">
-            Экзамен {examRes != null ? <b className="num">{fmtNum(examRes)}</b> : null}
-            {examRes != null ? `/${fmtNum(examMax)}` : `до ${fmtNum(examMax)}`}
+      <div className="sbar__labels" aria-hidden="true">
+        {shown.map((l) => (
+          <span
+            key={l.cls}
+            className={`sbar__lbl ${l.cls}`}
+            style={clamp(l.v) > 94 ? { right: 0 } : clamp(l.v) < 6 ? { left: 0 } : { left: P(l.v), transform: 'translateX(-50%)' }}
+          >
+            {l.text}
           </span>
-        )}
+        ))}
       </div>
       {legend && (
         <div className="pbar__legend" aria-hidden="true">
@@ -65,24 +75,28 @@ export function ScoreBar({ d, tone, size = 'md', legend = false }: { d: ScoreDat
             <i className="pbar__swatch" style={{ background: 'var(--tone)' }} />
             Набрано
           </span>
-          {d.remaining_points_max > 0 && (
+          {remaining > 0 && (
             <span>
               <i className="pbar__swatch pbar__seg--remaining" />
               Можно добрать в семестре
             </span>
           )}
-          {isExam && examRes == null && (
+          {isExam && examLeft > 0 && (
             <span>
               <i className="pbar__swatch sbar__seg--exam" />
-              Только на экзамене (мин. {fmtNum(examMin)})
+              На экзамене (мин. 18 из 30)
             </span>
           )}
-          {d.missing_points_max > 0 && (
+          {missing > 0 && (
             <span>
               <i className="pbar__swatch pbar__seg--missing" />
               Нет данных
             </span>
           )}
+          <span>
+            <i className="sbar__tick-swatch" />
+            Пороги оценок 60 · 71 · 85
+          </span>
         </div>
       )}
     </div>

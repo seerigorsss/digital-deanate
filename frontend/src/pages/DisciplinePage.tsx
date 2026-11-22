@@ -62,8 +62,12 @@ function targetLine(t: Target, a: DisciplineAnalytics): string {
   if (t.status === 'unreachable') return '';
   if (a.assessment_type === 'exam') {
     if (t.status === 'reached') return 'Получено';
-    const sem = t.extra_semester_points_needed && t.extra_semester_points_needed > 0 ? `ещё ${fmtNum(t.extra_semester_points_needed)}` : 'достаточно';
-    return `Семестр: ${sem} · Экзамен: от ${fmtNum(t.exam_points_needed ?? 18)}`;
+    if (a.exam?.result != null) return '';
+    // План «с минимальным экзаменом»: добрать в семестре, сколько нужно (но не больше остатка), остальное — на экзамене (не меньше 18).
+    const examMin = a.exam?.points_min ?? 18;
+    const semMore = Math.max(0, Math.min(a.remaining_points_max, t.threshold - examMin - a.current_semester_points));
+    const examNeed = Math.max(examMin, t.threshold - a.current_semester_points - semMore);
+    return `Семестр: ${semMore > 0 ? `ещё ${fmtNum(semMore)}` : 'достаточно'} · Экзамен: от ${fmtNum(examNeed)}`;
   }
   if (t.status === 'reached') return 'Уже набрано';
   return `Ещё ${fmtNum(t.points_needed_semester ?? 0)} в семестре`;

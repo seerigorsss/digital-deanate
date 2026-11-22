@@ -266,7 +266,7 @@ def scenarios_for_width(browser, width: int) -> None:
         page.goto(f"{BASE}/study/8")
         settle(page)
         t = main_text(page)
-        check("S3-EXAM18", f"экзамен: обязательные 18 баллов показаны @{width}", "мин. 18" in t and "Экзамен до 30" in t and "Семестр" in t)
+        check("S3-EXAM18", f"экзамен: обязательные 18 баллов показаны @{width}", "мин. 18 из 30" in t and "На экзамене" in t and "Семестр" in t)
         audit(page, "discipline-exam", width)
 
     safe("S3", f"сценарий 3 @{width}", s3)
