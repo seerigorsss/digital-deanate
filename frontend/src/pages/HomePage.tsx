@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import {
   AlarmClock,
   Bell,
@@ -18,6 +18,7 @@ import type { Dashboard, NotificationItem } from '../api/types';
 import { ApplicationRow } from '../components/domain/ApplicationRow';
 import { LessonCard } from '../components/domain/LessonCard';
 import { NotificationRow } from '../components/domain/NotificationRow';
+import { NotificationDetail } from '../components/domain/NotificationDetail';
 import { ZoneChips } from '../components/domain/ZoneChips';
 import { RiskBadge, ZoneBadge } from '../components/ui/Badge';
 import { Button, ButtonLink } from '../components/ui/Button';
@@ -25,7 +26,7 @@ import { Card, CardHeader } from '../components/ui/Card';
 import { IndexScale } from '../components/ui/Gauge';
 import { useDocumentTitle } from '../components/ui/PageHeader';
 import { EmptyState, ErrorState, Skeleton, SkeletonCard } from '../components/ui/States';
-import { daysLeftLabel, formatDay, fmtNum, greeting, isInternalLink, weekdayName, weekdayShort } from '../lib/format';
+import { daysLeftLabel, formatDay, fmtNum, greeting, weekdayName, weekdayShort } from '../lib/format';
 import { useAuth } from '../auth/AuthContext';
 
 function TodayBlock({ d }: { d: Dashboard }) {
@@ -75,24 +76,23 @@ function TodayBlock({ d }: { d: Dashboard }) {
 }
 
 function IndexBlock({ d }: { d: Dashboard }) {
-  const { index, zone_counts, top_priority } = d.analytics;
+  const { index, zone_counts, priorities } = d.analytics;
   return (
     <Card aria-labelledby="index-title">
       <CardHeader
         id="index-title"
-        title="Индекс учебной устойчивости"
+        title="Успеваемость"
         icon={<GraduationCap className="card-icon" aria-hidden="true" />}
         link={{ to: '/study', label: 'Радар' }}
       />
       {index.value === null ? (
-        <p className="text-2">Индекс появится, когда преподаватели внесут первые баллы.</p>
+        <p className="text-2">Показатель появится, когда преподаватели внесут первые баллы.</p>
       ) : (
         <div className="stack-sm">
           <div className="row-wrap" style={{ gap: 12 }}>
             <span className="index-number num">{index.value}</span>
             <span className="muted">из {index.max}</span>
             <ZoneBadge zone={index.zone} label={index.label} size="md" />
-            <span className="xsmall muted">ориентировочный</span>
           </div>
           <IndexScale value={index.value} zone={index.zone} label={index.label} />
         </div>
@@ -101,26 +101,23 @@ function IndexBlock({ d }: { d: Dashboard }) {
         <ZoneChips counts={zone_counts} />
       </div>
       <div className="card__footer">
-        {top_priority ? (
-          <Link to={`/study/${top_priority.discipline_id}`} className="priority-mini">
-            <span className="priority-mini__num" aria-hidden="true">
-              1
-            </span>
-            <span className="priority-mini__body">
-              <span className="xsmall muted strong">Приоритет №1</span>
-              <span className="row-wrap">
-                <span className="strong">{top_priority.title}</span>
-                <RiskBadge level={top_priority.risk_level} label={top_priority.risk_label} />
-              </span>
-              <span className="small text-2">{top_priority.reason}</span>
-              {top_priority.deadline && (
-                <span className="small strong">
-                  До {weekdayShort(top_priority.deadline)}, {formatDay(top_priority.deadline)}
-                </span>
-              )}
-            </span>
-            <ChevronRight className="list-row__chevron" aria-hidden="true" />
-          </Link>
+        {priorities.length > 0 ? (
+          <div className="stack-xs">
+            <span className="xsmall muted strong">Стоит подтянуть</span>
+            <ul className="list" style={{ margin: 0 }}>
+              {priorities.map((p) => (
+                <li key={p.discipline_id}>
+                  <Link to={`/study/${p.discipline_id}`} className="list-row">
+                    <span className="list-row__body">
+                      <span className="list-row__title">{p.title}</span>
+                    </span>
+                    <RiskBadge level={p.risk_level} label={p.risk_label ?? undefined} />
+                    <ChevronRight className="list-row__chevron" aria-hidden="true" />
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
         ) : (
           <p className="small text-2">Сейчас ничего не требует срочного внимания.</p>
         )}
@@ -234,12 +231,11 @@ function ApplicationsBlock({ d }: { d: Dashboard }) {
 }
 
 function NotificationsBlock({ d }: { d: Dashboard }) {
-  const navigate = useNavigate();
   const markRead = useMarkRead();
+  const [selected, setSelected] = useState<NotificationItem | null>(null);
   const open = (n: NotificationItem) => {
     if (!n.is_read) markRead.mutate(n.id);
-    if (isInternalLink(n.link) && n.link !== '/notifications') navigate(n.link);
-    else navigate('/notifications');
+    setSelected(n);
   };
   const unread = d.notifications.unread_count;
   return (
@@ -259,6 +255,7 @@ function NotificationsBlock({ d }: { d: Dashboard }) {
           ))}
         </div>
       )}
+      <NotificationDetail n={selected} onClose={() => setSelected(null)} />
     </Card>
   );
 }

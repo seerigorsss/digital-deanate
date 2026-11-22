@@ -462,6 +462,7 @@ export interface Dashboard {
     zone_counts: ZoneCounts;
     explanation: string;
     top_priority: Priority | null;
+    priorities: { discipline_id: number; title: string; risk_level: RiskLevel; risk_label: string | null }[];
   };
   deadlines: Deadline[];
   applications: ApplicationBrief[];

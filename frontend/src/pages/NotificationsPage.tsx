@@ -1,23 +1,23 @@
-import { useMemo } from 'react';
-import { useNavigate, useSearchParams } from 'react-router-dom';
+import { useMemo, useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { BellOff, CheckCheck } from 'lucide-react';
 import { useMarkAllRead, useMarkRead, useNotifications } from '../api/hooks';
 import type { NotificationCategory, NotificationItem } from '../api/types';
 import { NotificationRow } from '../components/domain/NotificationRow';
 import { Button } from '../components/ui/Button';
 import { Card } from '../components/ui/Card';
+import { NotificationDetail } from '../components/domain/NotificationDetail';
 import { PageHeader } from '../components/ui/PageHeader';
 import { Segmented } from '../components/ui/Segmented';
 import { EmptyState, ErrorState, SkeletonCard } from '../components/ui/States';
 import { useToast } from '../components/ui/Toast';
-import { dateTimeToISODay, formatRelativeDay, isInternalLink } from '../lib/format';
+import { dateTimeToISODay, formatRelativeDay } from '../lib/format';
 import { NOTIFICATION_CATEGORIES, NOTIFICATION_META } from '../lib/semantics';
 
 type Cat = NotificationCategory | 'all';
 
 export default function NotificationsPage() {
   const [params, setParams] = useSearchParams();
-  const navigate = useNavigate();
   const toast = useToast();
   const rawCat = params.get('category') as Cat | null;
   const category: Cat = rawCat && (rawCat === 'all' || NOTIFICATION_CATEGORIES.includes(rawCat as NotificationCategory)) ? rawCat : 'all';
@@ -37,9 +37,11 @@ export default function NotificationsPage() {
     setParams(p, { replace: true });
   };
 
+  const [selected, setSelected] = useState<NotificationItem | null>(null);
+  // Сначала показываем уведомление целиком; переход к связанному разделу — по кнопке «Подробнее».
   const open = (n: NotificationItem) => {
     if (!n.is_read) markRead.mutate(n.id);
-    if (isInternalLink(n.link) && n.link !== '/notifications') navigate(n.link);
+    setSelected(n);
   };
 
   const groups = useMemo(() => {
@@ -124,6 +126,8 @@ export default function NotificationsPage() {
           </div>
         )}
       </Card>
+
+      <NotificationDetail n={selected} onClose={() => setSelected(null)} />
     </div>
   );
 }

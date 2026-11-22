@@ -87,8 +87,8 @@ def run(width, height):
         if fill.count():
             fill.click()
             page.get_by_role("button", name="Пересчитать").click()
-            page.get_by_text("Если всё получится").wait_for(timeout=8000)
-            page.get_by_text("Если всё получится").scroll_into_view_if_needed()
+            page.locator(".whatif-result").wait_for(timeout=8000)
+            page.locator(".whatif-result").scroll_into_view_if_needed()
         check(page, "18-whatif", width)
         page.goto(f"{BASE}/study")
         page.get_by_role("link", name=re.compile("Теория механизмов и машин")).first.click()

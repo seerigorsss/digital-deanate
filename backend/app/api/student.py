@@ -141,6 +141,11 @@ def dashboard(p: Principal = Depends(require_student), db: Session = Depends(get
             "zone_counts": summary["zone_counts"],
             "explanation": summary["explanation"],
             "top_priority": (summary["priorities"] or [None])[0],
+            "priorities": [
+                {"discipline_id": p["discipline_id"], "title": p["title"], "risk_level": p["risk_level"], "risk_label": p.get("risk_label")}
+                for p in summary["priorities"]
+                if p["risk_level"] in ("critical", "high", "medium")
+            ][:4],
         },
         "deadlines": _upcoming_deadlines(db, p.id, today),
         "applications": [_app_brief(a) for a in apps],

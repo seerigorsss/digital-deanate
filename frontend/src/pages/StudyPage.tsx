@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
-import { Award, CalendarCheck, ChevronRight, Info, Radar, Sparkles, Target as TargetIcon } from 'lucide-react';
+import { CalendarCheck, Radar, Sparkles } from 'lucide-react';
 import { useAnalytics, useGrades } from '../api/hooks';
 import type { AnalyticsSummary, GradesResponse, RiskLevel } from '../api/types';
 import { DisciplineRow } from '../components/domain/DisciplineRow';
@@ -11,7 +11,7 @@ import { Gauge } from '../components/ui/Gauge';
 import { PageHeader } from '../components/ui/PageHeader';
 import { Segmented } from '../components/ui/Segmented';
 import { EmptyState, ErrorState, NoResults, PageSkeleton } from '../components/ui/States';
-import { daysLeftLabel, daysBetween, fmtNum, formatDate, formatDay, weekdayShort } from '../lib/format';
+import { formatDate, formatDay, weekdayShort } from '../lib/format';
 
 type Tab = 'radar' | 'session' | 'record';
 const TABS: { value: Tab; label: string }[] = [
@@ -20,14 +20,32 @@ const TABS: { value: Tab; label: string }[] = [
   { value: 'record', label: 'Зачётная книжка' },
 ];
 
+/** Короткая подсказка по итогам расчёта: одна фраза о темпе + какие предметы подтянуть, без лишних пояснений. */
+function hintFor(a: AnalyticsSummary): { headline: string; pull: string[] } {
+  const pull = a.disciplines.filter((d) => ['critical', 'high', 'medium'].includes(d.risk.level)).map((d) => d.title);
+  const zone = a.index.value == null ? null : a.index.zone;
+  const headline =
+    zone === null
+      ? 'Пока мало оценок, чтобы делать выводы — загляни сюда позже.'
+      : zone === 'stable'
+        ? 'Отлично! Ты идёшь в хорошем темпе.'
+        : zone === 'medium'
+          ? 'Неплохо, но кое-что стоит подтянуть.'
+          : zone === 'high'
+            ? 'Есть риск не закрыть часть предметов — самое время навёрстывать.'
+            : 'Ситуация непростая, но её ещё можно исправить.';
+  return { headline, pull };
+}
+
 function RadarTab({ a }: { a: AnalyticsSummary }) {
   const [filter, setFilter] = useState<RiskLevel | null>(null);
+  const [hintOpen, setHintOpen] = useState(false);
   const list = useMemo(
     () => (filter ? a.disciplines.filter((d) => d.risk.level === filter) : a.disciplines),
     [a.disciplines, filter],
   );
   const idx = a.index;
-  const capped = idx.caps_applied.length > 0 && idx.uncapped_value != null && idx.uncapped_value !== idx.value;
+  const hint = hintFor(a);
   return (
     <div className="stack">
       <Card className="radar-hero" aria-labelledby="index-title">
@@ -36,90 +54,40 @@ function RadarTab({ a }: { a: AnalyticsSummary }) {
         </div>
         <div className="stack-sm">
           <h2 className="card-title" id="index-title">
-            Индекс учебной устойчивости
+            Успеваемость
           </h2>
           <div className="row-wrap">
             {idx.value != null ? (
-              <ZoneBadge zone={idx.zone} label={idx.label} />
+              <ZoneBadge zone={idx.zone} label={idx.label} size="md" />
             ) : (
-              <RiskBadge level="insufficient_data" label="Недостаточно данных" />
+              <RiskBadge level="insufficient_data" label="Недостаточно данных" size="md" />
             )}
-            <span className="xsmall muted">ориентировочный показатель, не вероятность сдачи</span>
           </div>
-          <p>{a.explanation}</p>
-          <details className="disclosure">
-            <summary>
-              <Info size={16} aria-hidden="true" /> Как считается индекс
-            </summary>
-            <div className="disclosure__content small muted stack-sm">
-              <p>{idx.formula}</p>
-              {capped && (
-                <p>
-                  Без ограничения среднее было бы {fmtNum(idx.uncapped_value)}, но при дисциплинах в зоне{' '}
-                  {idx.caps_applied.includes('critical') ? 'критического' : 'высокого'} риска индекс не может быть выше — чтобы
-                  проблемный предмет не терялся среди благополучных.
+          <div>
+            <button
+              type="button"
+              className="ai-hint-btn"
+              aria-expanded={hintOpen}
+              aria-controls="ai-hint"
+              onClick={() => setHintOpen((v) => !v)}
+            >
+              <Sparkles size={18} aria-hidden="true" /> Подсказка ИИ
+            </button>
+          </div>
+          {hintOpen && (
+            <div className="ai-hint" id="ai-hint" role="status">
+              <p className="strong">{hint.headline}</p>
+              {hint.pull.length > 0 && (
+                <p className="small">
+                  Стоит подтянуть: {hint.pull.map((t) => `«${t}»`).join(', ')}.
                 </p>
               )}
-              {idx.disciplines_counted != null && <p>Учтено дисциплин: {idx.disciplines_counted}.</p>}
             </div>
-          </details>
+          )}
         </div>
       </Card>
 
       <ZoneChips counts={a.zone_counts} active={filter} onSelect={setFilter} />
-
-      <div className="grid-2">
-        <Card aria-labelledby="prio-title">
-          <CardHeader id="prio-title" title="Что подтянуть в первую очередь" icon={<TargetIcon className="card-icon" aria-hidden="true" />} />
-          {a.priorities.length === 0 ? (
-            <EmptyState compact icon={<Sparkles />} title="Срочных задач нет" text="Все дисциплины в стабильной зоне — так держать." />
-          ) : (
-            <ol className="stack-sm" style={{ listStyle: 'none', padding: 0, margin: 0 }}>
-              {a.priorities.slice(0, 5).map((p, i) => (
-                <li key={p.discipline_id}>
-                  <Link to={`/study/${p.discipline_id}`} className="priority">
-                    <span className="priority__num num" aria-hidden="true">
-                      {i + 1}
-                    </span>
-                    <span className="priority__body">
-                      <span className="row-wrap">
-                        <span className="priority__title">{p.title}</span>
-                        <RiskBadge level={p.risk_level} label={p.risk_label} />
-                      </span>
-                      <span className="priority__line">{p.reason}</span>
-                      <span className="priority__line strong">{p.action}</span>
-                      {p.deadline && (
-                        <span className="priority__line xsmall muted">
-                          <CalendarCheck size={14} aria-hidden="true" /> Срок: {weekdayShort(p.deadline)}, {formatDay(p.deadline)} (
-                          {daysLeftLabel(daysBetween(a.as_of ?? p.deadline, p.deadline))})
-                        </span>
-                      )}
-                    </span>
-                    <ChevronRight size={18} aria-hidden="true" />
-                  </Link>
-                </li>
-              ))}
-            </ol>
-          )}
-        </Card>
-        <Card aria-labelledby="pos-title">
-          <CardHeader id="pos-title" title="Что идёт хорошо" icon={<Award className="card-icon" aria-hidden="true" />} />
-          {a.positives.length === 0 ? (
-            <EmptyState compact title="Пока без отметок" text="Когда по дисциплине будет обеспечен порог или хороший запас, она появится здесь." />
-          ) : (
-            <ul className="stack-sm" style={{ listStyle: 'none', padding: 0, margin: 0 }}>
-              {a.positives.map((p) => (
-                <li key={p.discipline_id}>
-                  <Link to={`/study/${p.discipline_id}`} className="positive">
-                    <span className="strong">{p.title}</span>
-                    <span className="small muted">{p.message}</span>
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          )}
-        </Card>
-      </div>
 
       <Card aria-labelledby="disc-title">
         <CardHeader
@@ -136,10 +104,6 @@ function RadarTab({ a }: { a: AnalyticsSummary }) {
             ))}
           </div>
         )}
-        <p className="xsmall muted" style={{ marginTop: 12 }}>
-          Уровень риска — эвристика по набранным баллам, оставшемуся потенциалу и темпу, а не вероятность. Расчёт обновляется
-          сразу после выставления новых баллов.
-        </p>
       </Card>
     </div>
   );
@@ -151,23 +115,15 @@ function SessionTab({ g }: { g: GradesResponse }) {
   const others = c.attestations.filter((x) => x.assessment_type !== 'exam');
   return (
     <div className="stack">
-      <Card>
-        <CardHeader title={c.period_title} icon={<CalendarCheck className="card-icon" aria-hidden="true" />} />
-        <div className="stats">
-          <div className="stat">
-            <span className="stat__label">Экзаменационная сессия</span>
-            <span className="stat__value num">
-              {formatDay(c.session_starts_on)} — {formatDate(c.session_ends_on)}
-            </span>
-          </div>
-          <div className="stat">
-            <span className="stat__label">Экзаменов</span>
-            <span className="stat__value num">{exams.length}</span>
-          </div>
-          <div className="stat">
-            <span className="stat__label">Зачётных единиц в семестре</span>
-            <span className="stat__value num">{c.credits_total}</span>
-          </div>
+      <Card className="session-hero" aria-label="Даты сессии">
+        <span className="session-hero__icon" aria-hidden="true">
+          <CalendarCheck />
+        </span>
+        <div className="stack-xs">
+          <span className="small muted">Экзаменационная сессия</span>
+          <span className="session-hero__dates num">
+            {formatDay(c.session_starts_on)} — {formatDate(c.session_ends_on)}
+          </span>
         </div>
       </Card>
       <Card aria-labelledby="exams-title">
@@ -210,7 +166,7 @@ function SessionTab({ g }: { g: GradesResponse }) {
           {others.map((x) => (
             <li key={x.discipline_id} className="row-wrap" style={{ justifyContent: 'space-between' }}>
               <Link to={`/study/${x.discipline_id}`}>{x.title}</Link>
-              <span className="xsmall muted">{x.assessment_label} · итог по баллам семестра</span>
+              <span className="xsmall muted">{x.assessment_label}</span>
             </li>
           ))}
         </ul>
@@ -218,6 +174,15 @@ function SessionTab({ g }: { g: GradesResponse }) {
     </div>
   );
 }
+
+const GRADE_CLASS: Record<string, string> = {
+  excellent: 'grade--excellent',
+  good: 'grade--good',
+  satisfactory: 'grade--satisfactory',
+  passed: 'grade--passed',
+  unsatisfactory: 'grade--fail',
+  failed: 'grade--fail',
+};
 
 function RecordTab({ g }: { g: GradesResponse }) {
   if (g.record_book.length === 0)
@@ -229,16 +194,9 @@ function RecordTab({ g }: { g: GradesResponse }) {
   return (
     <div className="stack">
       <Card soft>
-        <div className="stats">
-          <div className="stat">
-            <span className="stat__label">Средний балл за всё время</span>
-            <span className="stat__value num">{g.overall_average != null ? g.overall_average.toFixed(2).replace('.', ',') : '—'}</span>
-            <span className="stat__hint">по экзаменам и дифференцированным оценкам, шкала 5</span>
-          </div>
-          <div className="stat">
-            <span className="stat__label">Завершено семестров</span>
-            <span className="stat__value num">{g.record_book.length}</span>
-          </div>
+        <div className="avg-row">
+          <span className="small muted">Средний балл за всё время</span>
+          <span className="avg-row__value num">{g.overall_average != null ? g.overall_average.toFixed(2).replace('.', ',') : '—'}</span>
         </div>
       </Card>
       {g.record_book.map((sem) => (
@@ -246,40 +204,19 @@ function RecordTab({ g }: { g: GradesResponse }) {
           <CardHeader
             id={`sem-${sem.semester}`}
             title={`${sem.semester}-й семестр`}
-            aside={sem.average != null ? <span className="small muted num">средний балл {sem.average.toFixed(2).replace('.', ',')}</span> : undefined}
+            aside={sem.average != null ? <span className="small muted num">средний {sem.average.toFixed(2).replace('.', ',')}</span> : undefined}
           />
-          <div className="table-wrap">
-            <table className="table table--responsive">
-              <thead>
-                <tr>
-                  <th scope="col">Дисциплина</th>
-                  <th scope="col">Форма</th>
-                  <th scope="col" className="num-cell">Баллы</th>
-                  <th scope="col">Оценка</th>
-                  <th scope="col" className="num-cell">ЗЕ</th>
-                </tr>
-              </thead>
-              <tbody>
-                {sem.entries.map((e) => (
-                  <tr key={e.id}>
-                    <td className="table__primary" data-label="Дисциплина">
-                      {e.discipline_title}
-                    </td>
-                    <td data-label="Форма">{e.assessment_label}</td>
-                    <td data-label="Баллы" className="num-cell num">
-                      {e.points != null ? fmtNum(e.points) : '—'}
-                    </td>
-                    <td data-label="Оценка" className="strong">
-                      {e.grade_label}
-                    </td>
-                    <td data-label="ЗЕ" className="num-cell num">
-                      {e.credits ?? '—'}
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+          <ul className="record-list">
+            {sem.entries.map((e) => (
+              <li key={e.id} className="record-row">
+                <span className="record-row__body">
+                  <span className="record-row__title">{e.discipline_title}</span>
+                  <span className="xsmall muted">{e.assessment_label}</span>
+                </span>
+                <span className={`grade ${GRADE_CLASS[e.grade_key] ?? ''}`}>{e.grade_label}</span>
+              </li>
+            ))}
+          </ul>
         </Card>
       ))}
     </div>

@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState, type ReactNode } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigationType } from 'react-router-dom';
 import {
   Bell,
   CalendarDays,
@@ -198,12 +198,44 @@ export function AppShell({ children }: { children: ReactNode }) {
   const hideBottomNav = location.pathname === '/applications/new' && new URLSearchParams(location.search).has('type');
   const home = staff ? '/staff' : '/';
 
+  // Позиции прокрутки по записям истории: при возврате «назад» пользователь оказывается там же, где был.
+  const navType = useNavigationType();
+  const positions = useRef(new Map<string, number>());
+  const keyRef = useRef(location.key);
+  keyRef.current = location.key;
+  useEffect(() => {
+    if ('scrollRestoration' in window.history) window.history.scrollRestoration = 'manual';
+    let raf = 0;
+    const onScroll = () => {
+      cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(() => positions.current.set(keyRef.current, window.scrollY));
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+      cancelAnimationFrame(raf);
+    };
+  }, []);
+
   // Фокус на заголовок при смене страницы — для экранного диктора и клавиатуры.
   const first = useRef(true);
   useEffect(() => {
     if (first.current) {
       first.current = false;
       return;
+    }
+    const saved = navType === 'POP' ? positions.current.get(location.key) : undefined;
+    if (saved != null && saved > 0) {
+      // Данные страницы подгружаются асинхронно — ждём, пока высота позволит прокрутить (до 2 с).
+      const started = performance.now();
+      let raf = 0;
+      const tryRestore = () => {
+        if (document.documentElement.scrollHeight - window.innerHeight >= saved - 4) window.scrollTo(0, saved);
+        else if (performance.now() - started < 2000) raf = requestAnimationFrame(tryRestore);
+        else window.scrollTo(0, saved);
+      };
+      raf = requestAnimationFrame(tryRestore);
+      return () => cancelAnimationFrame(raf);
     }
     window.scrollTo(0, 0);
     const t = window.setTimeout(() => {

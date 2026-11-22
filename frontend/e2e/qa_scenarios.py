@@ -242,8 +242,11 @@ def scenarios_for_width(browser, width: int) -> None:
         titles = [d["title"] for d in an["disciplines"]]
         check("S3-RADAR", f"радар student2: индекс и дисциплины совпадают с API @{width}",
               str(an["index"]["value"]) in t and all(x in t for x in titles), f"индекс {an['index']['value']}")
-        check("S3-NOT-PROBABILITY", f"индекс не назван вероятностью @{width}",
-              "не вероятность" in t.lower() and not re.search(r"вероятность сдачи\s*[—:-]?\s*\d", t.lower()))
+        # Дизайн-ревизия 22.11 (по требованию заказчика пояснения сокращены): слово «вероятность» на радаре не используется вовсе.
+        t_no_titles = t
+        for x in titles:
+            t_no_titles = t_no_titles.replace(x, "")
+        check("S3-NOT-PROBABILITY", f"индекс не назван вероятностью @{width}", "вероятност" not in t_no_titles.lower())
         audit(page, "study-radar", width)
         page.goto(f"{BASE}/study?tab=record")
         settle(page)
@@ -258,12 +261,12 @@ def scenarios_for_width(browser, width: int) -> None:
         page.goto(f"{BASE}/study/11")
         settle(page)
         t = main_text(page)
-        check("S3-CRITICAL", f"ТММ: критический риск с причиной в числах @{width}", "Критический" in t and "57" in t)
+        check("S3-CRITICAL", f"ТММ: критический риск, порог 60 показан недостижимым @{width}", "Критический" in t and "Недостижимо" in t)
         audit(page, "discipline-critical", width)
         page.goto(f"{BASE}/study/8")
         settle(page)
         t = main_text(page)
-        check("S3-EXAM18", f"экзамен: обязательные 18 баллов показаны @{width}", "18" in t and "30" in t and "Семестр + экзамен" in t)
+        check("S3-EXAM18", f"экзамен: обязательные 18 баллов показаны @{width}", "минимум 18" in t and "до 30" in t and "Семестр" in t)
         audit(page, "discipline-exam", width)
 
     safe("S3", f"сценарий 3 @{width}", s3)
