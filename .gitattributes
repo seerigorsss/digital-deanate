@@ -1,0 +1,5 @@
+# Скрипты и конфиги для Linux-контейнера — всегда с LF (иначе на Windows ломается shebang entrypoint.sh)
+*.sh text eol=lf
+Dockerfile text eol=lf
+*.yml text eol=lf
+*.py text eol=lf

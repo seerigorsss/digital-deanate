@@ -29,7 +29,8 @@ RUN --mount=type=secret,id=extra_ca \
 COPY backend/ ./
 COPY --from=frontend /app/frontend/dist /app/frontend/dist
 COPY deploy/entrypoint.sh /entrypoint.sh
-RUN chmod +x /entrypoint.sh
+# Убираем CR на случай checkout на Windows (core.autocrlf) — иначе «exec /entrypoint.sh: no such file or directory»
+RUN sed -i 's/\r$//' /entrypoint.sh && chmod +x /entrypoint.sh
 EXPOSE 8000
 HEALTHCHECK --interval=30s --timeout=5s --start-period=20s \
   CMD python -c "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/api/health', timeout=4)" || exit 1
