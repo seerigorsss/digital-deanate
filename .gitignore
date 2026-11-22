@@ -7,6 +7,6 @@ frontend/dist/
 *.db
 *.db-journal
 .env
-data/
+backend/data/
 test-results/
 playwright-report/

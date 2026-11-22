@@ -74,14 +74,63 @@ def create_app() -> FastAPI:
 
         @app.get("/{full_path:path}", include_in_schema=False)
         async def spa(full_path: str):
-            candidate = (dist / full_path).resolve()
-            if full_path and candidate.is_file() and dist.resolve() in candidate.parents:
-                return FileResponse(candidate)
+            try:
+                candidate = (dist / full_path).resolve()
+                if full_path and "\x00" not in full_path and candidate.is_file() and dist.resolve() in candidate.parents:
+                    return FileResponse(candidate)
+            except (ValueError, OSError):
+                pass
             return FileResponse(index, headers={"Cache-Control": "no-cache"})
     else:
         log.warning("Frontend build not found at %s — serving API only", dist)
 
-    return app
+    return BodySizeLimit(app)
+
+
+MAX_API_BODY = 64 * 1024
+
+
+class BodySizeLimit:
+    """ASGI-ограничение тела запросов API (в т.ч. chunked без Content-Length): > 64 КБ → 413."""
+
+    def __init__(self, app: FastAPI) -> None:
+        self.app = app
+
+    def __getattr__(self, name: str):  # доступ к атрибутам FastAPI (state, routes, dependency_overrides…)
+        return getattr(self.app, name)
+
+    async def __call__(self, scope, receive, send):
+        if scope["type"] != "http" or not scope["path"].startswith("/api"):
+            return await self.app(scope, receive, send)
+        # Тело API-запроса небольшое: читаем его заранее с ограничением, затем отдаём приложению.
+        chunks: list[bytes] = []
+        size = 0
+        more = True
+        while more:
+            message = await receive()
+            if message["type"] != "http.request":
+                return await self.app(scope, receive, send)
+            body = message.get("body", b"")
+            size += len(body)
+            if size > MAX_API_BODY:
+                return await JSONResponse(status_code=413, content={"detail": "Слишком большой запрос", "code": "payload_too_large"})(scope, receive, send)
+            chunks.append(body)
+            more = message.get("more_body", False)
+        payload = b"".join(chunks)
+        sent = False
+
+        async def replay():
+            nonlocal sent
+            if not sent:
+                sent = True
+                return {"type": "http.request", "body": payload, "more_body": False}
+            return await receive()
+
+        await self.app(scope, replay, send)
+
+
+class _TooLarge(Exception):
+    pass
 
 
 app = create_app()

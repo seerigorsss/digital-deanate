@@ -66,9 +66,14 @@ def install_error_handlers(app: FastAPI) -> None:
 
     @app.exception_handler(StarletteHTTPException)
     async def _http(_: Request, exc: StarletteHTTPException):
-        messages = {404: "Не найдено", 405: "Метод не поддерживается", 401: "Требуется вход"}
+        messages = {400: "Некорректный запрос: проверьте формат данных", 404: "Не найдено", 405: "Метод не поддерживается", 401: "Требуется вход"}
         detail = exc.detail if isinstance(exc.detail, str) and exc.status_code not in messages else messages.get(exc.status_code, str(exc.detail))
         return JSONResponse(status_code=exc.status_code, content={"detail": detail, "code": f"http_{exc.status_code}"})
+
+    @app.exception_handler(OverflowError)
+    async def _overflow(_: Request, exc: OverflowError):  # noqa: ARG001
+        # Слишком большой ID или дата у границы календаря — такого ресурса заведомо нет.
+        return JSONResponse(status_code=404, content={"detail": "Не найдено", "code": "not_found"})
 
     @app.exception_handler(Exception)
     async def _unhandled(_: Request, exc: Exception):  # noqa: ARG001

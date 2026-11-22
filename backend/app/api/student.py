@@ -172,7 +172,9 @@ def schedule(
     if date_from is None:
         date_from = today - timedelta(days=today.weekday())
     if date_to is None:
-        date_to = date_from + timedelta(days=6)
+        date_to = date_from + timedelta(days=6) if date_from < date(2100, 1, 1) else date_from
+    if not (date(2000, 1, 1) <= date_from <= date(2100, 1, 1)) or not (date(2000, 1, 1) <= date_to <= date(2100, 1, 1)):
+        raise bad_request("Дата вне допустимого диапазона", "invalid_range")
     if date_to < date_from:
         raise bad_request("Дата окончания раньше даты начала", "invalid_range")
     if (date_to - date_from).days > 41:

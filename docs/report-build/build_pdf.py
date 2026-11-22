@@ -59,8 +59,7 @@ CROPS: dict[str, tuple[str, tuple[int, int, int, int]]] = {
 }
 
 # Перед этими разделами — новая страница
-PAGE_BREAK_BEFORE = ("Как устроен документ", "11.1 Подход", "11.2 Промпты", "11.3 Процесс", "Скриншоты",
-                     "Ограничения процесса")
+PAGE_BREAK_BEFORE = ("Как устроен документ", "11.1 Подход", "11.2 Промпты", "11.3 Процесс", "Скриншоты")
 
 CSS = r"""
 @font-face { font-family: 'Manrope'; font-weight: 400; src: url('fonts/manrope-cyrillic-400-normal.woff2') format('woff2'); unicode-range: U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116; }

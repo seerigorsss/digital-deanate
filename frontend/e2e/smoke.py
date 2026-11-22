@@ -58,7 +58,7 @@ def run(width, height):
         check(page, "07-applications", width)
         page.goto(f"{BASE}/applications/new?type=study_certificate")
         check(page, "08-new-application", width)
-        page.get_by_label("Куда предоставляется").fill("Для банка (smoke-тест)")
+        page.get_by_label("Куда предоставляется").fill("Для предоставления в банк")
         page.get_by_role("button", name="Отправить", exact=True).click()
         page.get_by_text("Заявка отправлена").wait_for(timeout=8000)
         check(page, "09-application-sent", width)

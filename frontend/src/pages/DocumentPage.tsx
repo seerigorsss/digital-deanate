@@ -6,7 +6,7 @@ import { Button } from '../components/ui/Button';
 import { Callout } from '../components/ui/Callout';
 import { Card } from '../components/ui/Card';
 import { PageHeader } from '../components/ui/PageHeader';
-import { ErrorState, PageSkeleton } from '../components/ui/States';
+import { EmptyState, ErrorState, PageSkeleton } from '../components/ui/States';
 import { formatDate } from '../lib/format';
 
 const PAYLOAD_LABELS: Record<string, string> = {
@@ -32,11 +32,11 @@ export default function DocumentPage() {
       <div className="stack">
         <PageHeader title="Электронный документ" back={back} />
         <Card>
-          <ErrorState
-            error={q.error}
-            title={q.error instanceof ApiError && q.error.status === 404 ? 'Документ недоступен' : undefined}
-            onRetry={() => void q.refetch()}
-          />
+          {q.error instanceof ApiError && q.error.status === 404 ? (
+            <EmptyState title="Документ недоступен" text="Электронный документ появляется, когда заявка с электронной выдачей готова." />
+          ) : (
+            <ErrorState error={q.error} onRetry={() => void q.refetch()} />
+          )}
         </Card>
       </div>
     );

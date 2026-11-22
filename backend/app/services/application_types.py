@@ -189,11 +189,24 @@ def next_step(status: str, type_key: str, payload: dict) -> str:
     return ""
 
 
-_CTRL = re.compile(r"[\x00-\x08\x0b\x0c\x0e-\x1f\x7f]")
+_CTRL = re.compile(r"[\x00-\x08\x0b\x0c\x0e-\x1f\x7f\u200b-\u200f\u202a-\u202e\u2060-\u2064\ufeff]")
 
 
 def clean_text(value: str) -> str:
     return _CTRL.sub("", value).strip()
+
+
+def _strict_int(raw: Any) -> int | None:
+    """Целое без сюрпризов: bool, дроби, Infinity/NaN, огромные числа и списки не принимаются."""
+    if isinstance(raw, bool):
+        return None
+    if isinstance(raw, int):
+        v = raw
+    elif isinstance(raw, str) and re.fullmatch(r"-?\d{1,9}", raw.strip()):
+        v = int(raw.strip())
+    else:
+        return None
+    return v if abs(v) <= 2**31 - 1 else None
 
 
 def validate_payload(type_key: str, payload: Any, allowed_discipline_ids: set[int], *, partial: bool = False) -> tuple[dict, list[dict]]:
@@ -221,6 +234,10 @@ def validate_payload(type_key: str, payload: Any, allowed_discipline_ids: set[in
                 errors.append({"field": name, "message": "Ожидается текст"})
                 continue
             v = clean_text(raw)
+            if not v:
+                if f.get("required") and not partial:
+                    errors.append({"field": name, "message": "Заполните это поле"})
+                continue
             if "min_length" in f and len(v) < f["min_length"] and not partial:
                 errors.append({"field": name, "message": f"Минимум {f['min_length']} символов"})
                 continue
@@ -229,11 +246,8 @@ def validate_payload(type_key: str, payload: Any, allowed_discipline_ids: set[in
                 continue
             clean[name] = v
         elif ftype == "number":
-            try:
-                v = int(raw)
-                if isinstance(raw, bool) or float(raw) != v:
-                    raise ValueError
-            except (TypeError, ValueError):
+            v = _strict_int(raw)
+            if v is None:
                 errors.append({"field": name, "message": "Нужно целое число"})
                 continue
             if v < f.get("min", v) or v > f.get("max", v):
@@ -242,7 +256,7 @@ def validate_payload(type_key: str, payload: Any, allowed_discipline_ids: set[in
             clean[name] = v
         elif ftype == "select":
             values = {o["value"] for o in f["options"]}
-            if raw not in values:
+            if not isinstance(raw, str) or raw not in values:
                 errors.append({"field": name, "message": "Выберите значение из списка"})
                 continue
             clean[name] = raw
@@ -257,9 +271,8 @@ def validate_payload(type_key: str, payload: Any, allowed_discipline_ids: set[in
                 continue
             clean[name] = v.isoformat()
         elif ftype == "discipline":
-            try:
-                v = int(raw)
-            except (TypeError, ValueError):
+            v = _strict_int(raw)
+            if v is None:
                 errors.append({"field": name, "message": "Выберите дисциплину"})
                 continue
             if v not in allowed_discipline_ids:  # только свои дисциплины

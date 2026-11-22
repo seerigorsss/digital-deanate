@@ -1,0 +1,1741 @@
+{
+ "_comment": "Вымышленный учебный план для демонстрации. Все ФИО, группы, баллы и адреса вымышлены; любые совпадения случайны.",
+ "period": {
+  "key": "2026-autumn",
+  "title": "Осенний семестр 2026/27 учебного года",
+  "starts_on": "2026-09-01",
+  "ends_on": "2026-12-27",
+  "session_starts_on": "2027-01-09",
+  "session_ends_on": "2027-01-31",
+  "week1_monday": "2026-08-31"
+ },
+ "teachers": [
+  {
+   "key": "belov",
+   "full_name": "Белов Андрей Викторович",
+   "position": "доцент, к.ф.-м.н.",
+   "department": "Кафедра высшей математики",
+   "email": "a.belov@uni.example"
+  },
+  {
+   "key": "ershov",
+   "full_name": "Ершов Илья Константинович",
+   "position": "старший преподаватель",
+   "department": "Кафедра высшей математики",
+   "email": "i.ershov@uni.example"
+  },
+  {
+   "key": "sokolova",
+   "full_name": "Соколова Ирина Павловна",
+   "position": "доцент, к.ф.-м.н.",
+   "department": "Кафедра дифференциальных уравнений",
+   "email": "i.sokolova@uni.example"
+  },
+  {
+   "key": "grigoriev",
+   "full_name": "Григорьев Олег Николаевич",
+   "position": "профессор, д.ф.-м.н.",
+   "department": "Кафедра физики",
+   "email": "o.grigoriev@uni.example"
+  },
+  {
+   "key": "melnikova",
+   "full_name": "Мельникова Дарья Игоревна",
+   "position": "доцент, к.т.н.",
+   "department": "Кафедра систем обработки информации",
+   "email": "d.melnikova@uni.example"
+  },
+  {
+   "key": "nikitina",
+   "full_name": "Никитина Вера Олеговна",
+   "position": "ассистент",
+   "department": "Кафедра систем обработки информации",
+   "email": "v.nikitina@uni.example"
+  },
+  {
+   "key": "zaitsev",
+   "full_name": "Зайцев Павел Сергеевич",
+   "position": "доцент, к.ф.-м.н.",
+   "department": "Кафедра прикладной математики",
+   "email": "p.zaitsev@uni.example"
+  },
+  {
+   "key": "kravets",
+   "full_name": "Кравец Ольга Александровна",
+   "position": "старший преподаватель",
+   "department": "Кафедра английского языка",
+   "email": "o.kravets@uni.example"
+  },
+  {
+   "key": "fomin",
+   "full_name": "Фомин Николай Петрович",
+   "position": "доцент, к.т.н.",
+   "department": "Кафедра инженерной графики",
+   "email": "n.fomin@uni.example"
+  },
+  {
+   "key": "tarasov",
+   "full_name": "Тарасов Виктор Юрьевич",
+   "position": "профессор, д.т.н.",
+   "department": "Кафедра систем автоматического управления",
+   "email": "v.tarasov@uni.example"
+  },
+  {
+   "key": "lebedeva",
+   "full_name": "Лебедева Наталья Олеговна",
+   "position": "доцент, к.ф.-м.н.",
+   "department": "Кафедра прикладной математики",
+   "email": "n.lebedeva@uni.example"
+  },
+  {
+   "key": "orlov",
+   "full_name": "Орлов Кирилл Дмитриевич",
+   "position": "старший преподаватель",
+   "department": "Кафедра робототехнических систем",
+   "email": "k.orlov@uni.example"
+  },
+  {
+   "key": "demidov",
+   "full_name": "Демидов Артём Ильич",
+   "position": "ассистент",
+   "department": "Кафедра робототехнических систем",
+   "email": "a.demidov@uni.example"
+  },
+  {
+   "key": "yakovlev",
+   "full_name": "Яковлев Сергей Михайлович",
+   "position": "доцент, к.т.н.",
+   "department": "Кафедра теории механизмов и машин",
+   "email": "s.yakovlev@uni.example"
+  },
+  {
+   "key": "polyakova",
+   "full_name": "Полякова Елена Викторовна",
+   "position": "доцент, к.т.н.",
+   "department": "Кафедра электротехники",
+   "email": "e.polyakova@uni.example"
+  },
+  {
+   "key": "savelieva",
+   "full_name": "Савельева Марина Андреевна",
+   "position": "доцент, к.э.н.",
+   "department": "Кафедра экономической теории",
+   "email": "m.savelieva@uni.example"
+  },
+  {
+   "key": "romanova",
+   "full_name": "Романова Алина Геннадьевна",
+   "position": "старший преподаватель",
+   "department": "Кафедра английского языка",
+   "email": "a.romanova@uni.example"
+  },
+  {
+   "key": "lavrova",
+   "full_name": "Лаврова Ксения Олеговна",
+   "position": "ассистент",
+   "department": "Кафедра инженерной графики",
+   "email": "k.lavrova@uni.example"
+  }
+ ],
+ "disciplines": [
+  {
+   "key": "calculus3",
+   "title": "Математический анализ",
+   "short_title": "Матанализ",
+   "department": "Кафедра высшей математики",
+   "credits": 5,
+   "lecturer": "belov",
+   "description": "Кратные, криволинейные и поверхностные интегралы, числовые и функциональные ряды.",
+   "assessment": {
+    "type": "exam",
+    "semester_points_max": 70,
+    "passing_threshold": 60,
+    "exam_points_min": 18,
+    "exam_points_max": 30,
+    "exam_date": "2027-01-14",
+    "exam_room": "ГУК 501"
+   },
+   "modules": [
+    {
+     "ordinal": 1,
+     "title": "Кратные интегралы",
+     "starts_on": "2026-09-01",
+     "ends_on": "2026-10-11",
+     "status": "completed",
+     "items": [
+      {
+       "key": "dz1",
+       "title": "Домашнее задание 1",
+       "kind": "homework",
+       "max_points": 10,
+       "due_date": "2026-09-28"
+      },
+      {
+       "key": "rk1",
+       "title": "Рубежный контроль 1",
+       "kind": "control",
+       "max_points": 15,
+       "due_date": "2026-10-08"
+      }
+     ]
+    },
+    {
+     "ordinal": 2,
+     "title": "Криволинейные и поверхностные интегралы",
+     "starts_on": "2026-10-12",
+     "ends_on": "2026-11-15",
+     "status": "completed",
+     "items": [
+      {
+       "key": "dz2",
+       "title": "Домашнее задание 2",
+       "kind": "homework",
+       "max_points": 10,
+       "due_date": "2026-11-02"
+      },
+      {
+       "key": "rk2",
+       "title": "Рубежный контроль 2",
+       "kind": "control",
+       "max_points": 15,
+       "due_date": "2026-11-12"
+      }
+     ]
+    },
+    {
+     "ordinal": 3,
+     "title": "Ряды",
+     "starts_on": "2026-11-16",
+     "ends_on": "2026-12-20",
+     "status": "in_progress",
+     "items": [
+      {
+       "key": "dz3",
+       "title": "Домашнее задание 3",
+       "kind": "homework",
+       "max_points": 8,
+       "due_date": "2026-12-03"
+      },
+      {
+       "key": "rk3",
+       "title": "Рубежный контроль 3",
+       "kind": "control",
+       "max_points": 12,
+       "due_date": "2026-12-17"
+      }
+     ]
+    }
+   ],
+   "topics": [
+    {
+     "key": "calc-double-integrals",
+     "module": 1,
+     "title": "Двойные интегралы и замена переменных"
+    },
+    {
+     "key": "calc-triple-integrals",
+     "module": 1,
+     "title": "Тройные интегралы, цилиндрические и сферические координаты"
+    },
+    {
+     "key": "calc-line-integrals",
+     "module": 2,
+     "title": "Криволинейные интегралы и формула Грина"
+    },
+    {
+     "key": "calc-surface-integrals",
+     "module": 2,
+     "title": "Поверхностные интегралы, формулы Гаусса–Остроградского и Стокса"
+    },
+    {
+     "key": "calc-number-series",
+     "module": 3,
+     "title": "Числовые ряды и признаки сходимости"
+    },
+    {
+     "key": "calc-power-series",
+     "module": 3,
+     "title": "Степенные ряды и ряд Тейлора"
+    }
+   ]
+  },
+  {
+   "key": "diffeq",
+   "title": "Дифференциальные уравнения",
+   "short_title": "Диффуры",
+   "department": "Кафедра дифференциальных уравнений",
+   "credits": 4,
+   "lecturer": "sokolova",
+   "description": "Обыкновенные дифференциальные уравнения, линейные уравнения и системы, элементы теории устойчивости.",
+   "assessment": {
+    "type": "exam",
+    "semester_points_max": 70,
+    "passing_threshold": 60,
+    "exam_points_min": 18,
+    "exam_points_max": 30,
+    "exam_date": "2027-01-19",
+    "exam_room": "ГУК 418"
+   },
+   "modules": [
+    {
+     "ordinal": 1,
+     "title": "Уравнения первого порядка",
+     "starts_on": "2026-09-01",
+     "ends_on": "2026-10-11",
+     "status": "completed",
+     "items": [
+      {
+       "key": "dz1",
+       "title": "Домашнее задание 1",
+       "kind": "homework",
+       "max_points": 8,
+       "due_date": "2026-09-30"
+      },
+      {
+       "key": "rk1",
+       "title": "Рубежный контроль 1",
+       "kind": "control",
+       "max_points": 12,
+       "due_date": "2026-10-09"
+      }
+     ]
+    },
+    {
+     "ordinal": 2,
+     "title": "Линейные уравнения высших порядков",
+     "starts_on": "2026-10-12",
+     "ends_on": "2026-11-15",
+     "status": "completed",
+     "items": [
+      {
+       "key": "dz2",
+       "title": "Домашнее задание 2",
+       "kind": "homework",
+       "max_points": 10,
+       "due_date": "2026-10-30"
+      },
+      {
+       "key": "rk2",
+       "title": "Рубежный контроль 2",
+       "kind": "control",
+       "max_points": 15,
+       "due_date": "2026-11-13"
+      }
+     ]
+    },
+    {
+     "ordinal": 3,
+     "title": "Системы уравнений и устойчивость",
+     "starts_on": "2026-11-16",
+     "ends_on": "2026-12-20",
+     "status": "in_progress",
+     "items": [
+      {
+       "key": "dz3",
+       "title": "Домашнее задание 3",
+       "kind": "homework",
+       "max_points": 10,
+       "due_date": "2026-12-01"
+      },
+      {
+       "key": "rk3",
+       "title": "Рубежный контроль 3",
+       "kind": "control",
+       "max_points": 15,
+       "due_date": "2026-12-15"
+      }
+     ]
+    }
+   ],
+   "topics": [
+    {
+     "key": "ode-first-order",
+     "module": 1,
+     "title": "Уравнения первого порядка: с разделяющимися переменными, однородные, линейные"
+    },
+    {
+     "key": "ode-exact",
+     "module": 1,
+     "title": "Уравнения в полных дифференциалах"
+    },
+    {
+     "key": "ode-linear-const",
+     "module": 2,
+     "title": "Линейные уравнения с постоянными коэффициентами"
+    },
+    {
+     "key": "ode-variation",
+     "module": 2,
+     "title": "Метод вариации произвольных постоянных"
+    },
+    {
+     "key": "ode-systems",
+     "module": 3,
+     "title": "Системы линейных дифференциальных уравнений"
+    },
+    {
+     "key": "ode-stability",
+     "module": 3,
+     "title": "Устойчивость по Ляпунову"
+    }
+   ]
+  },
+  {
+   "key": "physics-em",
+   "title": "Физика: электричество и магнетизм",
+   "short_title": "Физика",
+   "department": "Кафедра физики",
+   "credits": 5,
+   "lecturer": "grigoriev",
+   "description": "Электростатика, постоянный ток, магнитное поле, электромагнитная индукция; лабораторный практикум.",
+   "assessment": {
+    "type": "exam",
+    "semester_points_max": 70,
+    "passing_threshold": 60,
+    "exam_points_min": 18,
+    "exam_points_max": 30,
+    "exam_date": "2027-01-24",
+    "exam_room": "ГУК 527"
+   },
+   "modules": [
+    {
+     "ordinal": 1,
+     "title": "Электростатика",
+     "starts_on": "2026-09-01",
+     "ends_on": "2026-10-11",
+     "status": "completed",
+     "items": [
+      {
+       "key": "lr1",
+       "title": "Лабораторная работа 1",
+       "kind": "lab",
+       "max_points": 6,
+       "due_date": "2026-09-25"
+      },
+      {
+       "key": "lr2",
+       "title": "Лабораторная работа 2",
+       "kind": "lab",
+       "max_points": 6,
+       "due_date": "2026-10-02"
+      },
+      {
+       "key": "rk1",
+       "title": "Рубежный контроль 1",
+       "kind": "control",
+       "max_points": 8,
+       "due_date": "2026-10-09"
+      }
+     ]
+    },
+    {
+     "ordinal": 2,
+     "title": "Постоянный ток и магнитное поле",
+     "starts_on": "2026-10-12",
+     "ends_on": "2026-11-15",
+     "status": "completed",
+     "items": [
+      {
+       "key": "lr3",
+       "title": "Лабораторная работа 3",
+       "kind": "lab",
+       "max_points": 6,
+       "due_date": "2026-10-23"
+      },
+      {
+       "key": "lr4",
+       "title": "Лабораторная работа 4",
+       "kind": "lab",
+       "max_points": 6,
+       "due_date": "2026-11-06"
+      },
+      {
+       "key": "rk2",
+       "title": "Рубежный контроль 2",
+       "kind": "control",
+       "max_points": 13,
+       "due_date": "2026-11-13"
+      }
+     ]
+    },
+    {
+     "ordinal": 3,
+     "title": "Электромагнитная индукция",
+     "starts_on": "2026-11-16",
+     "ends_on": "2026-12-20",
+     "status": "in_progress",
+     "items": [
+      {
+       "key": "lr5",
+       "title": "Лабораторная работа 5",
+       "kind": "lab",
+       "max_points": 6,
+       "due_date": "2026-11-27"
+      },
+      {
+       "key": "lr6",
+       "title": "Лабораторная работа 6",
+       "kind": "lab",
+       "max_points": 6,
+       "due_date": "2026-12-11"
+      },
+      {
+       "key": "rk3",
+       "title": "Рубежный контроль 3",
+       "kind": "control",
+       "max_points": 13,
+       "due_date": "2026-12-18"
+      }
+     ]
+    }
+   ],
+   "topics": [
+    {
+     "key": "phys-coulomb-gauss",
+     "module": 1,
+     "title": "Закон Кулона и теорема Гаусса"
+    },
+    {
+     "key": "phys-capacitors",
+     "module": 1,
+     "title": "Конденсаторы и энергия электрического поля"
+    },
+    {
+     "key": "phys-dc-circuits",
+     "module": 2,
+     "title": "Законы постоянного тока, правила Кирхгофа"
+    },
+    {
+     "key": "phys-biot-savart",
+     "module": 2,
+     "title": "Магнитное поле, закон Био–Савара–Лапласа"
+    },
+    {
+     "key": "phys-induction",
+     "module": 3,
+     "title": "Закон электромагнитной индукции Фарадея"
+    }
+   ]
+  },
+  {
+   "key": "oop-cpp",
+   "title": "Объектно-ориентированное программирование",
+   "short_title": "ООП",
+   "department": "Кафедра систем обработки информации",
+   "credits": 4,
+   "lecturer": "melnikova",
+   "description": "ООП на C++: классы, управление ресурсами, наследование, шаблоны, STL, исключения.",
+   "assessment": {
+    "type": "distributed_exam",
+    "semester_points_max": 100,
+    "passing_threshold": 60
+   },
+   "modules": [
+    {
+     "ordinal": 1,
+     "title": "Классы и управление ресурсами",
+     "starts_on": "2026-09-01",
+     "ends_on": "2026-10-11",
+     "status": "completed",
+     "items": [
+      {
+       "key": "lr1",
+       "title": "Лабораторная работа 1",
+       "kind": "lab",
+       "max_points": 10,
+       "due_date": "2026-09-24"
+      },
+      {
+       "key": "lr2",
+       "title": "Лабораторная работа 2",
+       "kind": "lab",
+       "max_points": 10,
+       "due_date": "2026-10-08"
+      },
+      {
+       "key": "t1",
+       "title": "Тест 1",
+       "kind": "test",
+       "max_points": 10,
+       "due_date": "2026-10-10"
+      }
+     ]
+    },
+    {
+     "ordinal": 2,
+     "title": "Наследование и полиморфизм",
+     "starts_on": "2026-10-12",
+     "ends_on": "2026-11-15",
+     "status": "completed",
+     "items": [
+      {
+       "key": "lr3",
+       "title": "Лабораторная работа 3",
+       "kind": "lab",
+       "max_points": 12,
+       "due_date": "2026-10-29"
+      },
+      {
+       "key": "lr4",
+       "title": "Лабораторная работа 4",
+       "kind": "lab",
+       "max_points": 12,
+       "due_date": "2026-11-12"
+      },
+      {
+       "key": "rk1",
+       "title": "Рубежный контроль",
+       "kind": "control",
+       "max_points": 11,
+       "due_date": "2026-11-14"
+      }
+     ]
+    },
+    {
+     "ordinal": 3,
+     "title": "Шаблоны, STL и исключения",
+     "starts_on": "2026-11-16",
+     "ends_on": "2026-12-20",
+     "status": "in_progress",
+     "items": [
+      {
+       "key": "lr5",
+       "title": "Лабораторная работа 5",
+       "kind": "lab",
+       "max_points": 12,
+       "due_date": "2026-11-26"
+      },
+      {
+       "key": "lr6",
+       "title": "Лабораторная работа 6",
+       "kind": "lab",
+       "max_points": 12,
+       "due_date": "2026-12-10"
+      },
+      {
+       "key": "pr",
+       "title": "Итоговый проект",
+       "kind": "project",
+       "max_points": 11,
+       "due_date": "2026-12-19"
+      }
+     ]
+    }
+   ],
+   "topics": [
+    {
+     "key": "oop-classes",
+     "module": 1,
+     "title": "Классы, конструкторы, инкапсуляция"
+    },
+    {
+     "key": "oop-raii",
+     "module": 1,
+     "title": "Управление ресурсами: RAII и умные указатели"
+    },
+    {
+     "key": "oop-inheritance",
+     "module": 2,
+     "title": "Наследование и виртуальные функции"
+    },
+    {
+     "key": "oop-templates",
+     "module": 3,
+     "title": "Шаблоны функций и классов"
+    },
+    {
+     "key": "oop-stl",
+     "module": 3,
+     "title": "Контейнеры и алгоритмы STL"
+    },
+    {
+     "key": "oop-exceptions",
+     "module": 3,
+     "title": "Обработка исключений"
+    }
+   ]
+  },
+  {
+   "key": "discrete-math",
+   "title": "Дискретная математика",
+   "short_title": "Дискретка",
+   "department": "Кафедра прикладной математики",
+   "credits": 4,
+   "lecturer": "zaitsev",
+   "description": "Множества и отношения, комбинаторика, теория графов, булевы функции.",
+   "assessment": {
+    "type": "distributed_exam",
+    "semester_points_max": 100,
+    "passing_threshold": 60
+   },
+   "modules": [
+    {
+     "ordinal": 1,
+     "title": "Множества и комбинаторика",
+     "starts_on": "2026-09-01",
+     "ends_on": "2026-10-11",
+     "status": "completed",
+     "items": [
+      {
+       "key": "dz1",
+       "title": "Домашнее задание 1",
+       "kind": "homework",
+       "max_points": 10,
+       "due_date": "2026-09-29"
+      },
+      {
+       "key": "rk1",
+       "title": "Рубежный контроль 1",
+       "kind": "control",
+       "max_points": 20,
+       "due_date": "2026-10-10"
+      }
+     ]
+    },
+    {
+     "ordinal": 2,
+     "title": "Теория графов",
+     "starts_on": "2026-10-12",
+     "ends_on": "2026-11-29",
+     "status": "in_progress",
+     "items": [
+      {
+       "key": "dz2",
+       "title": "Домашнее задание 2",
+       "kind": "homework",
+       "max_points": 10,
+       "due_date": "2026-11-05"
+      },
+      {
+       "key": "dz3",
+       "title": "Домашнее задание 3",
+       "kind": "homework",
+       "max_points": 10,
+       "due_date": "2026-11-26"
+      },
+      {
+       "key": "rk2",
+       "title": "Рубежный контроль 2",
+       "kind": "control",
+       "max_points": 15,
+       "due_date": "2026-11-28"
+      }
+     ]
+    },
+    {
+     "ordinal": 3,
+     "title": "Булевы функции",
+     "starts_on": "2026-11-30",
+     "ends_on": "2026-12-20",
+     "status": "upcoming",
+     "items": [
+      {
+       "key": "dz4",
+       "title": "Домашнее задание 4",
+       "kind": "homework",
+       "max_points": 15,
+       "due_date": "2026-12-12"
+      },
+      {
+       "key": "rk3",
+       "title": "Рубежный контроль 3",
+       "kind": "control",
+       "max_points": 20,
+       "due_date": "2026-12-19"
+      }
+     ]
+    }
+   ],
+   "topics": [
+    {
+     "key": "dm-sets-relations",
+     "module": 1,
+     "title": "Множества и отношения, отношение эквивалентности"
+    },
+    {
+     "key": "dm-combinatorics",
+     "module": 1,
+     "title": "Комбинаторика: перестановки, сочетания, бином Ньютона"
+    },
+    {
+     "key": "dm-graphs-basics",
+     "module": 2,
+     "title": "Графы: основные понятия и связность"
+    },
+    {
+     "key": "dm-trees",
+     "module": 2,
+     "title": "Деревья и минимальные остовные деревья (Краскал, Прим)"
+    },
+    {
+     "key": "dm-shortest-paths",
+     "module": 2,
+     "title": "Кратчайшие пути: алгоритм Дейкстры"
+    },
+    {
+     "key": "dm-boolean",
+     "module": 3,
+     "title": "Булевы функции, ДНФ и КНФ"
+    }
+   ]
+  },
+  {
+   "key": "english-2",
+   "title": "Иностранный язык (английский)",
+   "short_title": "Английский",
+   "department": "Кафедра английского языка",
+   "credits": 2,
+   "lecturer": "kravets",
+   "description": "Чтение технических текстов, деловая переписка, публичные выступления.",
+   "assessment": {
+    "type": "credit",
+    "semester_points_max": 100,
+    "passing_threshold": 60
+   },
+   "modules": [
+    {
+     "ordinal": 1,
+     "title": "Technical reading",
+     "starts_on": "2026-09-01",
+     "ends_on": "2026-10-25",
+     "status": "completed",
+     "items": [
+      {
+       "key": "t1",
+       "title": "Reading test",
+       "kind": "test",
+       "max_points": 20,
+       "due_date": "2026-10-06"
+      },
+      {
+       "key": "q1",
+       "title": "Vocabulary quiz",
+       "kind": "test",
+       "max_points": 10,
+       "due_date": "2026-10-20"
+      },
+      {
+       "key": "act1",
+       "title": "Работа на занятиях (модуль 1)",
+       "kind": "activity",
+       "max_points": 20,
+       "due_date": "2026-10-25"
+      }
+     ]
+    },
+    {
+     "ordinal": 2,
+     "title": "Business communication",
+     "starts_on": "2026-10-26",
+     "ends_on": "2026-12-20",
+     "status": "in_progress",
+     "items": [
+      {
+       "key": "em",
+       "title": "Деловое письмо",
+       "kind": "homework",
+       "max_points": 15,
+       "due_date": "2026-11-27"
+      },
+      {
+       "key": "pres",
+       "title": "Презентация",
+       "kind": "project",
+       "max_points": 25,
+       "due_date": "2026-12-08"
+      },
+      {
+       "key": "act2",
+       "title": "Работа на занятиях (модуль 2)",
+       "kind": "activity",
+       "max_points": 10,
+       "due_date": "2026-12-18"
+      }
+     ]
+    }
+   ],
+   "topics": [
+    {
+     "key": "en-tech-reading",
+     "module": 1,
+     "title": "Чтение технических текстов на английском"
+    },
+    {
+     "key": "en-emails",
+     "module": 2,
+     "title": "Деловая переписка (emails)"
+    },
+    {
+     "key": "en-presentations",
+     "module": 2,
+     "title": "Подготовка и проведение презентаций на английском"
+    }
+   ]
+  },
+  {
+   "key": "eng-graphics",
+   "title": "Инженерная и компьютерная графика",
+   "short_title": "Инж. графика",
+   "department": "Кафедра инженерной графики",
+   "credits": 3,
+   "lecturer": "fomin",
+   "description": "Проекционное черчение по ЕСКД и основы 3D-моделирования в САПР.",
+   "assessment": {
+    "type": "credit",
+    "semester_points_max": 100,
+    "passing_threshold": 60
+   },
+   "modules": [
+    {
+     "ordinal": 1,
+     "title": "Проекционное черчение",
+     "starts_on": "2026-09-01",
+     "ends_on": "2026-10-31",
+     "status": "completed",
+     "items": [
+      {
+       "key": "l1",
+       "title": "Чертёж: лист 1",
+       "kind": "homework",
+       "max_points": 15,
+       "due_date": "2026-09-30"
+      },
+      {
+       "key": "l2",
+       "title": "Чертёж: лист 2",
+       "kind": "homework",
+       "max_points": 15,
+       "due_date": "2026-10-14"
+      },
+      {
+       "key": "kr",
+       "title": "Контрольная работа",
+       "kind": "control",
+       "max_points": 20,
+       "due_date": "2026-10-28"
+      }
+     ]
+    },
+    {
+     "ordinal": 2,
+     "title": "Основы САПР",
+     "starts_on": "2026-11-01",
+     "ends_on": "2026-12-20",
+     "status": "in_progress",
+     "items": [
+      {
+       "key": "m3d",
+       "title": "3D-модель детали",
+       "kind": "homework",
+       "max_points": 20,
+       "due_date": "2026-11-25"
+      },
+      {
+       "key": "asm",
+       "title": "Сборочный чертёж",
+       "kind": "project",
+       "max_points": 30,
+       "due_date": "2026-12-16"
+      }
+     ]
+    }
+   ],
+   "topics": [
+    {
+     "key": "eg-projections",
+     "module": 1,
+     "title": "Виды, разрезы и сечения"
+    },
+    {
+     "key": "eg-dimensions",
+     "module": 1,
+     "title": "Нанесение размеров на чертежах по ЕСКД"
+    },
+    {
+     "key": "eg-cad",
+     "module": 2,
+     "title": "Основы 3D-моделирования в САПР"
+    }
+   ]
+  },
+  {
+   "key": "control-theory",
+   "title": "Теория автоматического управления",
+   "short_title": "ТАУ",
+   "department": "Кафедра систем автоматического управления",
+   "credits": 5,
+   "lecturer": "tarasov",
+   "description": "Математическое описание линейных систем управления, устойчивость, качество регулирования, синтез регуляторов.",
+   "assessment": {
+    "type": "exam",
+    "semester_points_max": 70,
+    "passing_threshold": 60,
+    "exam_points_min": 18,
+    "exam_points_max": 30,
+    "exam_date": "2027-01-15",
+    "exam_room": "УЛК 402"
+   },
+   "modules": [
+    {
+     "ordinal": 1,
+     "title": "Математическое описание систем",
+     "starts_on": "2026-09-01",
+     "ends_on": "2026-10-11",
+     "status": "completed",
+     "items": [
+      {
+       "key": "dz1",
+       "title": "Домашнее задание 1",
+       "kind": "homework",
+       "max_points": 10,
+       "due_date": "2026-09-30"
+      },
+      {
+       "key": "rk1",
+       "title": "Рубежный контроль 1",
+       "kind": "control",
+       "max_points": 15,
+       "due_date": "2026-10-10"
+      }
+     ]
+    },
+    {
+     "ordinal": 2,
+     "title": "Устойчивость линейных систем",
+     "starts_on": "2026-10-12",
+     "ends_on": "2026-11-15",
+     "status": "completed",
+     "items": [
+      {
+       "key": "lr1",
+       "title": "Лабораторная работа 1",
+       "kind": "lab",
+       "max_points": 10,
+       "due_date": "2026-10-28"
+      },
+      {
+       "key": "rk2",
+       "title": "Рубежный контроль 2",
+       "kind": "control",
+       "max_points": 15,
+       "due_date": "2026-11-13"
+      }
+     ]
+    },
+    {
+     "ordinal": 3,
+     "title": "Качество и синтез регуляторов",
+     "starts_on": "2026-11-16",
+     "ends_on": "2026-12-20",
+     "status": "in_progress",
+     "items": [
+      {
+       "key": "lr2",
+       "title": "Лабораторная работа 2",
+       "kind": "lab",
+       "max_points": 8,
+       "due_date": "2026-12-02"
+      },
+      {
+       "key": "rk3",
+       "title": "Рубежный контроль 3",
+       "kind": "control",
+       "max_points": 12,
+       "due_date": "2026-12-16"
+      }
+     ]
+    }
+   ],
+   "topics": [
+    {
+     "key": "tau-transfer",
+     "module": 1,
+     "title": "Передаточные функции и структурные схемы"
+    },
+    {
+     "key": "tau-freq",
+     "module": 1,
+     "title": "Частотные характеристики, ЛАЧХ"
+    },
+    {
+     "key": "tau-stability",
+     "module": 2,
+     "title": "Критерии устойчивости Гурвица и Найквиста"
+    },
+    {
+     "key": "tau-quality",
+     "module": 3,
+     "title": "Показатели качества переходного процесса"
+    },
+    {
+     "key": "tau-pid",
+     "module": 3,
+     "title": "ПИД-регулятор и его настройка"
+    }
+   ]
+  },
+  {
+   "key": "probability",
+   "title": "Теория вероятностей и математическая статистика",
+   "short_title": "ТВиМС",
+   "department": "Кафедра прикладной математики",
+   "credits": 4,
+   "lecturer": "lebedeva",
+   "description": "Случайные события и величины, законы распределения, предельные теоремы, оценивание и проверка гипотез.",
+   "assessment": {
+    "type": "exam",
+    "semester_points_max": 70,
+    "passing_threshold": 60,
+    "exam_points_min": 18,
+    "exam_points_max": 30,
+    "exam_date": "2027-01-21",
+    "exam_room": "ГУК 330"
+   },
+   "modules": [
+    {
+     "ordinal": 1,
+     "title": "Случайные события",
+     "starts_on": "2026-09-01",
+     "ends_on": "2026-10-11",
+     "status": "completed",
+     "items": [
+      {
+       "key": "dz1",
+       "title": "Домашнее задание 1",
+       "kind": "homework",
+       "max_points": 8,
+       "due_date": "2026-09-29"
+      },
+      {
+       "key": "rk1",
+       "title": "Рубежный контроль 1",
+       "kind": "control",
+       "max_points": 12,
+       "due_date": "2026-10-09"
+      }
+     ]
+    },
+    {
+     "ordinal": 2,
+     "title": "Случайные величины",
+     "starts_on": "2026-10-12",
+     "ends_on": "2026-11-15",
+     "status": "completed",
+     "items": [
+      {
+       "key": "dz2",
+       "title": "Домашнее задание 2",
+       "kind": "homework",
+       "max_points": 10,
+       "due_date": "2026-11-03"
+      },
+      {
+       "key": "rk2",
+       "title": "Рубежный контроль 2",
+       "kind": "control",
+       "max_points": 15,
+       "due_date": "2026-11-13"
+      }
+     ]
+    },
+    {
+     "ordinal": 3,
+     "title": "Математическая статистика",
+     "starts_on": "2026-11-16",
+     "ends_on": "2026-12-20",
+     "status": "in_progress",
+     "items": [
+      {
+       "key": "dz3",
+       "title": "Домашнее задание 3",
+       "kind": "homework",
+       "max_points": 10,
+       "due_date": "2026-12-04"
+      },
+      {
+       "key": "rk3",
+       "title": "Рубежный контроль 3",
+       "kind": "control",
+       "max_points": 15,
+       "due_date": "2026-12-18"
+      }
+     ]
+    }
+   ],
+   "topics": [
+    {
+     "key": "prob-classic",
+     "module": 1,
+     "title": "Классическое определение вероятности, формула Байеса"
+    },
+    {
+     "key": "prob-random-vars",
+     "module": 2,
+     "title": "Случайные величины и функция распределения"
+    },
+    {
+     "key": "prob-distributions",
+     "module": 2,
+     "title": "Основные законы распределения: биномиальный, Пуассона, нормальный"
+    },
+    {
+     "key": "prob-limit",
+     "module": 2,
+     "title": "Закон больших чисел и центральная предельная теорема"
+    },
+    {
+     "key": "stat-estimates",
+     "module": 3,
+     "title": "Точечные и интервальные оценки"
+    },
+    {
+     "key": "stat-hypotheses",
+     "module": 3,
+     "title": "Проверка статистических гипотез"
+    }
+   ]
+  },
+  {
+   "key": "mcu",
+   "title": "Программирование микроконтроллеров",
+   "short_title": "Микроконтроллеры",
+   "department": "Кафедра робототехнических систем",
+   "credits": 4,
+   "lecturer": "orlov",
+   "description": "Архитектура микроконтроллеров, порты ввода-вывода, прерывания, таймеры, последовательные интерфейсы.",
+   "assessment": {
+    "type": "distributed_exam",
+    "semester_points_max": 100,
+    "passing_threshold": 60
+   },
+   "modules": [
+    {
+     "ordinal": 1,
+     "title": "Архитектура и порты ввода-вывода",
+     "starts_on": "2026-09-01",
+     "ends_on": "2026-10-11",
+     "status": "completed",
+     "items": [
+      {
+       "key": "lr1",
+       "title": "Лабораторная работа 1",
+       "kind": "lab",
+       "max_points": 15,
+       "due_date": "2026-09-25"
+      },
+      {
+       "key": "lr2",
+       "title": "Лабораторная работа 2",
+       "kind": "lab",
+       "max_points": 15,
+       "due_date": "2026-10-09"
+      }
+     ]
+    },
+    {
+     "ordinal": 2,
+     "title": "Прерывания и таймеры",
+     "starts_on": "2026-10-12",
+     "ends_on": "2026-11-15",
+     "status": "completed",
+     "items": [
+      {
+       "key": "lr3",
+       "title": "Лабораторная работа 3",
+       "kind": "lab",
+       "max_points": 15,
+       "due_date": "2026-10-23"
+      },
+      {
+       "key": "lr4",
+       "title": "Лабораторная работа 4",
+       "kind": "lab",
+       "max_points": 10,
+       "due_date": "2026-11-06"
+      },
+      {
+       "key": "rk1",
+       "title": "Рубежный контроль",
+       "kind": "control",
+       "max_points": 10,
+       "due_date": "2026-11-13"
+      }
+     ]
+    },
+    {
+     "ordinal": 3,
+     "title": "Последовательные интерфейсы",
+     "starts_on": "2026-11-16",
+     "ends_on": "2026-12-20",
+     "status": "in_progress",
+     "items": [
+      {
+       "key": "lr5",
+       "title": "Лабораторная работа 5",
+       "kind": "lab",
+       "max_points": 15,
+       "due_date": "2026-11-30"
+      },
+      {
+       "key": "pr",
+       "title": "Курсовой проект: устройство на МК",
+       "kind": "project",
+       "max_points": 20,
+       "due_date": "2026-12-18"
+      }
+     ]
+    }
+   ],
+   "topics": [
+    {
+     "key": "mcu-architecture",
+     "module": 1,
+     "title": "Архитектура микроконтроллеров (AVR, ARM Cortex-M)"
+    },
+    {
+     "key": "mcu-gpio",
+     "module": 1,
+     "title": "Порты ввода-вывода (GPIO)"
+    },
+    {
+     "key": "mcu-interrupts",
+     "module": 2,
+     "title": "Прерывания"
+    },
+    {
+     "key": "mcu-timers-pwm",
+     "module": 2,
+     "title": "Таймеры и ШИМ"
+    },
+    {
+     "key": "mcu-serial",
+     "module": 3,
+     "title": "Последовательные интерфейсы UART, I2C, SPI"
+    }
+   ]
+  },
+  {
+   "key": "tmm",
+   "title": "Теория механизмов и машин",
+   "short_title": "ТММ",
+   "department": "Кафедра теории механизмов и машин",
+   "credits": 4,
+   "lecturer": "yakovlev",
+   "description": "Структурный и кинематический анализ механизмов, зубчатые передачи.",
+   "assessment": {
+    "type": "distributed_exam",
+    "semester_points_max": 100,
+    "passing_threshold": 60
+   },
+   "modules": [
+    {
+     "ordinal": 1,
+     "title": "Структурный анализ механизмов",
+     "starts_on": "2026-09-01",
+     "ends_on": "2026-10-11",
+     "status": "completed",
+     "items": [
+      {
+       "key": "dz1",
+       "title": "Домашнее задание 1",
+       "kind": "homework",
+       "max_points": 10,
+       "due_date": "2026-09-30"
+      },
+      {
+       "key": "rk1",
+       "title": "Рубежный контроль 1",
+       "kind": "control",
+       "max_points": 20,
+       "due_date": "2026-10-10"
+      }
+     ]
+    },
+    {
+     "ordinal": 2,
+     "title": "Кинематический анализ",
+     "starts_on": "2026-10-12",
+     "ends_on": "2026-11-15",
+     "status": "completed",
+     "items": [
+      {
+       "key": "dz2",
+       "title": "Домашнее задание 2",
+       "kind": "homework",
+       "max_points": 15,
+       "due_date": "2026-10-30"
+      },
+      {
+       "key": "rk2",
+       "title": "Рубежный контроль 2",
+       "kind": "control",
+       "max_points": 25,
+       "due_date": "2026-11-14"
+      }
+     ]
+    },
+    {
+     "ordinal": 3,
+     "title": "Зубчатые передачи",
+     "starts_on": "2026-11-16",
+     "ends_on": "2026-12-20",
+     "status": "in_progress",
+     "items": [
+      {
+       "key": "dz3",
+       "title": "Домашнее задание 3",
+       "kind": "homework",
+       "max_points": 10,
+       "due_date": "2026-12-05"
+      },
+      {
+       "key": "rk3",
+       "title": "Рубежный контроль 3",
+       "kind": "control",
+       "max_points": 20,
+       "due_date": "2026-12-17"
+      }
+     ]
+    }
+   ],
+   "topics": [
+    {
+     "key": "tmm-structure",
+     "module": 1,
+     "title": "Структурный анализ механизмов, степень подвижности"
+    },
+    {
+     "key": "tmm-kinematics",
+     "module": 2,
+     "title": "Кинематический анализ рычажных механизмов"
+    },
+    {
+     "key": "tmm-gears",
+     "module": 3,
+     "title": "Зубчатые передачи и эвольвентное зацепление"
+    }
+   ]
+  },
+  {
+   "key": "electronics",
+   "title": "Электротехника и электроника",
+   "short_title": "Электроника",
+   "department": "Кафедра электротехники",
+   "credits": 4,
+   "lecturer": "polyakova",
+   "description": "Расчёт электрических цепей постоянного и переменного тока, полупроводниковые приборы, операционные усилители.",
+   "assessment": {
+    "type": "distributed_exam",
+    "semester_points_max": 100,
+    "passing_threshold": 60
+   },
+   "modules": [
+    {
+     "ordinal": 1,
+     "title": "Цепи постоянного тока",
+     "starts_on": "2026-09-01",
+     "ends_on": "2026-10-11",
+     "status": "completed",
+     "items": [
+      {
+       "key": "lr1",
+       "title": "Лабораторная работа 1",
+       "kind": "lab",
+       "max_points": 10,
+       "due_date": "2026-09-24"
+      },
+      {
+       "key": "lr2",
+       "title": "Лабораторная работа 2",
+       "kind": "lab",
+       "max_points": 10,
+       "due_date": "2026-10-01"
+      },
+      {
+       "key": "rk1",
+       "title": "Рубежный контроль 1",
+       "kind": "control",
+       "max_points": 10,
+       "due_date": "2026-10-08"
+      }
+     ]
+    },
+    {
+     "ordinal": 2,
+     "title": "Цепи переменного тока",
+     "starts_on": "2026-10-12",
+     "ends_on": "2026-11-15",
+     "status": "completed",
+     "items": [
+      {
+       "key": "lr3",
+       "title": "Лабораторная работа 3",
+       "kind": "lab",
+       "max_points": 10,
+       "due_date": "2026-10-22"
+      },
+      {
+       "key": "lr4",
+       "title": "Лабораторная работа 4",
+       "kind": "lab",
+       "max_points": 10,
+       "due_date": "2026-11-05"
+      },
+      {
+       "key": "rk2",
+       "title": "Рубежный контроль 2",
+       "kind": "control",
+       "max_points": 10,
+       "due_date": "2026-11-12"
+      }
+     ]
+    },
+    {
+     "ordinal": 3,
+     "title": "Основы электроники",
+     "starts_on": "2026-11-16",
+     "ends_on": "2026-12-20",
+     "status": "in_progress",
+     "items": [
+      {
+       "key": "lr5",
+       "title": "Лабораторная работа 5",
+       "kind": "lab",
+       "max_points": 10,
+       "due_date": "2026-11-27"
+      },
+      {
+       "key": "lr6",
+       "title": "Лабораторная работа 6",
+       "kind": "lab",
+       "max_points": 10,
+       "due_date": "2026-12-04"
+      },
+      {
+       "key": "rk3",
+       "title": "Рубежный контроль 3",
+       "kind": "control",
+       "max_points": 20,
+       "due_date": "2026-12-18"
+      }
+     ]
+    }
+   ],
+   "topics": [
+    {
+     "key": "el-dc",
+     "module": 1,
+     "title": "Методы расчёта цепей постоянного тока"
+    },
+    {
+     "key": "el-ac",
+     "module": 2,
+     "title": "Цепи синусоидального тока, комплексный метод"
+    },
+    {
+     "key": "el-semiconductors",
+     "module": 3,
+     "title": "Полупроводниковые диоды и транзисторы"
+    },
+    {
+     "key": "el-opamp",
+     "module": 3,
+     "title": "Операционные усилители"
+    }
+   ]
+  },
+  {
+   "key": "economics",
+   "title": "Экономика",
+   "short_title": "Экономика",
+   "department": "Кафедра экономической теории",
+   "credits": 2,
+   "lecturer": "savelieva",
+   "description": "Основы микро- и макроэкономики для инженеров.",
+   "assessment": {
+    "type": "credit",
+    "semester_points_max": 100,
+    "passing_threshold": 60
+   },
+   "modules": [
+    {
+     "ordinal": 1,
+     "title": "Микроэкономика",
+     "starts_on": "2026-09-01",
+     "ends_on": "2026-10-31",
+     "status": "completed",
+     "items": [
+      {
+       "key": "t1",
+       "title": "Тест 1",
+       "kind": "test",
+       "max_points": 20,
+       "due_date": "2026-10-07"
+      },
+      {
+       "key": "es",
+       "title": "Эссе",
+       "kind": "homework",
+       "max_points": 15,
+       "due_date": "2026-10-21"
+      },
+      {
+       "key": "act1",
+       "title": "Работа на семинарах (модуль 1)",
+       "kind": "activity",
+       "max_points": 15,
+       "due_date": "2026-10-31"
+      }
+     ]
+    },
+    {
+     "ordinal": 2,
+     "title": "Макроэкономика",
+     "starts_on": "2026-11-01",
+     "ends_on": "2026-12-20",
+     "status": "in_progress",
+     "items": [
+      {
+       "key": "case",
+       "title": "Кейс-задание",
+       "kind": "homework",
+       "max_points": 20,
+       "due_date": "2026-12-02"
+      },
+      {
+       "key": "t2",
+       "title": "Тест 2",
+       "kind": "test",
+       "max_points": 20,
+       "due_date": "2026-12-09"
+      },
+      {
+       "key": "act2",
+       "title": "Работа на семинарах (модуль 2)",
+       "kind": "activity",
+       "max_points": 10,
+       "due_date": "2026-12-18"
+      }
+     ]
+    }
+   ],
+   "topics": [
+    {
+     "key": "econ-supply-demand",
+     "module": 1,
+     "title": "Спрос, предложение и рыночное равновесие"
+    },
+    {
+     "key": "econ-costs",
+     "module": 1,
+     "title": "Издержки производства фирмы"
+    },
+    {
+     "key": "econ-gdp",
+     "module": 2,
+     "title": "ВВП и макроэкономические показатели"
+    }
+   ]
+  },
+  {
+   "key": "english-3",
+   "title": "Иностранный язык (профессиональный английский)",
+   "short_title": "Английский",
+   "department": "Кафедра английского языка",
+   "credits": 2,
+   "lecturer": "romanova",
+   "description": "Профессиональная лексика и техническое письмо на английском языке.",
+   "assessment": {
+    "type": "credit",
+    "semester_points_max": 100,
+    "passing_threshold": 60
+   },
+   "modules": [
+    {
+     "ordinal": 1,
+     "title": "Professional vocabulary",
+     "starts_on": "2026-09-01",
+     "ends_on": "2026-10-31",
+     "status": "completed",
+     "items": [
+      {
+       "key": "t1",
+       "title": "Vocabulary test",
+       "kind": "test",
+       "max_points": 20,
+       "due_date": "2026-10-14"
+      },
+      {
+       "key": "act1",
+       "title": "Работа на занятиях (модуль 1)",
+       "kind": "activity",
+       "max_points": 30,
+       "due_date": "2026-10-31"
+      }
+     ]
+    },
+    {
+     "ordinal": 2,
+     "title": "Technical writing",
+     "starts_on": "2026-11-01",
+     "ends_on": "2026-12-20",
+     "status": "in_progress",
+     "items": [
+      {
+       "key": "td",
+       "title": "Техническое описание устройства",
+       "kind": "homework",
+       "max_points": 25,
+       "due_date": "2026-12-04"
+      },
+      {
+       "key": "pres",
+       "title": "Презентация проекта",
+       "kind": "project",
+       "max_points": 25,
+       "due_date": "2026-12-15"
+      }
+     ]
+    }
+   ],
+   "topics": [
+    {
+     "key": "en3-vocab",
+     "module": 1,
+     "title": "Профессиональная лексика: инженерия и робототехника"
+    },
+    {
+     "key": "en3-writing",
+     "module": 2,
+     "title": "Технические описания и инструкции на английском"
+    }
+   ]
+  }
+ ],
+ "groups": [
+  {
+   "name": "ИУ5-34Б",
+   "disciplines": [
+    "calculus3",
+    "diffeq",
+    "physics-em",
+    "oop-cpp",
+    "discrete-math",
+    "english-2",
+    "eng-graphics"
+   ]
+  },
+  {
+   "name": "РК9-51Б",
+   "disciplines": [
+    "control-theory",
+    "probability",
+    "mcu",
+    "tmm",
+    "electronics",
+    "economics",
+    "english-3"
+   ]
+  }
+ ]
+}

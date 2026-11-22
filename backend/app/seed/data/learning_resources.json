@@ -1,0 +1,3015 @@
+{
+  "_meta": {
+    "checked_on": "2026-11-21",
+    "method": "Темы взяты из curriculum.json (14 дисциплин, 63 темы); подбор шёл по формулировке каждой темы. Кандидаты искались через WebSearch и через оглавления известных открытых источников (Википедия, Викиконспекты ИТМО, MAXimal, МатПрофи, METANIT, OpenStax, LibreTexts, репозитории и электронные библиотеки вузов, Stepik). Каждый URL открыт через WebFetch: проверены существование страницы, точное название, автор (только если он виден на странице) и соответствие содержания теме. Описания написаны своими словами. Не включены: платные курсы, копии коммерческих учебников на сторонних сайтах, страницы, которые не удалось открыть, и видео на YouTube. Подробности — docs/learning-resources.md."
+  },
+  "resources": [
+    {
+      "id": "r001",
+      "topic_keys": [
+        "tau-transfer"
+      ],
+      "title": "Передаточная функция",
+      "type": "article",
+      "source": "Википедия",
+      "author": null,
+      "url": "https://ru.wikipedia.org/wiki/Передаточная_функция",
+      "language": "ru",
+      "summary": "Определение передаточной функции линейной стационарной системы как отношения изображений Лапласа выхода и входа при нулевых начальных условиях; полюсы и нули, связь с частотной и импульсной характеристиками, дискретный и матричный случаи.",
+      "relevance": {
+        "tau-transfer": "Даёт строгое определение и свойства передаточной функции — основу темы. Структурные схемы здесь не разбираются, для них см. лекцию о структурных преобразованиях."
+      },
+      "difficulty": null,
+      "duration_minutes": null,
+      "link_status": "verified",
+      "checked_on": "2026-11-21",
+      "access_note": "Открытый доступ"
+    },
+    {
+      "id": "r002",
+      "topic_keys": [
+        "tau-transfer"
+      ],
+      "title": "4. Структурные преобразования систем автоматического регулирования",
+      "type": "lecture",
+      "source": "Хабр (цикл лекций по ТАУ)",
+      "author": "petuhoff",
+      "url": "https://habr.com/ru/post/654673",
+      "language": "ru",
+      "summary": "Глава цикла лекций по ТАУ о правилах упрощения структурных схем: эквивалентные передаточные функции последовательного и параллельного соединения звеньев и контура с обратной связью.",
+      "relevance": {
+        "tau-transfer": "Покрывает вторую половину темы: как по структурной схеме получить передаточную функцию всей системы."
+      },
+      "difficulty": "intermediate",
+      "duration_minutes": null,
+      "link_status": "verified",
+      "checked_on": "2026-11-21",
+      "access_note": "Открытый доступ"
+    },
+    {
+      "id": "r003",
+      "topic_keys": [
+        "tau-freq"
+      ],
+      "title": "3. Частотные характеристики систем автоматического управления (АФЧХ, ЛАХ, ФЧХ) ч. 3.1",
+      "type": "lecture",
+      "source": "Хабр (цикл лекций по ТАУ)",
+      "author": "О. С. Козлов (лекции, МГТУ им. Н. Э. Баумана)",
+      "url": "https://habr.com/ru/post/526190",
+      "language": "ru",
+      "summary": "Лекция о частотных характеристиках САУ: годограф АФЧХ, логарифмическая амплитудная характеристика в децибелах и фазовая характеристика; примеры с моделированием в SimInTech.",
+      "relevance": {
+        "tau-freq": "Объясняет, что такое ЛАЧХ (ЛАХ) и ФЧХ и как их читать, — центральные понятия темы."
+      },
+      "difficulty": "intermediate",
+      "duration_minutes": null,
+      "link_status": "verified",
+      "checked_on": "2026-11-21",
+      "access_note": "Открытый доступ"
+    },
+    {
+      "id": "r004",
+      "topic_keys": [
+        "tau-freq"
+      ],
+      "title": "3. Частотные характеристики звеньев и систем автоматического управления. ч. 3.2 Простейшие типовые звенья",
+      "type": "lecture",
+      "source": "Хабр (цикл лекций по ТАУ)",
+      "author": "petuhoff",
+      "url": "https://habr.com/ru/post/532700/",
+      "language": "ru",
+      "summary": "Классификация типовых звеньев и их частотные характеристики: идеальные усилительное, дифференцирующее и интегрирующее звенья, наклоны ЛАХ (например, −20 дБ/дек у интегрирующего звена).",
+      "relevance": {
+        "tau-freq": "Учит строить ЛАЧХ системы из характеристик типовых звеньев — типичное задание по теме."
+      },
+      "difficulty": "intermediate",
+      "duration_minutes": null,
+      "link_status": "verified",
+      "checked_on": "2026-11-21",
+      "access_note": "Открытый доступ"
+    },
+    {
+      "id": "r005",
+      "topic_keys": [
+        "tau-stability",
+        "ode-stability"
+      ],
+      "title": "6 Устойчивость систем автоматического регулирования. Теоремы Ляпунова. Критерий устойчивости Гурвица",
+      "type": "lecture",
+      "source": "Хабр (цикл лекций по ТАУ)",
+      "author": "petuhoff",
+      "url": "https://habr.com/ru/post/702414",
+      "language": "ru",
+      "summary": "Лекция цикла по ТАУ: понятие устойчивости САР, теоремы Ляпунова и алгебраический критерий Гурвица; в начале статьи — оглавление всех лекций цикла со ссылками.",
+      "relevance": {
+        "tau-stability": "Разбирает критерий Гурвица в контексте систем регулирования и связывает его с понятием устойчивости по Ляпунову.",
+        "ode-stability": "Показывает, как теоремы Ляпунова применяются к реальным системам управления, — помогает понять смысл абстрактных определений из курса ДУ."
+      },
+      "difficulty": "intermediate",
+      "duration_minutes": null,
+      "link_status": "verified",
+      "checked_on": "2026-11-21",
+      "access_note": "Открытый доступ"
+    },
+    {
+      "id": "r006",
+      "topic_keys": [
+        "tau-stability"
+      ],
+      "title": "Критерий устойчивости Гурвица",
+      "type": "article",
+      "source": "Википедия",
+      "author": null,
+      "url": "https://ru.wikipedia.org/wiki/Критерий_устойчивости_Гурвица",
+      "language": "ru",
+      "summary": "Формулировка критерия через диагональные миноры определителя Гурвица, разобранный пример для полинома пятой степени, условия апериодической и колебательной границы устойчивости и функция MATLAB для автоматизации проверки.",
+      "relevance": {
+        "tau-stability": "Краткая справка и готовый пример вычисления миноров Гурвица — удобно для подготовки к РК."
+      },
+      "difficulty": null,
+      "duration_minutes": null,
+      "link_status": "verified",
+      "checked_on": "2026-11-21",
+      "access_note": "Открытый доступ"
+    },
+    {
+      "id": "r007",
+      "topic_keys": [
+        "tau-stability"
+      ],
+      "title": "Критерий устойчивости Найквиста — Михайлова",
+      "type": "article",
+      "source": "Википедия",
+      "author": null,
+      "url": "https://ru.wikipedia.org/wiki/Критерий_устойчивости_Найквиста_—_Михайлова",
+      "language": "ru",
+      "summary": "Частотный критерий устойчивости замкнутой системы по АФЧХ разомкнутой: опора на принцип аргумента, подсчёт охватов точки (−1; j0), следствия для устойчивой и неустойчивой разомкнутой системы.",
+      "relevance": {
+        "tau-stability": "Вторая часть темы — критерий Найквиста — с обоснованием и практическими следствиями."
+      },
+      "difficulty": null,
+      "duration_minutes": null,
+      "link_status": "verified",
+      "checked_on": "2026-11-21",
+      "access_note": "Открытый доступ"
+    },
+    {
+      "id": "r008",
+      "topic_keys": [
+        "tau-quality"
+      ],
+      "title": "8. Качество переходного процесса ч.1",
+      "type": "lecture",
+      "source": "Хабр (цикл лекций по ТАУ)",
+      "author": "petuhoff",
+      "url": "https://habr.com/ru/articles/772018/",
+      "language": "ru",
+      "summary": "Прямые показатели качества по переходной характеристике: перерегулирование, время переходного процесса, число колебаний, ограничения на скорость и ускорение.",
+      "relevance": {
+        "tau-quality": "Прямо по теме: определения основных показателей качества и способы их определения по графику."
+      },
+      "difficulty": "intermediate",
+      "duration_minutes": null,
+      "link_status": "verified",
+      "checked_on": "2026-11-21",
+      "access_note": "Открытый доступ"
+    },
+    {
+      "id": "r009",
+      "topic_keys": [
+        "tau-quality"
+      ],
+      "title": "Качество переходного процесса ч.2",
+      "type": "lecture",
+      "source": "Хабр (цикл лекций по ТАУ)",
+      "author": "petuhoff",
+      "url": "https://habr.com/ru/articles/784758/",
+      "language": "ru",
+      "summary": "Косвенные оценки качества: частотные (по вещественной частотной характеристике, оценка времени регулирования) и корневые (степень устойчивости, колебательность, корневой годограф, D-разбиение).",
+      "relevance": {
+        "tau-quality": "Дополняет прямые показатели косвенными методами оценки качества, которые нужны без построения переходного процесса."
+      },
+      "difficulty": "intermediate",
+      "duration_minutes": null,
+      "link_status": "verified",
+      "checked_on": "2026-11-21",
+      "access_note": "Открытый доступ"
+    },
+    {
+      "id": "r010",
+      "topic_keys": [
+        "tau-pid"
+      ],
+      "title": "ПИД-регулятор",
+      "type": "article",
+      "source": "Википедия",
+      "author": null,
+      "url": "https://ru.wikipedia.org/wiki/ПИД-регулятор",
+      "language": "ru",
+      "summary": "Назначение пропорциональной, интегральной и дифференциальной составляющих, формулы регулятора в непрерывной и дискретной форме и общепринятые параметры настройки.",
+      "relevance": {
+        "tau-pid": "Теоретическая основа: структура ПИД-закона и смысл каждого коэффициента. Конкретных методов настройки статья не описывает — см. урок AlexGyver."
+      },
+      "difficulty": null,
+      "duration_minutes": null,
+      "link_status": "verified",
+      "checked_on": "2026-11-21",
+      "access_note": "Открытый доступ"
+    },
+    {
+      "id": "r011",
+      "topic_keys": [
+        "tau-pid"
+      ],
+      "title": "ПИД регулятор",
+      "type": "article",
+      "source": "AlexGyver (alexgyver.ru)",
+      "author": null,
+      "url": "https://alexgyver.ru/lessons/pid/",
+      "language": "ru",
+      "summary": "Практический урок: контур регулирования и период дискретизации, роль каждой составляющей, влияние коэффициентов на перерегулирование и шум, ручной подбор коэффициентов по усилению и периоду незатухающих колебаний, пример кода на C++.",
+      "relevance": {
+        "tau-pid": "Закрывает «настройку» из названия темы: пошаговый способ подобрать коэффициенты на реальном объекте."
+      },
+      "difficulty": "basic",
+      "duration_minutes": null,
+      "link_status": "verified",
+      "checked_on": "2026-11-21",
+      "access_note": "Открытый доступ"
+    },
+    {
+      "id": "r012",
+      "topic_keys": [
+        "tau-pid"
+      ],
+      "title": "Корректная реализация разностной схемы ПИД регулятора",
+      "type": "article",
+      "source": "Хабр",
+      "author": "datacompboy",
+      "url": "https://habr.com/en/articles/143388",
+      "language": "ru",
+      "summary": "Разбор типичных ошибок программной (дискретной) реализации ПИД-регулятора на примере стенда термостабилизации с лампой: ограничение выхода, переполнение целых чисел, инициализация рекуррентной формулы.",
+      "relevance": {
+        "tau-pid": "Полезно, если регулятор нужно запрограммировать в лабораторной: показывает, что ломается при переходе от формулы к коду."
+      },
+      "difficulty": "intermediate",
+      "duration_minutes": null,
+      "link_status": "verified",
+      "checked_on": "2026-11-21",
+      "access_note": "Открытый доступ; ссылка открывает англоязычный интерфейс Хабра, текст статьи на русском"
+    },
+    {
+      "id": "r013",
+      "topic_keys": [
+        "prob-classic"
+      ],
+      "title": "Задачи на классическое определение вероятности. Примеры решений",
+      "type": "practice",
+      "source": "МатПрофи (mathprofi.ru)",
+      "author": "Александр Емелин",
+      "url": "https://mathprofi.ru/zadachi_na_klassicheskoe_opredelenie_verojatnosti_primery_reshenij.html",
+      "language": "ru",
+      "summary": "Разбор типовых задач на классическое определение вероятности (урны, кубики, карты, монеты) с подсчётом исходов через правило произведения и сочетания.",
+      "relevance": {
+        "prob-classic": "Тренирует первую часть темы — подсчёт благоприятных и всех равновозможных исходов."
+      },
+      "difficulty": "basic",
+      "duration_minutes": null,
+      "link_status": "verified",
+      "checked_on": "2026-11-21",
+      "access_note": "Открытый доступ"
+    },
+    {
+      "id": "r014",
+      "topic_keys": [
+        "prob-classic"
+      ],
+      "title": "Формула полной вероятности и формулы Байеса. Примеры решений",
+      "type": "practice",
+      "source": "МатПрофи (mathprofi.ru)",
+      "author": "Александр Емелин",
+      "url": "https://mathprofi.ru/formula_polnoj_verojatnosti_formuly_bajesa.html",
+      "language": "ru",
+      "summary": "Объяснение формулы полной вероятности и формул Байеса с решёнными задачами (урны, стрелки, бракованные детали), где вероятности гипотез пересчитываются после опыта.",
+      "relevance": {
+        "prob-classic": "Вторая часть темы — формула Байеса — на типовых экзаменационных задачах."
+      },
+      "difficulty": "basic",
+      "duration_minutes": null,
+      "link_status": "verified",
+      "checked_on": "2026-11-21",
+      "access_note": "Открытый доступ"
+    },
+    {
+      "id": "r015",
+      "topic_keys": [
+        "prob-classic"
+      ],
+      "title": "Формула Байеса",
+      "type": "notes",
+      "source": "Викиконспекты ИТМО (neerc.ifmo.ru/wiki)",
+      "author": null,
+      "url": "https://neerc.ifmo.ru/wiki/index.php?title=Формула_Байеса",
+      "language": "ru",
+      "summary": "Конспект: вывод формулы Байеса из условной вероятности и формулы полной вероятности, примеры с медицинским тестом, «парадокс» массового скрининга и наивный байесовский спам-фильтр.",
+      "relevance": {
+        "prob-classic": "Даёт доказательство и интуицию формулы Байеса — пригодится для теоретических вопросов."
+      },
+      "difficulty": "intermediate",
+      "duration_minutes": null,
+      "link_status": "verified",
+      "checked_on": "2026-11-21",
+      "access_note": "Открытый доступ"
+    },
+    {
+      "id": "r016",
+      "topic_keys": [
+        "prob-random-vars"
+      ],
+      "title": "Функция распределения",
+      "type": "article",
+      "source": "Википедия",
+      "author": null,
+      "url": "https://ru.wikipedia.org/wiki/Функция_распределения",
+      "language": "ru",
+      "summary": "Определение и свойства функции распределения, её вид для дискретных (ступенчатая) и непрерывных распределений, многомерный случай.",
+      "relevance": {
+        "prob-random-vars": "Справочник по свойствам функции распределения, которые нужно знать и применять в задачах."
+      },
+      "difficulty": null,
+      "duration_minutes": null,
+      "link_status": "verified",
+      "checked_on": "2026-11-21",
+      "access_note": "Открытый доступ"
+    },
+    {
+      "id": "r017",
+      "topic_keys": [
+        "prob-random-vars"
+      ],
+      "title": "Как найти функцию распределения дискретной случайной величины?",
+      "type": "article",
+      "source": "МатПрофи (mathprofi.ru)",
+      "author": "Александр Емелин",
+      "url": "https://mathprofi.ru/funkcia_raspredeleniya_dsv.html",
+      "language": "ru",
+      "summary": "Пошаговое построение функции распределения дискретной случайной величины по ряду распределения, ступенчатый график, свойства и вычисление вероятности попадания в интервал.",
+      "relevance": {
+        "prob-random-vars": "Отрабатывает самую частую задачу темы — построение F(x) и её графика."
+      },
+      "difficulty": "basic",
+      "duration_minutes": null,
+      "link_status": "verified",
+      "checked_on": "2026-11-21",
+      "access_note": "Открытый доступ"
+    },
+    {
+      "id": "r018",
+      "topic_keys": [
+        "prob-distributions"
+      ],
+      "title": "Биномиальное распределение вероятностей. Понятие и примеры решений",
+      "type": "article",
+      "source": "МатПрофи (mathprofi.ru)",
+      "author": "Александр Емелин",
+      "url": "https://mathprofi.ru/binomialnoe_raspredelenie_veroyatnostei.html",
+      "language": "ru",
+      "summary": "Схема независимых испытаний и формула Бернулли, ряд биномиального распределения, математическое ожидание, дисперсия и функция распределения; разобран пример со стрельбой.",
+      "relevance": {
+        "prob-distributions": "Первый из трёх законов темы с готовыми формулами числовых характеристик."
+      },
+      "difficulty": "basic",
+      "duration_minutes": null,
+      "link_status": "verified",
+      "checked_on": "2026-11-21",
+      "access_note": "Открытый доступ"
+    },
+    {
+      "id": "r019",
+      "topic_keys": [
+        "prob-distributions"
+      ],
+      "title": "Распределение Пуассона и формула Пуассона",
+      "type": "article",
+      "source": "МатПрофи (mathprofi.ru)",
+      "author": "Александр Емелин",
+      "url": "https://mathprofi.ru/raspredelenie_i_formula_puassona.html",
+      "language": "ru",
+      "summary": "Закон Пуассона и его использование как приближения биномиального закона при большом числе испытаний и малой вероятности успеха; задачи с решениями и простейший поток событий.",
+      "relevance": {
+        "prob-distributions": "Второй закон темы и условия, при которых им можно заменить биномиальный."
+      },
+      "difficulty": "basic",
+      "duration_minutes": null,
+      "link_status": "verified",
+      "checked_on": "2026-11-21",
+      "access_note": "Открытый доступ"
+    },
+    {
+      "id": "r020",
+      "topic_keys": [
+        "prob-distributions",
+        "prob-limit"
+      ],
+      "title": "Нормальное распределение вероятностей. Понятие, формулы, графики и задачи с решениями",
+      "type": "article",
+      "source": "МатПрофи (mathprofi.ru)",
+      "author": "Александр Емелин",
+      "url": "https://mathprofi.ru/normalnoe_raspredelenie_veroyatnostei.html",
+      "language": "ru",
+      "summary": "Плотность и функция нормального распределения, построение графика, вероятность попадания в интервал, правило трёх сигм и связь с центральной предельной теоремой; задачи с решениями.",
+      "relevance": {
+        "prob-distributions": "Третий закон темы с практикой вычисления вероятностей.",
+        "prob-limit": "Доступно объясняет, почему нормальный закон возникает так часто, — интуитивная связь с ЦПТ."
+      },
+      "difficulty": "basic",
+      "duration_minutes": null,
+      "link_status": "verified",
+      "checked_on": "2026-11-21",
+      "access_note": "Открытый доступ"
+    },
+    {
+      "id": "r021",
+      "topic_keys": [
+        "prob-limit"
+      ],
+      "title": "Закон больших чисел",
+      "type": "article",
+      "source": "Википедия",
+      "author": null,
+      "url": "https://ru.wikipedia.org/wiki/Закон_больших_чисел",
+      "language": "ru",
+      "summary": "Формулировки слабого и усиленного закона больших чисел и замечания об условиях их применимости.",
+      "relevance": {
+        "prob-limit": "Точные формулировки ЗБЧ, которые требуются на экзамене."
+      },
+      "difficulty": null,
+      "duration_minutes": null,
+      "link_status": "verified",
+      "checked_on": "2026-11-21",
+      "access_note": "Открытый доступ"
+    },
+    {
+      "id": "r022",
+      "topic_keys": [
+        "prob-limit"
+      ],
+      "title": "Центральная предельная теорема",
+      "type": "article",
+      "source": "Википедия",
+      "author": null,
+      "url": "https://ru.wikipedia.org/wiki/Центральная_предельная_теорема",
+      "language": "ru",
+      "summary": "Классическая ЦПТ и её обобщения (теоремы Линдеберга и Ляпунова) с пояснением, когда сумма случайных величин приближённо нормальна.",
+      "relevance": {
+        "prob-limit": "Вторая часть темы — формулировки ЦПТ и условия её применимости."
+      },
+      "difficulty": null,
+      "duration_minutes": null,
+      "link_status": "verified",
+      "checked_on": "2026-11-21",
+      "access_note": "Открытый доступ"
+    },
+    {
+      "id": "r023",
+      "topic_keys": [
+        "stat-estimates"
+      ],
+      "title": "Точечные и интервальные оценки. Доверительный интервал и доверительная вероятность",
+      "type": "article",
+      "source": "МатПрофи (mathprofi.ru)",
+      "author": "Александр Емелин",
+      "url": "https://mathprofi.ru/statisticheskie_ocenki_parametrov_generalnoy_sovokupnosti.html",
+      "language": "ru",
+      "summary": "Точечные и интервальные оценки параметров генеральной совокупности; разобраны доверительные интервалы для среднего (при известном и неизвестном σ), для дисперсии и стандартного отклонения.",
+      "relevance": {
+        "stat-estimates": "Полностью покрывает тему на уровне типовых расчётных задач."
+      },
+      "difficulty": "basic",
+      "duration_minutes": null,
+      "link_status": "verified",
+      "checked_on": "2026-11-21",
+      "access_note": "Открытый доступ"
+    },
+    {
+      "id": "r024",
+      "topic_keys": [
+        "stat-estimates"
+      ],
+      "title": "Доверительный интервал",
+      "type": "article",
+      "source": "Википедия",
+      "author": null,
+      "url": "https://ru.wikipedia.org/wiki/%D0%94%D0%BE%D0%B2%D0%B5%D1%80%D0%B8%D1%82%D0%B5%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9_%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B2%D0%B0%D0%BB",
+      "language": "ru",
+      "summary": "Определение доверительного интервала, его корректная интерпретация и отличие от байесовского доверительного интервала.",
+      "relevance": {
+        "stat-estimates": "Помогает правильно трактовать доверительный интервал — частая ошибка в ответах на экзамене."
+      },
+      "difficulty": null,
+      "duration_minutes": null,
+      "link_status": "verified",
+      "checked_on": "2026-11-21",
+      "access_note": "Открытый доступ"
+    },
+    {
+      "id": "r025",
+      "topic_keys": [
+        "stat-hypotheses"
+      ],
+      "title": "Проверка статистических гипотез. Примеры решений",
+      "type": "practice",
+      "source": "МатПрофи (mathprofi.ru)",
+      "author": "Александр Емелин",
+      "url": "https://mathprofi.ru/proverka_statisticheskih_gipotez.html",
+      "language": "ru",
+      "summary": "Решённые задачи на проверку гипотез о равенстве средних и дисперсий, о вероятности события и о сравнении двух вероятностей, плюс задачи для самостоятельной работы.",
+      "relevance": {
+        "stat-hypotheses": "Практика применения алгоритма проверки гипотез на типовых критериях."
+      },
+      "difficulty": "basic",
+      "duration_minutes": null,
+      "link_status": "verified",
+      "checked_on": "2026-11-21",
+      "access_note": "Открытый доступ"
+    },
+    {
+      "id": "r026",
+      "topic_keys": [
+        "stat-hypotheses"
+      ],
+      "title": "Проверка статистических гипотез",
+      "type": "article",
+      "source": "Википедия",
+      "author": null,
+      "url": "https://ru.wikipedia.org/wiki/%D0%9F%D1%80%D0%BE%D0%B2%D0%B5%D1%80%D0%BA%D0%B0_%D1%81%D1%82%D0%B0%D1%82%D0%B8%D1%81%D1%82%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B8%D1%85_%D0%B3%D0%B8%D0%BF%D0%BE%D1%82%D0%B5%D0%B7",
+      "language": "ru",
+      "summary": "Основные понятия: нулевая и альтернативная гипотезы, простые и сложные гипотезы, уровень значимости как вероятность ошибки первого рода, статистика критерия, одно- и двусторонняя критические области.",
+      "relevance": {
+        "stat-hypotheses": "Теоретический каркас темы, на который опираются все конкретные критерии."
+      },
+      "difficulty": null,
+      "duration_minutes": null,
+      "link_status": "verified",
+      "checked_on": "2026-11-21",
+      "access_note": "Открытый доступ"
+    },
+    {
+      "id": "r027",
+      "topic_keys": [
+        "mcu-architecture"
+      ],
+      "title": "Занятие 1: Устройство микроконтроллера",
+      "type": "notes",
+      "source": "engineering.phys.msu.ru (сайт физического факультета МГУ)",
+      "author": null,
+      "url": "https://engineering.phys.msu.ru/images/lecture/-docs-32arm-les1.pdf",
+      "language": "ru",
+      "summary": "Чем микроконтроллер отличается от микропроцессора, основные семейства (8051, PIC, AVR, ARM) и общая структура МК: ядро, регистры, память, порты, таймеры, прерывания, сторожевой таймер, периферия и отладка.",
+      "relevance": {
+        "mcu-architecture": "Обзор архитектуры МК в целом. Специфика Cortex-M раскрыта слабо (ARM упомянут только в таблице семейств), карта памяти описана обобщённо."
+      },
+      "difficulty": "basic",
+      "duration_minutes": null,
+      "link_status": "verified",
+      "checked_on": "2026-11-21",
+      "access_note": "Открытый доступ, PDF"
+    },
+    {
+      "id": "r028",
+      "topic_keys": [
+        "mcu-architecture"
+      ],
+      "title": "Микроконтроллер",
+      "type": "article",
+      "source": "Википедия",
+      "author": null,
+      "url": "https://ru.wikipedia.org/wiki/%D0%9C%D0%B8%D0%BA%D1%80%D0%BE%D0%BA%D0%BE%D0%BD%D1%82%D1%80%D0%BE%D0%BB%D0%BB%D0%B5%D1%80",
+      "language": "ru",
+      "summary": "История микроконтроллеров, типичная архитектура (процессорное ядро, виды памяти, периферия), области применения и средства программирования.",
+      "relevance": {
+        "mcu-architecture": "Справочная статья для понимания общей архитектуры МК и терминологии; AVR и ARM упоминаются в историческом разделе."
+      },
+      "difficulty": null,
+      "duration_minutes": null,
+      "link_status": "verified",
+      "checked_on": "2026-11-21",
+      "access_note": "Открытый доступ"
+    },
+    {
+      "id": "r029",
+      "topic_keys": [
+        "mcu-gpio",
+        "mcu-interrupts"
+      ],
+      "title": "Применение микроконтроллеров архитектуры RISC для создания электронной аппаратуры робототехнических систем",
+      "type": "practice",
+      "source": "ТУСУР (edu.study.tusur.ru)",
+      "author": "И. М. Васильев",
+      "url": "https://edu.study.tusur.ru/publications/10649/download",
+      "language": "ru",
+      "summary": "Методические указания 2023 года с четырьмя работами на ATmega328P (плата Arduino UNO): порты ввода-вывода, внешние прерывания, таймеры-счётчики с ШИМ и АЦП.",
+      "relevance": {
+        "mcu-gpio": "Практические задания по настройке портов на конкретном AVR-контроллере.",
+        "mcu-interrupts": "Отдельная работа по внешним прерываниям AVR — готовый план для самостоятельной практики."
+      },
+      "difficulty": "intermediate",
+      "duration_minutes": null,
+      "link_status": "verified",
+      "checked_on": "2026-11-21",
+      "access_note": "Открытый доступ, PDF"
+    },
+    {
+      "id": "r030",
+      "topic_keys": [
+        "mcu-gpio"
+      ],
+      "title": "Устройство и работа портов ввода-вывода микроконтроллеров AVR. Часть 1",
+      "type": "article",
+      "source": "Хабр",
+      "author": "expert_av",
+      "url": "https://habr.com/en/post/253213",
+      "language": "ru",
+      "summary": "Как устроены порты AVR на примере ATmega8: регистры DDRx, PORTx и PINx, настройка вывода на вход или выход, высокоимпедансное состояние и внутренняя подтяжка.",
+      "relevance": {
+        "mcu-gpio": "Объясняет GPIO на уровне регистров, как это требуется в лабораторных по микроконтроллерам."
+      },
+      "difficulty": "intermediate",
+      "duration_minutes": null,
+      "link_status": "verified",
+      "checked_on": "2026-11-21",
+      "access_note": "Открытый доступ; ссылка открывает англоязычный интерфейс Хабра, текст статьи на русском"
+    },
+    {
+      "id": "r031",
+      "topic_keys": [
+        "mcu-gpio"
+      ],
+      "title": "Цифровые пины Arduino. Режим \"выхода\". Урок",
+      "type": "article",
+      "source": "AlexGyver (alexgyver.ru)",
+      "author": null,
+      "url": "https://alexgyver.ru/lessons/gpio-out/",
+      "language": "ru",
+      "summary": "Настройка цифрового вывода на выход (pinMode, digitalWrite), ограничения по току выводов AVR-плат и подключение мощной нагрузки через транзистор или реле; примеры со светодиодами.",
+      "relevance": {
+        "mcu-gpio": "Практическая сторона GPIO и электрические ограничения портов, о которых часто забывают."
+      },
+      "difficulty": "basic",
+      "duration_minutes": null,
+      "link_status": "verified",
+      "checked_on": "2026-11-21",
+      "access_note": "Открытый доступ"
+    },
+    {
+      "id": "r032",
+      "topic_keys": [
+        "mcu-interrupts"
+      ],
+      "title": "Внешние аппаратные прерывания в Arduino. Урок",
+      "type": "article",
+      "source": "AlexGyver (alexgyver.ru)",
+      "author": null,
+      "url": "https://alexgyver.ru/lessons/interrupts/",
+      "language": "ru",
+      "summary": "Подключение обработчика внешнего прерывания (attachInterrupt), режимы срабатывания LOW/CHANGE/RISING/FALLING и безопасный обмен данными с обработчиком (volatile, временный запрет прерываний).",
+      "relevance": {
+        "mcu-interrupts": "Даёт рабочую модель прерываний и показывает типичные ошибки при их использовании."
+      },
+      "difficulty": "basic",
+      "duration_minutes": null,
+      "link_status": "verified",
+      "checked_on": "2026-11-21",
+      "access_note": "Открытый доступ"
+    },
+    {
+      "id": "r033",
+      "topic_keys": [
+        "mcu-interrupts"
+      ],
+      "title": "Функции для прерываний Arduino. Документация",
+      "type": "documentation",
+      "source": "AlexGyver (alexgyver.ru)",
+      "author": null,
+      "url": "https://alexgyver.ru/lessons/ardu-isr/",
+      "language": "ru",
+      "summary": "Справочник по функциям глобального разрешения и запрета прерываний, подключения и отключения внешних прерываний и их режимам; советы держать обработчики короткими.",
+      "relevance": {
+        "mcu-interrupts": "Короткая шпаргалка к лабораторной по прерываниям."
+      },
+      "difficulty": "basic",
+      "duration_minutes": null,
+      "link_status": "verified",
+      "checked_on": "2026-11-21",
+      "access_note": "Открытый доступ"
+    },
+    {
+      "id": "r034",
+      "topic_keys": [
+        "mcu-timers-pwm"
+      ],
+      "title": "ШИМ сигнал в Arduino. Урок",
+      "type": "article",
+      "source": "AlexGyver (alexgyver.ru)",
+      "author": null,
+      "url": "https://alexgyver.ru/lessons/pwm-signal/",
+      "language": "ru",
+      "summary": "Что такое ШИМ, частота и коэффициент заполнения, аппаратная генерация ШИМ таймерами без участия процессора и функция analogWrite на примерах управления яркостью и цветом светодиода.",
+      "relevance": {
+        "mcu-timers-pwm": "Объясняет связь таймеров и ШИМ на понятных примерах."
+      },
+      "difficulty": "basic",
+      "duration_minutes": null,
+      "link_status": "verified",
+      "checked_on": "2026-11-21",
+      "access_note": "Открытый доступ"
+    },
+    {
+      "id": "r035",
+      "topic_keys": [
+        "mcu-timers-pwm"
+      ],
+      "title": "Лабораторная работа №3. Таймеры микроконтроллеров ATx8515",
+      "type": "practice",
+      "source": "Кафедра ИУ6 МГТУ им. Н. Э. Баумана (e-learning.bmstu.ru/iu6)",
+      "author": "В. Я. Хартов",
+      "url": "https://e-learning.bmstu.ru/iu6/pluginfile.php/2978/mod_data/content/1204/%D0%9B%D0%B0%D0%B1_3.pdf",
+      "language": "ru",
+      "summary": "Описание таймеров-счётчиков AT90S8515/ATmega8515: таймер T0, таймер T1 с захватом, сравнением и режимом ШИМ, кратко T2 и сторожевой таймер; примеры программ для платы STK500.",
+      "relevance": {
+        "mcu-timers-pwm": "Разбор таймеров на уровне регистров, включая режим ШИМ таймера T1, — ровно то, что проверяют на лабораторных."
+      },
+      "difficulty": "intermediate",
+      "duration_minutes": null,
+      "link_status": "verified",
+      "checked_on": "2026-11-21",
+      "access_note": "PDF в системе e-learning МГТУ; на момент проверки открылся без авторизации, доступ может измениться"
+    },
+    {
+      "id": "r036",
+      "topic_keys": [
+        "mcu-timers-pwm"
+      ],
+      "title": "Arduino и прерывания таймера",
+      "type": "article",
+      "source": "Хабр",
+      "author": "biokin (перевод)",
+      "url": "https://habr.com/ru/post/453276/",
+      "language": "ru",
+      "summary": "Переводная статья о таймерах AVR на платах Arduino: настройка через регистры, режимы переполнения и CTC, предделители и обработчики прерываний таймера с примерами.",
+      "relevance": {
+        "mcu-timers-pwm": "Показывает настройку таймеров напрямую через регистры и расчёт периода через предделитель."
+      },
+      "difficulty": "intermediate",
+      "duration_minutes": null,
+      "link_status": "verified",
+      "checked_on": "2026-11-21",
+      "access_note": "Открытый доступ"
+    },
+    {
+      "id": "r037",
+      "topic_keys": [
+        "mcu-serial"
+      ],
+      "title": "Интерфейс UART (Serial). Урок",
+      "type": "article",
+      "source": "AlexGyver (alexgyver.ru)",
+      "author": null,
+      "url": "https://alexgyver.ru/lessons/uart/",
+      "language": "ru",
+      "summary": "Принцип асинхронной передачи по линиям TX/RX, скорость в бодах, формат кадра (данные, чётность, стоп-биты), согласование логических уровней и работа с Serial/SoftwareSerial.",
+      "relevance": {
+        "mcu-serial": "Покрывает UART — первый из трёх интерфейсов темы."
+      },
+      "difficulty": "basic",
+      "duration_minutes": null,
+      "link_status": "verified",
+      "checked_on": "2026-11-21",
+      "access_note": "Открытый доступ"
+    },
+    {
+      "id": "r038",
+      "topic_keys": [
+        "mcu-serial"
+      ],
+      "title": "Интерфейс I2C (Wire) в Arduino. Урок",
+      "type": "article",
+      "source": "AlexGyver (alexgyver.ru)",
+      "author": null,
+      "url": "https://alexgyver.ru/lessons/wire-i2c/",
+      "language": "ru",
+      "summary": "Линии SDA и SCL, 7-битная адресация, открытый сток и подтягивающие резисторы, последовательность обмена; библиотека Wire, сканирование шины и пример с часами DS3231.",
+      "relevance": {
+        "mcu-serial": "Покрывает I2C — второй интерфейс темы."
+      },
+      "difficulty": "basic",
+      "duration_minutes": null,
+      "link_status": "verified",
+      "checked_on": "2026-11-21",
+      "access_note": "Открытый доступ"
+    },
+    {
+      "id": "r039",
+      "topic_keys": [
+        "mcu-serial"
+      ],
+      "title": "Интерфейс SPI в Arduino. Урок",
+      "type": "article",
+      "source": "AlexGyver (alexgyver.ru)",
+      "author": null,
+      "url": "https://alexgyver.ru/lessons/spi/",
+      "language": "ru",
+      "summary": "Ведущий и ведомые устройства, линии MOSI, MISO, SCK и SS, четыре режима тактирования, программный и аппаратный SPI на примере сдвигового регистра 74HC595.",
+      "relevance": {
+        "mcu-serial": "Покрывает SPI — третий интерфейс темы."
+      },
+      "difficulty": "basic",
+      "duration_minutes": null,
+      "link_status": "verified",
+      "checked_on": "2026-11-21",
+      "access_note": "Открытый доступ"
+    },
+    {
+      "id": "r040",
+      "topic_keys": [
+        "tmm-structure"
+      ],
+      "title": "Лекция 2. Структура механизмов",
+      "type": "lecture",
+      "source": "Электронная библиотека МГТУ им. Н. Э. Баумана (конспект лекций по ТММ)",
+      "author": "В. Б. Тарабарин",
+      "url": "https://library.bmstu.ru/DigitalResources/Download/6951",
+      "language": "ru",
+      "summary": "Классификация кинематических пар, структурный анализ и синтез механизмов, формулы подвижности Чебышёва и Сомова–Малышева, структурные группы Ассура, избыточные связи и местные подвижности.",
+      "relevance": {
+        "tmm-structure": "Конспект лекции кафедры ТММ МГТУ им. Баумана, полностью совпадающий с темой."
+      },
+      "difficulty": "intermediate",
+      "duration_minutes": null,
+      "link_status": "verified",
+      "checked_on": "2026-11-21",
+      "access_note": "Открытый доступ, PDF (электронная библиотека МГТУ)"
+    },
+    {
+      "id": "r041",
+      "topic_keys": [
+        "tmm-structure",
+        "tmm-kinematics"
+      ],
+      "title": "Теория механизмов и машин",
+      "type": "textbook",
+      "source": "Владимирский государственный университет (репозиторий dspace.www1.vlsu.ru)",
+      "author": "А. П. Шевченко, Б. А. Беляев",
+      "url": "https://dspace.www1.vlsu.ru/bitstream/123456789/7225/1/01724.pdf",
+      "language": "ru",
+      "summary": "Учебное пособие ВлГУ (2018): основные понятия, структурный анализ механизмов, кинематический анализ и синтез рычажных механизмов, силовой анализ.",
+      "relevance": {
+        "tmm-structure": "Раздел 2 — кинематические пары, степень подвижности, формулы Чебышёва и Сомова–Малышева, группы Ассура.",
+        "tmm-kinematics": "Раздел 3 — планы скоростей и ускорений с примерами для кривошипно-ползунного и кулисного механизмов."
+      },
+      "difficulty": "intermediate",
+      "duration_minutes": null,
+      "link_status": "verified",
+      "checked_on": "2026-11-21",
+      "access_note": "Открытый доступ, PDF"
+    },
+    {
+      "id": "r042",
+      "topic_keys": [
+        "tmm-kinematics"
+      ],
+      "title": "Лекция 3. Геометрические и кинематические характеристики механизмов",
+      "type": "lecture",
+      "source": "Электронная библиотека МГТУ им. Н. Э. Баумана (конспект лекций по ТММ)",
+      "author": "В. Б. Тарабарин",
+      "url": "https://library.bmstu.ru/DigitalResources/Download/6950",
+      "language": "ru",
+      "summary": "Функции положения, аналоги скоростей и ускорений, передаточные функции и обзор методов исследования: планы положений, скоростей и ускорений, метод векторных контуров, кинематические диаграммы.",
+      "relevance": {
+        "tmm-kinematics": "Даёт теоретическую основу кинематического анализа рычажных механизмов."
+      },
+      "difficulty": "intermediate",
+      "duration_minutes": null,
+      "link_status": "verified",
+      "checked_on": "2026-11-21",
+      "access_note": "Открытый доступ, PDF (электронная библиотека МГТУ)"
+    },
+    {
+      "id": "r043",
+      "topic_keys": [
+        "tmm-kinematics"
+      ],
+      "title": "Кинематика механизмов",
+      "type": "article",
+      "source": "Большая российская энциклопедия (bigenc.ru)",
+      "author": null,
+      "url": "https://bigenc.ru/c/kinematika-mekhanizmov-45f993",
+      "language": "ru",
+      "summary": "Энциклопедическая статья о задачах кинематического анализа механизмов и графических и аналитических методах определения положений, скоростей и ускорений звеньев.",
+      "relevance": {
+        "tmm-kinematics": "Короткий обзор, помогающий увидеть структуру темы перед чтением лекций."
+      },
+      "difficulty": null,
+      "duration_minutes": null,
+      "link_status": "verified",
+      "checked_on": "2026-11-21",
+      "access_note": "Открытый доступ"
+    },
+    {
+      "id": "r044",
+      "topic_keys": [
+        "tmm-gears"
+      ],
+      "title": "Лекция 11. Основы теории высшей кинематической пары",
+      "type": "lecture",
+      "source": "Электронная библиотека МГТУ им. Н. Э. Баумана (конспект лекций по ТММ)",
+      "author": "В. Б. Тарабарин",
+      "url": "https://library.bmstu.ru/DigitalResources/Download/6962",
+      "language": "ru",
+      "summary": "Основная теорема зацепления, полюс и центроиды, теорема Виллиса, скорость скольжения, формула Эйлера–Савари и свойства эвольвентного зацепления.",
+      "relevance": {
+        "tmm-gears": "Теоретическая база зубчатых передач: почему эвольвентный профиль обеспечивает постоянное передаточное отношение."
+      },
+      "difficulty": "intermediate",
+      "duration_minutes": null,
+      "link_status": "verified",
+      "checked_on": "2026-11-21",
+      "access_note": "Открытый доступ, PDF (электронная библиотека МГТУ)"
+    },
+    {
+      "id": "r045",
+      "topic_keys": [
+        "tmm-gears"
+      ],
+      "title": "Лекция 12. Эвольвентная зубчатая передача",
+      "type": "lecture",
+      "source": "Электронная библиотека МГТУ им. Н. Э. Баумана (конспект лекций по ТММ)",
+      "author": "В. Б. Тарабарин",
+      "url": "https://library.bmstu.ru/DigitalResources/Download/6961",
+      "language": "ru",
+      "summary": "Параметры эвольвентного колеса, толщина зуба на произвольной окружности, способы нарезания, исходный контур, подрезание и заострение зубьев, основные уравнения цилиндрической эвольвентной передачи.",
+      "relevance": {
+        "tmm-gears": "Прямо по теме: геометрический расчёт эвольвентного зацепления."
+      },
+      "difficulty": "intermediate",
+      "duration_minutes": null,
+      "link_status": "verified",
+      "checked_on": "2026-11-21",
+      "access_note": "Открытый доступ, PDF (электронная библиотека МГТУ)"
+    },
+    {
+      "id": "r046",
+      "topic_keys": [
+        "econ-supply-demand"
+      ],
+      "title": "3.1 Demand, Supply, and Equilibrium in Markets for Goods and Services",
+      "type": "textbook",
+      "source": "OpenStax, Principles of Economics 3e",
+      "author": "Steven A. Greenlaw, David Shapiro, Daniel MacDonald",
+      "url": "https://openstax.org/books/principles-economics-3e/pages/3-1-demand-supply-and-equilibrium-in-markets-for-goods-and-services",
+      "language": "en",
+      "summary": "Глава открытого учебника: закон спроса и закон предложения, кривые спроса и предложения и определение равновесной цены и количества на их пересечении.",
+      "relevance": {
+        "econ-supply-demand": "Ясное базовое изложение всей темы с графиками."
+      },
+      "difficulty": "basic",
+      "duration_minutes": null,
+      "link_status": "verified",
+      "checked_on": "2026-11-21",
+      "access_note": "Открытый доступ (лицензия CC BY-NC-SA 4.0); на английском языке"
+    },
+    {
+      "id": "r047",
+      "topic_keys": [
+        "econ-supply-demand"
+      ],
+      "title": "Микроэкономика: базовый курс. Теория спроса и предложения",
+      "type": "course",
+      "source": "Stepik",
+      "author": null,
+      "url": "https://stepik.org/course/58626/promo",
+      "language": "ru",
+      "summary": "Бесплатный онлайн-курс (17 уроков, 70 тестов) о спросе, предложении, эластичности, рыночной динамике и сопоставлении рыночного равновесия с общественным оптимумом.",
+      "relevance": {
+        "econ-supply-demand": "Русскоязычный курс с тестами для самопроверки именно по спросу, предложению и равновесию."
+      },
+      "difficulty": null,
+      "duration_minutes": null,
+      "link_status": "verified",
+      "checked_on": "2026-11-21",
+      "access_note": "Бесплатно; для прохождения уроков и тестов нужна регистрация на Stepik"
+    },
+    {
+      "id": "r048",
+      "topic_keys": [
+        "econ-costs"
+      ],
+      "title": "7.3 Costs in the Short Run",
+      "type": "textbook",
+      "source": "OpenStax, Principles of Economics 3e",
+      "author": "Steven A. Greenlaw, David Shapiro, Daniel MacDonald",
+      "url": "https://openstax.org/books/principles-economics-3e/pages/7-3-costs-in-the-short-run",
+      "language": "en",
+      "summary": "Постоянные и переменные издержки фирмы в краткосрочном периоде, средние общие, средние переменные и предельные издержки и что их поведение говорит о прибыльности.",
+      "relevance": {
+        "econ-costs": "Прямо по теме: все основные виды издержек и связи между их кривыми."
+      },
+      "difficulty": "basic",
+      "duration_minutes": null,
+      "link_status": "verified",
+      "checked_on": "2026-11-21",
+      "access_note": "Открытый доступ (лицензия CC BY-NC-SA 4.0); на английском языке"
+    },
+    {
+      "id": "r049",
+      "topic_keys": [
+        "econ-costs"
+      ],
+      "title": "Экономика: базовый курс для неэкономических специальностей",
+      "type": "course",
+      "source": "Stepik",
+      "author": "Кафедра политической экономии им. В. Ф. Станиса, РУДН",
+      "url": "https://stepik.org/course/128523/promo",
+      "language": "ru",
+      "summary": "Бесплатный курс начального уровня (24 урока, около 5,5 часа видео, 84 теста) по основам микро- и макроэкономики для студентов неэкономических направлений.",
+      "relevance": {
+        "econ-costs": "В программе есть раздел «производство, издержки и прибыль»; курс рассчитан как раз на инженерные специальности."
+      },
+      "difficulty": "basic",
+      "duration_minutes": 324,
+      "link_status": "verified",
+      "checked_on": "2026-11-21",
+      "access_note": "Бесплатно; для прохождения уроков и тестов нужна регистрация на Stepik; длительность — суммарное время видео, указанное на странице курса"
+    },
+    {
+      "id": "r050",
+      "topic_keys": [
+        "econ-gdp"
+      ],
+      "title": "Валовой внутренний продукт",
+      "type": "article",
+      "source": "Большая российская энциклопедия (bigenc.ru)",
+      "author": null,
+      "url": "https://bigenc.ru/c/valovoi-vnutrennii-produkt-d6d6bd",
+      "language": "ru",
+      "summary": "Энциклопедическая статья: производственный, распределительный и метод конечного использования для расчёта ВВП, номинальный и реальный ВВП, дефлятор.",
+      "relevance": {
+        "econ-gdp": "Точные определения и методы расчёта ВВП на русском языке."
+      },
+      "difficulty": null,
+      "duration_minutes": null,
+      "link_status": "verified",
+      "checked_on": "2026-11-21",
+      "access_note": "Открытый доступ"
+    },
+    {
+      "id": "r051",
+      "topic_keys": [
+        "econ-gdp"
+      ],
+      "title": "Очень важная аббревиатура. Зачем нужен ВВП и как его рассчитывают",
+      "type": "article",
+      "source": "Объясняем.рф",
+      "author": null,
+      "url": "https://xn--90aivcdt6dxbc.xn--p1ai/articles/useful/vvp-zachem-on-nuzhen-i-kak-ego-rasschityvayut/",
+      "language": "ru",
+      "summary": "Популярное объяснение, что измеряет ВВП и зачем он нужен, три способа расчёта, номинальный и реальный ВВП, ВВП на душу населения, ВНП и региональный продукт.",
+      "relevance": {
+        "econ-gdp": "Простое введение в тему с примерами, удобное для первого знакомства."
+      },
+      "difficulty": "basic",
+      "duration_minutes": null,
+      "link_status": "verified",
+      "checked_on": "2026-11-21",
+      "access_note": "Открытый доступ"
+    },
+    {
+      "id": "r052",
+      "topic_keys": [
+        "econ-gdp"
+      ],
+      "title": "19.1 Measuring the Size of the Economy: Gross Domestic Product",
+      "type": "textbook",
+      "source": "OpenStax, Principles of Economics 3e",
+      "author": "Steven A. Greenlaw, David Shapiro, Daniel MacDonald",
+      "url": "https://openstax.org/books/principles-economics-3e/pages/19-1-measuring-the-size-of-the-economy-gross-domestic-product",
+      "language": "en",
+      "summary": "Измерение ВВП по расходам (потребление, инвестиции, госрасходы, чистый экспорт) и по производству (товары, услуги, строительство, запасы).",
+      "relevance": {
+        "econ-gdp": "Подробно и с данными показывает, из чего складывается ВВП."
+      },
+      "difficulty": "basic",
+      "duration_minutes": null,
+      "link_status": "verified",
+      "checked_on": "2026-11-21",
+      "access_note": "Открытый доступ (лицензия CC BY-NC-SA 4.0); на английском языке"
+    },
+    {
+      "id": "r053",
+      "topic_keys": [
+        "dm-sets-relations"
+      ],
+      "title": "Отношение эквивалентности",
+      "type": "article",
+      "source": "Википедия",
+      "author": null,
+      "url": "https://ru.wikipedia.org/wiki/Отношение_эквивалентности",
+      "language": "ru",
+      "summary": "Определение через рефлексивность, симметричность и транзитивность, классы эквивалентности, фактормножество, примеры и факторизация отображений.",
+      "relevance": {
+        "dm-sets-relations": "Ключевое понятие темы и связь классов эквивалентности с разбиением множества."
+      },
+      "difficulty": null,
+      "duration_minutes": null,
+      "link_status": "verified",
+      "checked_on": "2026-11-21",
+      "access_note": "Открытый доступ"
+    },
+    {
+      "id": "r054",
+      "topic_keys": [
+        "dm-sets-relations"
+      ],
+      "title": "Отношение эквивалентности",
+      "type": "notes",
+      "source": "Викиконспекты ИТМО (neerc.ifmo.ru/wiki)",
+      "author": null,
+      "url": "https://neerc.ifmo.ru/wiki/index.php?title=%D0%9E%D1%82%D0%BD%D0%BE%D1%88%D0%B5%D0%BD%D0%B8%D0%B5_%D1%8D%D0%BA%D0%B2%D0%B8%D0%B2%D0%B0%D0%BB%D0%B5%D0%BD%D1%82%D0%BD%D0%BE%D1%81%D1%82%D0%B8",
+      "language": "ru",
+      "summary": "Конспект с определением, примерами (равенство, сравнение по модулю, параллельность), классами эквивалентности, теоремой о разбиении и фактормножеством.",
+      "relevance": {
+        "dm-sets-relations": "Даёт доказательство теоремы о разбиении на классы — типовой теоретический вопрос."
+      },
+      "difficulty": "intermediate",
+      "duration_minutes": null,
+      "link_status": "verified",
+      "checked_on": "2026-11-21",
+      "access_note": "Открытый доступ"
+    },
+    {
+      "id": "r055",
+      "topic_keys": [
+        "dm-combinatorics"
+      ],
+      "title": "Бином Ньютона",
+      "type": "article",
+      "source": "Википедия",
+      "author": null,
+      "url": "https://ru.wikipedia.org/wiki/%D0%91%D0%B8%D0%BD%D0%BE%D0%BC_%D0%9D%D1%8C%D1%8E%D1%82%D0%BE%D0%BD%D0%B0",
+      "language": "ru",
+      "summary": "Формула разложения (a+b)^n с биномиальными коэффициентами, её доказательство, обобщения (включая полиномиальную формулу) и история.",
+      "relevance": {
+        "dm-combinatorics": "Покрывает часть темы про бином Ньютона и биномиальные коэффициенты."
+      },
+      "difficulty": null,
+      "duration_minutes": null,
+      "link_status": "verified",
+      "checked_on": "2026-11-21",
+      "access_note": "Открытый доступ"
+    },
+    {
+      "id": "r056",
+      "topic_keys": [
+        "dm-combinatorics"
+      ],
+      "title": "Начала комбинаторики",
+      "type": "notes",
+      "source": "СУНЦ МГУ (internat.msu.ru)",
+      "author": "Ю. В. Курышева (составитель)",
+      "url": "https://internat.msu.ru/media/uploads/2015/11/Nachala-kombinatoriki.pdf",
+      "language": "ru",
+      "summary": "Учебные материалы с правилами суммы и произведения, размещениями, перестановками и сочетаниями (с повторениями и без), свойствами сочетаний, треугольником Паскаля и разобранными задачами.",
+      "relevance": {
+        "dm-combinatorics": "Тренирует подсчёт перестановок и сочетаний на задачах; сам бином Ньютона здесь не рассматривается."
+      },
+      "difficulty": "basic",
+      "duration_minutes": null,
+      "link_status": "verified",
+      "checked_on": "2026-11-21",
+      "access_note": "Открытый доступ, PDF"
+    },
+    {
+      "id": "r057",
+      "topic_keys": [
+        "dm-graphs-basics"
+      ],
+      "title": "Основные определения теории графов",
+      "type": "notes",
+      "source": "Викиконспекты ИТМО (neerc.ifmo.ru/wiki)",
+      "author": null,
+      "url": "https://neerc.ifmo.ru/wiki/index.php?title=%D0%9E%D1%81%D0%BD%D0%BE%D0%B2%D0%BD%D1%8B%D0%B5_%D0%BE%D0%BF%D1%80%D0%B5%D0%B4%D0%B5%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F_%D1%82%D0%B5%D0%BE%D1%80%D0%B8%D0%B8_%D0%B3%D1%80%D0%B0%D1%84%D0%BE%D0%B2",
+      "language": "ru",
+      "summary": "Ориентированные и неориентированные графы, мультиграфы, степени вершин, матрица и списки смежности, пути и циклы, основные классы графов.",
+      "relevance": {
+        "dm-graphs-basics": "Вся базовая терминология темы в одном месте; связность упоминается лишь кратко."
+      },
+      "difficulty": "intermediate",
+      "duration_minutes": null,
+      "link_status": "verified",
+      "checked_on": "2026-11-21",
+      "access_note": "Открытый доступ"
+    },
+    {
+      "id": "r058",
+      "topic_keys": [
+        "dm-graphs-basics"
+      ],
+      "title": "Граф (математика)",
+      "type": "article",
+      "source": "Википедия",
+      "author": null,
+      "url": "https://ru.wikipedia.org/wiki/Граф_(математика)",
+      "language": "ru",
+      "summary": "Обзорная статья: определения графа, ориентированные графы, связность (компоненты, мосты) и способы представления (матрицы смежности и инцидентности, списки).",
+      "relevance": {
+        "dm-graphs-basics": "Закрывает вторую часть темы — связность и компоненты связности."
+      },
+      "difficulty": null,
+      "duration_minutes": null,
+      "link_status": "verified",
+      "checked_on": "2026-11-21",
+      "access_note": "Открытый доступ"
+    },
+    {
+      "id": "r059",
+      "topic_keys": [
+        "dm-graphs-basics"
+      ],
+      "title": "Finding Connected Components",
+      "type": "article",
+      "source": "cp-algorithms.com",
+      "author": null,
+      "url": "https://cp-algorithms.com/graph/search-for-connected-components.html",
+      "language": "en",
+      "summary": "Поиск всех компонент связности неориентированного графа серией обходов в глубину, рекурсивная и итеративная реализации на C++, оценка O(n + m).",
+      "relevance": {
+        "dm-graphs-basics": "Показывает, как связность проверяется алгоритмически, — полезно для практических задач."
+      },
+      "difficulty": "intermediate",
+      "duration_minutes": null,
+      "link_status": "verified",
+      "checked_on": "2026-11-21",
+      "access_note": "Открытый доступ; на английском языке"
+    },
+    {
+      "id": "r060",
+      "topic_keys": [
+        "dm-trees"
+      ],
+      "title": "Алгоритм Краскала",
+      "type": "notes",
+      "source": "Викиконспекты ИТМО (neerc.ifmo.ru/wiki)",
+      "author": null,
+      "url": "https://neerc.ifmo.ru/wiki/index.php?title=%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC_%D0%9A%D1%80%D0%B0%D1%81%D0%BA%D0%B0%D0%BB%D0%B0",
+      "language": "ru",
+      "summary": "Идея и псевдокод алгоритма Краскала, обоснование через лемму о безопасном ребре, использование системы непересекающихся множеств, пример и оценка сложности.",
+      "relevance": {
+        "dm-trees": "Прямо по теме: первый из двух алгоритмов построения минимального остовного дерева."
+      },
+      "difficulty": "intermediate",
+      "duration_minutes": null,
+      "link_status": "verified",
+      "checked_on": "2026-11-21",
+      "access_note": "Открытый доступ"
+    },
+    {
+      "id": "r061",
+      "topic_keys": [
+        "dm-trees"
+      ],
+      "title": "Алгоритм Прима",
+      "type": "notes",
+      "source": "Викиконспекты ИТМО (neerc.ifmo.ru/wiki)",
+      "author": null,
+      "url": "https://neerc.ifmo.ru/wiki/index.php?title=%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC_%D0%9F%D1%80%D0%B8%D0%BC%D0%B0",
+      "language": "ru",
+      "summary": "Идея, псевдокод, пример и корректность алгоритма Прима, сложность при разных реализациях очереди с приоритетами.",
+      "relevance": {
+        "dm-trees": "Прямо по теме: второй алгоритм построения минимального остовного дерева."
+      },
+      "difficulty": "intermediate",
+      "duration_minutes": null,
+      "link_status": "verified",
+      "checked_on": "2026-11-21",
+      "access_note": "Открытый доступ"
+    },
+    {
+      "id": "r062",
+      "topic_keys": [
+        "dm-shortest-paths"
+      ],
+      "title": "Алгоритм Дейкстры",
+      "type": "notes",
+      "source": "Викиконспекты ИТМО (neerc.ifmo.ru/wiki)",
+      "author": null,
+      "url": "https://neerc.ifmo.ru/wiki/index.php?title=%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC_%D0%94%D0%B5%D0%B9%D0%BA%D1%81%D1%82%D1%80%D1%8B",
+      "language": "ru",
+      "summary": "Описание алгоритма Дейкстры для графов с неотрицательными весами, псевдокод, доказательство корректности и сложность для простой реализации, двоичной и фибоначчиевой куч.",
+      "relevance": {
+        "dm-shortest-paths": "Полностью по теме, включая доказательство, которое спрашивают на экзамене."
+      },
+      "difficulty": "intermediate",
+      "duration_minutes": null,
+      "link_status": "verified",
+      "checked_on": "2026-11-21",
+      "access_note": "Открытый доступ"
+    },
+    {
+      "id": "r063",
+      "topic_keys": [
+        "dm-shortest-paths"
+      ],
+      "title": "Нахождение кратчайших путей от заданной вершины до всех остальных вершин алгоритмом Дейкстры",
+      "type": "article",
+      "source": "MAXimal (e-maxx.ru)",
+      "author": null,
+      "url": "https://e-maxx.ru/algo/dijkstra",
+      "language": "ru",
+      "summary": "Алгоритм Дейкстры с восстановлением путей через массив предков, доказательство по индукции и реализация на C++ за O(n² + m).",
+      "relevance": {
+        "dm-shortest-paths": "Помогает перейти от теории к реализации и восстановлению самого пути."
+      },
+      "difficulty": "intermediate",
+      "duration_minutes": null,
+      "link_status": "verified",
+      "checked_on": "2026-11-21",
+      "access_note": "Открытый доступ"
+    },
+    {
+      "id": "r064",
+      "topic_keys": [
+        "dm-boolean"
+      ],
+      "title": "Определение булевой функции",
+      "type": "notes",
+      "source": "Викиконспекты ИТМО (neerc.ifmo.ru/wiki)",
+      "author": null,
+      "url": "https://neerc.ifmo.ru/wiki/index.php?title=%D0%9E%D0%BF%D1%80%D0%B5%D0%B4%D0%B5%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5_%D0%B1%D1%83%D0%BB%D0%B5%D0%B2%D0%BE%D0%B9_%D1%84%D1%83%D0%BD%D0%BA%D1%86%D0%B8%D0%B8",
+      "language": "ru",
+      "summary": "Булева функция как отображение {0,1}^n → {0,1}, таблицы истинности, именованные функции одной и двух переменных, кратко — нормальные формы и критерий Поста.",
+      "relevance": {
+        "dm-boolean": "Базовые определения, без которых не построить ДНФ и КНФ."
+      },
+      "difficulty": "intermediate",
+      "duration_minutes": null,
+      "link_status": "verified",
+      "checked_on": "2026-11-21",
+      "access_note": "Открытый доступ"
+    },
+    {
+      "id": "r065",
+      "topic_keys": [
+        "dm-boolean"
+      ],
+      "title": "КНФ",
+      "type": "notes",
+      "source": "Викиконспекты ИТМО (neerc.ifmo.ru/wiki)",
+      "author": null,
+      "url": "https://neerc.ifmo.ru/wiki/index.php?title=%D0%9A%D0%9D%D0%A4",
+      "language": "ru",
+      "summary": "Конъюнктивная и совершенная конъюнктивная нормальные формы, построение СКНФ по таблице истинности, примеры (медиана, исключающее ИЛИ, стрелка Пирса).",
+      "relevance": {
+        "dm-boolean": "Пошаговый алгоритм построения СКНФ; построение СДНФ выполняется двойственно."
+      },
+      "difficulty": "intermediate",
+      "duration_minutes": null,
+      "link_status": "verified",
+      "checked_on": "2026-11-21",
+      "access_note": "Открытый доступ"
+    },
+    {
+      "id": "r066",
+      "topic_keys": [
+        "phys-coulomb-gauss"
+      ],
+      "title": "Закон Кулона",
+      "type": "article",
+      "source": "Википедия",
+      "author": null,
+      "url": "https://ru.wikipedia.org/wiki/Закон_Кулона",
+      "language": "ru",
+      "summary": "История открытия, скалярная и векторная формы закона, кулоновская постоянная, условия применимости и связь с уравнениями Максвелла.",
+      "relevance": {
+        "phys-coulomb-gauss": "Точные формулировки закона Кулона и границы его применимости."
+      },
+      "difficulty": null,
+      "duration_minutes": null,
+      "link_status": "verified",
+      "checked_on": "2026-11-21",
+      "access_note": "Открытый доступ"
+    },
+    {
+      "id": "r067",
+      "topic_keys": [
+        "phys-coulomb-gauss"
+      ],
+      "title": "Теорема Гаусса",
+      "type": "article",
+      "source": "Википедия",
+      "author": null,
+      "url": "https://ru.wikipedia.org/wiki/Теорема_Гаусса",
+      "language": "ru",
+      "summary": "Теорема Гаусса для электрического поля в вакууме и в среде, для магнитного поля и гравитации; связь с законом Кулона и примеры: бесконечная плоскость, нить, равномерно заряженный шар.",
+      "relevance": {
+        "phys-coulomb-gauss": "Формулировка теоремы и стандартные примеры расчёта полей, типичные для РК."
+      },
+      "difficulty": null,
+      "duration_minutes": null,
+      "link_status": "verified",
+      "checked_on": "2026-11-21",
+      "access_note": "Открытый доступ"
+    },
+    {
+      "id": "r068",
+      "topic_keys": [
+        "phys-coulomb-gauss"
+      ],
+      "title": "6.2 Explaining Gauss's Law",
+      "type": "textbook",
+      "source": "OpenStax, University Physics Volume 2",
+      "author": "Samuel J. Ling, William Moebs, Jeff Sanny",
+      "url": "https://openstax.org/books/university-physics-volume-2/pages/6-2-explaining-gausss-law",
+      "language": "en",
+      "summary": "Раздел открытого университетского учебника: поток электрического поля через замкнутую поверхность и его связь с охваченным зарядом, разобранные примеры.",
+      "relevance": {
+        "phys-coulomb-gauss": "Наглядное объяснение смысла теоремы Гаусса с задачами."
+      },
+      "difficulty": "intermediate",
+      "duration_minutes": null,
+      "link_status": "verified",
+      "checked_on": "2026-11-21",
+      "access_note": "Открытый доступ (лицензия CC BY-NC-SA 4.0); на английском языке"
+    },
+    {
+      "id": "r069",
+      "topic_keys": [
+        "phys-capacitors"
+      ],
+      "title": "Электрическая ёмкость",
+      "type": "article",
+      "source": "Википедия",
+      "author": null,
+      "url": "https://ru.wikipedia.org/wiki/Электрическая_ёмкость",
+      "language": "ru",
+      "summary": "Ёмкость уединённого проводника и конденсатора, таблица формул ёмкости для простых систем, понятие упругости (обратной ёмкости).",
+      "relevance": {
+        "phys-capacitors": "Справочник формул ёмкости; энергия поля здесь не рассматривается — см. раздел 8.3 OpenStax."
+      },
+      "difficulty": null,
+      "duration_minutes": null,
+      "link_status": "verified",
+      "checked_on": "2026-11-21",
+      "access_note": "Открытый доступ"
+    },
+    {
+      "id": "r070",
+      "topic_keys": [
+        "phys-capacitors"
+      ],
+      "title": "8.1 Capacitors and Capacitance",
+      "type": "textbook",
+      "source": "OpenStax, University Physics Volume 2",
+      "author": "Samuel J. Ling, William Moebs, Jeff Sanny",
+      "url": "https://openstax.org/books/university-physics-volume-2/pages/8-1-capacitors-and-capacitance",
+      "language": "en",
+      "summary": "Определение ёмкости и её расчёт для плоского, сферического и цилиндрического конденсаторов.",
+      "relevance": {
+        "phys-capacitors": "Выводы формул ёмкости основных типов конденсаторов."
+      },
+      "difficulty": "intermediate",
+      "duration_minutes": null,
+      "link_status": "verified",
+      "checked_on": "2026-11-21",
+      "access_note": "Открытый доступ (лицензия CC BY-NC-SA 4.0); на английском языке"
+    },
+    {
+      "id": "r071",
+      "topic_keys": [
+        "phys-capacitors"
+      ],
+      "title": "8.3 Energy Stored in a Capacitor",
+      "type": "textbook",
+      "source": "OpenStax, University Physics Volume 2",
+      "author": "Samuel J. Ling, William Moebs, Jeff Sanny",
+      "url": "https://openstax.org/books/university-physics-volume-2/pages/8-3-energy-stored-in-a-capacitor",
+      "language": "en",
+      "summary": "Энергия, запасённая в электрическом поле конденсатора, формулы через заряд и напряжение, расчёт для батарей конденсаторов и пример с дефибриллятором.",
+      "relevance": {
+        "phys-capacitors": "Вторая часть темы — энергия электрического поля."
+      },
+      "difficulty": "intermediate",
+      "duration_minutes": null,
+      "link_status": "verified",
+      "checked_on": "2026-11-21",
+      "access_note": "Открытый доступ (лицензия CC BY-NC-SA 4.0); на английском языке"
+    },
+    {
+      "id": "r072",
+      "topic_keys": [
+        "phys-dc-circuits"
+      ],
+      "title": "Закон Ома",
+      "type": "article",
+      "source": "Википедия",
+      "author": null,
+      "url": "https://ru.wikipedia.org/wiki/Закон_Ома",
+      "language": "ru",
+      "summary": "Закон Ома для участка цепи, для полной цепи с ЭДС и в дифференциальной форме (связь плотности тока и напряжённости поля).",
+      "relevance": {
+        "phys-dc-circuits": "База для расчёта цепей постоянного тока до применения правил Кирхгофа."
+      },
+      "difficulty": null,
+      "duration_minutes": null,
+      "link_status": "verified",
+      "checked_on": "2026-11-21",
+      "access_note": "Открытый доступ"
+    },
+    {
+      "id": "r073",
+      "topic_keys": [
+        "phys-dc-circuits"
+      ],
+      "title": "10.3 Kirchhoff's Rules",
+      "type": "textbook",
+      "source": "OpenStax, University Physics Volume 2",
+      "author": "Samuel J. Ling, William Moebs, Jeff Sanny",
+      "url": "https://openstax.org/books/university-physics-volume-2/pages/10-3-kirchhoffs-rules",
+      "language": "en",
+      "summary": "Правило узлов и правило контуров, пошаговая стратегия расчёта разветвлённых цепей и примеры.",
+      "relevance": {
+        "phys-dc-circuits": "Прямо по теме: правила Кирхгофа с алгоритмом решения задач."
+      },
+      "difficulty": "intermediate",
+      "duration_minutes": null,
+      "link_status": "verified",
+      "checked_on": "2026-11-21",
+      "access_note": "Открытый доступ (лицензия CC BY-NC-SA 4.0); на английском языке"
+    },
+    {
+      "id": "r074",
+      "topic_keys": [
+        "phys-biot-savart"
+      ],
+      "title": "Закон Био — Савара — Лапласа",
+      "type": "article",
+      "source": "Википедия",
+      "author": null,
+      "url": "https://ru.wikipedia.org/wiki/Закон_Био_—_Савара_—_Лапласа",
+      "language": "ru",
+      "summary": "Формулировка закона для тока в тонком проводнике и для распределённых токов, следствия, вывод из уравнений Максвелла и применение.",
+      "relevance": {
+        "phys-biot-savart": "Формулировка закона в нужных для задач формах."
+      },
+      "difficulty": null,
+      "duration_minutes": null,
+      "link_status": "verified",
+      "checked_on": "2026-11-21",
+      "access_note": "Открытый доступ"
+    },
+    {
+      "id": "r075",
+      "topic_keys": [
+        "phys-biot-savart"
+      ],
+      "title": "12.1 The Biot-Savart Law",
+      "type": "textbook",
+      "source": "OpenStax, University Physics Volume 2",
+      "author": "Samuel J. Ling, William Moebs, Jeff Sanny",
+      "url": "https://openstax.org/books/university-physics-volume-2/pages/12-1-the-biot-savart-law",
+      "language": "en",
+      "summary": "Расчёт магнитного поля тока по закону Био–Савара: стратегия решения задач и примеры для отрезка провода и дуги окружности.",
+      "relevance": {
+        "phys-biot-savart": "Показывает, как применять закон на практике, на разобранных примерах."
+      },
+      "difficulty": "intermediate",
+      "duration_minutes": null,
+      "link_status": "verified",
+      "checked_on": "2026-11-21",
+      "access_note": "Открытый доступ (лицензия CC BY-NC-SA 4.0); на английском языке"
+    },
+    {
+      "id": "r076",
+      "topic_keys": [
+        "phys-induction"
+      ],
+      "title": "13.1 Faraday's Law",
+      "type": "textbook",
+      "source": "OpenStax, University Physics Volume 2",
+      "author": "Samuel J. Ling, William Moebs, Jeff Sanny",
+      "url": "https://openstax.org/books/university-physics-volume-2/pages/13-1-faradays-law",
+      "language": "en",
+      "summary": "Магнитный поток, возникновение ЭДС при его изменении, закон Фарадея и пример расчёта ЭДС и тока в квадратной рамке в убывающем поле.",
+      "relevance": {
+        "phys-induction": "Прямо по теме: формулировка закона Фарадея и типовая задача."
+      },
+      "difficulty": "intermediate",
+      "duration_minutes": null,
+      "link_status": "verified",
+      "checked_on": "2026-11-21",
+      "access_note": "Открытый доступ (лицензия CC BY-NC-SA 4.0); на английском языке"
+    },
+    {
+      "id": "r077",
+      "topic_keys": [
+        "phys-induction"
+      ],
+      "title": "Электромагнитная индукция",
+      "type": "article",
+      "source": "Большая российская энциклопедия (bigenc.ru)",
+      "author": null,
+      "url": "https://bigenc.ru/c/elektromagnitnaia-induktsiia-3a0f5a",
+      "language": "ru",
+      "summary": "Энциклопедическая статья о явлении электромагнитной индукции, его открытии Фарадеем в 1831 году и правиле Ленца о направлении индукционного тока.",
+      "relevance": {
+        "phys-induction": "Русскоязычное описание явления и правила Ленца; формулу закона Фарадея лучше смотреть в других материалах."
+      },
+      "difficulty": null,
+      "duration_minutes": null,
+      "link_status": "verified",
+      "checked_on": "2026-11-21",
+      "access_note": "Открытый доступ"
+    },
+    {
+      "id": "r078",
+      "topic_keys": [
+        "phys-induction"
+      ],
+      "title": "Закон электромагнитной индукции",
+      "type": "notes",
+      "source": "СПбПУ Петра Великого (physics.spbstu.ru)",
+      "author": null,
+      "url": "https://physics.spbstu.ru/userfiles/files/El_m4-02_new141102019.pdf",
+      "language": "ru",
+      "summary": "Фрагмент учебного текста по физике (раздел 4.2): закон Фарадея для ЭДС индукции в замкнутом контуре и правило Ленца.",
+      "relevance": {
+        "phys-induction": "Русскоязычное изложение закона Фарадея в объёме вузовского курса физики."
+      },
+      "difficulty": "intermediate",
+      "duration_minutes": null,
+      "link_status": "verified",
+      "checked_on": "2026-11-21",
+      "access_note": "Открытый доступ, PDF"
+    },
+    {
+      "id": "r079",
+      "topic_keys": [
+        "calc-double-integrals"
+      ],
+      "title": "Двойные интегралы для чайников",
+      "type": "article",
+      "source": "МатПрофи (mathprofi.ru)",
+      "author": "Александр Емелин",
+      "url": "https://mathprofi.ru/dvoinye_integraly_dlya_chainikov.html",
+      "language": "ru",
+      "summary": "Понятие двойного интеграла, область интегрирования и порядок обхода, смена порядка интегрирования и вычисление площади плоской фигуры с примерами.",
+      "relevance": {
+        "calc-double-integrals": "Вводный урок — с него стоит начать, если тема не понята."
+      },
+      "difficulty": "basic",
+      "duration_minutes": null,
+      "link_status": "verified",
+      "checked_on": "2026-11-21",
+      "access_note": "Открытый доступ"
+    },
+    {
+      "id": "r080",
+      "topic_keys": [
+        "calc-double-integrals"
+      ],
+      "title": "Как вычислить двойной интеграл в полярной системе координат?",
+      "type": "article",
+      "source": "МатПрофи (mathprofi.ru)",
+      "author": "Александр Емелин",
+      "url": "https://mathprofi.ru/dvoinye_integraly_v_poljarnyh_koordinatah.html",
+      "language": "ru",
+      "summary": "Переход к полярным координатам в двойном интеграле, расстановка пределов и порядок обхода области, примеры и задачи для самостоятельной работы.",
+      "relevance": {
+        "calc-double-integrals": "Покрывает «замену переменных» из названия темы на самом частом случае — полярных координатах."
+      },
+      "difficulty": "basic",
+      "duration_minutes": null,
+      "link_status": "verified",
+      "checked_on": "2026-11-21",
+      "access_note": "Открытый доступ"
+    },
+    {
+      "id": "r081",
+      "topic_keys": [
+        "calc-triple-integrals"
+      ],
+      "title": "Тройные интегралы. Как вычислить объём тела с помощью тройного интеграл?",
+      "type": "article",
+      "source": "МатПрофи (mathprofi.ru)",
+      "author": "Александр Емелин",
+      "url": "https://mathprofi.ru/troinye_integraly.html",
+      "language": "ru",
+      "summary": "Вычисление тройного интеграла и объёма тела с примерами, отдельный раздел о цилиндрических координатах.",
+      "relevance": {
+        "calc-triple-integrals": "Отрабатывает расстановку пределов и цилиндрические координаты; сферические здесь не рассматриваются."
+      },
+      "difficulty": "basic",
+      "duration_minutes": null,
+      "link_status": "verified",
+      "checked_on": "2026-11-21",
+      "access_note": "Открытый доступ"
+    },
+    {
+      "id": "r082",
+      "topic_keys": [
+        "calc-triple-integrals"
+      ],
+      "title": "Тройные интегралы. Вычисление объемов с помощью тройных интегралов",
+      "type": "notes",
+      "source": "МГУ им. М. В. Ломоносова (сайт химического факультета)",
+      "author": "А. И. Козко, Л. М. Лужина, А. А. Лужин, В. Г. Чирский",
+      "url": "https://www.chem.msu.ru/rus/teaching/chirskii/bach-triple-integral.pdf",
+      "language": "ru",
+      "summary": "Методическое пособие с формулами перехода к цилиндрическим и сферическим координатам, якобианами и разобранными примерами вычисления объёмов.",
+      "relevance": {
+        "calc-triple-integrals": "Закрывает сферические координаты, которых нет в уроке МатПрофи."
+      },
+      "difficulty": "intermediate",
+      "duration_minutes": null,
+      "link_status": "verified",
+      "checked_on": "2026-11-21",
+      "access_note": "Открытый доступ, PDF"
+    },
+    {
+      "id": "r083",
+      "topic_keys": [
+        "calc-triple-integrals",
+        "calc-surface-integrals"
+      ],
+      "title": "Высшая математика для технических университетов. Часть III.4. Интегральное исчисление функций нескольких переменных",
+      "type": "textbook",
+      "source": "Томский политехнический университет (portal.tpu.ru)",
+      "author": "В. Н. Задорожный, А. Ю. Трифонов, А. В. Шаповалов",
+      "url": "https://portal.tpu.ru/SHARED/v/VZADOROJ/academic/Tab2/BM%20III%204.pdf",
+      "language": "ru",
+      "summary": "Учебное пособие ТПУ: кратные интегралы, замена переменных, цилиндрические и сферические координаты, криволинейные и поверхностные интегралы, элементы векторного анализа.",
+      "relevance": {
+        "calc-triple-integrals": "Строгое изложение тройных интегралов и замены переменных, включая сферические координаты.",
+        "calc-surface-integrals": "Содержит теорию поверхностных интегралов и векторного анализа, на которой основаны формулы Гаусса–Остроградского и Стокса."
+      },
+      "difficulty": "advanced",
+      "duration_minutes": null,
+      "link_status": "verified",
+      "checked_on": "2026-11-21",
+      "access_note": "Открытый доступ, PDF (большой файл)"
+    },
+    {
+      "id": "r084",
+      "topic_keys": [
+        "calc-line-integrals"
+      ],
+      "title": "Криволинейные интегралы. Понятие и примеры решений",
+      "type": "article",
+      "source": "МатПрофи (mathprofi.ru)",
+      "author": "Александр Емелин",
+      "url": "https://mathprofi.ru/krivolineinye_integraly.html",
+      "language": "ru",
+      "summary": "Криволинейные интегралы первого и второго рода и их сведение к определённым, в том числе для параметрически заданных линий; примеры с чертежами.",
+      "relevance": {
+        "calc-line-integrals": "Первая часть темы — вычисление криволинейных интегралов."
+      },
+      "difficulty": "basic",
+      "duration_minutes": null,
+      "link_status": "verified",
+      "checked_on": "2026-11-21",
+      "access_note": "Открытый доступ"
+    },
+    {
+      "id": "r085",
+      "topic_keys": [
+        "calc-line-integrals"
+      ],
+      "title": "Криволинейный интеграл по замкнутому контуру. Формула Грина. Работа векторного поля",
+      "type": "article",
+      "source": "МатПрофи (mathprofi.ru)",
+      "author": "Александр Емелин",
+      "url": "https://mathprofi.ru/ki_po_zamknutomu_konturu_formula_grina.html",
+      "language": "ru",
+      "summary": "Интегралы второго рода по замкнутому контуру, формула Грина, независимость от пути и потенциал, работа векторного поля; разобранные примеры.",
+      "relevance": {
+        "calc-line-integrals": "Вторая часть темы — формула Грина — на задачах."
+      },
+      "difficulty": "basic",
+      "duration_minutes": null,
+      "link_status": "verified",
+      "checked_on": "2026-11-21",
+      "access_note": "Открытый доступ"
+    },
+    {
+      "id": "r086",
+      "topic_keys": [
+        "calc-surface-integrals"
+      ],
+      "title": "Векторный анализ и элементы теории поля",
+      "type": "textbook",
+      "source": "Воронежский государственный технический университет (cchgeu.ru)",
+      "author": "С. А. Кострюков, В. В. Пешков, Г. Е. Шунин",
+      "url": "https://cchgeu.ru/upload/iblock/86b/ry4c231o072nkqa89kk4rpvfk988zsc7/Vektornyy-analiz-MU-dlya-SRS.pdf",
+      "language": "ru",
+      "summary": "Методические указания для самостоятельной работы: поверхностные интегралы первого и второго рода, теорема Гаусса–Остроградского и теорема Стокса с разобранными примерами (поток, циркуляция).",
+      "relevance": {
+        "calc-surface-integrals": "Покрывает всю тему с примерами решений — основной материал для подготовки."
+      },
+      "difficulty": "intermediate",
+      "duration_minutes": null,
+      "link_status": "verified",
+      "checked_on": "2026-11-21",
+      "access_note": "Открытый доступ, PDF"
+    },
+    {
+      "id": "r087",
+      "topic_keys": [
+        "calc-surface-integrals"
+      ],
+      "title": "Формула Гаусса — Остроградского",
+      "type": "article",
+      "source": "Википедия",
+      "author": null,
+      "url": "https://ru.wikipedia.org/wiki/%D0%A4%D0%BE%D1%80%D0%BC%D1%83%D0%BB%D0%B0_%D0%93%D0%B0%D1%83%D1%81%D1%81%D0%B0_%E2%80%94_%D0%9E%D1%81%D1%82%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%B4%D1%81%D0%BA%D0%BE%D0%B3%D0%BE",
+      "language": "ru",
+      "summary": "Краткая статья с формулировкой теоремы о связи потока векторного поля через замкнутую поверхность с интегралом от дивергенции и историей её открытия.",
+      "relevance": {
+        "calc-surface-integrals": "Быстрая справка по формулировке; примеров решения задач нет."
+      },
+      "difficulty": null,
+      "duration_minutes": null,
+      "link_status": "verified",
+      "checked_on": "2026-11-21",
+      "access_note": "Открытый доступ"
+    },
+    {
+      "id": "r088",
+      "topic_keys": [
+        "calc-number-series"
+      ],
+      "title": "Ряды для чайников. Примеры решений",
+      "type": "article",
+      "source": "МатПрофи (mathprofi.ru)",
+      "author": "Александр Емелин",
+      "url": "https://mathprofi.ru/ryady_dlya_chajnikov.html",
+      "language": "ru",
+      "summary": "Понятие числового ряда, необходимый признак сходимости, признак сравнения и предельный признак сравнения с разобранными примерами.",
+      "relevance": {
+        "calc-number-series": "Вводный урок по сходимости рядов и первым признакам."
+      },
+      "difficulty": "basic",
+      "duration_minutes": null,
+      "link_status": "verified",
+      "checked_on": "2026-11-21",
+      "access_note": "Открытый доступ"
+    },
+    {
+      "id": "r089",
+      "topic_keys": [
+        "calc-number-series"
+      ],
+      "title": "Признаки сходимости рядов. Признак Даламбера. Признаки Коши. Примеры решений.",
+      "type": "article",
+      "source": "МатПрофи (mathprofi.ru)",
+      "author": "Александр Емелин",
+      "url": "https://mathprofi.ru/priznak_dalambera_priznaki_koshi.html",
+      "language": "ru",
+      "summary": "Признак Даламбера, радикальный и интегральный признаки Коши для положительных рядов с примерами.",
+      "relevance": {
+        "calc-number-series": "Продолжение темы — признаки, которые чаще всего нужны на контрольных."
+      },
+      "difficulty": "basic",
+      "duration_minutes": null,
+      "link_status": "verified",
+      "checked_on": "2026-11-21",
+      "access_note": "Открытый доступ"
+    },
+    {
+      "id": "r090",
+      "topic_keys": [
+        "calc-power-series"
+      ],
+      "title": "Функциональные и степенные ряды. Область сходимости ряда",
+      "type": "article",
+      "source": "МатПрофи (mathprofi.ru)",
+      "author": "Александр Емелин",
+      "url": "https://mathprofi.ru/funkcionalnye_i_stepennye_ryady.html",
+      "language": "ru",
+      "summary": "Функциональные и степенные ряды, нахождение радиуса, интервала и области сходимости с исследованием концов интервала.",
+      "relevance": {
+        "calc-power-series": "Первая часть темы — сходимость степенных рядов."
+      },
+      "difficulty": "basic",
+      "duration_minutes": null,
+      "link_status": "verified",
+      "checked_on": "2026-11-21",
+      "access_note": "Открытый доступ"
+    },
+    {
+      "id": "r091",
+      "topic_keys": [
+        "calc-power-series"
+      ],
+      "title": "Разложение функций в степенные ряды. Примеры решений",
+      "type": "article",
+      "source": "МатПрофи (mathprofi.ru)",
+      "author": "Александр Емелин",
+      "url": "https://mathprofi.ru/razlozhenie_funkcij_v_stepennye_ryady.html",
+      "language": "ru",
+      "summary": "Разложение функций в ряды Тейлора и Маклорена с определением области сходимости полученных рядов и ссылкой на таблицу стандартных разложений.",
+      "relevance": {
+        "calc-power-series": "Вторая часть темы — ряд Тейлора — на типовых примерах."
+      },
+      "difficulty": "basic",
+      "duration_minutes": null,
+      "link_status": "verified",
+      "checked_on": "2026-11-21",
+      "access_note": "Открытый доступ"
+    },
+    {
+      "id": "r092",
+      "topic_keys": [
+        "ode-first-order"
+      ],
+      "title": "Дифференциальные уравнения первого порядка. Примеры решений",
+      "type": "article",
+      "source": "МатПрофи (mathprofi.ru)",
+      "author": "Александр Емелин",
+      "url": "https://mathprofi.ru/differencialnye_uravnenija_primery_reshenii.html",
+      "language": "ru",
+      "summary": "Введение в ДУ первого порядка, уравнения с разделяющимися переменными, общее и частное решения, задача Коши.",
+      "relevance": {
+        "ode-first-order": "Покрывает первый тип уравнений темы — с разделяющимися переменными."
+      },
+      "difficulty": "basic",
+      "duration_minutes": null,
+      "link_status": "verified",
+      "checked_on": "2026-11-21",
+      "access_note": "Открытый доступ"
+    },
+    {
+      "id": "r093",
+      "topic_keys": [
+        "ode-first-order"
+      ],
+      "title": "Однородные дифференциальные уравнения первого порядка. Примеры решений",
+      "type": "article",
+      "source": "МатПрофи (mathprofi.ru)",
+      "author": "Александр Емелин",
+      "url": "https://mathprofi.ru/odnorodnye_diffury_pervogo_poryadka.html",
+      "language": "ru",
+      "summary": "Проверка уравнения на однородность, стандартная замена и решение с примерами; предупреждение о потере решений при преобразованиях.",
+      "relevance": {
+        "ode-first-order": "Покрывает второй тип уравнений темы — однородные."
+      },
+      "difficulty": "basic",
+      "duration_minutes": null,
+      "link_status": "verified",
+      "checked_on": "2026-11-21",
+      "access_note": "Открытый доступ"
+    },
+    {
+      "id": "r094",
+      "topic_keys": [
+        "ode-first-order"
+      ],
+      "title": "Линейные дифференциальные уравнения первого порядка. Примеры решений",
+      "type": "article",
+      "source": "МатПрофи (mathprofi.ru)",
+      "author": "Александр Емелин",
+      "url": "https://mathprofi.ru/lineinye_differencialnye_uravnenija.html",
+      "language": "ru",
+      "summary": "Решение линейных неоднородных уравнений первого порядка заменой y = u·v (метод Бернулли), задачи Коши и примеры для самостоятельной работы.",
+      "relevance": {
+        "ode-first-order": "Покрывает третий тип уравнений темы — линейные."
+      },
+      "difficulty": "basic",
+      "duration_minutes": null,
+      "link_status": "verified",
+      "checked_on": "2026-11-21",
+      "access_note": "Открытый доступ"
+    },
+    {
+      "id": "r095",
+      "topic_keys": [
+        "ode-exact"
+      ],
+      "title": "Примеры решений дифференциальных уравнений в полных дифференциалах",
+      "type": "article",
+      "source": "МатПрофи (mathprofi.ru)",
+      "author": "Александр Емелин",
+      "url": "https://mathprofi.ru/differencialnye_uravnenija_v_polnyh_differencialah.html",
+      "language": "ru",
+      "summary": "Проверка условия полного дифференциала через смешанные производные и восстановление общего интеграла двумя способами; примеры с проверкой.",
+      "relevance": {
+        "ode-exact": "Прямо по теме, с пошаговым алгоритмом; интегрирующий множитель не разбирается."
+      },
+      "difficulty": "basic",
+      "duration_minutes": null,
+      "link_status": "verified",
+      "checked_on": "2026-11-21",
+      "access_note": "Открытый доступ"
+    },
+    {
+      "id": "r096",
+      "topic_keys": [
+        "ode-exact",
+        "ode-linear-const",
+        "ode-variation",
+        "ode-systems"
+      ],
+      "title": "Лекции по дифференциальным уравнениям",
+      "type": "textbook",
+      "source": "Томский политехнический университет (portal.tpu.ru)",
+      "author": "О. Н. Имас, Е. Г. Пахомова, С. В. Рожкова, И. Г. Устинова",
+      "url": "https://portal.tpu.ru/SHARED/p/PEG/page_2/math_analysis-04(2010)/Tab3/Lecture_on_DE_(full).pdf",
+      "language": "ru",
+      "summary": "Учебное пособие ТПУ (2012) по обыкновенным ДУ: уравнения первого порядка, линейные уравнения n-го порядка, нормальные системы и системы линейных уравнений.",
+      "relevance": {
+        "ode-exact": "§9 — уравнения в полных дифференциалах с теорией.",
+        "ode-linear-const": "§14.4 — линейные однородные уравнения с постоянными коэффициентами и характеристическое уравнение.",
+        "ode-variation": "§15.1 — метод вариации произвольных постоянных для уравнений n-го порядка.",
+        "ode-systems": "§18 и §20 — нормальные системы, метод исключения и системы линейных уравнений."
+      },
+      "difficulty": "intermediate",
+      "duration_minutes": null,
+      "link_status": "verified",
+      "checked_on": "2026-11-21",
+      "access_note": "Открытый доступ, PDF"
+    },
+    {
+      "id": "r097",
+      "topic_keys": [
+        "ode-linear-const"
+      ],
+      "title": "Примеры решений дифференциальных уравнений второго и высших порядков – подробно и доступно!",
+      "type": "article",
+      "source": "МатПрофи (mathprofi.ru)",
+      "author": "Александр Емелин",
+      "url": "https://mathprofi.ru/differencialnye_uravnenija_vtorogo_poryadka.html",
+      "language": "ru",
+      "summary": "Линейные однородные уравнения с постоянными коэффициентами: характеристическое уравнение и вид решения для различных, кратных и комплексных корней, примеры до четвёртого порядка.",
+      "relevance": {
+        "ode-linear-const": "Покрывает однородный случай темы на типовых примерах."
+      },
+      "difficulty": "basic",
+      "duration_minutes": null,
+      "link_status": "verified",
+      "checked_on": "2026-11-21",
+      "access_note": "Открытый доступ"
+    },
+    {
+      "id": "r098",
+      "topic_keys": [
+        "ode-linear-const"
+      ],
+      "title": "Как решить неоднородное дифференциальное уравнение второго порядка?",
+      "type": "article",
+      "source": "МатПрофи (mathprofi.ru)",
+      "author": "Александр Емелин",
+      "url": "https://mathprofi.ru/kak_reshit_neodnorodnoe_uravnenie_vtorogo_poryadka.html",
+      "language": "ru",
+      "summary": "Поиск частного решения неоднородного уравнения с постоянными коэффициентами методом неопределённых коэффициентов по виду правой части и корням характеристического уравнения.",
+      "relevance": {
+        "ode-linear-const": "Покрывает неоднородный случай темы — подбор частного решения."
+      },
+      "difficulty": "basic",
+      "duration_minutes": null,
+      "link_status": "verified",
+      "checked_on": "2026-11-21",
+      "access_note": "Открытый доступ"
+    },
+    {
+      "id": "r099",
+      "topic_keys": [
+        "ode-variation"
+      ],
+      "title": "Метод вариации произвольных постоянных. Примеры решений",
+      "type": "article",
+      "source": "МатПрофи (mathprofi.ru)",
+      "author": "Александр Емелин",
+      "url": "https://mathprofi.ru/metod_variacii_proizvolnyh_postoyannyh.html",
+      "language": "ru",
+      "summary": "Решение линейных неоднородных уравнений первого и второго порядка методом вариации произвольных постоянных, включая задачи Коши.",
+      "relevance": {
+        "ode-variation": "Прямо по теме, с подробными комментариями к каждому шагу."
+      },
+      "difficulty": "basic",
+      "duration_minutes": null,
+      "link_status": "verified",
+      "checked_on": "2026-11-21",
+      "access_note": "Открытый доступ"
+    },
+    {
+      "id": "r100",
+      "topic_keys": [
+        "ode-systems"
+      ],
+      "title": "Как решить систему дифференциальных уравнений?",
+      "type": "article",
+      "source": "МатПрофи (mathprofi.ru)",
+      "author": "Александр Емелин",
+      "url": "https://mathprofi.ru/sistemy_differencialnyh_uravnenij.html",
+      "language": "ru",
+      "summary": "Однородные и неоднородные линейные системы ДУ: метод исключения (сведение к одному уравнению) и метод Эйлера через характеристическое уравнение.",
+      "relevance": {
+        "ode-systems": "Два основных способа решения систем на примерах."
+      },
+      "difficulty": "basic",
+      "duration_minutes": null,
+      "link_status": "verified",
+      "checked_on": "2026-11-21",
+      "access_note": "Открытый доступ"
+    },
+    {
+      "id": "r101",
+      "topic_keys": [
+        "ode-systems",
+        "ode-stability"
+      ],
+      "title": "Обыкновенные дифференциальные уравнения",
+      "type": "textbook",
+      "source": "НИУ ВШЭ (math.hse.ru), курс механико-математического факультета МГУ",
+      "author": "А. И. Буфетов, Н. Б. Гончарук, Ю. С. Ильяшенко",
+      "url": "https://math.hse.ru/data/2023/01/22/2044180669/ODE.pdf",
+      "language": "ru",
+      "summary": "Подробный университетский учебник по ОДУ: от уравнений первого порядка до линейных систем, матричной экспоненты и теории устойчивости.",
+      "relevance": {
+        "ode-systems": "Раздел 5.3 — линейные системы с постоянными коэффициентами через матричную экспоненту (для углублённого понимания).",
+        "ode-stability": "Раздел 8.1 — строгое изложение устойчивости по Ляпунову."
+      },
+      "difficulty": "advanced",
+      "duration_minutes": null,
+      "link_status": "verified",
+      "checked_on": "2026-11-21",
+      "access_note": "Открытый доступ, PDF (большой файл)"
+    },
+    {
+      "id": "r102",
+      "topic_keys": [
+        "ode-stability"
+      ],
+      "title": "Понятие устойчивости решения ДУ и решения системы ДУ",
+      "type": "lecture",
+      "source": "Томский политехнический университет (portal.tpu.ru)",
+      "author": "Е. Г. Пахомова",
+      "url": "https://portal.tpu.ru/SHARED/p/PEG/page_2/math_analysis-04(2010)/Tab1/MA(4)_Lecture-11-13.pdf",
+      "language": "ru",
+      "summary": "Лекции об устойчивости и асимптотической устойчивости по Ляпунову, точках покоя и фазовых траекториях, классификации точек покоя линейных систем (узел, седло, фокус, центр) и устойчивости по первому приближению.",
+      "relevance": {
+        "ode-stability": "Покрывает тему на уровне инженерного курса ДУ; функции Ляпунова не рассматриваются."
+      },
+      "difficulty": "intermediate",
+      "duration_minutes": null,
+      "link_status": "verified",
+      "checked_on": "2026-11-21",
+      "access_note": "Открытый доступ, PDF"
+    },
+    {
+      "id": "r103",
+      "topic_keys": [
+        "oop-classes"
+      ],
+      "title": "C++ | Объектно-ориентированное программирование (Определение классов)",
+      "type": "article",
+      "source": "METANIT.COM — руководство по C++",
+      "author": "Евгений Попов",
+      "url": "https://metanit.com/cpp/tutorial/5.1.php",
+      "language": "ru",
+      "summary": "Объявление класса, создание объектов, обращение к полям и методам через точку и через указатель.",
+      "relevance": {
+        "oop-classes": "Первый шаг темы — синтаксис и смысл классов."
+      },
+      "difficulty": "basic",
+      "duration_minutes": null,
+      "link_status": "verified",
+      "checked_on": "2026-11-21",
+      "access_note": "Открытый доступ"
+    },
+    {
+      "id": "r104",
+      "topic_keys": [
+        "oop-classes"
+      ],
+      "title": "C++ | Конструкторы и инициализация объектов",
+      "type": "article",
+      "source": "METANIT.COM — руководство по C++",
+      "author": "Евгений Попов",
+      "url": "https://metanit.com/cpp/tutorial/5.2.php",
+      "language": "ru",
+      "summary": "Конструктор по умолчанию и с параметрами, значения параметров по умолчанию, делегирование конструкторов и списки инициализации.",
+      "relevance": {
+        "oop-classes": "Покрывает конструкторы из названия темы."
+      },
+      "difficulty": "basic",
+      "duration_minutes": null,
+      "link_status": "verified",
+      "checked_on": "2026-11-21",
+      "access_note": "Открытый доступ"
+    },
+    {
+      "id": "r105",
+      "topic_keys": [
+        "oop-classes"
+      ],
+      "title": "C++ | Управление доступом. Инкапсуляция",
+      "type": "article",
+      "source": "METANIT.COM — руководство по C++",
+      "author": "Евгений Попов",
+      "url": "https://metanit.com/cpp/tutorial/5.4.php",
+      "language": "ru",
+      "summary": "Спецификаторы public и private, сокрытие внутреннего состояния класса и методы доступа с проверкой данных на примере класса Person.",
+      "relevance": {
+        "oop-classes": "Покрывает инкапсуляцию из названия темы."
+      },
+      "difficulty": "basic",
+      "duration_minutes": null,
+      "link_status": "verified",
+      "checked_on": "2026-11-21",
+      "access_note": "Открытый доступ"
+    },
+    {
+      "id": "r106",
+      "topic_keys": [
+        "oop-raii"
+      ],
+      "title": "C++ | Управление ресурсами. Идиома RAII",
+      "type": "article",
+      "source": "METANIT.COM — руководство по C++",
+      "author": "Евгений Попов",
+      "url": "https://metanit.com/cpp/tutorial/5.28.php",
+      "language": "ru",
+      "summary": "Идиома RAII: захват ресурса в конструкторе, освобождение в деструкторе и передача владения на примере класса, управляющего динамическим массивом.",
+      "relevance": {
+        "oop-raii": "Прямо по теме на понятном примере."
+      },
+      "difficulty": "basic",
+      "duration_minutes": null,
+      "link_status": "verified",
+      "checked_on": "2026-11-21",
+      "access_note": "Открытый доступ"
+    },
+    {
+      "id": "r107",
+      "topic_keys": [
+        "oop-raii"
+      ],
+      "title": "C++ | unique_ptr<T>",
+      "type": "article",
+      "source": "METANIT.COM — руководство по C++",
+      "author": "Евгений Попов",
+      "url": "https://metanit.com/cpp/tutorial/11.1.php",
+      "language": "ru",
+      "summary": "Умный указатель unique_ptr: создание через make_unique, доступ к объекту, работа с массивами, освобождение и замена ресурса.",
+      "relevance": {
+        "oop-raii": "Вторая часть темы — умные указатели как готовая реализация RAII."
+      },
+      "difficulty": "basic",
+      "duration_minutes": null,
+      "link_status": "verified",
+      "checked_on": "2026-11-21",
+      "access_note": "Открытый доступ"
+    },
+    {
+      "id": "r108",
+      "topic_keys": [
+        "oop-raii"
+      ],
+      "title": "RAII",
+      "type": "documentation",
+      "source": "cppreference.com",
+      "author": null,
+      "url": "https://en.cppreference.com/w/cpp/language/raii",
+      "language": "en",
+      "summary": "Справочная статья: определение RAII, гарантия освобождения ресурса при выходе из области видимости и при исключениях, сравнение ручного lock/unlock с std::lock_guard.",
+      "relevance": {
+        "oop-raii": "Точное определение идиомы и её связь с безопасностью при исключениях."
+      },
+      "difficulty": "intermediate",
+      "duration_minutes": null,
+      "link_status": "verified",
+      "checked_on": "2026-11-21",
+      "access_note": "Открытый доступ; на английском языке"
+    },
+    {
+      "id": "r109",
+      "topic_keys": [
+        "oop-inheritance"
+      ],
+      "title": "C++ | Наследование",
+      "type": "article",
+      "source": "METANIT.COM — руководство по C++",
+      "author": "Евгений Попов",
+      "url": "https://metanit.com/cpp/tutorial/5.10.php",
+      "language": "ru",
+      "summary": "Базовые и производные классы, спецификаторы доступа при наследовании, конструкторы и деструкторы в иерархии, запрет наследования через final.",
+      "relevance": {
+        "oop-inheritance": "Первая часть темы — механика наследования."
+      },
+      "difficulty": "basic",
+      "duration_minutes": null,
+      "link_status": "verified",
+      "checked_on": "2026-11-21",
+      "access_note": "Открытый доступ"
+    },
+    {
+      "id": "r110",
+      "topic_keys": [
+        "oop-inheritance"
+      ],
+      "title": "C++ | Виртуальные функции и их переопределение",
+      "type": "article",
+      "source": "METANIT.COM — руководство по C++",
+      "author": "Евгений Попов",
+      "url": "https://metanit.com/cpp/tutorial/5.11.php",
+      "language": "ru",
+      "summary": "Статическое и динамическое связывание, ключевые слова virtual и override, полиморфные классы, таблица виртуальных функций и спецификатор final.",
+      "relevance": {
+        "oop-inheritance": "Вторая часть темы — виртуальные функции и полиморфизм."
+      },
+      "difficulty": "basic",
+      "duration_minutes": null,
+      "link_status": "verified",
+      "checked_on": "2026-11-21",
+      "access_note": "Открытый доступ"
+    },
+    {
+      "id": "r111",
+      "topic_keys": [
+        "oop-templates"
+      ],
+      "title": "C++ | Шаблоны функций",
+      "type": "article",
+      "source": "METANIT.COM — руководство по C++",
+      "author": "Евгений Попов",
+      "url": "https://metanit.com/cpp/tutorial/9.2.php",
+      "language": "ru",
+      "summary": "Обобщённые функции через параметр-тип, явное указание аргументов шаблона, перегрузка, нетиповые параметры, decltype(auto) и auto-параметры C++20.",
+      "relevance": {
+        "oop-templates": "Покрывает шаблоны функций."
+      },
+      "difficulty": "basic",
+      "duration_minutes": null,
+      "link_status": "verified",
+      "checked_on": "2026-11-21",
+      "access_note": "Открытый доступ"
+    },
+    {
+      "id": "r112",
+      "topic_keys": [
+        "oop-templates"
+      ],
+      "title": "C++ | Шаблон класса",
+      "type": "article",
+      "source": "METANIT.COM — руководство по C++",
+      "author": "Евгений Попов",
+      "url": "https://metanit.com/cpp/tutorial/9.1.php",
+      "language": "ru",
+      "summary": "Объявление шаблона класса, несколько параметров, определение методов вне класса и параметры шаблона по умолчанию.",
+      "relevance": {
+        "oop-templates": "Покрывает шаблоны классов."
+      },
+      "difficulty": "basic",
+      "duration_minutes": null,
+      "link_status": "verified",
+      "checked_on": "2026-11-21",
+      "access_note": "Открытый доступ"
+    },
+    {
+      "id": "r113",
+      "topic_keys": [
+        "oop-stl"
+      ],
+      "title": "C++ | Типы контейнеров",
+      "type": "article",
+      "source": "METANIT.COM — руководство по C++",
+      "author": "Евгений Попов",
+      "url": "https://metanit.com/cpp/tutorial/7.1.php",
+      "language": "ru",
+      "summary": "Обзор контейнеров стандартной библиотеки: последовательные (array, vector, deque, list, forward_list), адаптеры (stack, queue, priority_queue) и ассоциативные (set, map).",
+      "relevance": {
+        "oop-stl": "Помогает выбрать подходящий контейнер — основа темы."
+      },
+      "difficulty": "basic",
+      "duration_minutes": null,
+      "link_status": "verified",
+      "checked_on": "2026-11-21",
+      "access_note": "Открытый доступ"
+    },
+    {
+      "id": "r114",
+      "topic_keys": [
+        "oop-stl"
+      ],
+      "title": "C++ | Вектор",
+      "type": "article",
+      "source": "METANIT.COM — руководство по C++",
+      "author": "Евгений Попов",
+      "url": "https://metanit.com/cpp/tutorial/7.2.php",
+      "language": "ru",
+      "summary": "Создание и инициализация std::vector, доступ к элементам через индексацию, at(), front() и back(), изменение элементов.",
+      "relevance": {
+        "oop-stl": "Подробно о самом используемом контейнере STL."
+      },
+      "difficulty": "basic",
+      "duration_minutes": null,
+      "link_status": "verified",
+      "checked_on": "2026-11-21",
+      "access_note": "Открытый доступ"
+    },
+    {
+      "id": "r115",
+      "topic_keys": [
+        "oop-stl"
+      ],
+      "title": "Algorithms library",
+      "type": "documentation",
+      "source": "cppreference.com",
+      "author": null,
+      "url": "https://en.cppreference.com/w/cpp/algorithm",
+      "language": "en",
+      "summary": "Справочник по стандартным алгоритмам: поиск, подсчёт, сортировка, модифицирующие и числовые операции над диапазонами итераторов, а также версии std::ranges из C++20.",
+      "relevance": {
+        "oop-stl": "Закрывает «алгоритмы STL» из названия темы — полный перечень с описаниями."
+      },
+      "difficulty": "intermediate",
+      "duration_minutes": null,
+      "link_status": "verified",
+      "checked_on": "2026-11-21",
+      "access_note": "Открытый доступ; на английском языке"
+    },
+    {
+      "id": "r116",
+      "topic_keys": [
+        "oop-exceptions"
+      ],
+      "title": "C++ | Обработка исключений",
+      "type": "article",
+      "source": "METANIT.COM — руководство по C++",
+      "author": "Евгений Попов",
+      "url": "https://metanit.com/cpp/tutorial/6.1.php",
+      "language": "ru",
+      "summary": "Генерация исключений через throw, перехват в try...catch (включая catch(...) и перехват по константной ссылке), несколько типов исключений, noexcept и вызов деструкторов при раскрутке стека.",
+      "relevance": {
+        "oop-exceptions": "Прямо по теме с примерами кода."
+      },
+      "difficulty": "basic",
+      "duration_minutes": null,
+      "link_status": "verified",
+      "checked_on": "2026-11-21",
+      "access_note": "Открытый доступ"
+    },
+    {
+      "id": "r117",
+      "topic_keys": [
+        "oop-exceptions"
+      ],
+      "title": "Exceptions",
+      "type": "documentation",
+      "source": "cppreference.com",
+      "author": null,
+      "url": "https://en.cppreference.com/w/cpp/language/exceptions",
+      "language": "en",
+      "summary": "Справочная статья о механизме исключений: throw, try/catch, раскрутка стека и четыре уровня гарантий безопасности исключений.",
+      "relevance": {
+        "oop-exceptions": "Добавляет понятие гарантий безопасности исключений, важное для проектирования классов."
+      },
+      "difficulty": "intermediate",
+      "duration_minutes": null,
+      "link_status": "verified",
+      "checked_on": "2026-11-21",
+      "access_note": "Открытый доступ; на английском языке"
+    },
+    {
+      "id": "r118",
+      "topic_keys": [
+        "en-tech-reading"
+      ],
+      "title": "How to Read a Datasheet",
+      "type": "article",
+      "source": "SparkFun Electronics (sparkfun.com)",
+      "author": null,
+      "url": "https://sparkfun.com/tutorials/223",
+      "language": "en",
+      "summary": "Руководство по чтению технической документации на электронный компонент: назначение разделов (характеристики, цоколёвка, предельные режимы, временные диаграммы, примечания по применению) и на что обращать внимание.",
+      "relevance": {
+        "en-tech-reading": "Тренирует чтение реального технического текста на английском, с которым инженер сталкивается постоянно."
+      },
+      "difficulty": "basic",
+      "duration_minutes": null,
+      "link_status": "verified",
+      "checked_on": "2026-11-21",
+      "access_note": "Открытый доступ; на английском языке"
+    },
+    {
+      "id": "r119",
+      "topic_keys": [
+        "en-tech-reading"
+      ],
+      "title": "How to Read a Paper",
+      "type": "article",
+      "source": "Princeton University, архив курса COS 597B (копия статьи)",
+      "author": "S. Keshav",
+      "url": "https://www.cs.princeton.edu/courses/archive/fall10/cos597B/papers/howtoread-keshav.pdf",
+      "language": "en",
+      "summary": "Короткая статья о методе чтения научных статей в три прохода и о том, как применять его при обзоре литературы.",
+      "relevance": {
+        "en-tech-reading": "Даёт стратегию чтения длинных технических текстов на английском без перевода каждого слова."
+      },
+      "difficulty": "intermediate",
+      "duration_minutes": null,
+      "link_status": "verified",
+      "checked_on": "2026-11-21",
+      "access_note": "Открытый доступ, PDF; на английском языке"
+    },
+    {
+      "id": "r120",
+      "topic_keys": [
+        "en-emails"
+      ],
+      "title": "Email Etiquette",
+      "type": "article",
+      "source": "Purdue Online Writing Lab (Purdue OWL)",
+      "author": null,
+      "url": "https://owl.purdue.edu/owl/general_writing/academic_writing/email_etiquette.html",
+      "language": "en",
+      "summary": "Правила профессиональной переписки: информативная тема письма, приветствие, вежливый и прямой тон, подпись с контактами.",
+      "relevance": {
+        "en-emails": "Прямо по теме: нормы делового письма на английском."
+      },
+      "difficulty": "basic",
+      "duration_minutes": null,
+      "link_status": "verified",
+      "checked_on": "2026-11-21",
+      "access_note": "Открытый доступ; на английском языке"
+    },
+    {
+      "id": "r121",
+      "topic_keys": [
+        "en-emails"
+      ],
+      "title": "7.1: Correspondence- Text Messages, Emails, Memos, and Letters",
+      "type": "textbook",
+      "source": "LibreTexts — Technical Writing Essentials (Last)",
+      "author": "Suzan Last",
+      "url": "https://human.libretexts.org/Bookshelves/Composition/Technical_Composition/Technical_Writing_Essentials_(Last)/07%3A_COMMON_DOCUMENT_TYPES/7.01%3A_Correspondence-_Text_Messages_Emails_Memos_and_Letters",
+      "language": "en",
+      "summary": "Глава открытого учебника о деловой переписке; в части про email — обращение, краткая конкретная тема, подпись, вычитка, своевременный ответ и осторожность с «Ответить всем».",
+      "relevance": {
+        "en-emails": "Систематизирует правила деловой переписки в инженерной среде."
+      },
+      "difficulty": "basic",
+      "duration_minutes": null,
+      "link_status": "verified",
+      "checked_on": "2026-11-21",
+      "access_note": "Открытый доступ (CC BY 4.0); на английском языке"
+    },
+    {
+      "id": "r122",
+      "topic_keys": [
+        "en-presentations"
+      ],
+      "title": "How to Ace Your Business Presentation in English",
+      "type": "article",
+      "source": "British Council — English Online (блог)",
+      "author": null,
+      "url": "https://englishonline.britishcouncil.org/blog/articles/how-to-ace-your-business-presentation-in-english",
+      "language": "en",
+      "summary": "Советы по деловой презентации на английском: структура (вступление — основная часть — итог), ясный язык, сторителлинг, темп и интонация, призыв к действию и репетиция.",
+      "relevance": {
+        "en-presentations": "Помогает выстроить структуру и подачу презентации на английском."
+      },
+      "difficulty": "basic",
+      "duration_minutes": null,
+      "link_status": "verified",
+      "checked_on": "2026-11-21",
+      "access_note": "Открытый доступ; на английском языке"
+    },
+    {
+      "id": "r123",
+      "topic_keys": [
+        "en-presentations"
+      ],
+      "title": "Technical Presentation : Mechanical Engineering Communication Lab",
+      "type": "article",
+      "source": "MIT Mechanical Engineering Communication Lab",
+      "author": null,
+      "url": "https://mitcommlab.mit.edu/meche/commkit/technical-presentation/",
+      "language": "en",
+      "summary": "Руководство по подготовке технической презентации: планирование и структура выступления, оформление слайдов и рисунков, формулировка заголовков слайдов.",
+      "relevance": {
+        "en-presentations": "Ориентировано именно на инженерные доклады — ближе всего к учебной задаче."
+      },
+      "difficulty": "intermediate",
+      "duration_minutes": null,
+      "link_status": "verified",
+      "checked_on": "2026-11-21",
+      "access_note": "Открытый доступ; на английском языке"
+    },
+    {
+      "id": "r124",
+      "topic_keys": [
+        "eg-projections",
+        "eg-dimensions"
+      ],
+      "title": "Проекционное черчение",
+      "type": "textbook",
+      "source": "ЮУрГУ, кафедра графики (grapham.susu.ru)",
+      "author": "А. Н. Логиновский, А. Л. Решетов, Л. И. Хмарова, Т. В. Бойцова",
+      "url": "https://grapham.susu.ru/Proekt_ch.pdf",
+      "language": "ru",
+      "summary": "Учебное пособие (2-е изд., 2010): общие правила ЕСКД, виды, разрезы и сечения по ГОСТ 2.305–2008, нанесение размеров, аксонометрия и задания на эскизирование деталей.",
+      "relevance": {
+        "eg-projections": "Подробно разбирает основные, дополнительные и местные виды, разрезы и сечения по действующему ГОСТ.",
+        "eg-dimensions": "Содержит раздел о правилах нанесения размеров (ГОСТ 2.307)."
+      },
+      "difficulty": "basic",
+      "duration_minutes": null,
+      "link_status": "verified",
+      "checked_on": "2026-11-21",
+      "access_note": "Открытый доступ, PDF"
+    },
+    {
+      "id": "r125",
+      "topic_keys": [
+        "eg-projections"
+      ],
+      "title": "Инженерная и компьютерная графика. Демонстрационные материалы. Часть 2. Изображения – виды, разрезы, сечения",
+      "type": "textbook",
+      "source": "СПбПУ Петра Великого (электронная библиотека elib.spbstu.ru)",
+      "author": "Т. В. Маркова, Н. А. Долгая, Н. В. Введенская",
+      "url": "https://elib.spbstu.ru/dl/2/5373.pdf/download?lang=en",
+      "language": "ru",
+      "summary": "Иллюстрированное пособие (2015) к ГОСТ 2.305-2008: классификация изображений, основные, дополнительные и местные виды, выносные элементы, простые и сложные разрезы, сечения, совмещение вида и разреза.",
+      "relevance": {
+        "eg-projections": "Наглядные примеры к каждому типу изображения — удобно сверять свой чертёж."
+      },
+      "difficulty": "basic",
+      "duration_minutes": null,
+      "link_status": "verified",
+      "checked_on": "2026-11-21",
+      "access_note": "Открытый доступ, PDF"
+    },
+    {
+      "id": "r126",
+      "topic_keys": [
+        "eg-dimensions"
+      ],
+      "title": "Нанесение размеров на машиностроительных чертежах",
+      "type": "textbook",
+      "source": "Брестский государственный технический университет (nachertalka.bstu.by)",
+      "author": "А. Ф. Кокошко, В. А. Морозова",
+      "url": "https://nachertalka.bstu.by/files/mu_nanesenie_razmerov.pdf",
+      "language": "ru",
+      "summary": "Методические указания (2007): выносные и размерные линии, размерные числа и знаки, базы, размеры деталей, полученных литьём, штамповкой, гибкой и сваркой, размеры соединений и сборочных чертежей.",
+      "relevance": {
+        "eg-dimensions": "Подробно и с примерами объясняет логику простановки размеров. Пособие опирается на ГОСТ 2.307-68, сейчас действует ГОСТ 2.307-2011 — сверяйте детали с ним."
+      },
+      "difficulty": "intermediate",
+      "duration_minutes": null,
+      "link_status": "verified",
+      "checked_on": "2026-11-21",
+      "access_note": "Открытый доступ, PDF"
+    },
+    {
+      "id": "r127",
+      "topic_keys": [
+        "eg-cad"
+      ],
+      "title": "Азбука КОМПАС-3D",
+      "type": "documentation",
+      "source": "АСКОН (kompas.ru)",
+      "author": null,
+      "url": "https://kompas.ru/source/info_materials/2021/Азбука КОМПАС-3D.pdf",
+      "language": "ru",
+      "summary": "Официальное пошаговое руководство разработчика САПР: эскизы, операции выдавливания и вращения, моделирование деталей и сборок, получение чертежей и спецификаций по модели.",
+      "relevance": {
+        "eg-cad": "Практический самоучитель по 3D-моделированию в российской САПР, применяемой в вузах."
+      },
+      "difficulty": "basic",
+      "duration_minutes": null,
+      "link_status": "verified",
+      "checked_on": "2026-11-21",
+      "access_note": "Открытый доступ, PDF"
+    },
+    {
+      "id": "r128",
+      "topic_keys": [
+        "eg-cad"
+      ],
+      "title": "Моделирование в Компас-3D для начинающих",
+      "type": "course",
+      "source": "Stepik",
+      "author": null,
+      "url": "https://stepik.org/course/51420/promo",
+      "language": "ru",
+      "summary": "Бесплатный курс (21 урок, около 3 часов видео, 30 тестов): базовые инструменты КОМПАС-3D, принципы 3D-моделирования, редактирование моделей и создание сборок.",
+      "relevance": {
+        "eg-cad": "Видеоформат для тех, кому проще повторять действия за преподавателем."
+      },
+      "difficulty": "basic",
+      "duration_minutes": 189,
+      "link_status": "verified",
+      "checked_on": "2026-11-21",
+      "access_note": "Бесплатно; для прохождения уроков и тестов нужна регистрация на Stepik; длительность — суммарное время видео, указанное на странице курса"
+    },
+    {
+      "id": "r129",
+      "topic_keys": [
+        "el-dc"
+      ],
+      "title": "Метод контурных токов",
+      "type": "article",
+      "source": "Википедия",
+      "author": null,
+      "url": "https://ru.wikipedia.org/wiki/%D0%9C%D0%B5%D1%82%D0%BE%D0%B4_%D0%BA%D0%BE%D0%BD%D1%82%D1%83%D1%80%D0%BD%D1%8B%D1%85_%D1%82%D0%BE%D0%BA%D0%BE%D0%B2",
+      "language": "ru",
+      "summary": "Метод расчёта цепей с контурными токами в качестве неизвестных, сокращающий число уравнений по законам Кирхгофа; пример трёхконтурной цепи.",
+      "relevance": {
+        "el-dc": "Один из основных методов темы с готовым примером составления системы уравнений."
+      },
+      "difficulty": null,
+      "duration_minutes": null,
+      "link_status": "verified",
+      "checked_on": "2026-11-21",
+      "access_note": "Открытый доступ"
+    },
+    {
+      "id": "r130",
+      "topic_keys": [
+        "el-dc",
+        "el-ac"
+      ],
+      "title": "Теоретические основы электротехники. Часть 1",
+      "type": "textbook",
+      "source": "Томский политехнический университет (portal.tpu.ru)",
+      "author": "С. В. Пустынников, А. Г. Сипайлов, Е. Б. Шандарова",
+      "url": "https://portal.tpu.ru/SHARED/p/PUSTYNNIKOV/lekcion/Tab1/Tab/theoretical_foundations_of_electrical_engineering.pdf",
+      "language": "ru",
+      "summary": "Учебное пособие ТПУ по ТОЭ: законы Кирхгофа, методы контурных токов и узловых потенциалов, наложение, эквивалентный генератор; цепи синусоидального тока в комплексной форме.",
+      "relevance": {
+        "el-dc": "Тема 1 пособия охватывает все основные методы расчёта цепей постоянного тока.",
+        "el-ac": "Тема 2 — расчёт цепей синусоидального тока комплексным методом, законы Ома и Кирхгофа в комплексной форме."
+      },
+      "difficulty": "intermediate",
+      "duration_minutes": null,
+      "link_status": "verified",
+      "checked_on": "2026-11-21",
+      "access_note": "Открытый доступ, PDF"
+    },
+    {
+      "id": "r131",
+      "topic_keys": [
+        "el-ac"
+      ],
+      "title": "Теория электрических цепей. Часть 1. Линейные электрические цепи",
+      "type": "textbook",
+      "source": "БГУИР (bsuir.by)",
+      "author": "С. В. Батюков, Н. А. Иваницкая, Л. Ю. Шилин",
+      "url": "https://www.bsuir.by/m/12_100229_1_143822.pdf",
+      "language": "ru",
+      "summary": "Учебное пособие БГУИР (2012) по линейным цепям; глава 6 посвящена однофазным цепям синусоидального тока и комплексному (символическому) методу расчёта.",
+      "relevance": {
+        "el-ac": "Отдельная глава ровно по теме с изображением синусоид комплексными числами и векторами."
+      },
+      "difficulty": "intermediate",
+      "duration_minutes": null,
+      "link_status": "verified",
+      "checked_on": "2026-11-21",
+      "access_note": "Открытый доступ, PDF"
+    },
+    {
+      "id": "r132",
+      "topic_keys": [
+        "el-ac"
+      ],
+      "title": "Some Examples with AC Circuits",
+      "type": "textbook",
+      "source": "All About Circuits — Lessons in Electric Circuits",
+      "author": null,
+      "url": "https://www.allaboutcircuits.com/textbook/alternating-current/chpt-2/examples-ac-circuits/",
+      "language": "en",
+      "summary": "Глава открытого учебника о применении законов Кирхгофа к цепям переменного тока с напряжениями в комплексной форме, перевод из полярной в алгебраическую форму и проверка в SPICE.",
+      "relevance": {
+        "el-ac": "Наглядно показывает суть комплексного метода на простых примерах."
+      },
+      "difficulty": "basic",
+      "duration_minutes": null,
+      "link_status": "verified",
+      "checked_on": "2026-11-21",
+      "access_note": "Открытый доступ; на английском языке"
+    },
+    {
+      "id": "r133",
+      "topic_keys": [
+        "el-semiconductors"
+      ],
+      "title": "Элементы электроники",
+      "type": "textbook",
+      "source": "Томский политехнический университет (portal.tpu.ru)",
+      "author": "А. В. Лукутин, Е. Б. Шандарова",
+      "url": "https://portal.tpu.ru/SHARED/v/VOV/uchebnaya_rabota/Tab1/Tab/electronica.pdf",
+      "language": "ru",
+      "summary": "Учебное пособие ТПУ (2012) по силовой и цифровой электронике; в первой главе — полупроводниковые диоды, биполярные и полевые транзисторы.",
+      "relevance": {
+        "el-semiconductors": "Разделы 1.4–1.5 по устройству и характеристикам диодов и транзисторов."
+      },
+      "difficulty": "intermediate",
+      "duration_minutes": null,
+      "link_status": "verified",
+      "checked_on": "2026-11-21",
+      "access_note": "Открытый доступ, PDF"
+    },
+    {
+      "id": "r134",
+      "topic_keys": [
+        "el-semiconductors",
+        "el-opamp"
+      ],
+      "title": "Аналоговая схемотехника",
+      "type": "textbook",
+      "source": "Владимирский государственный университет (репозиторий dspace.www1.vlsu.ru)",
+      "author": "Ю. Е. Мишулин",
+      "url": "https://dspace.www1.vlsu.ru/bitstream/123456789/9011/1/02183.pdf",
+      "language": "ru",
+      "summary": "Учебное пособие ВлГУ (2021): полупроводниковые диоды разных типов, тиристоры, биполярные и полевые транзисторы, усилительные каскады, операционные усилители и преобразователи на них, ЦАП и АЦП.",
+      "relevance": {
+        "el-semiconductors": "Подробно описывает виды диодов и транзисторов и их применение.",
+        "el-opamp": "Отдельные разделы об операционных усилителях и схемах на их основе."
+      },
+      "difficulty": "intermediate",
+      "duration_minutes": null,
+      "link_status": "verified",
+      "checked_on": "2026-11-21",
+      "access_note": "Открытый доступ, PDF"
+    },
+    {
+      "id": "r135",
+      "topic_keys": [
+        "el-semiconductors"
+      ],
+      "title": "Introduction to Diodes And Rectifiers",
+      "type": "textbook",
+      "source": "All About Circuits — Lessons in Electric Circuits",
+      "author": null,
+      "url": "https://www.allaboutcircuits.com/textbook/semiconductors/chpt-3/introduction-to-diodes-and-rectifiers/",
+      "language": "en",
+      "summary": "Введение в диоды: прямое и обратное смещение, аналогия с обратным клапаном, типичные прямые напряжения кремниевых и германиевых диодов, максимальное обратное напряжение.",
+      "relevance": {
+        "el-semiconductors": "Простое объяснение работы диода для первого знакомства с темой."
+      },
+      "difficulty": "basic",
+      "duration_minutes": null,
+      "link_status": "verified",
+      "checked_on": "2026-11-21",
+      "access_note": "Открытый доступ; на английском языке"
+    },
+    {
+      "id": "r136",
+      "topic_keys": [
+        "el-opamp"
+      ],
+      "title": "Операционные усилители. Часть 1: Введение. Модель идеального операционного усилителя",
+      "type": "article",
+      "source": "Хабр",
+      "author": "dmitriyrudnev",
+      "url": "https://habr.com/ru/post/647583",
+      "language": "ru",
+      "summary": "История ОУ, модель идеального операционного усилителя (бесконечные усиление и входное сопротивление, нулевое выходное) и базовые схемы: инвертирующий, неинвертирующий усилители и повторитель.",
+      "relevance": {
+        "el-opamp": "Даёт «золотые правила» анализа схем на ОУ и три основные схемы включения."
+      },
+      "difficulty": "basic",
+      "duration_minutes": null,
+      "link_status": "verified",
+      "checked_on": "2026-11-21",
+      "access_note": "Открытый доступ"
+    },
+    {
+      "id": "r137",
+      "topic_keys": [
+        "el-opamp"
+      ],
+      "title": "Introduction to Operational Amplifiers (Op-amps)",
+      "type": "textbook",
+      "source": "All About Circuits — Lessons in Electric Circuits",
+      "author": null,
+      "url": "https://www.allaboutcircuits.com/textbook/semiconductors/chpt-8/introduction-operational-amplifiers/",
+      "language": "en",
+      "summary": "Вводный раздел главы об ОУ: усилители напряжения, поведение которых задаётся внешней обратной связью, и их применения — усиление, фильтрация, интегрирование, дифференцирование.",
+      "relevance": {
+        "el-opamp": "Вход в главу открытого учебника, где далее разобраны схемы на ОУ."
+      },
+      "difficulty": "basic",
+      "duration_minutes": null,
+      "link_status": "verified",
+      "checked_on": "2026-11-21",
+      "access_note": "Открытый доступ; на английском языке"
+    },
+    {
+      "id": "r138",
+      "topic_keys": [
+        "en3-vocab"
+      ],
+      "title": "Glossary of robotics",
+      "type": "article",
+      "source": "Wikipedia (англоязычная)",
+      "author": null,
+      "url": "https://en.wikipedia.org/wiki/Glossary_of_robotics",
+      "language": "en",
+      "summary": "Алфавитный глоссарий терминов робототехники с краткими определениями (actuator, degrees of freedom, servo и др.).",
+      "relevance": {
+        "en3-vocab": "Готовый список профессиональной лексики по робототехнике с определениями на английском."
+      },
+      "difficulty": null,
+      "duration_minutes": null,
+      "link_status": "verified",
+      "checked_on": "2026-11-21",
+      "access_note": "Открытый доступ; на английском языке"
+    },
+    {
+      "id": "r139",
+      "topic_keys": [
+        "en3-vocab"
+      ],
+      "title": "Glossary of mechanical engineering",
+      "type": "article",
+      "source": "Wikipedia (англоязычная)",
+      "author": null,
+      "url": "https://en.wikipedia.org/wiki/Glossary_of_mechanical_engineering",
+      "language": "en",
+      "summary": "Алфавитный глоссарий терминов машиностроения — от abrasion до yield point — с краткими определениями.",
+      "relevance": {
+        "en3-vocab": "Покрывает инженерную лексику, без которой не обойтись при чтении документации по механике роботов."
+      },
+      "difficulty": null,
+      "duration_minutes": null,
+      "link_status": "verified",
+      "checked_on": "2026-11-21",
+      "access_note": "Открытый доступ; на английском языке"
+    },
+    {
+      "id": "r140",
+      "topic_keys": [
+        "en3-writing"
+      ],
+      "title": "Technical Writing One introduction",
+      "type": "course",
+      "source": "Google for Developers",
+      "author": null,
+      "url": "https://developers.google.com/tech-writing/one",
+      "language": "en",
+      "summary": "Самостоятельный курс по ясному техническому письму: выбор слов, активный залог, короткие и понятные предложения, списки и таблицы, абзацы, учёт аудитории и структура документа.",
+      "relevance": {
+        "en3-writing": "Учит писать технические тексты и инструкции на английском просто и однозначно."
+      },
+      "difficulty": "basic",
+      "duration_minutes": 120,
+      "link_status": "verified",
+      "checked_on": "2026-11-21",
+      "access_note": "Открытый доступ; на английском языке; длительность — сумма времени по разделам, указанного на странице"
+    },
+    {
+      "id": "r141",
+      "topic_keys": [
+        "en3-writing"
+      ],
+      "title": "7.7: Writing Instructions",
+      "type": "textbook",
+      "source": "LibreTexts — Technical Writing Essentials (Last)",
+      "author": "Suzan Last",
+      "url": "https://human.libretexts.org/Bookshelves/Composition/Technical_Composition/Technical_Writing_Essentials_(Last)/07%3A_COMMON_DOCUMENT_TYPES/7.07%3A_Writing_Instructions",
+      "language": "en",
+      "summary": "Глава о составлении пошаговых инструкций: планирование, типичные разделы, стиль, иллюстрации и оформление.",
+      "relevance": {
+        "en3-writing": "Прямо по теме — как писать инструкции на английском."
+      },
+      "difficulty": "basic",
+      "duration_minutes": null,
+      "link_status": "verified",
+      "checked_on": "2026-11-21",
+      "access_note": "Открытый доступ (CC BY 4.0); на английском языке"
+    },
+    {
+      "id": "r142",
+      "topic_keys": [
+        "en3-writing"
+      ],
+      "title": "7.4: Technical Descriptions and Definitions",
+      "type": "textbook",
+      "source": "LibreTexts — Technical Writing Essentials (Last)",
+      "author": "Suzan Last",
+      "url": "https://human.libretexts.org/Bookshelves/Composition/Technical_Composition/Technical_Writing_Essentials_(Last)/07%3A_COMMON_DOCUMENT_TYPES/7.04%3A_Technical_Descriptions_and_Definitions",
+      "language": "en",
+      "summary": "Глава о технических описаниях механизмов и процессов и о технических определениях: аудитория и цель, обязательные элементы, порядок изложения, язык, упражнение.",
+      "relevance": {
+        "en3-writing": "Покрывает «технические описания» из названия темы."
+      },
+      "difficulty": "basic",
+      "duration_minutes": null,
+      "link_status": "verified",
+      "checked_on": "2026-11-21",
+      "access_note": "Открытый доступ (CC BY 4.0); на английском языке"
+    }
+  ],
+  "topics_without_materials": []
+}

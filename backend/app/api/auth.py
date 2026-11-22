@@ -45,7 +45,8 @@ def client_ip(request: Request) -> str:
     if get_settings().trust_proxy_headers:
         fwd = request.headers.get("x-forwarded-for")
         if fwd:
-            return fwd.split(",")[0].strip()
+            # Берём последний адрес: его дописывает доверенный прокси хостинга; первые клиент может подделать.
+            return fwd.split(",")[-1].strip()
     return request.client.host if request.client else "unknown"
 
 

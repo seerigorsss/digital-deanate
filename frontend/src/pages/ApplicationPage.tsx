@@ -12,7 +12,7 @@ import { Card, CardHeader } from '../components/ui/Card';
 import { TextAreaField } from '../components/ui/Field';
 import { Modal } from '../components/ui/Modal';
 import { PageHeader } from '../components/ui/PageHeader';
-import { ErrorState, PageSkeleton } from '../components/ui/States';
+import { EmptyState, ErrorState, PageSkeleton } from '../components/ui/States';
 import { useToast } from '../components/ui/Toast';
 import { formatDateTime } from '../lib/format';
 import { STATUS_META } from '../lib/semantics';
@@ -152,12 +152,11 @@ export default function ApplicationPage() {
       <div className="stack">
         <PageHeader title="Заявка" back={{ to: '/applications', label: 'Заявки' }} />
         <Card>
-          <ErrorState
-            error={q.error}
-            title={q.error instanceof ApiError && q.error.status === 404 ? 'Заявка не найдена' : undefined}
-            onRetry={() => void q.refetch()}
-            retrying={q.isFetching}
-          />
+          {q.error instanceof ApiError && q.error.status === 404 ? (
+            <EmptyState title="Заявка не найдена" text="Возможно, ссылка устарела или заявка принадлежит другому пользователю." />
+          ) : (
+            <ErrorState error={q.error} onRetry={() => void q.refetch()} retrying={q.isFetching} />
+          )}
         </Card>
       </div>
     );

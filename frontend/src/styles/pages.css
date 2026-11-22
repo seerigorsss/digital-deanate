@@ -1450,3 +1450,7 @@ button.zone-chip[aria-pressed='true'] {
   gap: 8px;
   font-size: var(--fs-sm);
 }
+
+/* Исправления по итогам проверки */
+.topic-row__title { overflow-wrap: break-word; word-break: normal; hyphens: auto; }
+.stack-xs { display: flex; flex-direction: column; gap: 2px; }

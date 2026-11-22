@@ -1,0 +1,22 @@
+{
+  "_comment": "Вымышленные баллы демо-студентов: login -> дисциплина -> ключ работы -> баллы. Отсутствующий ключ = результата нет. expected_risk — ожидаемый уровень риска по контракту аналитики (проверяется тестом).",
+  "student1": {
+    "calculus3":     {"points": {"dz1": 9, "rk1": 13, "dz2": 8, "rk2": 12}, "expected_risk": "stable"},
+    "diffeq":        {"points": {"dz1": 7, "rk1": 10, "dz2": 8, "rk2": 11}, "expected_risk": "stable"},
+    "physics-em":    {"points": {"lr1": 5, "lr2": 4, "rk1": 6, "lr3": 4, "lr4": 4, "rk2": 7}, "expected_risk": "low"},
+    "oop-cpp":       {"points": {"lr1": 9, "lr2": 10, "t1": 8, "lr3": 11, "lr4": 10, "rk1": 9}, "expected_risk": "stable"},
+    "discrete-math": {"points": {"dz1": 6, "rk1": 10, "dz2": 4}, "expected_risk": "medium"},
+    "english-2":     {"points": {}, "expected_risk": "insufficient_data"},
+    "eng-graphics":  {"points": {"l1": 13, "l2": 14, "kr": 17}, "expected_risk": "stable"}
+  },
+  "student2": {
+    "control-theory": {"points": {"dz1": 5, "rk1": 8, "lr1": 6, "rk2": 7}, "expected_risk": "high"},
+    "probability":    {"points": {"dz1": 4, "rk1": 5, "dz2": 3, "rk2": 6}, "expected_risk": "high"},
+    "mcu":            {"points": {"lr1": 10, "lr2": 9, "lr3": 6, "lr4": 4, "rk1": 3}, "expected_risk": "high"},
+    "tmm":            {"points": {"dz1": 6, "rk1": 8, "dz2": 5, "rk2": 8}, "expected_risk": "critical"},
+    "electronics":    {"points": {"lr1": 7, "lr2": 6, "rk1": 7, "lr3": 6, "lr4": 7, "rk2": 6}, "expected_risk": "low"},
+    "economics":      {"points": {"t1": 10, "es": 8, "act1": 9}, "expected_risk": "medium"},
+    "english-3":      {"points": {"t1": 16, "act1": 25}, "expected_risk": "stable"}
+  },
+  "expected_index": {"student1": {"zone": "stable", "value": 90}, "student2": {"zone": "high", "value": 51}}
+}
